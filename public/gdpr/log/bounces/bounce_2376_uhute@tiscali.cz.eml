@@ -1,0 +1,78 @@
+This is a MIME-encapsulated message.
+
+--907963E02B.1521721609/qmqp2.tiscali.local
+Content-Description: Notification
+Content-Type: text/plain; charset=us-ascii
+
+This is the mail system at host qmqp2.tiscali.local.
+
+I'm sorry to have to inform you that your message could not
+be delivered to one or more recipients. It's attached below.
+
+For further assistance, please send mail to postmaster.
+
+If you do so, please include this problem report. You can
+delete your own text from the attached returned message.
+
+                   The mail system
+
+<uhute@tiscali.cz>: host smtprecv.tiscali.local[172.16.51.1] said: 552 mailbox
+    size exceeded (in reply to end of DATA command)
+
+--907963E02B.1521721609/qmqp2.tiscali.local
+Content-Description: Delivery report
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; qmqp2.tiscali.local
+X-Postfix-Queue-ID: 907963E02B
+X-Postfix-Sender: rfc822; undelivered+ebcbde4228164f3b89a1d4799f6be3f4e190374f7139f0f9-uhute=tiscali.cz@cz.pearshealthcyber.com
+Arrival-Date: Thu, 22 Mar 2018 13:26:49 +0100 (CET)
+
+Final-Recipient: rfc822; uhute@tiscali.cz
+Action: failed
+Status: 5.0.0
+Remote-MTA: dns; smtprecv.tiscali.local
+Diagnostic-Code: smtp; 552 mailbox size exceeded
+
+--907963E02B.1521721609/qmqp2.tiscali.local
+Content-Description: Undelivered Message Headers
+Content-Type: text/rfc822-headers
+
+Return-Path: <undelivered+ebcbde4228164f3b89a1d4799f6be3f4e190374f7139f0f9-uhute=tiscali.cz@cz.pearshealthcyber.com>
+Received: from aq.virusfree.cz (aq.virusfree.cz [31.7.241.19])
+	by qmqp2.tiscali.local (Postfix) with QMQP id 907963E02B
+	for <uhute@tiscali.cz>; Thu, 22 Mar 2018 13:26:49 +0100 (CET)
+Received: from aq.virusfree.cz by aq.virusfree.cz
+ (VF-Scanner: Clear:RC:0(178.77.239.90):SC:1(-0.2/5.0):CC:1:;
+ processed in 0.0 s); 22 Mar 2018 12:26:49 +0000
+X-VF-Scanner-Mail-From: undelivered+ebcbde4228164f3b89a1d4799f6be3f4e190374f7139f0f9-uhute=tiscali.cz@cz.pearshealthcyber.com
+X-VF-Scanner-Rcpt-To: uhute@tiscali.cz
+X-VF-Scanner-ID: 20180322122649.575424.90047.aq.0
+X-Spam-Status: No, hits=-0.2, required=5.0
+Received: from mailer.farmacie.cz (178.77.239.90)
+  by ax.virusfree.cz with ESMTPS (TLSv1.2, ECDHE-RSA-AES256-GCM-SHA384); 22 Mar 2018 13:26:49 +0100
+Received-SPF: pass (aq: domain of cz.pearshealthcyber.com designates 178.77.239.90 as permitted sender) client-ip=178.77.239.90; envelope-from=undelivered+ebcbde4228164f3b89a1d4799f6be3f4e190374f7139f0f9-uhute=tiscali.cz@cz.pearshealthcyber.com; helo=mailer.farmacie.cz;
+Received: from argos2.farmacie.cz (argos2.farmacie.cz [178.77.239.66])
+	by mailer.farmacie.cz (Postfix) with ESMTP id 02A065A011
+	for <uhute@tiscali.cz>; Thu, 22 Mar 2018 13:25:24 +0100 (CET)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailer.farmacie.cz 02A065A011
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=nextforce.cz;
+	s=phcmailer; t=1521721524;
+	bh=2vbVeGaYogZrhT1bTZqJHWzl5hR1wm07FAYS3su2n5g=;
+	h=To:Subject:From:Date:From;
+	b=1FfisEP4vspLuGqiSnRtHH3UsP1KNP36GmWQRQtjfOG/gSDWMmSH33bBhjIMVO6lU
+	 BnMtLIZq/5y/AlT0T1KcQHLAcuf73SKt5Hou9vB7zXcTMTSgiB3ByT+aSAeYkwKAaR
+	 9bdmoM9mF2raNLonwlxS+eTLuN2JKB8Nq5oIlIBc=
+Received: by argos2.farmacie.cz (Postfix, from userid 48)
+	id 8C4323FBE3; Thu, 22 Mar 2018 13:25:24 +0100 (CET)
+To: uhute@tiscali.cz
+Subject: =?UTF-8?Q?NextForce=20-=20informace=20pro=20V=C3=A1s=20a=20?=  =?UTF-8?Q?Va=C5=A1e=20=C3=BAdaje=20v=20bezpe=C4=8D=C3=AD.=20(GDPR)?=
+X-PHP-Originating-Script: 1000:Sendmail.php
+From: =?UTF-8?Q?Jarmila=20Dost=C3=A1lov=C3=A1?= <jarmila.dostalova@nextforce.cz>
+Date: Thu, 22 Mar 2018 13:25:24 +0100
+Content-Type: multipart/alternative;
+ boundary="=_937d48b805b3ff6002e9c36b6ec7f95b"
+MIME-Version: 1.0
+Message-Id: <20180322122524.8C4323FBE3@argos2.farmacie.cz>
+
+--907963E02B.1521721609/qmqp2.tiscali.local--

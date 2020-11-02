@@ -1,0 +1,19 @@
+<?= $this->render('admin_top.phtml') ?>
+<div class="row">
+    <div class="span8">
+        <?= $this->bulletinForm ?>
+        <div style="clear:both"></div>
+
+        <h3><?= $this->texts->edit->bulletin_list ?></h3>
+        <?= $this->bulletinPageForm ?>
+        <h3><?= $this->texts->edit->pages_list ?></h3>
+        <?= $this->grid ?>
+    </div>
+    <div class="span4">
+        <?= $this->render('contentPreviewLinks.phtml') ?>
+          <?=$this->collapse($this->text('help'),null,array(1))?>  
+    </div>
+</div>
+
+<!-- Vsechen html kod adminu za obsahem teto stranky -->
+<?= $this->render('admin_bottom.phtml') ?>

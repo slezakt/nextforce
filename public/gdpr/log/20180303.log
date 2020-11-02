@@ -1,0 +1,307 @@
+2018-03-03T00:43:18+01:00	[WARN]	[[Ibulletin_Texts] Nebyla nalezena sada textu pro prefix "", identifikovany modul, controller, akce: "admin", "mails", "postsave".
+exception 'Exception' in /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Texts.php:852
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/MailsController.php(219): Ibulletin_Texts::getSet()
+#1 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/MailsController.php(1442): Admin_MailsController->updateRecord('mail', Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Admin/BaseControllerAbstract.php(636): Admin_MailsController->postSaveActions()
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Ibulletin_Admin_BaseControllerAbstract->postsaveAction()
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('postsaveAction')
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#6 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#7 {main}
+PHP Stack trace:
+#0 --(--): Phc_ErrorLog->_errorHandler()
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php(101): trigger_error()
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Texts.php(852): Phc_ErrorLog->warning()
+#3 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/MailsController.php(219): Ibulletin_Texts->getSet()
+#4 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/MailsController.php(1442): Admin_MailsController->updateRecord()
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Admin/BaseControllerAbstract.php(636): Admin_MailsController->postSaveActions()
+#6 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Ibulletin_Admin_BaseControllerAbstract->postsaveAction()
+#7 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch()
+#8 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch()
+#9 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+ in /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php on line 101]	[/gdpr/admin/mails/postsave/id/1/?_=1520033314904]	[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36]	[Inbox v3.8 r4082]
+
+2018-03-03T00:57:52+01:00	[WARN]	[[Ibulletin_Texts] Nebyla nalezena sada textu pro prefix "", identifikovany modul, controller, akce: "admin", "mails", "postsave".
+exception 'Exception' in /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Texts.php:852
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/MailsController.php(219): Ibulletin_Texts::getSet()
+#1 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/MailsController.php(1442): Admin_MailsController->updateRecord('mail', Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Admin/BaseControllerAbstract.php(636): Admin_MailsController->postSaveActions()
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Ibulletin_Admin_BaseControllerAbstract->postsaveAction()
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('postsaveAction')
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#6 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#7 {main}
+PHP Stack trace:
+#0 --(--): Phc_ErrorLog->_errorHandler()
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php(101): trigger_error()
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Texts.php(852): Phc_ErrorLog->warning()
+#3 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/MailsController.php(219): Ibulletin_Texts->getSet()
+#4 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/MailsController.php(1442): Admin_MailsController->updateRecord()
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Admin/BaseControllerAbstract.php(636): Admin_MailsController->postSaveActions()
+#6 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Ibulletin_Admin_BaseControllerAbstract->postsaveAction()
+#7 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch()
+#8 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch()
+#9 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+ in /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php on line 101]	[/gdpr/admin/mails/postsave/id/1/?_=1520033314936]	[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36]	[Inbox v3.8 r4082]
+
+2018-03-03T00:58:03+01:00	[WARN]	[[Ibulletin_Texts] Nebyla nalezena sada textu pro prefix "", identifikovany modul, controller, akce: "admin", "mails", "postsave".
+exception 'Exception' in /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Texts.php:852
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/MailsController.php(219): Ibulletin_Texts::getSet()
+#1 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/MailsController.php(1442): Admin_MailsController->updateRecord('mail', Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Admin/BaseControllerAbstract.php(636): Admin_MailsController->postSaveActions()
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Ibulletin_Admin_BaseControllerAbstract->postsaveAction()
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('postsaveAction')
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#6 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#7 {main}
+PHP Stack trace:
+#0 --(--): Phc_ErrorLog->_errorHandler()
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php(101): trigger_error()
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Texts.php(852): Phc_ErrorLog->warning()
+#3 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/MailsController.php(219): Ibulletin_Texts->getSet()
+#4 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/MailsController.php(1442): Admin_MailsController->updateRecord()
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Admin/BaseControllerAbstract.php(636): Admin_MailsController->postSaveActions()
+#6 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Ibulletin_Admin_BaseControllerAbstract->postsaveAction()
+#7 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch()
+#8 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch()
+#9 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+ in /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php on line 101]	[/gdpr/admin/mails/postsave/id/1/?_=1520033314937]	[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36]	[Inbox v3.8 r4082]
+
+2018-03-03T00:58:03+01:00	[WARN]	[[Ibulletin_Texts] Nebyla nalezena sada textu pro prefix "", identifikovany modul, controller, akce: "admin", "mails", "postsave".
+exception 'Exception' in /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Texts.php:852
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/MailsController.php(219): Ibulletin_Texts::getSet()
+#1 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/MailsController.php(1442): Admin_MailsController->updateRecord('mail', Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Admin/BaseControllerAbstract.php(636): Admin_MailsController->postSaveActions()
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Ibulletin_Admin_BaseControllerAbstract->postsaveAction()
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('postsaveAction')
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#6 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#7 {main}
+PHP Stack trace:
+#0 --(--): Phc_ErrorLog->_errorHandler()
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php(101): trigger_error()
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Texts.php(852): Phc_ErrorLog->warning()
+#3 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/MailsController.php(219): Ibulletin_Texts->getSet()
+#4 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/MailsController.php(1442): Admin_MailsController->updateRecord()
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Admin/BaseControllerAbstract.php(636): Admin_MailsController->postSaveActions()
+#6 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Ibulletin_Admin_BaseControllerAbstract->postsaveAction()
+#7 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch()
+#8 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch()
+#9 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+ in /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php on line 101]	[/gdpr/admin/mails/postsave/id/1/?_=1520033314939]	[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36]	[Inbox v3.8 r4082]
+
+2018-03-03T09:55:05+01:00	[ERR]	[[Mailer::sendEmails()] Nepodarilo se odeslat email - ostatni chyby. email_id="15"
+ Puvodni vyjimka:exception 'Zend_Mail_Exception' with message 'From Header set twice' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Mail.php:756
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Mailer.php(603): Zend_Mail->setFrom('hana.caloudova@...', 'Hana ??aloudov?...')
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Mailer.php(1169): Ibulletin_Mailer->sendMail(Object(stdClass), Object(Zend_Mail))
+#2 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/MailsController.php(1346): Ibulletin_Mailer->sendEmails(15)
+#3 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/MailsController.php(257): Admin_MailsController->sendTestMail('1', '4')
+#4 [internal function]: Admin_MailsController->updateRecord('mail', Array)
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Admin/BaseControllerAbstract.php(531): call_user_func_array(Array, Array)
+#6 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Admin/BaseControllerAbstract.php(608): Ibulletin_Admin_BaseControllerAbstract->processForm(Object(Form), Array, Array)
+#7 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/MailsController.php(1128): Ibulletin_Admin_BaseControllerAbstract->processUpdate('mail', '1')
+#8 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_MailsController->editAction()
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#10 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#11 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#12 {main}
+PHP Stack trace:
+#0 --(--): Phc_ErrorLog->_errorHandler()
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php(117): trigger_error()
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Mailer.php(1335): Phc_ErrorLog->error()
+#3 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/MailsController.php(1346): Ibulletin_Mailer->sendEmails()
+#4 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/MailsController.php(257): Admin_MailsController->sendTestMail()
+#5 --(--): Admin_MailsController->updateRecord()
+#6 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Admin/BaseControllerAbstract.php(531): call_user_func_array()
+#7 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Admin/BaseControllerAbstract.php(608): Ibulletin_Admin_BaseControllerAbstract->processForm()
+#8 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/MailsController.php(1128): Ibulletin_Admin_BaseControllerAbstract->processUpdate()
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_MailsController->editAction()
+#10 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch()
+#11 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch()
+#12 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+ in /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php on line 117]	[/gdpr/admin/mails/edit/id/1/]	[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36]	[Inbox v3.8 r4082]
+
+2018-03-03T09:56:53+01:00	[ERR]	[[Mailer::sendEmails()] Nepodarilo se odeslat email - ostatni chyby. email_id="16"
+ Puvodni vyjimka:exception 'Zend_Mail_Exception' with message 'From Header set twice' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Mail.php:756
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Mailer.php(603): Zend_Mail->setFrom('hana.caloudova@...', 'Hana ??aloudov?...')
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Mailer.php(1169): Ibulletin_Mailer->sendMail(Object(stdClass), Object(Zend_Mail))
+#2 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/MailsController.php(1346): Ibulletin_Mailer->sendEmails(16)
+#3 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/MailsController.php(257): Admin_MailsController->sendTestMail('1', '4')
+#4 [internal function]: Admin_MailsController->updateRecord('mail', Array)
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Admin/BaseControllerAbstract.php(531): call_user_func_array(Array, Array)
+#6 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Admin/BaseControllerAbstract.php(608): Ibulletin_Admin_BaseControllerAbstract->processForm(Object(Form), Array, Array)
+#7 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/MailsController.php(1128): Ibulletin_Admin_BaseControllerAbstract->processUpdate('mail', '1')
+#8 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_MailsController->editAction()
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#10 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#11 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#12 {main}
+PHP Stack trace:
+#0 --(--): Phc_ErrorLog->_errorHandler()
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php(117): trigger_error()
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Mailer.php(1335): Phc_ErrorLog->error()
+#3 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/MailsController.php(1346): Ibulletin_Mailer->sendEmails()
+#4 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/MailsController.php(257): Admin_MailsController->sendTestMail()
+#5 --(--): Admin_MailsController->updateRecord()
+#6 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Admin/BaseControllerAbstract.php(531): call_user_func_array()
+#7 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Admin/BaseControllerAbstract.php(608): Ibulletin_Admin_BaseControllerAbstract->processForm()
+#8 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/MailsController.php(1128): Ibulletin_Admin_BaseControllerAbstract->processUpdate()
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_MailsController->editAction()
+#10 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch()
+#11 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch()
+#12 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+ in /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php on line 117]	[/gdpr/admin/mails/edit/id/1/]	[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36]	[Inbox v3.8 r4082]
+
+2018-03-03T20:02:17+01:00	[ERR]	[[Mailer::sendEmails()] Nepodarilo se odeslat email - ostatni chyby. email_id="18"
+ Puvodni vyjimka:exception 'Zend_Mail_Exception' with message 'From Header set twice' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Mail.php:756
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Mailer.php(603): Zend_Mail->setFrom('hana.caloudova@...', 'Hana ??aloudov?...')
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Mailer.php(1169): Ibulletin_Mailer->sendMail(Object(stdClass), Object(Zend_Mail))
+#2 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/MailsController.php(1346): Ibulletin_Mailer->sendEmails(18)
+#3 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/MailsController.php(257): Admin_MailsController->sendTestMail('1', '4')
+#4 [internal function]: Admin_MailsController->updateRecord('mail', Array)
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Admin/BaseControllerAbstract.php(531): call_user_func_array(Array, Array)
+#6 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Admin/BaseControllerAbstract.php(608): Ibulletin_Admin_BaseControllerAbstract->processForm(Object(Form), Array, Array)
+#7 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/MailsController.php(1128): Ibulletin_Admin_BaseControllerAbstract->processUpdate('mail', '1')
+#8 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_MailsController->editAction()
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#10 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#11 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#12 {main}
+PHP Stack trace:
+#0 --(--): Phc_ErrorLog->_errorHandler()
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php(117): trigger_error()
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Mailer.php(1335): Phc_ErrorLog->error()
+#3 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/MailsController.php(1346): Ibulletin_Mailer->sendEmails()
+#4 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/MailsController.php(257): Admin_MailsController->sendTestMail()
+#5 --(--): Admin_MailsController->updateRecord()
+#6 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Admin/BaseControllerAbstract.php(531): call_user_func_array()
+#7 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Admin/BaseControllerAbstract.php(608): Ibulletin_Admin_BaseControllerAbstract->processForm()
+#8 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/MailsController.php(1128): Ibulletin_Admin_BaseControllerAbstract->processUpdate()
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_MailsController->editAction()
+#10 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch()
+#11 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch()
+#12 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+ in /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php on line 117]	[/gdpr/admin/mails/edit/id/1/]	[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36]	[Inbox v3.8 r4082]
+
+2018-03-03T20:08:24+01:00	[ERR]	[[Mailer::sendEmails()] Nepodarilo se odeslat email - ostatni chyby. email_id="19"
+ Puvodni vyjimka:exception 'Zend_Mail_Exception' with message 'From Header set twice' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Mail.php:756
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Mailer.php(603): Zend_Mail->setFrom('alena.novackova...', 'Alena Nov????ko...')
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Mailer.php(1169): Ibulletin_Mailer->sendMail(Object(stdClass), Object(Zend_Mail))
+#2 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/MailsController.php(1346): Ibulletin_Mailer->sendEmails(19)
+#3 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/MailsController.php(257): Admin_MailsController->sendTestMail('1', '4')
+#4 [internal function]: Admin_MailsController->updateRecord('mail', Array)
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Admin/BaseControllerAbstract.php(531): call_user_func_array(Array, Array)
+#6 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Admin/BaseControllerAbstract.php(608): Ibulletin_Admin_BaseControllerAbstract->processForm(Object(Form), Array, Array)
+#7 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/MailsController.php(1128): Ibulletin_Admin_BaseControllerAbstract->processUpdate('mail', '1')
+#8 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_MailsController->editAction()
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#10 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#11 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#12 {main}
+PHP Stack trace:
+#0 --(--): Phc_ErrorLog->_errorHandler()
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php(117): trigger_error()
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Mailer.php(1335): Phc_ErrorLog->error()
+#3 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/MailsController.php(1346): Ibulletin_Mailer->sendEmails()
+#4 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/MailsController.php(257): Admin_MailsController->sendTestMail()
+#5 --(--): Admin_MailsController->updateRecord()
+#6 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Admin/BaseControllerAbstract.php(531): call_user_func_array()
+#7 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Admin/BaseControllerAbstract.php(608): Ibulletin_Admin_BaseControllerAbstract->processForm()
+#8 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/MailsController.php(1128): Ibulletin_Admin_BaseControllerAbstract->processUpdate()
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_MailsController->editAction()
+#10 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch()
+#11 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch()
+#12 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+ in /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php on line 117]	[/gdpr/admin/mails/edit/id/1/]	[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36]	[Inbox v3.8 r4082]
+
+2018-03-03T20:09:24+01:00	[ERR]	[[Mailer::sendEmails()] Nepodarilo se odeslat email - ostatni chyby. email_id="20"
+ Puvodni vyjimka:exception 'Zend_Mail_Exception' with message 'From Header set twice' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Mail.php:756
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Mailer.php(603): Zend_Mail->setFrom('alena.novackova...', 'Alena Nov????ko...')
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Mailer.php(1169): Ibulletin_Mailer->sendMail(Object(stdClass), Object(Zend_Mail))
+#2 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/MailsController.php(1346): Ibulletin_Mailer->sendEmails(20)
+#3 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/MailsController.php(257): Admin_MailsController->sendTestMail('1', '4')
+#4 [internal function]: Admin_MailsController->updateRecord('mail', Array)
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Admin/BaseControllerAbstract.php(531): call_user_func_array(Array, Array)
+#6 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Admin/BaseControllerAbstract.php(608): Ibulletin_Admin_BaseControllerAbstract->processForm(Object(Form), Array, Array)
+#7 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/MailsController.php(1128): Ibulletin_Admin_BaseControllerAbstract->processUpdate('mail', '1')
+#8 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_MailsController->editAction()
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#10 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#11 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#12 {main}
+PHP Stack trace:
+#0 --(--): Phc_ErrorLog->_errorHandler()
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php(117): trigger_error()
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Mailer.php(1335): Phc_ErrorLog->error()
+#3 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/MailsController.php(1346): Ibulletin_Mailer->sendEmails()
+#4 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/MailsController.php(257): Admin_MailsController->sendTestMail()
+#5 --(--): Admin_MailsController->updateRecord()
+#6 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Admin/BaseControllerAbstract.php(531): call_user_func_array()
+#7 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Admin/BaseControllerAbstract.php(608): Ibulletin_Admin_BaseControllerAbstract->processForm()
+#8 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/MailsController.php(1128): Ibulletin_Admin_BaseControllerAbstract->processUpdate()
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_MailsController->editAction()
+#10 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch()
+#11 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch()
+#12 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+ in /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php on line 117]	[/gdpr/admin/mails/edit/id/1/]	[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36]	[Inbox v3.8 r4082]
+
+2018-03-03T20:18:20+01:00	[ERR]	[[Mailer::sendEmails()] Nepodarilo se odeslat email - ostatni chyby. email_id="22"
+ Puvodni vyjimka:exception 'Zend_Mail_Exception' with message 'From Header set twice' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Mail.php:756
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Mailer.php(603): Zend_Mail->setFrom('office@nextforc...', ' Office')
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Mailer.php(1169): Ibulletin_Mailer->sendMail(Object(stdClass), Object(Zend_Mail))
+#2 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/MailsController.php(1346): Ibulletin_Mailer->sendEmails(22)
+#3 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/MailsController.php(257): Admin_MailsController->sendTestMail('1', '6')
+#4 [internal function]: Admin_MailsController->updateRecord('mail', Array)
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Admin/BaseControllerAbstract.php(531): call_user_func_array(Array, Array)
+#6 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Admin/BaseControllerAbstract.php(608): Ibulletin_Admin_BaseControllerAbstract->processForm(Object(Form), Array, Array)
+#7 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/MailsController.php(1128): Ibulletin_Admin_BaseControllerAbstract->processUpdate('mail', '1')
+#8 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_MailsController->editAction()
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#10 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#11 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#12 {main}
+PHP Stack trace:
+#0 --(--): Phc_ErrorLog->_errorHandler()
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php(117): trigger_error()
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Mailer.php(1335): Phc_ErrorLog->error()
+#3 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/MailsController.php(1346): Ibulletin_Mailer->sendEmails()
+#4 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/MailsController.php(257): Admin_MailsController->sendTestMail()
+#5 --(--): Admin_MailsController->updateRecord()
+#6 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Admin/BaseControllerAbstract.php(531): call_user_func_array()
+#7 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Admin/BaseControllerAbstract.php(608): Ibulletin_Admin_BaseControllerAbstract->processForm()
+#8 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/MailsController.php(1128): Ibulletin_Admin_BaseControllerAbstract->processUpdate()
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_MailsController->editAction()
+#10 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch()
+#11 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch()
+#12 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+ in /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php on line 117]	[/gdpr/admin/mails/edit/id/1/]	[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36]	[Inbox v3.8 r4082]
+
+2018-03-03T20:26:19+01:00	[ERR]	[[Mailer::sendEmails()] Nepodarilo se odeslat email - ostatni chyby. email_id="23"
+ Puvodni vyjimka:exception 'Zend_Mail_Exception' with message 'From Header set twice' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Mail.php:756
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Mailer.php(603): Zend_Mail->setFrom('alena.novackova...', 'Alena Nov????ko...')
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Mailer.php(1169): Ibulletin_Mailer->sendMail(Object(stdClass), Object(Zend_Mail))
+#2 /storage/web/www.nextforce.cz/www/gdpr/utils/mailer_worker.php(76): Ibulletin_Mailer->sendEmails(NULL, false, 'mailer_callback')
+#3 {main}
+PHP Stack trace:
+#0 --(--): Phc_ErrorLog->_errorHandler()
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php(117): trigger_error()
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Mailer.php(1335): Phc_ErrorLog->error()
+#3 /storage/web/www.nextforce.cz/www/gdpr/utils/mailer_worker.php(76): Ibulletin_Mailer->sendEmails()
+ in /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php on line 117]	[utils/mailer_worker.php]	[argos2.farmacie.cz]	[Inbox ]
+
+2018-03-03T21:02:52+01:00	[CRIT]	[syntax error, unexpected T_OBJECT_OPERATOR
+PHP Stack trace:
+#0 --(--): Phc_ErrorLog->_shutdownHandler()
+ in /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Mailer.php on line 603]	[/gdpr/admin/mails/edit/id/1/]	[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36]	[Inbox v3.8 r4082]
+

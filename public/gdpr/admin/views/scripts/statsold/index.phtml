@@ -1,0 +1,289 @@
+<!-- Vsechen html kod adminu pred obsahem teto stranky -->
+<?=$this->render('admin_top.phtml')?>
+
+<h3>Statistiky -> Celkové statistiky</h3>
+
+<?=isset($this->message) ? "<b>$this->message</b>" : '' ?>
+
+<div id="submenu"><b><a
+	href="<?=$this->url(array('controller' => 'statsold',
+	'action' => 'index'));?>">Celkové statistiky</a></b> | <a
+	href="<?= $this->url(array('controller' => 'statsold',
+	'action' => 'bulletins')); ?>">Statistiky pro jednotlivá vydání</a> | <a
+    href="<?= $this->url(array('controller' => 'statsold',
+    'action' => 'video')); ?>">Statistiky videí</a></div>
+<!-- id=submenu -->
+
+<div>
+
+<table class="stat" align="left" style="margin-right: 20px">
+	<tr>
+		<td><b>Target</b></td>
+		<td class=cislo><b> <?=$this->targetValue?> </b></td>
+		<td class=cislo>100,00%</td>
+		<?if(Ibulletin_AdminAuth::hasPermission('privilege_stats_can_export_xls')){?>
+		<td></td>
+		<?}?>
+		<td><b>Selfregistered</b></td>
+        <td class=cislo><?=$this->selfregistered?></td>
+        <?if(Ibulletin_AdminAuth::hasPermission('privilege_stats_can_export_xls')){?>
+        <td class=export><?=$this->selfregisteredExport?></td>
+        <?}?>
+	</tr>
+	<tr>
+		<td><b>Subscribers (s-emailem)</b></td>
+		<td class=cislo><b> <?=$this->subscribersEmail?> </b></td>
+		<td class=cislo><?=$this->subscribersEmailPercent?>%</td>
+		<?if(Ibulletin_AdminAuth::hasPermission('privilege_stats_can_export_xls')){?>
+		<td class=export><?=$this->subscribersEmailExport?></td>
+		<?}?>
+		<td><b>Unsubscribed</b></td>
+        <td class=cislo><?=$this->unsubscribed?></td>
+        <?if(Ibulletin_AdminAuth::hasPermission('privilege_stats_can_export_xls')){?>
+        <td class=export><?=$this->unsubscribedExport?></td>
+        <?}?>
+	</tr>
+	<tr>
+        <td><b>Subscribers (bez e-mailu)</b></td>
+        <td class=cislo><b> <?=$this->subscribersNoEmail?> </b></td>
+        <td class=cislo><?=$this->subscribersNoEmailPercent?>%</td>
+        <?if(Ibulletin_AdminAuth::hasPermission('privilege_stats_can_export_xls')){?>
+        <td class=export><?=$this->subscribersNoEmailExport?></td>
+        <?}?>
+        <td><b>Bad address</b></td>
+        <td class=cislo><?=$this->badaddress?></td>
+        <?if(Ibulletin_AdminAuth::hasPermission('privilege_stats_can_export_xls')){?>
+        <td class=export><?=$this->badaddressExport?></td>
+        <?}?>
+    </tr>
+    <tr>
+        <td><b>Anonymní návštěvníci</b></td>
+        <td class=cislo><b> <?=$this->subscribersAnonymous?> </b></td>
+        <td class=cislo><?=$this->subscribersAnonymousPercent?>%</td>
+        <?if(Ibulletin_AdminAuth::hasPermission('privilege_stats_can_export_xls')){?>
+        <td class=export><?=$this->subscribersAnonymousExport?></td>
+        <?}?>
+    </tr>
+	<tr>
+		<td><b>Readers</b></td>
+		<td class=cislo><b> <?=$this->readers?> </b></td>
+		<td class=cislo><?=$this->readersPercent?>%</td>
+		<?if(Ibulletin_AdminAuth::hasPermission('privilege_stats_can_export_xls')){?>
+		<td class=export><?=$this->readersExport?></td>
+		<?}?>
+	</tr>
+</table>
+
+<table class="stat">
+	<tr>
+		<td><b>Response rate</b></td>
+		<td class=cislo><b> <?=isset($this->responseRateAvg) ?
+		$this->responseRateAvg.'%' : '-' ?> </b></td>
+	</tr>
+	<tr>
+		<td><b>Return rate</b></td>
+		<td class=cislo><b> <?=isset($this->returnRateAvg) ?  100*$this->returnRateAvg.'%' : '-' ?>
+		</b></td>
+	</tr>
+	<tr>
+		<td><b>Articles</b></td>
+		<td class=cislo><b> <?=isset($this->articlesAvg) ? $this->articlesAvg : '-' ?>
+		</b></td>
+	</tr>
+</table>
+
+<div><?php
+/**
+ require_once("/home/lekarnik/php-include2/phpchartdir.php");
+
+ if (isset($this->bulletinsStats) && !empty($this->bulletinsStats)){
+
+ foreach ($this->bulletinsStats as $id => $bulletin){
+ $jmeno[] = $bulletin['name'];
+ $ctenaru[] = $bulletin['readers'];
+ }
+ krsort($jmeno);
+ krsort($ctenaru);
+
+ #The data for the bar chart
+ $data = $ctenaru;
+
+ #The labels for the bar chart
+ $labels = $jmeno;
+
+ #Create a XYChart object of size 250 x 250 pixels
+ $c = new XYChart(250, 250);
+
+ #Set the plotarea at (40, 20) and of size 200 x 200 pixels
+ $c->setPlotArea(40, 20, 200, 200);
+
+ # Add a title to the chart using 14 points Times Bold Itatic font
+ //		$c->addTitle("Počet čtenářů jednotlivých vydání", "arial.ttf", 12);
+
+ #Add a bar chart layer using the given data
+ $c->addBarLayer($data);
+
+ # Add axis title
+ $c->yAxis->setTitle("[Počet čtenářů]");
+
+ #Set the x axis labels using the given labels
+ $c->xAxis->setLabels($labels);
+
+ $c->setColor(DataColor, 0x3333ff);
+ //		$c->setFontTable(0, "arial.ttf");
+
+ $query1 = $c->makeSession("chart1");
+ }
+
+
+ if (isset($this->DayReaders) && !empty($this->DayReaders)){
+ unset($ctenaru);
+ foreach ($this->DayReaders as $dayreader){
+ $datum[] = date("j.n.", strtotime($dayreader['dates']));
+ $ctenaru[] = $dayreader['readers'];
+ $rozdil[] = $dayreader['diff'];
+ }
+
+ //	ksort($datum);
+ //	ksort($ctenaru);
+
+ #The data for the bar chart
+ $data = $ctenaru;
+
+ #The labels for the bar chart
+ $labels = $datum;
+
+ #Create a XYChart object of size 850x 250 pixels
+ $d = new XYChart(850, 250);
+
+ #Set the plotarea at (40, 20) and of size 800 x 200 pixels
+ $d->setPlotArea(40, 20, 800, 200);
+
+ # Add a title to the chart using 14 points Times Bold Itatic font
+ //	$d->addTitle("Počet čtenářů za 30 dnů", "arial.ttf", 14);
+
+ # Add axis title
+ $d->yAxis->setTitle("[Počet čtenářů]");
+
+ #Add a bar chart layer using the given data
+ $d->addBarLayer($data);
+
+ #Set the x axis labels using the given labels
+ $d->xAxis->setLabels($labels);
+
+ #graf bude modry
+ $d->setColor(DataColor, 0x3333ff);
+
+ $query2 = $d->makeSession("chart2");
+
+ #The data for the bar chart
+ $data = $rozdil;
+
+ #The labels for the bar chart
+ $labels = $datum;
+
+ #Create a XYChart object of size 850x 250 pixels
+ $e = new XYChart(850, 250);
+
+ #Set the plotarea at (40, 20) and of size 800 x 200 pixels
+ $e->setPlotArea(40, 20, 800, 200);
+
+ # Add a title to the chart using 14 points Times Bold Itatic font
+ //	$e->addTitle("Změna počtu čtenářů od minulého dne", "arial.ttf", 14);
+
+ #Add a bar chart layer using the given data
+ $e->addBarLayer($data);
+
+ # Add axis title
+ $e->yAxis->setTitle("[Počet čtenářů]");
+
+ #Set the x axis labels using the given labels
+ $e->xAxis->setLabels($labels);
+
+ #graf bude modry
+ $e->setColor(DataColor, 0x3333ff);
+
+ $query3 = $e->makeSession("chart3");
+ }
+ */
+?> <!-- IMG SRC="pub/img/getchart.php... --> <br clear=left />
+&nbsp; <br />
+&nbsp;
+
+<div>
+
+<table class="stat" align="left" style="margin-right: 20px">
+	<tr>
+		<th>Název rubriky</th>
+		<th>% z přečtených článků</th>
+	</tr>
+	<?
+	foreach ($this->categories as $category)
+	{?>
+	<tr>
+		<td><?=$category['name']?></td>
+		<td><?=$category['percent']?>%</td>
+	</tr>
+	<?}?>
+</table>
+
+<table class="stat" align="left" style="margin-right: 20px">
+	<tr>
+		<th>Skupina</th>
+		<th colspan=2>Počet uživatelů</th>
+	</tr>
+	<?
+	//	print_r($group);
+	foreach ($this->groups as $group)
+	{?>
+	<tr>
+		<td><?=empty($group->group) ? 'nezadáno' : $group->group?></td>
+		<td class=cislo><?=$group->users?></td>
+
+		<?if(Ibulletin_AdminAuth::hasPermission('privilege_stats_can_export_xls')){?>
+		<td class=export><a
+			href="<?=$this->url(array(
+    					'controller' => 'statsold',
+    					'action' => 'export',
+    					'what' => Admin_StatsoldController::GROUPS,
+    					'group' => empty($group->group) ? 'NULL' : $group->group
+    				))?>"><img src="pub/img/admin/icon-xls.png" style="border: none" /></a>
+		</td>
+		<?}?>
+
+
+	</tr>
+	<?}?>
+</table>
+
+<table class="stat" align="left">
+	<tr>
+		<th>Reprezentant</th>
+		<th colspan=2>Počet uživatelů</th>
+	</tr>
+	<?
+	foreach ($this->reps as $rep)
+	{?>
+	<tr>
+		<td><?=empty($rep->rep) ? 'nezadáno' : $rep->name.' '.$rep->surname?></td>
+		<td class=cislo><?=$rep->users?></td>
+		<?if(Ibulletin_AdminAuth::hasPermission('privilege_stats_can_export_xls')){?>
+		<td class=export><a
+			href="<?=$this->url(array(
+    					'controller' => 'statsold',
+    					'action' => 'export',
+    					'what' => Admin_StatsoldController::REPS,
+    					'rep' => $rep->rep
+    				))?>"><img src="pub/img/admin/icon-xls.png" style="border: none" /></a>
+		</td>
+		<?}?>
+
+	</tr>
+	<?}?>
+</table>
+</div>
+
+<br clear=left>
+
+
+<!-- Vsechen html kod adminu za obsahem teto stranky --> <?=$this->render('admin_bottom.phtml')?>

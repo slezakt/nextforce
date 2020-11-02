@@ -1,0 +1,87 @@
+<?=$this->render('top.phtml')?>
+<?$this->cfg = $this->config->general->category?>
+<div id="hp">
+			
+<h1>Výsledky vyhledávání</h1>
+
+    <div id="vyhledavani">
+        
+        <p><em>
+            <?if(empty($this->hits)){?>
+                Je nám líto, na váš vyhledávací dotaz - '<strong><?=$this->query?></strong>' - nebyly nalezeny žádné výsledky.
+            <?}else{?>
+                Výsledky vyhledávání dotazu: '<strong><?=$this->query?></strong>'
+            <?}?>
+        </em><br/><br/></p>
+        
+        <?if(1 || !empty($this->hits)){?>
+                <form action="" method="post" class="tridit" id="filterform">
+                  <fieldset>
+                    <table border="0" cellspacing="0" cellpadding="0" rules="none" class="mar">
+                      <tr>
+                        <th>Řadit podle:</th>
+                        <td><input type="radio" name="order" id="order1" value="1" 
+                        <?=$this->order_num == 1 ? 'checked="checked"' : ''?>/></td>
+                        <td><label for="order1">Relevance</label></td>
+                        <td><input type="radio" name="order" id="order2" value="2" 
+                        <?=$this->order_num == 2 ? 'checked="checked"' : ''?>/></td>
+                        <td><label for="order2">Datum vydání </label></td>
+                        <td><input type="radio" name="order" id="order3" value="3" 
+                        <?=$this->order_num == 3 ? 'checked="checked"' : ''?>/></td>
+                        <td><label for="order3">Název</label></td>
+                      </tr>
+                    </table>
+                    <table border="0" cellspacing="0" cellpadding="0" rules="none" class="table3">
+                      <tr>
+                        <th><label for="category">Rubrika:</label></th>
+                        <td><select name="fcateg" id="fcategory">
+                          <?foreach($this->categories_sel as $key => $name){?>
+                              <option value="<?=$key?>"
+                              <?= $key == $this->filter_category ? 'selected=""' : ''?>>
+                              <?=$name?></option>
+                          <?}?>
+                        
+                        </select></td>
+                        <th><label for="autor">Autor:</label></th>
+                        <td><select name="fauthor" id="fauthor">
+                          <?foreach($this->authors_sel as $key => $name){?>
+                              <option value="<?=$key?>"
+                              <?= $key == $this->filter_author ? 'selected=""' : ''?>>
+                              <?=$name?></option>
+                          <?}?>
+                        
+                        </select></td>
+                        <td><input type="submit" value="Odeslat" id="filtersubmit"/></td>
+                      </tr>
+                    </table>
+                  </fieldset>
+                </form>
+            <?}?>
+        
+            <?end($this->hits); $last = key($this->hits);?>
+            <?foreach($this->hits as $key => $hit){?>
+                <?$h3_array = array($hit->category_name, $hit->author, $hit->created,)?>
+                <?$h3_array = array_filter($h3_array, create_function('$elem','return empty($elem) ? false : true;'))?>
+                <div class="clanek<?=$key == $last ? ' last' : ''?>">
+                    <h2>
+                        <a href="<?=$hit->url?>">
+                           <?=$hit->title?>
+                        </a>
+                    </h2>
+                    <h3><?=join(' | ', $h3_array)?></h3>
+                    <p><?=$hit->annotation?></p>
+                    <p class="cist"><a href="<?=$hit->url?>">více</a></p>
+                </div>
+            <?}?>
+        
+        <div class="reset"></div>
+        
+        <?if(isset($this->paginator)){?>
+            <?= $this->paginationControl($this->paginator, 'Sliding', 'pagination_control.phtml'); ?>
+        <?}?>
+        
+    </div>
+</div>
+
+<?=$this->render('bottom.phtml')?>
+

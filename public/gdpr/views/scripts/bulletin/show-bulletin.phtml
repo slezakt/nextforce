@@ -1,0 +1,22 @@
+<?=$this->render('top.phtml')?>
+
+<div id="hp">
+			
+<h1>Vydání: 
+    <a href="<?=$this->url(array('name' => $this->bul_url_name), 'bulletin', true)?>"><?=$this->bulletin_name?></a></h1>
+
+<div class="float1">
+  <div class="left1">
+    <div class="casopisIn">
+    
+    <?=$this->render('bulletin/list-articles.phtml')?>
+    
+    </div>
+  </div>
+  <div class="reset"></div>
+</div>
+
+</div>
+
+<?=$this->render('bottom.phtml')?>
+

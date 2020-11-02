@@ -1,0 +1,56 @@
+<!-- Vsechen html kod adminu pred obsahem teto stranky -->
+<? $this->actionTitle .= ' &rarr; ' . $this->bulletinName . ' &rarr; ' . $this->emailName ?>
+<?= $this->render('admin_top.phtml') ?>
+
+<div class="statistics">
+
+    <a href="<?= $this->url(array('controller' => 'stats', 'action' => 'campaign_mails', 'emailId' => NULL)) ?>"><?= $this->text('go_back') ?></a>
+    <br/><br/> 
+
+    <h3><?= $this->text('label') ?></h3>
+
+    <?
+    /**
+     * prehledova tabulka mailu na dany bulletin
+     */
+    if ($this->rrPerBulletin) {
+        ?>
+
+        <table data-table-colopt="1" data-table-export="1" id="campaign-links" class="table table-striped table-hover table-bordered table-stats">
+            <thead>
+                <tr>
+                    <th><?= $this->text('link_id') ?></th>
+                    <th><?= $this->text('name') ?></th>
+                    <th><?= $this->text('url') ?></th>
+                    <th data-table-export-colspan="2" colspan="3"><?= $this->text('unique_clicks') ?></th>
+                    <th><?= $this->text('total_clicks') ?></th> 
+                    <th colspan="2"><?= $this->text('unique_online_clicks') ?></th>
+                    <th><?= $this->text('online_clicks') ?></th>           
+                    <th class="no-data">&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+    <? foreach ($this->rrPerBulletin as $bulletin):?>    	
+                <tr>
+                    <td><?= $bulletin['link_id'] ?></td>
+                    <td class="al"><?= $bulletin['name'] ?></td>
+                    <td><?= $bulletin['foreign_url'] ?></td>
+                    <td data-table-export-format="0%"><span class="svalue"><?=($bulletin['send'] ? round(100 * $bulletin['proklik_un'] / $bulletin['send']) : 0 )?>&nbsp;%</span></td>
+                        <td><span class="svalue muted"><?=$bulletin['proklik_un']?></span></td>
+                    <td class="no-data"><?=Admin_StatsController::getExportButton(array('linkId' => $bulletin['link_id']),'email_response')?></td>
+                    <td><span class="svalue"><?=$bulletin['proklik'] ?></span></td>
+                    <td data-table-export-format="0%"><span class="svalue"><?=($bulletin['proklik_un'] ? round(100 * $bulletin['proklik_online_un'] / $bulletin['proklik_un']) : 0)?>&nbsp;%</span></td>
+                    <td><span class="svalue muted"><?=$bulletin['proklik_online_un']?></span></td>
+                    <td><span class="svalue"><?= $bulletin['proklik_online'] ?></span></td>
+                    <td class="no-data"><a class="btn btn-mini btn-info" href="<?= $this->url(array('controller' => 'stats', 'action' => 'campaign_linksdetail', 'linkId' => $bulletin['link_id'])) ?>" ><?= $this->text('link_detail') ?></a></td>
+                </tr>
+    <?endforeach;?>
+            </tbody>
+        </table>
+<? } ?>
+
+</div>
+
+<!-- Vsechen html kod adminu za obsahem teto stranky -->
+<?=
+$this->render('admin_bottom.phtml')?>

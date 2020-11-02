@@ -1,0 +1,17 @@
+<?= $this->render('admin_top.phtml') ?>
+<div class="row">
+    <div class="span8">
+        <?= $this->form ?>
+        <h4><?= $this->text('list') ?></h4>
+
+        <div><a class="btn" href="<?= $this->url(array('id' => $this->box_id, 'action' => 'newversion')) ?>"><?= $this->texts->action_newversion ?></a></div>
+
+        <?= $this->grid ?> 
+    </div>
+    <div class="span4">
+        <?= $this->collapse($this->text('help'),null,array(1)) ?>  
+    </div>
+</div>
+
+<?=
+$this->render('admin_bottom.phtml')?>

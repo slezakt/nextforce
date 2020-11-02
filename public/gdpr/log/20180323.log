@@ -1,0 +1,18 @@
+2018-03-23T12:12:24+01:00	[WARN]	[[Exception] exception 'IBulletinMailerException' with message 'Empty email queue!' in /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Mailer.php:1106
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/controllers/MailController.php(36): Ibulletin_Mailer->sendEmails(1740, true)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): MailController->showAction()
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('showAction')
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#4 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#5 {main}
+PHP Stack trace:
+#0 --(--): Phc_ErrorLog->_errorHandler()
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php(101): trigger_error()
+#2 /storage/web/www.nextforce.cz/www/gdpr/controllers/ErrorController.php(42): Phc_ErrorLog->warning()
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): ErrorController->errorAction()
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch()
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch()
+#6 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+ in /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php on line 101]	[/gdpr/mail/show/token/IuXJGDlw49/]	[Mozilla/5.0 (Windows NT 6.1; Trident/7.0; rv:11.0) like Gecko]	[Inbox v3.8 r4090]
+

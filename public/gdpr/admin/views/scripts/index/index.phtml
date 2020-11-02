@@ -1,0 +1,64 @@
+<?= $this->render('admin_top.phtml') ?>
+<div class="row">
+    <div class="span9">
+        <div class="widget sitemenu">
+            <div class="widget-header"><span class="glyphicon glyphicon-link"></span>&nbsp;&nbsp;Sitemap</div>
+            <? foreach ($this->menu as $kat): ?>
+                <div class="span2">
+                    <div class="well well-small">
+                        <div class="nav-header"><?= $kat['name'] ?></div>
+                        <ul class="menulist">
+                            <? foreach ($kat['submenu'] as $menu): ?>
+                                <li><a href="<?= $menu['url'] ?>"><?= $menu['name'] ?></a></li>
+                            <? endforeach; ?>
+                        </ul>
+                    </div>
+                </div>
+            <? endforeach; ?>  
+            <div class="clearfix"></div>
+        </div>
+        <? if ($this->version && Ibulletin_AdminAuth::getInstance()->hasPermission('privilege_all')):/* zobrazeni knownbugs jen v pripade ze mame version a prava superadmin */ ?>
+            <div style="display:none;" id="bugs">
+                <div class="widget">
+                    <div class="widget-header"><span class="glyphicon glyphicon-warning-sign"></span>&nbsp;&nbsp;<?= $this->texts->knownbugs->title ?>
+                        <span class="pull-right"><span class="label label-important"><?=$this->texts->knownbugs->from_version?></span> <span class="label label-success"><?=$this->texts->knownbugs->repair_version?></span></span>
+                    </div>
+                    <div class="dash-list"></div>
+                    <?
+                    /* z verze odstranime znaky a rozdelime na verzi a revizi */
+                    $v = explode(' ', str_replace(array('r', 'v'), '', $this->version));
+                    ?>
+                    <script type="text/javascript">
+                        $.ajax({
+                            url: "<?= $this->config->knownbugs->source_url ?>",
+                            data: {version: '<?= $v[0] ?>', revision: '<?= $v[1] ?>'},
+                            dataType: 'jsonp',
+                            success: function (json) {
+                                var list = "";
+                                $.each(json, function (i, item) {
+                                    list += '<div class="dash-list-item"><span class="dash-list-title">' + item.short_desc + '</span><span class="label label-important">' + item.version_from + '</span>\n\
+                                            <span class="label label-success">' + item.repair_version + ' r' + item.repair_revision + '</span>\n\
+                                            <span style="font-size:12px;" class="pull-right muted">' + item.timestamp + '</span>\n\
+                                            <div>' + item.description + '</div></div><hr>';
+                                });
+                                if (list) {
+                                    $('#bugs').find('.dash-list').html(list);
+                                    $('#bugs').css('display', 'block');
+                                }
+                            }
+                        });
+                    </script>
+                </div>
+            </div>
+        <? endif; ?>
+    </div>
+    <div class="span3">
+        <div class="widget">
+            <div class="widget-header"><span class="glyphicon glyphicon-comment"></span>&nbsp;&nbsp;<?=$this->texts->messages->title?></div>
+            <?=$this->render('dashMsg.phtml');?>
+        </div>
+    </div>
+</div>
+
+
+<?=$this->render('admin_bottom.phtml')?>

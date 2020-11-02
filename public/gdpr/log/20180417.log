@@ -1,0 +1,52 @@
+2018-04-17T14:19:57+02:00	[WARN]	[[Ibulletin_Texts] Nebyla nalezena sada textu pro prefix "", identifikovany modul, controller, akce: "admin", "stats", "export".
+exception 'Exception' in /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Texts.php:852
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/models/Statistics.php(4009): Ibulletin_Texts::getSet()
+#1 /storage/web/www.nextforce.cz/www/gdpr/models/Monitoringexports.php(1802): Statistics::getAnswersUsersTable('1', false, '2017-03-06T00:0...', '2018-04-17T23:5...', '')
+#2 [internal function]: Monitoringexports::answers_all(Object(Zend_Controller_Request_Http))
+#3 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/StatsController.php(2125): call_user_func(Array, Object(Zend_Controller_Request_Http))
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_StatsController->exportAction()
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('exportAction')
+#6 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#7 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#8 {main}
+PHP Stack trace:
+#0 --(--): Phc_ErrorLog->_errorHandler()
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php(101): trigger_error()
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Texts.php(852): Phc_ErrorLog->warning()
+#3 /storage/web/www.nextforce.cz/www/gdpr/models/Statistics.php(4009): Ibulletin_Texts->getSet()
+#4 /storage/web/www.nextforce.cz/www/gdpr/models/Monitoringexports.php(1802): Statistics->getAnswersUsersTable()
+#5 --(--): Monitoringexports->answers_all()
+#6 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/StatsController.php(2125): call_user_func()
+#7 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_StatsController->exportAction()
+#8 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch()
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch()
+#10 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+ in /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php on line 101]	[/gdpr/admin/stats/export/indetailpresentaions/1/operation/showdata/exportaction/answers_all/?contentId=1&fromIso=2017-03-06T00%3A00%3A00%2B01%3A00&toIso=2018-04-17T23%3A59%3A59%2B02%3A00&repreId=]	[Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36]	[Inbox v3.8 r4090]
+
+2018-04-17T14:28:54+02:00	[WARN]	[[Ibulletin_Texts] Nebyla nalezena sada textu pro prefix "", identifikovany modul, controller, akce: "admin", "stats", "export".
+exception 'Exception' in /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Texts.php:852
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/models/Statistics.php(4009): Ibulletin_Texts::getSet()
+#1 /storage/web/www.nextforce.cz/www/gdpr/models/Monitoringexports.php(1802): Statistics::getAnswersUsersTable('1', false, '2018-03-06T00:0...', '2018-04-17T14:2...', '')
+#2 [internal function]: Monitoringexports::answers_all(Object(Zend_Controller_Request_Http))
+#3 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/StatsController.php(2125): call_user_func(Array, Object(Zend_Controller_Request_Http))
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_StatsController->exportAction()
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('exportAction')
+#6 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#7 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#8 {main}
+PHP Stack trace:
+#0 --(--): Phc_ErrorLog->_errorHandler()
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php(101): trigger_error()
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Ibulletin/Texts.php(852): Phc_ErrorLog->warning()
+#3 /storage/web/www.nextforce.cz/www/gdpr/models/Statistics.php(4009): Ibulletin_Texts->getSet()
+#4 /storage/web/www.nextforce.cz/www/gdpr/models/Monitoringexports.php(1802): Statistics->getAnswersUsersTable()
+#5 --(--): Monitoringexports->answers_all()
+#6 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/StatsController.php(2125): call_user_func()
+#7 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_StatsController->exportAction()
+#8 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch()
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch()
+#10 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+ in /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php on line 101]	[/gdpr/admin/stats/export/indetailpresentaions/1/operation/showdata/exportaction/answers_all/?contentId=1&fromIso=2018-03-06T00%3A00%3A00%2B01%3A00&toIso=2018-04-17T14%3A28%3A48%2B02%3A00&repreId=]	[Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36]	[Inbox v3.8 r4090]
+

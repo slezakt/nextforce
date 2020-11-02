@@ -1,0 +1,44 @@
+Hi. This is the qmail-send program at mxavas3.forpsi.com.
+I'm afraid I wasn't able to deliver your message to the following addresses.
+This is a permanent error; I've given up. Sorry it didn't work out.
+
+<advokatnikancelar777@iol.cz>:
+90.176.151.96 does not like recipient.
+Remote host said: 550 5.7.1 <advokatnikancelar777@iol.cz>: Recipient address rejected: Please see http://www.openspf.net/Why?s=mfrom;id=undelivered%2Bebcbde4228164f3b89a1d4799f6be3f46b6509e52b258888-santini%3Dgisant.eu%40cz.pearshealthcyber.com;ip=81.2.195.200;r=aa-smtpin2
+ Giving up on 90.176.151.96.
+
+--- Below this line is a copy of the headers.
+
+Return-Path: <undelivered+ebcbde4228164f3b89a1d4799f6be3f46b6509e52b258888-santini=gisant.eu@cz.pearshealthcyber.com>
+Received: (qmail 29638 invoked by uid 89); 6 Mar 2018 09:55:24 -0000
+Delivered-To: santini@gisant.eu
+Received: (qmail 29630 invoked by uid 89); 6 Mar 2018 09:55:24 -0000
+Received: from unknown (HELO cmg2.fe.forpsi.com) (10.11.10.2)
+  by mxavas3.forpsi.com with SMTP; 6 Mar 2018 09:55:24 -0000
+Received: from mailer.farmacie.cz ([178.77.239.90])
+	by cmg2.fe.forpsi.com with bizsmtp
+	id JZvQ1x00C1xj6nE01ZvQAR; Tue, 06 Mar 2018 10:55:24 +0100
+Received: from argos2.farmacie.cz (argos2.farmacie.cz [178.77.239.66])
+	by mailer.farmacie.cz (Postfix) with ESMTP id 2610819402A
+	for <santini@gisant.eu>; Tue,  6 Mar 2018 10:55:24 +0100 (CET)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailer.farmacie.cz 2610819402A
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=nextforce.cz;
+	s=phcmailer; t=1520330124;
+	bh=S/8WI9XLisYdWPFPofI5dgwyitj1o6D2EvLMx7HcHjw=;
+	h=To:Subject:From:Date:From;
+	b=w+psRbPlAz2+2Owq+wmTiyfYNdJiziaWfLlt+Fm/wQsPp6RfkUObChwPPegrS10GQ
+	 inpVh3IlHsyVliZkJheix4XJzvIwnYuyQTrv1/cqRblqiUoylE1gwJx/kWk5/Je3mJ
+	 v6jxKKJ04kkzWukCDRBw5Gsa1ik54CC2QwCLYuzg=
+Received: by argos2.farmacie.cz (Postfix, from userid 48)
+	id 5B9B23FC00; Tue,  6 Mar 2018 10:55:24 +0100 (CET)
+To: santini@gisant.eu
+Subject: =?UTF-8?Q?NextForce=20-=20informace=20pro=20V=C3=A1s=20a=20?=  =?UTF-8?Q?Va=C5=A1e=20=C3=BAdaje=20v=20bezpe=C4=8D=C3=AD.=20(GDPR)?=
+X-PHP-Originating-Script: 1000:Sendmail.php
+From: =?UTF-8?Q?Lucie=20Pato=C4=8Dkov=C3=A1?= <office@nextforce.cz>
+Date: Tue, 06 Mar 2018 10:55:24 +0100
+Content-Type: multipart/alternative;
+ boundary="=_0bd3ed3136a98e2ea24b4974b70fd6a6"
+MIME-Version: 1.0
+Message-Id: <20180306095524.5B9B23FC00@argos2.farmacie.cz>
+X-Spam-Rating: mxavas3.forpsi.com 1.6.2 0/0/N
+

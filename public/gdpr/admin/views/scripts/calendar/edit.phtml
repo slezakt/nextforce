@@ -1,0 +1,27 @@
+<!-- Vsechen html kod adminu pred obsahem teto stranky -->
+<?= $this->render('admin_top.phtml') ?>
+<div class="row">
+    <div class="span8">
+        <?= $this->form ?>
+        <?= $this->render('filemanager.phtml') ?>	
+    </div>
+    <div class="span4">
+        <?= $this->render('contentPreviewLinks.phtml') ?>
+       <?=$this->collapse(
+               $this->text('help'),
+               array(
+                    'links' => array('title' => $this->text('links_list.main.title'), 'body' => $this->render('contentLinks.phtml'))
+                    ),
+               array(1)
+               )
+               ?>           
+    </div>
+</div>
+<script type="text/javascript">
+$('#labels').tokenfield({delimiter:';',createTokensOnBlur:true});
+</script>
+
+<!-- Vsechen html kod adminu za obsahem teto stranky -->
+<?= $this->render('admin_bottom.phtml') ?>
+
+

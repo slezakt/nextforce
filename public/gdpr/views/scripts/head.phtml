@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<?
+    $config = Zend_Registry::get('config');
+    // Ziskame prvni cast locale pred _
+    $a=array_reverse(explode('_', $config->general->locale));
+    $lang = array_pop($a);
+    if(empty($lang) || strtolower($lang) != $lang){ // Kontrola spravnosti - maji byt mala pismena
+        $lang = 'cs'; 
+        Phc_ErrorLog::error('views/scripts/head.phtml', 
+            'Nespravne nastavene general.locale v config.ini. Nepodarilo se rozparsovat retezec zeme, nastaveno "cs".');
+    }
+?><html xmlns="http://www.w3.org/1999/xhtml" lang="<?=$lang?>" xml:lang="<?=$lang?>">
+<head>
+<?$title=$this->project_name . (!empty($this->page_title) ? ' - '.$this->page_title : '') ?>
+<?/* title */?>
+    <title><?=$title?></title>
+<?/* encoding */?>
+    <meta http-equiv="Content-language" content="<?=$lang?>" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-script-type" content="text/javascript" />
+    <meta http-equiv="content-style-type" content="text/css" />
+<?/* cache */?>
+    <meta http-equiv="Cache-control" content="no-cache" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+<?/* keywords & categories */?>
+    <meta name="description" xml:lang="<?=$lang?>" lang="<?=$lang?>" content="<?=$this->page_title?>" />
+    <meta name="keywords" xml:lang="<?=$lang?>" lang="<?=$lang?>" content="" />
+    <meta name="category" content="<?=$this->project_name?>" /> 
+<?/* author */?>
+    <meta name="author" content="Pears Health Cyber s.r.o. (http://www&#45;pearshealthcyber&#45;com) | <?=date("Y")?> | info&#64;pearshealthcyber&#45;com" />
+    <meta name="webmaster" content="Pears Health Cyber s.r.o. (http://www&#45;pearshealthcyber&#45;com) | <?=date("Y")?> | info&#64;pearshealthcyber&#45;com" /> 
+    <meta name="copyright" content="©<?=date("Y")?> Pears Health Cyber s.r.o." />
+<?/* robots */?>
+    <meta name="robots" content="nofollow" />
+    <meta name="googlebot" content="nofollow" />
+    <meta name="msnbot" content="nofollow" />
+<?/* browser specific features */?>
+<?/* msie */?>
+    <meta http-equiv="imagetoolbar" content="no" /> 
+    <meta http-equiv="MSThemeCompatible" content="no" /> 
+    <meta name="MS.LOCALE" content="<?=$lang?>" /> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<?/* opera */?>
+    <meta name="autosize" content="off" />
+<?/* favicon */?>
+    <link rel="shortcut icon" type="image/x-icon" href="<?=$this->skin('img/favicon.ico')?>" />
+<?/* JS & CSS */?>
+<?=Ibulletin_HtmlHead::render()?>
+<?if(!empty($this->config->general->googleAnalytics)):?>
+   <?=$this->render('ganalytics.phtml')?>
+<?endif;?>
+</head>
+

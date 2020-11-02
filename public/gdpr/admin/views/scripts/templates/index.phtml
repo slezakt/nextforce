@@ -1,0 +1,25 @@
+<?=$this->render('admin_top.phtml')?>
+
+<div class="row">
+    <div class="span8">
+        <p><?=$this->description?></p>
+        <ul class="nav nav-list">
+            <li class="nav-header"><?=$this->texts->templates_title?></li>
+            <li><a href="<?=$this->url(array('action' => 'landing'))?>"><?=$this->texts->landing->heading?></a></li>
+            <li><a href="<?=$this->url(array('action' => 'layouts'))?>"><?=$this->texts->layouts->heading?></a></li>
+            <li><a href="<?=$this->url(array('action' => 'emails'))?>"><?=$this->texts->emails->heading?></a></li>
+            <?if(Ibulletin_AdminAuth::hasPermission('privilege_edit_scripts')){?>
+                <li><a href="<?=$this->url(array('action' => 'scripts'))?>"><?=$this->texts->scripts->heading?></a></li>
+            <?}?>
+           <?if(Ibulletin_AdminAuth::hasPermission('privilege_edit_template_presentations')):?>
+                <li><a href="<?=$this->url(array('action' => 'presentations'))?>"><?=$this->texts->presentations->heading?></a></li>
+           <?endif;?>
+        </ul>
+    </div>
+    <div class="span4">
+        <?=$this->collapse($this->text('help'), array(), array(1))?>
+    </div>
+</div>
+
+<?=$this->render('admin_bottom.phtml')?>
+

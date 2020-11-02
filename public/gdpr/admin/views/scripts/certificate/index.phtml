@@ -1,0 +1,222 @@
+<?= $this->render('admin_top.phtml') ?>
+<div class="row">
+    <div class="span12"><div class="infoMsg"></div></div>
+    <div class="span12 certificates">
+        <form method="get" class="form-inline">
+            <label><?= $this->texts->select_content_label ?></label>
+            <?= $this->formSelect('id', $this->contentId, array('class' => 'selectpicker form-inline'), $this->indetail_list) ?>
+            <?= $this->formSubmit('send', $this->texts->presentation_choose, array('class' => 'btn btn-primary')) ?>
+        </form>
+        <? if ($this->usersScoresUrl): ?>
+            <table data-url="<?= $this->usersScoresUrl ?>" cellspacing="0" class="stripe cell-border" width="100%" id="users">
+                <thead></thead>
+                <tfoot><tr><?= str_repeat('<th></th>', count($this->dtColumns)) ?></tr></tfoot>
+            </table>
+            <script>
+                var usersTable = $('#users').DataTable({
+                    ajax: $('#users').data('url'),
+                    language: {
+                        url: 'pub/scripts/datatables/' + language + '.lang',
+                        select: {
+                            rows: {
+                                _: "<?= $this->texts->rows_selected_more ?>",
+                                0: "<?= $this->texts->rows_selected_none ?>",
+                                1: "<?= $this->texts->rows_selected_one ?>"
+                            }
+                        }
+                    },
+                    pageLength: 10,
+                    dom: 'Btip',
+                    select: true,
+                    buttons: [
+                        {
+                            extend: 'selectAll',
+                            text: '<?= $this->texts->select_all ?>'
+                        },
+                        {
+                            extend: 'selectNone',
+                            text: '<?= $this->texts->deselect ?>'
+                        },
+                        {
+                            extend: 'collection',
+                            text: 'Export',
+                            buttons: [
+                                {
+                                    extend: 'copy',
+                                    text: '<?= $this->texts->copy ?>',
+                                    exportOptions: {
+                                        orthogonal: 'filter'
+                                    }
+                                },
+                                {
+                                    extend: 'csv',
+                                    filename: 'users_certificates',
+                                    exportOptions: {
+                                        orthogonal: 'filter'
+                                    }
+                                },
+                                {
+                                    extend: 'excel',
+                                    filename: 'users_certificates',
+                                    exportOptions: {
+                                        orthogonal: 'filter',
+                                        format: {
+                                            body: function (data) {
+                                                //hack - excel nezobrazuje nuly, pouzijeme string
+                                                if (data === 0) {
+                                                    return '0';
+                                                } else {
+                                                    return data;
+                                                }
+                                            }
+                                        }
+
+                                    }
+                                }
+                            ]
+
+                        },
+                        {
+                            text: '<?= $this->texts->generate_certificate ?>',
+                            enabled: false,
+                            action: function (e, dt, node, config) {
+
+                                var users = [];
+
+                                usersTable.rows({selected: true}).data().each(function (value) {
+                                    users.push(value.id);
+                                });
+                                usersTable.button(3).enable(false);
+                                usersTable.button(3).text("<?= $this->texts->generating ?>");
+                                $.post('<?= $this->generateUrl ?>', {'users': users}, function (data) {
+                                    if (typeof data === "object") {
+                                        $('.infoMsg').html('<div class="alert alert-' + data.status + '"><button type="button" class="close" data-dismiss="alert">&times;</button>' + data.msg + '</div>');
+                                    } else {
+                                        $('.infoMsg').html('<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">&times;</button>' + data + '</div>');
+                                    }
+
+                                    usersTable.button(3).text("<?= $this->texts->generate_certificate ?>");
+                                    usersTable.ajax.reload();
+                                });
+
+                            }
+
+                        },
+                        {
+                            text: '<?= $this->texts->preview_certificate ?>',
+                            enabled: false,
+                            action: function (e, dt, node, config) {
+
+                                var userId = null;
+
+                                usersTable.rows({selected: true}).data().each(function (value) {
+                                    userId = value.id;
+                                });
+                                
+                                $('#modal-preview').children('.modal-body').html('');
+
+                                $('#modal-preview .loader').css('display','block');
+                                $('#modal-preview').modal('show');
+                             
+                                var url = '<?= $this->previewUrl ?>?user=' + userId;
+                                var img = $("<img />").load(function () {
+                                    $('#modal-preview .loader').css('display','none');
+                                }).error(function(){
+                                    $('.infoMsg').html('<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">&times;</button><?=$this->texts->preview_error ?></div>');
+                                    $('#modal-preview').modal('hide');
+                                }).attr('src', url);
+                                
+                                $('#modal-preview').children('.modal-body').html(img);
+                                
+                            }
+
+                        }
+                    ],
+                    columns: <?= json_encode($this->dtColumns) ?>,
+                    initComplete: function () {
+                        //text search
+                        usersTable.columns('.text-search').every(function (index) {
+                            var column = usersTable.column(index);
+                            var title = $(column.header()).text();
+
+                            $('<input type="text" placeholder="' + title + '" />').appendTo($(this.footer()).empty())
+                                    .on('keyup change', function () {
+                                        if (usersTable.search() !== this.value) {
+                                            usersTable.search(this.value).draw();
+                                        }
+                                    });
+                        });
+
+                        //point filter
+                        var scoreCol = usersTable.column('.score');
+                        $('<select id="pointsFilter"><option value="0"></option><option value="<?= $this->requiredPoints ?>"><?= $this->texts->filter_passed ?></option></select>')
+                                .appendTo($(scoreCol.footer()).empty())
+                                .on('change', function () {
+                                    usersTable.draw();
+                                });
+
+                        //cert filter
+                        var certCol = usersTable.column('.certificate');
+
+                        $('<select id="certFilter"><option value=""></option><option value="1"><?= $this->texts->have_certificate ?></option><option value="0"><?= $this->texts->no_certificate ?></option></select>')
+                                .appendTo($(certCol.footer()).empty())
+                                .on('change', function () {
+                                    var val = $.fn.dataTable.util.escapeRegex($(this).val());
+                                    certCol.search(val ? '^' + val + '$' : '', true, false).draw();
+                                });
+
+                        //filter filter
+                        var filledCol = usersTable.column('.filled');
+
+                        $('<select id="fillFilter"><option value=""></option><option value="1"><?= $this->texts->filter_filled ?></option><option value="0"><?= $this->texts->filter_nofilled ?></option></select>')
+                                .appendTo($(filledCol.footer()).empty())
+                                .on('change', function () {
+                                    var val = $.fn.dataTable.util.escapeRegex($(this).val());
+                                    filledCol.search(val ? '^' + val + '$' : '', true, false).draw();
+                                });
+
+                    }
+                });
+
+                usersTable.on('select', function (e, dt, type, indexes) {
+                    var selectedRows = usersTable.rows({selected: true}).count();
+                    usersTable.button(3).enable(selectedRows > 0);
+                    usersTable.button(4).enable(selectedRows === 1);
+                })
+                        .on('deselect', function (e, dt, type, indexes) {
+                            var selectedRows = usersTable.rows({selected: true}).count();
+                            usersTable.button(3).enable(selectedRows > 0);
+                            usersTable.button(4).enable(selectedRows === 1);
+                        });
+
+                //filtrovani
+                $.fn.dataTable.ext.search.push(
+                        function (settings, data, dataIndex) {
+                            //filtr podle poctu bolu
+                            if ($('#pointsFilter').val()) {
+                                var val = parseInt($('#pointsFilter').val());
+                                var index = $('#pointsFilter').parent().index();
+                                if (data[index] < val) {
+                                    return false;
+                                }
+                            }
+
+                            return true;
+
+                        }
+                );
+            </script>
+        <? endif ?>
+        <div id="modal-preview" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                 <img class="loader" src="pub/img/admin/preloader.gif" />
+            </div>
+            <div class="modal-body"></div>
+        </div>
+    </div>
+</div>
+
+
+<?=
+$this->render('admin_bottom.phtml')?>

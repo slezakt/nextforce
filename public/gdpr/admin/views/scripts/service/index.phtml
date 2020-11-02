@@ -1,0 +1,22 @@
+<?=$this->render('admin_top.phtml')?>
+
+<p><a href="<?=$this->url(array('action'=>'updatepageview'))?>">Page_views
+- users_links_tokens_id repair</a> | <a href="<?=$this->url(array('action'=>'composepage'))?>">Compose page</a>
+| <a href="<?=$this->url(array('action'=>'regeneratetestfiles'))?>">Regenerate test XLS and PDF files</a>
+| <a href="<?=$this->url(array('action'=>'optimizesearch'))?>">Optimize search index</a>
+| <a href="<?=$this->url(array('action'=>'reindexcontents'))?>">Regenerovat search indexy contentu</a>
+| <a href="<?=$this->url(array('action'=>'regenerateultueid'))?>">Regenerovat users_liks_tokens.users_emails_id</a>
+| <a href="<?=$this->url(array('action'=>'migrateanswers'))?>">Migrovat starou tabulku answers na novou strukturu</a>
+| <a href="<?=$this->url(array('action'=>'ipadtester'))?>">iPad communication tester</a>
+| <a href="<?=$this->url(array('action'=>'updatecontentnames'))?>">Update content names</a>
+</p>
+
+<?if(!empty($this->out)){?>
+<h3>Info:</h3>
+<p>
+<?=$this->out?>
+</p>
+<?}?>
+
+
+<?=$this->render('admin_bottom.phtml')?>

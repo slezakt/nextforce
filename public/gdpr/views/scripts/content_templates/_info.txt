@@ -1,0 +1,5 @@
+Adresar obsahuje templaty pro jednotlive contenty - ty, ktere jsou pojmenovane 
+s _1, _2 a dalsi cisla, cislo udava pozici contentu v page.
+
+Pro kazdy template je mozne mit verzi specifickou pro layout podle konvence:
+layoutName_contentName_[0-9].phtml

@@ -1,0 +1,70 @@
+<!-- Vsechen html kod adminu pred obsahem teto stranky -->
+<?$this->actionTitle .= ' &rarr; ' . $this->bulletinName?>
+<?=$this->render('admin_top.phtml')?>
+
+<div class="statistics">
+
+    <h3><?=$this->text('label')?></h3>
+
+    <?
+    /**
+     * prehledova tabulka mailu na dany bulletin
+     */
+    if ($this->rrPerBulletin) {?>
+        <table class="table table-striped table-hover table-bordered table-stats">
+            <thead>
+            <tr>
+                <th><?=$this->text('id')?></th>
+                <th><?=$this->text('email')?></th>
+                <th><?=$this->text('sent_date')?></th>
+                <th><?=$this->text('sent')?></th>
+                <th colspan="2"><?=$this->text('delivered')?></th>
+                <th colspan="2"><?=$this->text('undelivered')?></th>
+                <th colspan="2"><?=$this->text('open')?></th>
+                <th><?=$this->text('open_online')?></th>
+                <th colspan="2"><?=$this->text('click')?></th>
+                <th colspan="2"><?=$this->text('click_late')?></th>
+                <th colspan="2"><?=$this->text('min_open')?></th>
+                <th>&nbsp;</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?foreach ($this->rrPerBulletin as $bulletin) {?>
+                <?if($bulletin['send'] > 0){?>
+                    <tr>
+                        <td><?=$bulletin['email_id']?></td>
+                        <td class="al"><?=$bulletin['name']?></td>
+                        <td><?=$bulletin['send_date']?></td>
+                        <td><span class="svalue"><?=($bulletin['send'] + $bulletin['undelivered'])?></span></td>
+                        <td><span class="svalue"><?=$bulletin['send']
+                                . '</span>&nbsp;&nbsp;<span class="muted">'.(($bulletin['send']+$bulletin['undelivered']) ? round(100*$bulletin['send']/($bulletin['send']+$bulletin['undelivered'])) : 0)?>&nbsp;%</span></td>
+                        <td><?=Admin_StatsController::getExportButton(array('emailId' => $bulletin['email_id']),'email_send')?></td>
+                        <td><span class="svalue"><?=$bulletin['undelivered']
+                                . '</span>&nbsp;&nbsp;<span class="muted">' . (($bulletin['send']+$bulletin['undelivered']) ? round(100*$bulletin['undelivered']/($bulletin['send']+$bulletin['undelivered'])) : 0)?>&nbsp;%</span></td>
+                        <td><?=Admin_StatsController::getExportButton(array('emailId' => $bulletin['email_id'],'email_undelivered'))?></td>
+                        <td><span class="svalue"><?=$bulletin['read']
+                                . '</span>&nbsp;&nbsp;<span class="muted">' .($bulletin['send'] ? round(100*$bulletin['read']/$bulletin['send']) : 0)?>&nbsp;%</span></td>
+                        <td><?=Admin_StatsController::getExportButton(array('emailId' => $bulletin['email_id']),'email_read')?></td>
+                        <td><span class="svalue"><?=$bulletin['read_online']
+                                . '</span>&nbsp;&nbsp;<span class="muted">' . ($bulletin['read'] ? round(100*$bulletin['read_online']/$bulletin['read']) : 0)?>&nbsp;%</span></td>
+                        <td><span class="svalue"><?=$bulletin['response']
+                                . '</span>&nbsp;&nbsp;<span class="muted">' . ($bulletin['send'] ? round(100*$bulletin['response']/$bulletin['send']) : 0)?>&nbsp;%</span></td>
+                        <td><?=Admin_StatsController::getExportButton(array('emailId' => $bulletin['email_id']),'email_response')?></td>
+                        <td><span class="svalue"><?=$bulletin['response_late']
+                                . '</span>&nbsp;&nbsp;<span class="muted">' . ($bulletin['send'] ? round(100*$bulletin['response_late']/$bulletin['send']) : 0)?>&nbsp;%</span></td>
+                        <td><?=Admin_StatsController::getExportButton(array('emailId' => $bulletin['email_id']),'email_reposnse_late')?></td>
+                        <td><span class="svalue"><?=$bulletin['read_prob']
+                                . '</span>&nbsp;&nbsp;<span class="muted">' . ($bulletin['send'] ? round(100*$bulletin['read_prob']/$bulletin['send']) : 0)?>&nbsp;%</span></td>
+                        <td><?=Admin_StatsController::getExportButton(array('emailId' => $bulletin['email_id']),'email_read_prob')?></td>
+                        <td><a class="btn btn-mini btn-info" href="<?=$this->url(array('controller' => 'stats', 'action' => 'campaign_links', 'mode' => null, 'emailId' => $bulletin['email_id']))?>"><?=$this->text('email_detail')?></a></td>
+                    </tr>
+                <?}?>
+            <?}?>
+            </tbody>
+        </table>
+    <?}?>
+
+</div>
+
+<!-- Vsechen html kod adminu za obsahem teto stranky -->
+<?=$this->render('admin_bottom.phtml')?>

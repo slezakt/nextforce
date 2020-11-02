@@ -1,0 +1,586 @@
+<?
+$front = Zend_Controller_Front::getInstance();
+
+// pripravime renderovaci data pro vypsani tohoto contentu
+Zend_Loader::loadFile('BulletinController.php', 'controllers', true);
+
+// vyrenderujeme content do stringu identicky jako na frontu
+$bulletinController = new BulletinController($front->getRequest(), $front->getResponse());
+
+$content_tpl = array();
+$current_content = 1;
+
+$this->contentObj->testingVersion = 'flash'; // Nastavime k renderovani jen flash
+$content = $bulletinController->renderContent(
+        $current_content, $this->contentObj, null, $front->getRequest(), $content, $content_tpl);
+$this->contentObj->testingVersion = null;
+
+$id_texts = Ibulletin_Texts::getSet('admin.indetail');
+?>
+
+<? if ($content[$current_content]['obj']->ready) { ?>
+
+    <?
+    $urlHlpr = new Zend_View_Helper_Url();
+    $stats = Ibulletin_Stats::getInstance();
+
+    if (!Ibulletin_AdminAuth::hasFrontendUser()) {
+        $hasFrontUser = false;
+    } else {
+        $hasFrontUser = true;
+    }
+
+    $testerUsers = Users::getUsersByAttrib('name', Ibulletin_Content_Indetail::$testerName);
+    if ($testerUsers) {
+        $testerUser = array_shift($testerUsers);
+        $testerUid = $testerUser['id'];
+    } else {
+        $testerUid = Ibulletin_AdminAuth::getFrontendUser();
+    }
+
+    $statsUrl = $urlHlpr->url(array('contentid' => $this->contentId, 'srvname' => 'getstats',
+        'pageviewsid' => $stats->page_view_id), 'service');
+    $mobileStatsUrl = $urlHlpr->url(array('contentid' => $this->contentId, 'srvname' => 'getstats',
+        'userid' => $testerUid), 'service');
+    $answersUrl = $urlHlpr->url(array('contentid' => $this->contentId, 'srvname' => 'getanswers'), 'service');
+    $editAnswerUrl = $urlHlpr->url(array('contentid' => $this->contentId, 'srvname' => 'editanswer'), 'service');
+    $mobilePlayerStatsUrl = $urlHlpr->url(array('contentid' => $this->contentId, 'srvname' => 'getplayerstats',
+        'userid' => $testerUid), 'service');
+    $playerStatsUrl = $urlHlpr->url(array('contentid' => $this->contentId, 'srvname' => 'getplayerstats',
+        'userid' => Ibulletin_AdminAuth::getFrontendUser(), 'pageviewsid' => $stats->page_view_id), 'service');
+    $saverUrl = $urlHlpr->url(array('contentid' => $this->contentId, 'srvname' => 'save',
+        'pageviewsid' => $stats->page_view_id), 'service');
+
+    $swfFilePath = $this->basePath . 'runtime.swf';
+    $debugRuntimeFile = $this->basePath . 'rtdebug.xml';
+
+    // Do session ulozime posledni cas nacteni teto stranky - pouzivame pro testovani prezentaci, ktere se
+    // nezobrazuji s page_views_id - napriklad inRep na mobilnim zarizeni
+    $session = Zend_Registry::get('session');
+    $nowDate = new Zend_Date;
+    $session->indetail_edit_last_opened_{$this->contentId} = $nowDate->getIso();
+    ?>
+
+
+    <? /* <link rel="stylesheet" type="text/css" media="screen" href="pub/css/ui-lightness/jquery-ui-1.8.10.custom.css" /> */ ?>
+    <link rel="stylesheet" type="text/css" media="screen" href="pub/css/jqgrid/ui.jqgrid.css" />
+    <style type="text/css"><!--
+        #debug_div .ui-pg-table tr td { float: left;}
+        --></style>
+    <script src="pub/scripts/grid.locale-en.js" type="text/javascript"></script>
+    <script src="pub/scripts/jquery.jqGrid.min.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+        function elm_hidden(value, options) {
+        return $('<input type="hidden" name="' + options.name + '" value="' + value + '"/><span>' + value + '</span>');
+        }
+
+        function elm_value(elem) {
+        return elem.val();
+        }
+
+        function pad(n, width, z) {
+        z = z || '0'; n = n + '';
+        return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
+        }
+
+        function fmtDateTime(value, options, rData) {
+        var d = new Date(parseFloat(value) * 1000 - new Date().getTimezoneOffset() * 60000);
+        return pad(d.getUTCHours(), 2) + ':' + pad(d.getUTCMinutes(), 2) + ':' + pad(d.getUTCSeconds(), 2) + '.' + pad(d.getUTCMilliseconds(), 3);
+        }
+
+        function fmtMilliseconds(value, options, rData) {
+        return (value / 1000 | 0) + '.' + pad(value % 1000, 3);
+        }
+
+        function initGrid(table_id, navigation_id, service_type) {
+        if (service_type == 'inpad'){
+        dataUrl = '<?= $mobileStatsUrl ?>'
+        }
+        else{
+        dataUrl = '<?= $statsUrl ?>'
+        }
+
+        $("#" + table_id).jqGrid({
+        caption: '<?= $id_texts->caption ?>',
+                loadui: "disable",
+                height: '100%',
+                hiddengrid: false,
+                url: dataUrl,
+                datatype: "json",
+                mtype: "post",
+    <? /* specifikace json parseru - nazvy klicu */ ?>
+        jsonReader: {
+        root: "data",
+                page: "page",
+                total: "pages_total",
+                records: "count",
+                repeatitems: false,
+                id: "0"
+        },
+                colModel: [
+                {name: 'id', label: '<?= $id_texts->id ?>', key: true, index: 'id', width: 40},
+                {name: 'slide_num', label: '<?= $id_texts->slide_num ?>', index: 'slide_num', align: "center", width: 40},
+                {name: 'question_id_original', label: '<?= $id_texts->questions ?>', width: 50},
+                {name: 'answer_original', label: '<?= $id_texts->answers ?>', width: 74},
+                {name: 'timestamp', label: '<?= $id_texts->timestamp ?>', index: 'timestamp', align: "center", width: 90, formatter: fmtDateTime/*, formatoptions: {srcformat: "ISO8601Long", newformat: "H:i:s"}*/},
+                {name: 'time_total', label: '<?= $id_texts->time_total ?>', index: 'time_total', align: "center", width: 55, formatter: fmtMilliseconds/*, formatter: 'date', formatoptions: {srcformat: "s", newformat: "i:s"}*/},
+                {name: 'time_slide', label: '<?= $id_texts->time_slide ?>', index: 'time_slide', align: "center", width: 45, formatter: fmtMilliseconds/*, formatter: 'date', formatoptions: {srcformat: "s", newformat: "i:s"}*/},
+                {name: 'sound_on', label: '<?= $id_texts->soundon ?>', align: "center", formatter: 'checkbox', width: 57},
+                {name: 'sound', label: '<?= $id_texts->sound ?>', formatter: 'checkbox', align: "center", width: 40},
+                {name: 'points', label: '<?= $id_texts->points ?>', index: 'points', align: "center", width: 40},
+                {name: 'slideon', label: '<?= $id_texts->slideon ?>', index: 'slideon', align: "center", width: 45},
+                {name: 'slideoff', label: '<?= $id_texts->slideoff ?>', index: 'slideoff', align: "center", width: 47},
+                {name: 'sequence', label: '<?= $id_texts->sequence ?>', index: 'sequence', align: "center", width: 55}
+                ],
+                sortname: 'id',
+                sortorder: "desc",
+                pager: '#' + navigation_id,
+                rowNum: 10,
+                rowList: [10, 20, 50],
+                viewrecords: true,
+                emptyrecords: '<?= $id_texts->empty_table ?>',
+                subGrid: true,
+                subGridOptions: {
+                "plusicon": "ui-icon-triangle-1-e",
+                        "minusicon": "ui-icon-triangle-1-s",
+                        "openicon": "ui-icon-arrowreturn-1-e",
+                        // load the subgrid data only once
+                        "reloadOnExpand": false,
+                        // select the row when the expand column is clicked
+                        "selectOnExpand": true
+                },
+                subGridRowExpanded: function(subgrid_id, row_id) {
+
+                // we pass two parameters
+                // subgrid_id is a id of the div tag created within a table
+                // the row_id is the id of the row
+                // If we want to pass additional parameters to the url we can use
+                // the method getRowData(row_id) - which returns associative array in type name-value
+                // here we can easy construct the following
+
+                var lastsel;
+                var subgrid_table_id = subgrid_id + "_t";
+                $("#" + subgrid_id).html("<table id='" + subgrid_table_id + "' class='scroll'></table>");
+                $("#" + subgrid_table_id).jqGrid({
+                url: "<?= $answersUrl ?>id/" + row_id + "/",
+                        idPrefix: 'a' + row_id + '_',
+                        editurl: "<?=$editAnswerUrl ?>",
+                        datatype: "json",
+                        mtype: "post",
+                        height: '100%',
+                        autowidth: true,
+                        sortname: 'slide_num',
+                        sortorder: 'asc',
+                        onSelectRow: function(id) { // editace pri vyberu radku
+                        if (id && id !== lastsel) {
+                        $("#" + subgrid_table_id).jqGrid('restoreRow', lastsel);
+                        lastsel = id;
+                        }
+                        $("#" + subgrid_table_id).jqGrid('editRow', id, true, null,
+                                function() {
+                                $(this).trigger('reloadGrid');
+                                });
+                        },
+                        jsonReader: {
+                        root: "data",
+                                page: "page",
+                                total: "pages_total",
+                                records: "count",
+                                repeatitems: false,
+                                id: "answer_id"
+                        },
+                        colModel: [
+                        {
+                        name: 'question_id', label: '<?= $id_texts->question_id ?>',
+                                align: "center"/*, width: 65*/, editable: true, edittype: 'custom',
+                                editoptions: {custom_element: elm_hidden, custom_value: elm_value}
+                        },
+                        {
+                        name: 'question_num', label: '<?= $id_texts->question_num ?>',
+                                align: "center"/*, width: 50*/
+                        },
+                        {
+                        name: 'text', label: '<?= $id_texts->question_text ?>'
+                                /*,width: 130*/, editable: true
+                                /*edittype:"textarea",
+                                 editoptions:{rows:"2",cols:"18"}*/
+                        },
+                        {
+                        name: 'answer_id', label: '<?= $id_texts->answer_id ?>', align: "center"/*, width: 70*/,
+                                editable: true, edittype: 'custom',
+                                editoptions: {custom_element: elm_hidden, custom_value: elm_value}
+                        },
+                        {
+                        name: 'answer_num', label: '<?= $id_texts->answer_num ?>',
+                                align: "center"/*, width: 60*/
+                        },
+                        {
+                        name: 'answer_title', label: '<?= $id_texts->answer_title ?>', /*width: 130,*/
+                                editable: true
+                                /* edittype:"textarea",
+                                 editoptions:{rows:"2",cols:"18"}*/
+                        },
+                        {
+                        name: 'answer_type', label: '<?= $id_texts->answer_type ?>',
+                                align: "center", /*width: 125,*/
+                                /*editable:true,
+                                 edittype:"select",
+                                 editoptions:{value:{b:'logická_hodnota',r:'single_choice',m:'multiple_choice',i:'celé_číslo',d:'desatinné_číslo'}
+                                 },*/
+                                formatter: function(value, options, rData) {
+                                switch (value) {
+                                case "b":
+                                        return '<?= $id_texts->edit->type_b ?>';
+                                break;
+                                case "r":
+                                        return '<?= $id_texts->edit->type_r ?>';
+                                break;
+                                case "c":
+                                        return '<?= $id_texts->edit->type_c ?>';
+                                break;
+                                case "t":
+                                        return '<?= $id_texts->edit->type_t ?>';
+                                break;
+                                case "i":
+                                        return '<?= $id_texts->edit->type_i ?>';
+                                break;
+                                case "d":
+                                        return '<?= $id_texts->edit->type_d ?>';
+                                break;
+                                }
+                                }
+                        },
+                        {
+                        name: 'answer', label: '<?= $id_texts->answer ?>', /*width: 142,*/
+                                formatter: function(value, options, rData) {
+                                switch (rData['answer_type']) {
+                                case "b":
+                                        return rData['answer_bool'];
+                                break;
+                                case "r":
+                                        return rData['answer_title'];
+                                break;
+                                case "c":
+                                        return rData['answer_title'];
+                                break;
+                                case "t":
+                                        return rData['answer_text'];
+                                break;
+                                case "i":
+                                        return rData['answer_int'];
+                                break;
+                                case "d":
+                                        return rData['answer_double'];
+                                break;
+                                }
+                                }
+                        }
+                        /*{name: 'actions', label: 'akce', width: 55,
+                         fixed:true,  sortable:false, resize:false,
+                         formatter:'actions',
+                         formatoptions:{keys:true, delbutton: false}
+                         },*/
+
+                        /*{name:'answer_text', width:120},
+                         {name:'answer_bool', align: "center", formatter:'checkbox', width:45},
+                         {name:'answer_int', width:60},
+                         {name:'answer_double', width:72}*/
+
+                        ]
+
+                });
+                }
+        });
+        $('#' + table_id).jqGrid('navGrid', '#' + navigation_id, {
+        edit: false,
+                add: false,
+                del: false,
+                search: false
+        });
+        }
+
+        /* PLAYER STATS DEBUG TABLE */
+
+        function initStatsGrid(table_id, navigation_id, service_type) {
+        if (service_type == 'inpad'){
+        dataUrl = '<?=$mobilePlayerStatsUrl ?>'
+        }
+        else{
+        dataUrl = '<?=$playerStatsUrl?>'
+        }
+
+
+        $("#" + table_id).jqGrid({
+        caption: '<?= $id_texts->player_caption ?>',
+                loadui: "disable",
+                height: '100%',
+                hiddengrid: false,
+                url: dataUrl,
+                datatype: "json",
+                mtype: "post",
+    <? /* specifikace json parseru - nazvy klicu */ ?>
+        jsonReader: {
+        root: "data",
+                page: "page",
+                total: "pages_total",
+                records: "count",
+                repeatitems: false,
+                id: "0"
+        },
+                colModel: [
+                {name: 'id', label: '<?= $id_texts->player_id ?>', key: true, index: 'id', width: 40},
+                {name: 'user_id', label: '<?= $id_texts->player_user_id ?>', index: 'user_id', width: 45},
+                {name: 'timestamp', label: '<?= $id_texts->player_timestamp ?>', index: 'timestamp', align: "center", width: 90, formatter: fmtDateTime},
+                {name: 'action', label: '<?= $id_texts->player_action ?>', width: 468},
+                {name: 'position', label: '<?= $id_texts->player_position ?>', width: 50, formatter: fmtMilliseconds},
+                {name: 'content_video_num', label: '<?= $id_texts->player_content_video_num ?>', width: 45}
+                ],
+                sortname: 'id',
+                sortorder: "desc",
+                pager: '#' + navigation_id,
+                rowNum: 10,
+                rowList: [10, 20, 50],
+                viewrecords: true,
+                emptyrecords: '<?= $id_texts->empty_table ?>'
+
+        });
+        $('#' + table_id).jqGrid('navGrid', '#' + navigation_id, {
+        edit: false,
+                add: false,
+                del: false,
+                search: false
+        });
+        }
+
+
+        function initFlash(container_id) {
+        var flashvars = {};
+                flashvars.swfFilePath = "<?=$swfFilePath . '?rtconfig=' . basename($debugRuntimeFile) ?>";
+                flashvars.saver_url = "<?=$saverUrl ?>";
+        var params = {};
+        params.wmode = "transparent";
+        var attributes = {};
+        swfobject.embedSWF(
+                "<?= $swfFilePath . '?rtconfig=' . basename($debugRuntimeFile) ?>",
+                container_id,
+                "800",
+                "442",
+                "8.0.0",
+                false,
+                flashvars,
+                params,
+                attributes
+                );
+        }
+
+        var interval; // GLOBAL VAR for data refresh interval
+
+        function init() {
+
+        var is_on;
+        is_on = false;
+        // Flash debug click
+        $('#flash_debug_on').click(function() {
+        $('.flashbtn').hide();
+        $('#flash_debug_off').show();
+        if (!is_on) {
+        initFlash('flashcontent');
+        initGrid('report', 'report_pager');
+        initStatsGrid('report2', 'report2_pager');
+        // Autorefresh 3s
+        interval = window.setInterval('reportSent()', 2500);
+        is_on = true;
+        }
+
+        $('#flashcontainer').show();
+        $('#debug_div').show(0, function() {
+        // Animation complete.
+        });
+        });
+        $('#flash_debug_on_external').click(function() {
+        $('.flashbtn').hide();
+        $('#flash_debug_off').show();
+        if (!is_on) {
+        initFlash('flashcontent');
+        initGrid('report', 'report_pager');
+        initStatsGrid('report2', 'report2_pager');
+        // Autorefresh 3s
+        interval = window.setInterval('reportSent()', 2500);
+        is_on = true;
+        }
+
+        //$('#flashcontainer').show();
+        $('#debug_div').show(0, function() {
+        // Animation complete.
+        });
+        });
+        $('#flash_debug_off').click(function() {
+        $(this).hide();
+        $('.flashbtn').show();
+        $('#debug_div').hide(0, function() {
+        // Animation complete.
+        $('#flashcontainer').hide();
+        });
+        window.clearInterval(interval);
+        });
+        // HTML debug click
+        $('.html_debug_on').click(function() {
+            $('.html_debug_on').hide();
+            $('.html_debug_date_on').hide();
+            $('#html_debug_off').show();
+            initGrid('report', 'report_pager');
+            initStatsGrid('report2', 'report2_pager');
+            $('#debug_div').show();
+            $('#debug_set_date').modal('hide');
+            // Autorefresh 3s
+            interval = window.setInterval('reportSent()', 2500);
+        });
+        $('#html_debug_off').click(function() {
+            $(this).hide();
+            $('.html_debug_on').show();
+            $('.html_debug_date_on').show();
+            $('#debug_div').hide();
+            window.clearInterval(interval);
+        });
+        // inPad/inRep debug click
+        $('#html_inpad_debug_on').click(function() {
+        $(this).hide();
+        $('#html_inpad_debug_off').show();
+        initGrid('report', 'report_pager', 'inpad');
+        initStatsGrid('report2', 'report2_pager', 'inpad');
+        $('#debug_div').show();
+        // Autorefresh 3s
+        interval = window.setInterval('reportSent()', 2500);
+        return false;
+        });
+        $('#html_inpad_debug_off').click(function() {
+        $(this).hide();
+        $('#html_inpad_debug_on').show();
+        $('#debug_div').hide();
+        window.clearInterval(interval);
+        });
+        }
+
+        var timer; // GLOBAL VAR for data refresh timer
+        // global function called by js-alert.swf hook after saverUrl was called
+        // used for synchronous data refresh
+        function reportSent(uniqueId) {
+        if ($('#' + 'report_autorefresh').hasClass('active')) {
+        timer = window.setTimeout(function() {
+        $('#' + 'report').trigger("reloadGrid");
+        $('#' + 'report2').trigger("reloadGrid");
+        }, 100);
+        } else {
+        window.clearTimeout(timer);
+        }
+        }
+
+        addLoadEvent('init');</script>
+    <div class="debug-control">
+        <div class="btn-group flashbtn debug-start" <?= ($hasFrontUser && $content[1]['obj']->hasFlash ? '' : 'style="display:none;"') ?>>
+
+            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+    <?= $id_texts->edit->flash_on ?>
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <!-- dropdown menu links -->
+                <li><a class="btn" id="flash_debug_on" href="#">in place</a></li>
+                <li><a class="btn" id="flash_debug_on_external" rel="external" href="<?=
+    $this->url(array(
+        'module' => 'default',
+        'controller' => 'rendercontent',
+        'action' => 'render',
+        'content' => $this->contentId,
+        'forceVersion' => 'flash',
+        'pageViewsId' => $stats->page_view_id), 'default', true)
+    ?>">new window</a></li>
+
+            </ul>
+
+
+        </div>
+    <? if ($hasFrontUser && $content[1]['obj']->hasHtml) { ?>
+                <?
+                $url = $this->url(array(
+                    'module' => 'default',
+                    'controller' => 'rendercontent',
+                    'action' => 'render',
+                    'content' => $this->contentId,
+                    'forceVersion' => 'html',
+                    'pageViewsId' => $stats->page_view_id), 'default', true)
+                ?>
+                <div class="debug-start">
+                    <div class="btn-group html_debug_grp">
+                        <a class="btn html_debug_on" rel="external" href='<?= $url ?>'><?= $id_texts->edit->open_html_test ?></a>
+                        <a class="btn html_debug_date_on" role="button" data-toggle="modal" href="#debug_set_date"><span class="glyphicon glyphicon-time"></span></a>
+                    </div>
+                    <!-- Modal -->
+                    <div id="debug_set_date" class="modal hide fade" tabindex="-1" role="dialog">
+                        <div style="border:0" class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        </div>
+                        <div class="modal-body">
+                            <div>
+                                <label class="control-label"><?= $id_texts->edit->date_html_test ?></label>
+                                <input type="text" class="span2 datepicker" id="datepickFrom" name="from"/>
+                            </div>
+                            <script>
+                                $(".datepicker").datepicker({
+                                    dateFormat: "yy-mm-dd"
+                                }).datepicker("setDate", new Date());;
+                                $("#datepickFrom").on('change',function(d){
+                                   $('.debug-date-link').attr('href',function(i,a){
+                                       var reg = /(date)[0-9-=]+/ig;
+                                       return a.replace(reg,'$1='+d.target.value);
+                                   });
+                                });
+                            </script>   
+                        </div>
+                        <div class="modal-footer">
+                            <a href="<?=$url?>?date=<?=date('Y-m-d')?>"  rel="external" class="btn btn-primary debug-date-link html_debug_on"><?= $id_texts->edit->open_html_test ?></a>
+                        </div>
+                    </div>
+                </div>
+            <? } ?>
+            <? if ($content[1]['obj']->hasInPadHtml) { ?>
+                <div class="debug-start">
+                    <button class="btn" id="html_inpad_debug_on" ><?= $id_texts->edit->open_inpad_test ?></button>
+                </div>
+            <? } ?>
+        </div>
+        <div id="debug_div" style="display:none;">
+
+            <div style="float:right; margin-bottom:10px;">
+                <button id="report_autorefresh" type="button" class="btn active" data-toggle="button"><i class="icon icon-refresh"></i></button>
+                <button class="btn" id="html_debug_off" style="display:none;"><i class="icon icon-remove"></i></button>
+                <button class="btn" id="html_inpad_debug_off" style="display:none;"><i class="icon icon-remove"></i></button>
+                <button class="btn" id="flash_debug_off" style="display:none;"><i class="icon icon-remove"></i></button>
+            </div>
+            <div class="clearfix"></div>
+
+            <div id="flashcontainer" style="display:none;">
+                <div id="flashcontent">
+                    <?= $id_texts->edit->noflash ?>
+                    <a href="http://www.adobe.com/go/getflashplayer"> <img
+                            src="pub/img/admin/get_flash_player.gif" alt="Get Adobe Flash player" /> </a>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div id ="reportcontainer">
+                <div style="margin-top:5px;">
+                    <table id="report" ></table><div id="report_pager"></div>
+                </div>
+                <div style="margin-top:5px;">
+                    <table id="report2" style="margin-top:5px;"></table><div id="report2_pager"></div>
+                </div>
+
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+
+    <? } ?>
+

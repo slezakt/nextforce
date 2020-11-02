@@ -1,0 +1,42 @@
+<?= $this->render('head.phtml') ?>
+
+<body class="incampaign">
+<div class="pageLogin" id="page">
+    <div class="login">
+        <div class="logo" id="head">
+            <h3><?=$this->text('title')?></h3>
+        </div>
+        <div class="login-in authcode" id="content">
+
+
+            <form action="" method="post">
+                <fieldset>
+                    <p><?= $this->text('enteryourcode') ?></p>
+                    <? if (empty($this->loginError) && $this->text('infotext') != "") { ?>
+                    <p> 
+                        <?=$this->text('infotext');?>
+                    
+                    </p>
+                    <? } ?>
+                    <div  class="input">
+                        <label for="authcode">kód</label>
+                        <input type="text" name="authcode" id="authcode" value=""/>
+                    </div>
+                    <span class="error">
+                        <? if (!empty($this->loginError)) { 
+                            echo $this->loginError;
+                         } ?>
+                    </span>
+                    <br>
+                    <br>
+                    <div class="tc">
+                        <button class="button" type="submit">Potvrdit</button>
+                    </div>
+                </fieldset>
+
+            </form>
+        </div>
+    </div>
+
+
+    <?= $this->render('bottom_login.phtml') ?>

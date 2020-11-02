@@ -1,0 +1,62 @@
+<!-- Vsechen html kod adminu pred obsahem teto stranky -->
+<?=$this->render('admin_top.phtml')?>
+<?=$this->grid?>
+<?/*
+<script src="pub/scripts/jquery.metadata.js" type="text/javascript"></script>
+
+	<?= $this->emailForm ?>
+
+	<?
+	if (!empty($this->undelivered))
+	{?>
+<table class="tablesorter">
+	<thead>
+    <tr>
+		<th class="{sorter: false}">&nbsp;</th>
+		<th class="{sorter: false}"><?=$this->text('last_name')?></th>
+		<th class="{sorter: false}"><?=$this->text('first_name')?></th>
+		<th class="{sorter: false}"><?=$this->text('email')?></th>
+		<th class="{sorter: false}"><?=$this->text('email_name')?></th>
+		<th class="{sorter: false}"><?=$this->text('group')?></th>
+		<th class="{sorter: false}"><?=$this->text('representative')?></th>
+		<th class="{sorter: false}"><?=$this->text('status')?></th>
+		<th class="{sorter: false}"><?=$this->text('bounce_status')?></th>		
+	</tr>
+    </thead>
+    <tbody>
+	<?
+	$i = $this->paging->getOffset() + 1;
+	foreach ($this->undelivered as $email){?>
+	<tr>
+		<td><?=$i++?>.</td>
+		<td><?=$email['surname']?></td>
+		<td><?=$email['name']?></td>
+		<td><?=$email['email']?></td>
+		<td><?=$email['email_name']?></td>
+		<td><?=$email['group']?></td>
+		<td><?=$email['rep_name']?></td>
+		<td><?=$email['status']?></td>
+		<?if($email['bounce_status']){?>
+			<?$arr = Ibulletin_Bounce::getBounceHandler()->fetch_status_messages($email['bounce_status'])?>
+			<?$bounce_status_title = $email['bounce_status'] . ' - ' . $arr[1]['title'];?>
+			<?$bounce_status_desc = $arr[1]['descr'];?>
+			<td title="<?=$bounce_status_desc?>"><?=$bounce_status_title?></td>				
+		<?}else{?>
+				<td>&nbsp;</td>
+		<?}?>
+	</tr>
+	<?
+	}?>
+    </tbody>
+</table>
+	<?= $this->paging->generatePageLinks() ?>
+	<?
+	}
+	else
+	{?>
+        <?=$this->text('empty')?>
+	<? } ?>
+<div class="ar"><?=$this->export?></div>
+*/?>
+<!-- Vsechen html kod adminu za obsahem teto stranky -->
+	<?=$this->render('admin_bottom.phtml')?>

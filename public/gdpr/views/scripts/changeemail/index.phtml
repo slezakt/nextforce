@@ -1,0 +1,24 @@
+<?=$this->render('head.phtml')?>
+
+
+<body>
+  <div class="pageLogin">
+    <div class="forward">
+      
+      <div class="logo">
+        <a href="<?=$this->url(array('controller' => ''), 'default', true)?>" title="Na hlavní stranu"><img src="<?=$this->skin('img/logo.png')?>" alt="inBulletin" /></a>
+      </div>
+      
+      <div class="forward-mail">
+        
+        <div class="forward-mail-label">
+        <strong>Změna emailové adresy</strong>                 
+        </div>        
+        <?php             
+            echo '<div class="forward-email-warn">'.$this->status.'</div>';                
+        ?>
+      </div>
+    
+    </div>
+
+<?=$this->render('bottom_login.phtml')?>

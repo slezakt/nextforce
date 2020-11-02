@@ -1,0 +1,84 @@
+<!-- Vsechen html kod adminu pred obsahem teto stranky -->
+<?= $this->render('admin_top.phtml') ?>
+
+<? /* =$this->form */ ?>  
+<div class="row">
+    <div class="span12 mailer-result"></div>
+    <div class="span12 mailer-grid">
+        <div style="margin:5px 0px 10px 0px">
+            <a class="btn btn-success" data-confirm="<?= $this->texts->confirm_send_all ?>"
+               href="<?= $this->url(array('action' => 'sendall')) ?>"><?= $this->text('send_all') ?></a>
+            <a class="btn btn-info" data-confirm="<?= $this->texts->confirm_sendfake_all ?>"
+               href="<?= $this->url(array('action' => 'sendall', 'fake' => true)) ?>"><?= $this->text('send_fake') ?></a>
+            <a class="btn btn-danger" data-confirm="<?= $this->texts->confirm_delete_all ?>"
+               href="<?= $this->url(array('action' => 'clear')) ?>"><?= $this->text('delete_all') ?></a>
+        </div>
+        <?= $this->grid ?>
+    </div>
+</div>
+<script type="text/javascript">
+
+    /*
+     pravidelne zjistuje stav workera a aktualizuje flash zpravicku
+     */
+    function getMailerState() {
+
+        var progress = 0;
+        $.getJSON('<?= $this->url(array('action' => 'mailerstate')) ?>', function (data) {
+            //  console.log(data);
+
+            if (data.total != undefined) {
+
+                progress = data.count / data.total * 100;
+                $('.mailer-grid').hide();
+                var counter = "";
+                if (data.total) {
+                    counter = data.count + "/" + data.total;
+                }
+                query = '#content ul.info li.mailer_status';
+                inner = '<div class="row">' + '<div class="span3"><?= $this->texts->progress ?><span>' + counter + '</span></div>' +
+                        '<div class="span7" style="padding:4px;"><div class="progress" style="height:24px;line-height:32px;margin:0"><div class="bar" style="vertical-align:middle; width:' + progress + '%"></div></div></div>' +
+                        '<div class="span1 text-right"><a class="btn btn-danger kill-worker" href="<?= $this->url(array('action' => 'killworker')) ?>"><?= $this->texts->stop_worker ?></a></div>' +
+                        '<div>';
+                elm = '<li class="info mailer_status">' + inner + '</li>';
+
+                if ($('#content ul.info').length) {
+                    if (!$('#content ul.info .mailer_status').length) {
+                        $('#content ul.info').append(elm);
+                    } else {
+                        $('#content ul.info li.mailer_status').html(inner);
+                    }
+                } else {
+                    $('#content h1').after('<ul class="info">' + elm + '</ul>');
+                }
+
+                // console.log(data.result);
+
+                if (progress == 100) {
+                    $(query).addClass("success");
+                    $(query).removeClass("info");
+                    $('.kill-worker').hide();
+                    if (data.result) {
+                        $('.mailer-result').html('<h3>Maillog:</h3><pre>' + data.result + '</pre><a class="btn btn-primary" href="<?=$this->url()?>">OK</a>');
+
+                    }
+
+                }
+            }
+
+
+
+            setTimeout(function () {
+                getMailerState();
+            }, 3500);
+        });
+    }
+
+    getMailerState();
+
+
+</script>
+
+<!-- Vsechen html kod adminu za obsahem teto stranky -->
+<?= $this->render('admin_bottom.phtml') ?>
+

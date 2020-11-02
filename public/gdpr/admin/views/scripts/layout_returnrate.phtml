@@ -1,0 +1,112 @@
+<!-- Vsechen html kod adminu pred obsahem teto stranky -->
+<?=$this->render('admin_top.phtml')?>
+
+<h3>Statistiky -> Return rate -> <?=$this->title?></h3>
+
+<div class="statistics">
+<div class="statistics">
+
+<!--?=$this->render('statsmenu.phtml')?-->
+
+<td>
+    <?php 
+/*    echo "<br>";
+    $mm=  get_object_vars($this->moduleMenu);
+    $parametrik = $mm[specific][returnrate][returnrateindex][params][parametrik];
+//    echo $parametrik;
+//    print_r(get_object_vars($this));
+    echo "<br>";
+    */
+    ?>
+
+</td>
+</tr>
+
+<?php
+if ( !empty($this->overview) ) {
+
+
+            // toto vypise prislusny view script
+            //ale nejak to nefunguje
+            echo $this->layout()->content;
+
+        
+$areasCount = $this->areasCount+1;
+$overview = $this->overview;
+?>
+
+<tr>
+<td></td>
+<td colspan="2">
+ 
+    <table class="stat">
+
+        <th>vydání</th>
+        <?php        
+        
+        /**
+         * nadpisy tabulky
+         */
+        for ($i = 0; $i < $areasCount; $i++) {                      
+            echo '<th>'.$overview[$i]['name'].'</th>';
+        }
+        ?>
+        <th>celkem</th>
+        
+        <?php 
+        /**
+         * data
+         */
+       $counter = 0;
+       $i = 0;
+       $cols = $areasCount + 2;       
+       
+       //pocet uzivatelu celkem
+       $totalUsers = array();
+       $_tu = 0;       
+
+       foreach ($overview as $line) {           
+           $_tu += $line['count'];           
+           $counter++;                     
+           if ( ($counter == $areasCount) ) {                  
+                array_push($totalUsers, $_tu);
+                $counter = 0;
+                $_tu = 0;               
+           }                      
+       }
+       
+       // vypis data       
+       for ($i = 0; $i < $this->bulletinsCount; $i++) {
+           echo '<tr>';
+           echo '<td>'.$overview[$i*$areasCount]['bulletin'].'</td>';
+           $from = $i*$areasCount;           
+           $to = $i*$areasCount+$areasCount;
+           
+           for ($ii = $from; $ii < $to; $ii++) {               
+               $division = $totalUsers[$i]==0?'-':intval(bcdiv($overview[$ii]['count'], $totalUsers[$i])*100);
+               echo '<td>'.$overview[$ii]['count'];
+               echo ' ('.$division.'%)';                              
+               echo '</td>';                 
+           }
+           echo '<td>'.$totalUsers[$i].'</td>';
+           echo '</tr>';       
+       }                     
+       ?>
+
+    </table>
+
+
+</td>
+</tr>
+<?php
+    
+}
+?>
+
+</table>
+
+</div>
+
+
+<!-- Vsechen html kod adminu za obsahem teto stranky -->
+<?=$this->render('admin_bottom.phtml')?>

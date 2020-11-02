@@ -1,0 +1,68 @@
+This is a MIME-encapsulated message.
+
+--EED74532CB.1521721543/mailer.farmacie.cz
+Content-Description: Notification
+Content-Type: text/plain; charset=us-ascii
+
+This is the mail system at host mailer.farmacie.cz.
+
+I'm sorry to have to inform you that your message could not
+be delivered to one or more recipients. It's attached below.
+
+For further assistance, please send mail to postmaster.
+
+If you do so, please include this problem report. You can
+delete your own text from the attached returned message.
+
+                   The mail system
+
+<ctyrlistek.nova.role@centrum.cz>: host cbx.virusfree.cz[31.7.241.26] said: 554
+    5.7.1 <ctyrlistek.nova.role@centrum.cz>: Recipient address rejected: Access
+    denied, user does not exist (in reply to RCPT TO command)
+
+--EED74532CB.1521721543/mailer.farmacie.cz
+Content-Description: Delivery report
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; mailer.farmacie.cz
+X-Postfix-Queue-ID: EED74532CB
+X-Postfix-Sender: rfc822; undelivered+ebcbde4228164f3b89a1d4799f6be3f4733679c3c6deb8a9-ctyrlistek.nova.role=centrum.cz@cz.pearshealthcyber.com
+Arrival-Date: Thu, 22 Mar 2018 13:24:42 +0100 (CET)
+
+Final-Recipient: rfc822; ctyrlistek.nova.role@centrum.cz
+Original-Recipient: rfc822;ctyrlistek.nova.role@centrum.cz
+Action: failed
+Status: 5.7.1
+Remote-MTA: dns; cbx.virusfree.cz
+Diagnostic-Code: smtp; 554 5.7.1 <ctyrlistek.nova.role@centrum.cz>: Recipient
+    address rejected: Access denied, user does not exist
+
+--EED74532CB.1521721543/mailer.farmacie.cz
+Content-Description: Undelivered Message Headers
+Content-Type: text/rfc822-headers
+
+Return-Path: <undelivered+ebcbde4228164f3b89a1d4799f6be3f4733679c3c6deb8a9-ctyrlistek.nova.role=centrum.cz@cz.pearshealthcyber.com>
+Received: from argos2.farmacie.cz (argos2.farmacie.cz [178.77.239.66])
+	by mailer.farmacie.cz (Postfix) with ESMTP id EED74532CB
+	for <ctyrlistek.nova.role@centrum.cz>; Thu, 22 Mar 2018 13:24:42 +0100 (CET)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailer.farmacie.cz EED74532CB
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=nextforce.cz;
+	s=phcmailer; t=1521721482;
+	bh=FNtWsDk/aA+DyGRn21A1JF99vWZW5g352410/Kmmi6U=;
+	h=To:Subject:From:Date:From;
+	b=XzIbXX11diaHt0+n7iii4qfm77u3l/Nz/bR71kUoPSiFnS9hwGaCXlx0yxFMqr6/H
+	 ATb6evfdRvnpGsJk6MKIs1U7JGIuHceuG6TO79Out6MKweWDfV1AApes1PCXu6K567
+	 sXUutMpqrTXR6J4X/qWvjyWhomoBUnAvAw9OMXlc=
+Received: by argos2.farmacie.cz (Postfix, from userid 48)
+	id 832483FBE3; Thu, 22 Mar 2018 13:24:43 +0100 (CET)
+To: ctyrlistek.nova.role@centrum.cz
+Subject: =?UTF-8?Q?NextForce=20-=20informace=20pro=20V=C3=A1s=20a=20?=  =?UTF-8?Q?Va=C5=A1e=20=C3=BAdaje=20v=20bezpe=C4=8D=C3=AD.=20(GDPR)?=
+X-PHP-Originating-Script: 1000:Sendmail.php
+From: NextForce GDPR <office@nextforce.cz>
+Date: Thu, 22 Mar 2018 13:24:43 +0100
+Content-Type: multipart/alternative;
+ boundary="=_0fa0bd8c21c45bbe7702ca742b941202"
+MIME-Version: 1.0
+Message-Id: <20180322122443.832483FBE3@argos2.farmacie.cz>
+
+--EED74532CB.1521721543/mailer.farmacie.cz--

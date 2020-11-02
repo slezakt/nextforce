@@ -1,0 +1,40 @@
+<?
+$topmenu="";
+foreach ($this->menu as $menu) {
+    $submenu = "";
+    foreach ($menu['submenu'] as $sub) {
+        $active = "";
+        if ($sub['active']) $active = ' class="active"';
+        $submenu .= '<li'.$active.'><a href="'.$sub['url'].'">'.$sub['name'].'</a></li>';
+    }
+    $cat_active = "";
+    if ($menu['active']) $cat_active = ' active';
+    $topmenu .= '<li class="dropdown'.$cat_active.'"><a class="dropdown-toggle" data-toggle="dropdown" 
+                  href="#">' . $menu['name'] . '&nbsp;<b class="caret"></b></a>
+                  <ul class="dropdown-menu">'.$submenu.'</ul></li>';
+}
+?>
+<div class="navbar navbar-fixed-top navbar-inverse">   
+    <div class="navbar-inner">
+        <div class="container">
+            <ul class="nav">
+                <?= $topmenu ?>
+            </ul>
+            <ul class="nav pull-right">               
+                <li class="dropdown">
+                    <a class="dropdown-toggle current-user" data-toggle="dropdown" href="#"><i class="icon-user icon-white"></i>
+                    <?=Ibulletin_AdminAuth::getInstance()->user_data->name?>&nbsp;<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="<?=$this->url(array("module" => "admin", "controller" => "adminusers"),null, true)?>">
+                        <?=$this->text('global.main_tpl.settings')?></a></li>                       
+                        <li><a href="<?=$this->url(array("module" => "admin", "controller" => "logoff", "action" => "index"),null, true)?>">
+                        <?=$this->text('global.main_tpl.logout')?></a></li>
+                    </ul> 
+                </li>
+                <li class="version">
+                    <?=$this->version?>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,72 @@
+<?=$this->render('admin_top.phtml')?>
+
+<h3>Správa virtuálních pacientů - editace VP</h3>
+<div id="submenu"><a
+	href="<?=$this->url(array('action' => '', 'id' => null, 'sheet' => null));?>">Zpět
+na seznam VP</a></div>
+<!-- id=submenu -->
+
+<div id="help_right">
+<h3>Nápověda:</h3>
+V HTML kódu je možné použít specielní značku %%static%% pro použití
+obrázku nebo jiného souboru přímo ve stránce. Nahraný obrázek (musí být
+v seznamu níže) se jménem pict.jpg použijeme tedy v kódu třeba takto:<br />
+&lt;img src="%%static%%/pict.jpg" alt="Obrázek" /&gt;
+
+<h3>Přiložené obrázky:</h3>
+<ul>
+<?foreach($this->files as $file) {?>
+	<li><?=$file?></li>
+	<?}?>
+</ul>
+
+<h3>Otázka:</h3>
+Na každé stránce může být otázka virtuálního pacienta nebo jen nějaký
+HTML. První část HTML se zobrazuje před otázkou a druhá část za otázkou.
+Otázka se skládá z průvodního textu a vlastní otázky. Vlastní otázka je
+zvýrazněna.</div>
+
+	<? if(!empty($this->info_messages)){?>
+<b>Info:</b>
+<br />
+	<?foreach($this->info_messages as $message){?>
+	<?=$message?>
+<br />
+	<?}?>
+	<?}?>
+
+	<?if(!empty($this->sheets)){?>
+<div><strong>Jednotlivé listy:</strong> <?foreach($this->sheets as $sheet){?>
+	<?if(isset($notfirst)){?> <?=" | "?> <?}else{?> <?$notfirst = true?> <?}?>
+
+	<?if($sheet != $this->current_sheet){?> <a
+	href="<?=$this->url(array('sheet' => $sheet+1))?>"><?=$sheet+1?></a> <?}else{?>
+<b><?=$sheet+1?></b> <?}?> <?}?> <br />
+<a
+	href="<?=$this->url(array('action' =>'addsheet', 'sheet' => $this->sheet))?>">přidat
+list</a> | <a
+	href="<?=$this->url(array('action' =>'removesheet', 'sheet' => $this->sheet))?>"
+	onclick="return confirm('Skutečně odebrat poslední list?');"> odebrat
+poslední list</a></div>
+	<?}?>
+
+	<?/*Akce pridani odebrani otazky a odpovedi*/?>
+<div><?if($this->question_exists){?> <a
+	href="<?=$this->url(array('action' =>'removequestion', 'sheet' => $this->sheet))?>"
+	onclick="return confirm('Skutečně odebrat otázku z tohoto listu?');">
+odebrat otázku i s odpověďmi z listu</a> | <a
+	href="<?=$this->url(array('action' =>'addanswer', 'sheet' => $this->sheet))?>">přidat
+odpověď na otázku</a> | <a
+	href="<?=$this->url(array('action' =>'removeanswer', 'sheet' => $this->sheet))?>"
+	onclick="return confirm('Skutečně odebrat poslední odpověď na otázku z tohoto listu?');">
+odebrat poslední odpověď na otázku</a> <?}else{?> <a
+	href="<?=$this->url(array('action' =>'addquestion', 'sheet' => $this->sheet))?>">vytvořit
+v listu otázku</a> <?}?></div>
+
+
+
+	<?=$this->form?>
+
+	<?= $this->fileForm ?>
+
+	<?=$this->render('admin_bottom.phtml')?>

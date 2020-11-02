@@ -1,0 +1,60 @@
+<?=$this->render('top.phtml')?>
+
+<div id="hp">
+            
+<h1><?=$this->text('writeus_heading')?></h1>
+
+    <div class="dotaz-in">
+		<form action="" method="post">
+			<fieldset>
+				<table border="0" cellspacing="0" cellpadding="0" rules="none" class="table3">
+					<? if (isset($this->nameErrorMessage)) { ?>
+					<tr>
+						<th></th>
+						<td>
+							<span class="error"><?=$this->nameErrorMessage?></span>
+						</td>	
+					</tr>
+					<? } ?>
+					<tr>
+						<th><label for="name"><?=$this->text('your_name')?></label></th>
+						<td><input type="test" class="email" name="name"
+							id="name" value="<?=$this->name?>" /></td>	
+					</tr>
+					<? if (isset($this->emailErrorMessage)) { ?>
+					<tr>
+						<th> </th>
+						<td>
+							<span class="error"><?=$this->emailErrorMessage?></span>	
+						</td>
+					</tr>
+					<? } ?>
+					<tr>
+						<th><label for="email"><?=$this->text('your_email')?></label></th>
+						<td><input type="text" class="email" name="email"
+							id="email" value="<?=$this->email?>" /></td>
+					</tr>	
+					<? if (isset($this->messageErrorMessage)) { ?>
+					<tr>
+						<th></th>
+						<td>
+							<span class="error"><?=$this->messageErrorMessage?></span>	
+						</td>
+					</tr>
+					<? } ?>
+					<tr>
+						<th><label for="message"><?=$this->text('your_message')?></label></th>	
+						<td><textarea name="message" id="message" rows="8"
+							cols="60"><?=$this->message?></textarea></td>
+					</tr>
+					<tr>
+						<td colspan="2" class="td3"><button
+						type="submit"><?=$this->text('send')?></button></td>
+					</tr>
+				</table>
+			</fieldset>	
+		</form >
+	</div>
+</div>
+
+<?=$this->render('bottom.phtml')?>

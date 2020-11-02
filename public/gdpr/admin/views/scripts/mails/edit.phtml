@@ -1,0 +1,22 @@
+<!-- Vsechen html kod adminu pred obsahem teto stranky -->
+<?= $this->render('admin_top.phtml') ?>
+<div class="row">
+    <div class="span8">
+        <?= $this->form ?>
+        <?= $this->partial('filemanager.phtml',array('cpath'=>$this->path))?>
+    </div>
+    <div class="span4">
+        <?= $this->render('contentPreviewLinks.phtml') ?>
+        <?=
+        $this->collapse(
+                $this->text('help'), array(
+            'spam' => array('title' => 'SPAM', 'body' => $this->render('contentSpamScore.phtml')),
+            'links' => array('title' => $this->text('links_list.main.title'), 'body' => $this->render('contentLinks.phtml'))),
+                    array(1)
+        )
+        ?>   
+    </div>
+</div>
+
+<!-- Vsechen html kod adminu za obsahem teto stranky -->
+<?= $this->render('admin_bottom.phtml') ?>

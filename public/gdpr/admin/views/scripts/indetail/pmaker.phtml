@@ -1,0 +1,12 @@
+<?= $this->render('admin_top.phtml') ?>
+<? if ($this->description): ?>
+    <p><?= $this->description ?></p>
+<? endif; ?>
+<? if ($this->form): ?>
+    <?= $this->form ?>
+<? else: ?>
+    <?= $this->render('contentPreviewLinks.phtml') ?>
+    <?= $this->render('pmaker.phtml') ?>
+<? endif ?>
+
+<?=$this->render('admin_bottom.phtml')?>

@@ -1,0 +1,1390 @@
+2018-02-16T00:53:13+01:00	[WARN]	[[Admin_PresentationController] Udaje contentu se nepodarilo zmenit. content_id='1' Puvodni vyjimka:
+exception 'PDOException' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column "entrycode" of relation "content" does not exist
+LINE 1: ...zed_object" = $1, "class_name" = $2, "name" = $3, "entrycode...
+                                                             ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('UPDATE "content...', Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(666): Zend_Db_Adapter_Pdo_Abstract->query('UPDATE "content...', Array)
+#5 /storage/web/www.nextforce.cz/www/gdpr/models/Contents.php(206): Zend_Db_Adapter_Abstract->update('content', Array, 'id = 1')
+#6 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(340): Contents::edit('1', Object(Ibulletin_Content_Indetail))
+#7 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData(Array)
+#8 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#10 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#11 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#12 {main}
+
+Next exception 'Zend_Db_Statement_Exception' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column "entrycode" of relation "content" does not exist
+LINE 1: ...zed_object" = $1, "class_name" = $2, "name" = $3, "entrycode...
+                                                             ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:234
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('UPDATE "content...', Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(666): Zend_Db_Adapter_Pdo_Abstract->query('UPDATE "content...', Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/models/Contents.php(206): Zend_Db_Adapter_Abstract->update('content', Array, 'id = 1')
+#5 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(340): Contents::edit('1', Object(Ibulletin_Content_Indetail))
+#6 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData(Array)
+#7 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#8 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#10 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#11 {main}
+PHP Stack trace:
+#0 --(--): Phc_ErrorLog->_errorHandler()
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php(101): trigger_error()
+#2 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(346): Phc_ErrorLog->warning()
+#3 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData()
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch()
+#6 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch()
+#7 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+ in /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php on line 101]	[/gdpr/admin/indetail/edit/id/1/]	[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.167 Safari/537.36]	[Inbox v3.8 r4066]
+
+2018-02-16T00:53:13+01:00	[WARN]	[[Admin_PresentationController] Udaje contentu se nepodarilo zmenit. content_id='1' Puvodni vyjimka:
+exception 'PDOException' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column "entrycode" of relation "content" does not exist
+LINE 1: ...zed_object" = $1, "class_name" = $2, "name" = $3, "entrycode...
+                                                             ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('UPDATE "content...', Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(666): Zend_Db_Adapter_Pdo_Abstract->query('UPDATE "content...', Array)
+#5 /storage/web/www.nextforce.cz/www/gdpr/models/Contents.php(206): Zend_Db_Adapter_Abstract->update('content', Array, 'id = 1')
+#6 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(740): Contents::edit('1', Object(Ibulletin_Content_Indetail))
+#7 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(360): Admin_IndetailController->postSaveActions()
+#8 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData(Array)
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#10 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#11 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#12 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#13 {main}
+
+Next exception 'Zend_Db_Statement_Exception' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column "entrycode" of relation "content" does not exist
+LINE 1: ...zed_object" = $1, "class_name" = $2, "name" = $3, "entrycode...
+                                                             ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:234
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('UPDATE "content...', Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(666): Zend_Db_Adapter_Pdo_Abstract->query('UPDATE "content...', Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/models/Contents.php(206): Zend_Db_Adapter_Abstract->update('content', Array, 'id = 1')
+#5 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(740): Contents::edit('1', Object(Ibulletin_Content_Indetail))
+#6 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(360): Admin_IndetailController->postSaveActions()
+#7 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData(Array)
+#8 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#10 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#11 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#12 {main}
+PHP Stack trace:
+#0 --(--): Phc_ErrorLog->_errorHandler()
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php(101): trigger_error()
+#2 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(746): Phc_ErrorLog->warning()
+#3 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(360): Admin_IndetailController->postSaveActions()
+#4 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData()
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#6 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch()
+#7 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch()
+#8 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+ in /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php on line 101]	[/gdpr/admin/indetail/edit/id/1/]	[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.167 Safari/537.36]	[Inbox v3.8 r4066]
+
+2018-02-16T00:53:21+01:00	[WARN]	[[Admin_PresentationController] Udaje contentu se nepodarilo zmenit. content_id='1' Puvodni vyjimka:
+exception 'PDOException' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column "entrycode" of relation "content" does not exist
+LINE 1: ...zed_object" = $1, "class_name" = $2, "name" = $3, "entrycode...
+                                                             ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('UPDATE "content...', Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(666): Zend_Db_Adapter_Pdo_Abstract->query('UPDATE "content...', Array)
+#5 /storage/web/www.nextforce.cz/www/gdpr/models/Contents.php(206): Zend_Db_Adapter_Abstract->update('content', Array, 'id = 1')
+#6 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(340): Contents::edit('1', Object(Ibulletin_Content_Indetail))
+#7 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData(Array)
+#8 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#10 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#11 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#12 {main}
+
+Next exception 'Zend_Db_Statement_Exception' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column "entrycode" of relation "content" does not exist
+LINE 1: ...zed_object" = $1, "class_name" = $2, "name" = $3, "entrycode...
+                                                             ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:234
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('UPDATE "content...', Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(666): Zend_Db_Adapter_Pdo_Abstract->query('UPDATE "content...', Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/models/Contents.php(206): Zend_Db_Adapter_Abstract->update('content', Array, 'id = 1')
+#5 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(340): Contents::edit('1', Object(Ibulletin_Content_Indetail))
+#6 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData(Array)
+#7 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#8 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#10 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#11 {main}
+PHP Stack trace:
+#0 --(--): Phc_ErrorLog->_errorHandler()
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php(101): trigger_error()
+#2 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(346): Phc_ErrorLog->warning()
+#3 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData()
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch()
+#6 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch()
+#7 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+ in /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php on line 101]	[/gdpr/admin/indetail/edit/id/1/]	[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.167 Safari/537.36]	[Inbox v3.8 r4066]
+
+2018-02-16T00:53:21+01:00	[WARN]	[[Admin_PresentationController] Udaje contentu se nepodarilo zmenit. content_id='1' Puvodni vyjimka:
+exception 'PDOException' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column "entrycode" of relation "content" does not exist
+LINE 1: ...zed_object" = $1, "class_name" = $2, "name" = $3, "entrycode...
+                                                             ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('UPDATE "content...', Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(666): Zend_Db_Adapter_Pdo_Abstract->query('UPDATE "content...', Array)
+#5 /storage/web/www.nextforce.cz/www/gdpr/models/Contents.php(206): Zend_Db_Adapter_Abstract->update('content', Array, 'id = 1')
+#6 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(740): Contents::edit('1', Object(Ibulletin_Content_Indetail))
+#7 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(360): Admin_IndetailController->postSaveActions()
+#8 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData(Array)
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#10 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#11 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#12 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#13 {main}
+
+Next exception 'Zend_Db_Statement_Exception' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column "entrycode" of relation "content" does not exist
+LINE 1: ...zed_object" = $1, "class_name" = $2, "name" = $3, "entrycode...
+                                                             ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:234
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('UPDATE "content...', Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(666): Zend_Db_Adapter_Pdo_Abstract->query('UPDATE "content...', Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/models/Contents.php(206): Zend_Db_Adapter_Abstract->update('content', Array, 'id = 1')
+#5 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(740): Contents::edit('1', Object(Ibulletin_Content_Indetail))
+#6 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(360): Admin_IndetailController->postSaveActions()
+#7 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData(Array)
+#8 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#10 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#11 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#12 {main}
+PHP Stack trace:
+#0 --(--): Phc_ErrorLog->_errorHandler()
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php(101): trigger_error()
+#2 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(746): Phc_ErrorLog->warning()
+#3 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(360): Admin_IndetailController->postSaveActions()
+#4 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData()
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#6 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch()
+#7 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch()
+#8 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+ in /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php on line 101]	[/gdpr/admin/indetail/edit/id/1/]	[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.167 Safari/537.36]	[Inbox v3.8 r4066]
+
+2018-02-16T00:53:46+01:00	[WARN]	[[Admin_PresentationController] Udaje contentu se nepodarilo zmenit. content_id='1' Puvodni vyjimka:
+exception 'PDOException' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column "entrycode" of relation "content" does not exist
+LINE 1: ...zed_object" = $1, "class_name" = $2, "name" = $3, "entrycode...
+                                                             ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('UPDATE "content...', Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(666): Zend_Db_Adapter_Pdo_Abstract->query('UPDATE "content...', Array)
+#5 /storage/web/www.nextforce.cz/www/gdpr/models/Contents.php(206): Zend_Db_Adapter_Abstract->update('content', Array, 'id = 1')
+#6 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(340): Contents::edit('1', Object(Ibulletin_Content_Indetail))
+#7 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData(Array)
+#8 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#10 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#11 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#12 {main}
+
+Next exception 'Zend_Db_Statement_Exception' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column "entrycode" of relation "content" does not exist
+LINE 1: ...zed_object" = $1, "class_name" = $2, "name" = $3, "entrycode...
+                                                             ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:234
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('UPDATE "content...', Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(666): Zend_Db_Adapter_Pdo_Abstract->query('UPDATE "content...', Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/models/Contents.php(206): Zend_Db_Adapter_Abstract->update('content', Array, 'id = 1')
+#5 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(340): Contents::edit('1', Object(Ibulletin_Content_Indetail))
+#6 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData(Array)
+#7 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#8 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#10 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#11 {main}
+PHP Stack trace:
+#0 --(--): Phc_ErrorLog->_errorHandler()
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php(101): trigger_error()
+#2 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(346): Phc_ErrorLog->warning()
+#3 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData()
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch()
+#6 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch()
+#7 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+ in /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php on line 101]	[/gdpr/admin/indetail/edit/id/1/]	[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.167 Safari/537.36]	[Inbox v3.8 r4066]
+
+2018-02-16T00:53:46+01:00	[WARN]	[[Admin_PresentationController] Udaje contentu se nepodarilo zmenit. content_id='1' Puvodni vyjimka:
+exception 'PDOException' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column "entrycode" of relation "content" does not exist
+LINE 1: ...zed_object" = $1, "class_name" = $2, "name" = $3, "entrycode...
+                                                             ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('UPDATE "content...', Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(666): Zend_Db_Adapter_Pdo_Abstract->query('UPDATE "content...', Array)
+#5 /storage/web/www.nextforce.cz/www/gdpr/models/Contents.php(206): Zend_Db_Adapter_Abstract->update('content', Array, 'id = 1')
+#6 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(740): Contents::edit('1', Object(Ibulletin_Content_Indetail))
+#7 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(360): Admin_IndetailController->postSaveActions()
+#8 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData(Array)
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#10 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#11 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#12 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#13 {main}
+
+Next exception 'Zend_Db_Statement_Exception' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column "entrycode" of relation "content" does not exist
+LINE 1: ...zed_object" = $1, "class_name" = $2, "name" = $3, "entrycode...
+                                                             ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:234
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('UPDATE "content...', Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(666): Zend_Db_Adapter_Pdo_Abstract->query('UPDATE "content...', Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/models/Contents.php(206): Zend_Db_Adapter_Abstract->update('content', Array, 'id = 1')
+#5 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(740): Contents::edit('1', Object(Ibulletin_Content_Indetail))
+#6 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(360): Admin_IndetailController->postSaveActions()
+#7 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData(Array)
+#8 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#10 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#11 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#12 {main}
+PHP Stack trace:
+#0 --(--): Phc_ErrorLog->_errorHandler()
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php(101): trigger_error()
+#2 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(746): Phc_ErrorLog->warning()
+#3 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(360): Admin_IndetailController->postSaveActions()
+#4 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData()
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#6 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch()
+#7 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch()
+#8 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+ in /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php on line 101]	[/gdpr/admin/indetail/edit/id/1/]	[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.167 Safari/537.36]	[Inbox v3.8 r4066]
+
+2018-02-16T00:55:08+01:00	[WARN]	[[Admin_PresentationController] Udaje contentu se nepodarilo zmenit. content_id='1' Puvodni vyjimka:
+exception 'PDOException' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column "entrycode" of relation "content" does not exist
+LINE 1: ...zed_object" = $1, "class_name" = $2, "name" = $3, "entrycode...
+                                                             ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('UPDATE "content...', Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(666): Zend_Db_Adapter_Pdo_Abstract->query('UPDATE "content...', Array)
+#5 /storage/web/www.nextforce.cz/www/gdpr/models/Contents.php(206): Zend_Db_Adapter_Abstract->update('content', Array, 'id = 1')
+#6 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(340): Contents::edit('1', Object(Ibulletin_Content_Indetail))
+#7 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData(Array)
+#8 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#10 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#11 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#12 {main}
+
+Next exception 'Zend_Db_Statement_Exception' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column "entrycode" of relation "content" does not exist
+LINE 1: ...zed_object" = $1, "class_name" = $2, "name" = $3, "entrycode...
+                                                             ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:234
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('UPDATE "content...', Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(666): Zend_Db_Adapter_Pdo_Abstract->query('UPDATE "content...', Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/models/Contents.php(206): Zend_Db_Adapter_Abstract->update('content', Array, 'id = 1')
+#5 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(340): Contents::edit('1', Object(Ibulletin_Content_Indetail))
+#6 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData(Array)
+#7 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#8 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#10 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#11 {main}
+PHP Stack trace:
+#0 --(--): Phc_ErrorLog->_errorHandler()
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php(101): trigger_error()
+#2 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(346): Phc_ErrorLog->warning()
+#3 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData()
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch()
+#6 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch()
+#7 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+ in /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php on line 101]	[/gdpr/admin/indetail/edit/id/1/]	[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.167 Safari/537.36]	[Inbox v3.8 r4066]
+
+2018-02-16T00:55:08+01:00	[WARN]	[[Admin_PresentationController] Udaje contentu se nepodarilo zmenit. content_id='1' Puvodni vyjimka:
+exception 'PDOException' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column "entrycode" of relation "content" does not exist
+LINE 1: ...zed_object" = $1, "class_name" = $2, "name" = $3, "entrycode...
+                                                             ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('UPDATE "content...', Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(666): Zend_Db_Adapter_Pdo_Abstract->query('UPDATE "content...', Array)
+#5 /storage/web/www.nextforce.cz/www/gdpr/models/Contents.php(206): Zend_Db_Adapter_Abstract->update('content', Array, 'id = 1')
+#6 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(740): Contents::edit('1', Object(Ibulletin_Content_Indetail))
+#7 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(360): Admin_IndetailController->postSaveActions()
+#8 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData(Array)
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#10 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#11 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#12 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#13 {main}
+
+Next exception 'Zend_Db_Statement_Exception' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column "entrycode" of relation "content" does not exist
+LINE 1: ...zed_object" = $1, "class_name" = $2, "name" = $3, "entrycode...
+                                                             ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:234
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('UPDATE "content...', Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(666): Zend_Db_Adapter_Pdo_Abstract->query('UPDATE "content...', Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/models/Contents.php(206): Zend_Db_Adapter_Abstract->update('content', Array, 'id = 1')
+#5 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(740): Contents::edit('1', Object(Ibulletin_Content_Indetail))
+#6 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(360): Admin_IndetailController->postSaveActions()
+#7 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData(Array)
+#8 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#10 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#11 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#12 {main}
+PHP Stack trace:
+#0 --(--): Phc_ErrorLog->_errorHandler()
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php(101): trigger_error()
+#2 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(746): Phc_ErrorLog->warning()
+#3 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(360): Admin_IndetailController->postSaveActions()
+#4 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData()
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#6 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch()
+#7 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch()
+#8 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+ in /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php on line 101]	[/gdpr/admin/indetail/edit/id/1/]	[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.167 Safari/537.36]	[Inbox v3.8 r4066]
+
+2018-02-16T01:12:03+01:00	[WARN]	[[Exception] exception 'PDOException' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column content.entrycode does not exist
+LINE 1: SELECT "content"."entrycode" FROM "content" WHERE ("entrycod...
+               ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query(Object(Zend_Db_Select), Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(787): Zend_Db_Adapter_Pdo_Abstract->query(Object(Zend_Db_Select), Array)
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Validate/Db/Abstract.php(347): Zend_Db_Adapter_Abstract->fetchRow(Object(Zend_Db_Select), Array, 2)
+#6 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Validate/Db/NoRecordExists.php(43): Zend_Validate_Db_Abstract->_query('1111')
+#7 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Form/Element.php(1415): Zend_Validate_Db_NoRecordExists->isValid('1111', Array)
+#8 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Form.php(2252): Zend_Form_Element->isValid('1111', Array)
+#9 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(279): Zend_Form->isValid(Array)
+#10 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(93): Admin_IndetailController->getContentData('1', Object(Form))
+#11 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#12 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#13 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#14 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#15 {main}
+
+Next exception 'Zend_Db_Statement_Exception' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column content.entrycode does not exist
+LINE 1: SELECT "content"."entrycode" FROM "content" WHERE ("entrycod...
+               ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:234
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query(Object(Zend_Db_Select), Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(787): Zend_Db_Adapter_Pdo_Abstract->query(Object(Zend_Db_Select), Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Validate/Db/Abstract.php(347): Zend_Db_Adapter_Abstract->fetchRow(Object(Zend_Db_Select), Array, 2)
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Validate/Db/NoRecordExists.php(43): Zend_Validate_Db_Abstract->_query('1111')
+#6 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Form/Element.php(1415): Zend_Validate_Db_NoRecordExists->isValid('1111', Array)
+#7 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Form.php(2252): Zend_Form_Element->isValid('1111', Array)
+#8 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(279): Zend_Form->isValid(Array)
+#9 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(93): Admin_IndetailController->getContentData('1', Object(Form))
+#10 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#11 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#12 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#13 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#14 {main}
+PHP Stack trace:
+#0 --(--): Phc_ErrorLog->_errorHandler()
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php(101): trigger_error()
+#2 /storage/web/www.nextforce.cz/www/gdpr/controllers/ErrorController.php(42): Phc_ErrorLog->warning()
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): ErrorController->errorAction()
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch()
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch()
+#6 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+ in /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php on line 101]	[/gdpr/admin/indetail/edit/id/1/]	[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.167 Safari/537.36]	[Inbox v3.8 r4066]
+
+2018-02-16T01:12:18+01:00	[WARN]	[[Exception] exception 'PDOException' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column content.entrycode does not exist
+LINE 1: SELECT "content"."entrycode" FROM "content" WHERE ("entrycod...
+               ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query(Object(Zend_Db_Select), Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(787): Zend_Db_Adapter_Pdo_Abstract->query(Object(Zend_Db_Select), Array)
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Validate/Db/Abstract.php(347): Zend_Db_Adapter_Abstract->fetchRow(Object(Zend_Db_Select), Array, 2)
+#6 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Validate/Db/NoRecordExists.php(43): Zend_Validate_Db_Abstract->_query('10')
+#7 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Form/Element.php(1415): Zend_Validate_Db_NoRecordExists->isValid('10', Array)
+#8 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Form.php(2252): Zend_Form_Element->isValid('10', Array)
+#9 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(279): Zend_Form->isValid(Array)
+#10 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(93): Admin_IndetailController->getContentData('1', Object(Form))
+#11 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#12 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#13 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#14 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#15 {main}
+
+Next exception 'Zend_Db_Statement_Exception' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column content.entrycode does not exist
+LINE 1: SELECT "content"."entrycode" FROM "content" WHERE ("entrycod...
+               ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:234
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query(Object(Zend_Db_Select), Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(787): Zend_Db_Adapter_Pdo_Abstract->query(Object(Zend_Db_Select), Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Validate/Db/Abstract.php(347): Zend_Db_Adapter_Abstract->fetchRow(Object(Zend_Db_Select), Array, 2)
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Validate/Db/NoRecordExists.php(43): Zend_Validate_Db_Abstract->_query('10')
+#6 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Form/Element.php(1415): Zend_Validate_Db_NoRecordExists->isValid('10', Array)
+#7 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Form.php(2252): Zend_Form_Element->isValid('10', Array)
+#8 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(279): Zend_Form->isValid(Array)
+#9 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(93): Admin_IndetailController->getContentData('1', Object(Form))
+#10 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#11 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#12 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#13 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#14 {main}
+PHP Stack trace:
+#0 --(--): Phc_ErrorLog->_errorHandler()
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php(101): trigger_error()
+#2 /storage/web/www.nextforce.cz/www/gdpr/controllers/ErrorController.php(42): Phc_ErrorLog->warning()
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): ErrorController->errorAction()
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch()
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch()
+#6 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+ in /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php on line 101]	[/gdpr/admin/indetail/edit/id/1/]	[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.167 Safari/537.36]	[Inbox v3.8 r4066]
+
+2018-02-16T01:12:31+01:00	[WARN]	[[Exception] exception 'PDOException' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column content.entrycode does not exist
+LINE 1: SELECT "content"."entrycode" FROM "content" WHERE ("entrycod...
+               ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query(Object(Zend_Db_Select), Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(787): Zend_Db_Adapter_Pdo_Abstract->query(Object(Zend_Db_Select), Array)
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Validate/Db/Abstract.php(347): Zend_Db_Adapter_Abstract->fetchRow(Object(Zend_Db_Select), Array, 2)
+#6 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Validate/Db/NoRecordExists.php(43): Zend_Validate_Db_Abstract->_query('10')
+#7 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Form/Element.php(1415): Zend_Validate_Db_NoRecordExists->isValid('10', Array)
+#8 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Form.php(2252): Zend_Form_Element->isValid('10', Array)
+#9 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(279): Zend_Form->isValid(Array)
+#10 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(93): Admin_IndetailController->getContentData('1', Object(Form))
+#11 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#12 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#13 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#14 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#15 {main}
+
+Next exception 'Zend_Db_Statement_Exception' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column content.entrycode does not exist
+LINE 1: SELECT "content"."entrycode" FROM "content" WHERE ("entrycod...
+               ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:234
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query(Object(Zend_Db_Select), Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(787): Zend_Db_Adapter_Pdo_Abstract->query(Object(Zend_Db_Select), Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Validate/Db/Abstract.php(347): Zend_Db_Adapter_Abstract->fetchRow(Object(Zend_Db_Select), Array, 2)
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Validate/Db/NoRecordExists.php(43): Zend_Validate_Db_Abstract->_query('10')
+#6 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Form/Element.php(1415): Zend_Validate_Db_NoRecordExists->isValid('10', Array)
+#7 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Form.php(2252): Zend_Form_Element->isValid('10', Array)
+#8 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(279): Zend_Form->isValid(Array)
+#9 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(93): Admin_IndetailController->getContentData('1', Object(Form))
+#10 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#11 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#12 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#13 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#14 {main}
+PHP Stack trace:
+#0 --(--): Phc_ErrorLog->_errorHandler()
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php(101): trigger_error()
+#2 /storage/web/www.nextforce.cz/www/gdpr/controllers/ErrorController.php(42): Phc_ErrorLog->warning()
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): ErrorController->errorAction()
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch()
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch()
+#6 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+ in /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php on line 101]	[/gdpr/admin/indetail/edit/id/1/]	[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.167 Safari/537.36]	[Inbox v3.8 r4066]
+
+2018-02-16T01:12:41+01:00	[WARN]	[[Admin_PresentationController] Udaje contentu se nepodarilo zmenit. content_id='1' Puvodni vyjimka:
+exception 'PDOException' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column "entrycode" of relation "content" does not exist
+LINE 1: ...zed_object" = $1, "class_name" = $2, "name" = $3, "entrycode...
+                                                             ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('UPDATE "content...', Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(666): Zend_Db_Adapter_Pdo_Abstract->query('UPDATE "content...', Array)
+#5 /storage/web/www.nextforce.cz/www/gdpr/models/Contents.php(206): Zend_Db_Adapter_Abstract->update('content', Array, 'id = 1')
+#6 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(340): Contents::edit('1', Object(Ibulletin_Content_Indetail))
+#7 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData(Array)
+#8 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#10 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#11 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#12 {main}
+
+Next exception 'Zend_Db_Statement_Exception' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column "entrycode" of relation "content" does not exist
+LINE 1: ...zed_object" = $1, "class_name" = $2, "name" = $3, "entrycode...
+                                                             ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:234
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('UPDATE "content...', Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(666): Zend_Db_Adapter_Pdo_Abstract->query('UPDATE "content...', Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/models/Contents.php(206): Zend_Db_Adapter_Abstract->update('content', Array, 'id = 1')
+#5 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(340): Contents::edit('1', Object(Ibulletin_Content_Indetail))
+#6 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData(Array)
+#7 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#8 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#10 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#11 {main}
+PHP Stack trace:
+#0 --(--): Phc_ErrorLog->_errorHandler()
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php(101): trigger_error()
+#2 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(346): Phc_ErrorLog->warning()
+#3 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData()
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch()
+#6 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch()
+#7 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+ in /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php on line 101]	[/gdpr/admin/indetail/edit/id/1/]	[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.167 Safari/537.36]	[Inbox v3.8 r4066]
+
+2018-02-16T01:12:41+01:00	[WARN]	[[Admin_PresentationController] Udaje contentu se nepodarilo zmenit. content_id='1' Puvodni vyjimka:
+exception 'PDOException' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column "entrycode" of relation "content" does not exist
+LINE 1: ...zed_object" = $1, "class_name" = $2, "name" = $3, "entrycode...
+                                                             ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('UPDATE "content...', Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(666): Zend_Db_Adapter_Pdo_Abstract->query('UPDATE "content...', Array)
+#5 /storage/web/www.nextforce.cz/www/gdpr/models/Contents.php(206): Zend_Db_Adapter_Abstract->update('content', Array, 'id = 1')
+#6 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(740): Contents::edit('1', Object(Ibulletin_Content_Indetail))
+#7 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(360): Admin_IndetailController->postSaveActions()
+#8 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData(Array)
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#10 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#11 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#12 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#13 {main}
+
+Next exception 'Zend_Db_Statement_Exception' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column "entrycode" of relation "content" does not exist
+LINE 1: ...zed_object" = $1, "class_name" = $2, "name" = $3, "entrycode...
+                                                             ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:234
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('UPDATE "content...', Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(666): Zend_Db_Adapter_Pdo_Abstract->query('UPDATE "content...', Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/models/Contents.php(206): Zend_Db_Adapter_Abstract->update('content', Array, 'id = 1')
+#5 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(740): Contents::edit('1', Object(Ibulletin_Content_Indetail))
+#6 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(360): Admin_IndetailController->postSaveActions()
+#7 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData(Array)
+#8 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#10 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#11 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#12 {main}
+PHP Stack trace:
+#0 --(--): Phc_ErrorLog->_errorHandler()
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php(101): trigger_error()
+#2 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(746): Phc_ErrorLog->warning()
+#3 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(360): Admin_IndetailController->postSaveActions()
+#4 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData()
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#6 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch()
+#7 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch()
+#8 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+ in /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php on line 101]	[/gdpr/admin/indetail/edit/id/1/]	[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.167 Safari/537.36]	[Inbox v3.8 r4066]
+
+2018-02-16T01:12:50+01:00	[WARN]	[[Exception] exception 'PDOException' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column content.entrycode does not exist
+LINE 1: SELECT "content"."entrycode" FROM "content" WHERE ("entrycod...
+               ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query(Object(Zend_Db_Select), Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(787): Zend_Db_Adapter_Pdo_Abstract->query(Object(Zend_Db_Select), Array)
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Validate/Db/Abstract.php(347): Zend_Db_Adapter_Abstract->fetchRow(Object(Zend_Db_Select), Array, 2)
+#6 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Validate/Db/NoRecordExists.php(43): Zend_Validate_Db_Abstract->_query('abcd')
+#7 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Form/Element.php(1415): Zend_Validate_Db_NoRecordExists->isValid('abcd', Array)
+#8 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Form.php(2252): Zend_Form_Element->isValid('abcd', Array)
+#9 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(279): Zend_Form->isValid(Array)
+#10 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(93): Admin_IndetailController->getContentData('1', Object(Form))
+#11 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#12 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#13 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#14 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#15 {main}
+
+Next exception 'Zend_Db_Statement_Exception' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column content.entrycode does not exist
+LINE 1: SELECT "content"."entrycode" FROM "content" WHERE ("entrycod...
+               ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:234
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query(Object(Zend_Db_Select), Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(787): Zend_Db_Adapter_Pdo_Abstract->query(Object(Zend_Db_Select), Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Validate/Db/Abstract.php(347): Zend_Db_Adapter_Abstract->fetchRow(Object(Zend_Db_Select), Array, 2)
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Validate/Db/NoRecordExists.php(43): Zend_Validate_Db_Abstract->_query('abcd')
+#6 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Form/Element.php(1415): Zend_Validate_Db_NoRecordExists->isValid('abcd', Array)
+#7 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Form.php(2252): Zend_Form_Element->isValid('abcd', Array)
+#8 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(279): Zend_Form->isValid(Array)
+#9 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(93): Admin_IndetailController->getContentData('1', Object(Form))
+#10 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#11 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#12 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#13 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#14 {main}
+PHP Stack trace:
+#0 --(--): Phc_ErrorLog->_errorHandler()
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php(101): trigger_error()
+#2 /storage/web/www.nextforce.cz/www/gdpr/controllers/ErrorController.php(42): Phc_ErrorLog->warning()
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): ErrorController->errorAction()
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch()
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch()
+#6 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+ in /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php on line 101]	[/gdpr/admin/indetail/edit/id/1/]	[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.167 Safari/537.36]	[Inbox v3.8 r4066]
+
+2018-02-16T01:20:58+01:00	[WARN]	[[Admin_PresentationController] Udaje contentu se nepodarilo zmenit. content_id='1' Puvodni vyjimka:
+exception 'PDOException' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column "entrycode" of relation "content" does not exist
+LINE 1: ...zed_object" = $1, "class_name" = $2, "name" = $3, "entrycode...
+                                                             ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('UPDATE "content...', Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(666): Zend_Db_Adapter_Pdo_Abstract->query('UPDATE "content...', Array)
+#5 /storage/web/www.nextforce.cz/www/gdpr/models/Contents.php(206): Zend_Db_Adapter_Abstract->update('content', Array, 'id = 1')
+#6 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(340): Contents::edit('1', Object(Ibulletin_Content_Indetail))
+#7 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData(Array)
+#8 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#10 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#11 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#12 {main}
+
+Next exception 'Zend_Db_Statement_Exception' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column "entrycode" of relation "content" does not exist
+LINE 1: ...zed_object" = $1, "class_name" = $2, "name" = $3, "entrycode...
+                                                             ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:234
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('UPDATE "content...', Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(666): Zend_Db_Adapter_Pdo_Abstract->query('UPDATE "content...', Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/models/Contents.php(206): Zend_Db_Adapter_Abstract->update('content', Array, 'id = 1')
+#5 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(340): Contents::edit('1', Object(Ibulletin_Content_Indetail))
+#6 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData(Array)
+#7 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#8 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#10 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#11 {main}
+PHP Stack trace:
+#0 --(--): Phc_ErrorLog->_errorHandler()
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php(101): trigger_error()
+#2 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(346): Phc_ErrorLog->warning()
+#3 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData()
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch()
+#6 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch()
+#7 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+ in /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php on line 101]	[/gdpr/admin/indetail/edit/id/1/]	[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.167 Safari/537.36]	[Inbox v3.8 r4066]
+
+2018-02-16T01:20:58+01:00	[WARN]	[[Admin_PresentationController] Udaje contentu se nepodarilo zmenit. content_id='1' Puvodni vyjimka:
+exception 'PDOException' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column "entrycode" of relation "content" does not exist
+LINE 1: ...zed_object" = $1, "class_name" = $2, "name" = $3, "entrycode...
+                                                             ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('UPDATE "content...', Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(666): Zend_Db_Adapter_Pdo_Abstract->query('UPDATE "content...', Array)
+#5 /storage/web/www.nextforce.cz/www/gdpr/models/Contents.php(206): Zend_Db_Adapter_Abstract->update('content', Array, 'id = 1')
+#6 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(740): Contents::edit('1', Object(Ibulletin_Content_Indetail))
+#7 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(360): Admin_IndetailController->postSaveActions()
+#8 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData(Array)
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#10 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#11 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#12 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#13 {main}
+
+Next exception 'Zend_Db_Statement_Exception' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column "entrycode" of relation "content" does not exist
+LINE 1: ...zed_object" = $1, "class_name" = $2, "name" = $3, "entrycode...
+                                                             ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:234
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('UPDATE "content...', Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(666): Zend_Db_Adapter_Pdo_Abstract->query('UPDATE "content...', Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/models/Contents.php(206): Zend_Db_Adapter_Abstract->update('content', Array, 'id = 1')
+#5 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(740): Contents::edit('1', Object(Ibulletin_Content_Indetail))
+#6 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(360): Admin_IndetailController->postSaveActions()
+#7 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData(Array)
+#8 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#10 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#11 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#12 {main}
+PHP Stack trace:
+#0 --(--): Phc_ErrorLog->_errorHandler()
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php(101): trigger_error()
+#2 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(746): Phc_ErrorLog->warning()
+#3 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(360): Admin_IndetailController->postSaveActions()
+#4 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData()
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#6 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch()
+#7 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch()
+#8 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+ in /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php on line 101]	[/gdpr/admin/indetail/edit/id/1/]	[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.167 Safari/537.36]	[Inbox v3.8 r4066]
+
+2018-02-16T01:31:24+01:00	[WARN]	[[Exception] exception 'PDOException' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column content.entrycode does not exist
+LINE 1: SELECT "content"."entrycode" FROM "content" WHERE ("entrycod...
+               ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query(Object(Zend_Db_Select), Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(787): Zend_Db_Adapter_Pdo_Abstract->query(Object(Zend_Db_Select), Array)
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Validate/Db/Abstract.php(347): Zend_Db_Adapter_Abstract->fetchRow(Object(Zend_Db_Select), Array, 2)
+#6 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Validate/Db/NoRecordExists.php(43): Zend_Validate_Db_Abstract->_query('abcd')
+#7 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Form/Element.php(1415): Zend_Validate_Db_NoRecordExists->isValid('abcd', Array)
+#8 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Form.php(2252): Zend_Form_Element->isValid('abcd', Array)
+#9 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(279): Zend_Form->isValid(Array)
+#10 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(93): Admin_IndetailController->getContentData('1', Object(Form))
+#11 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#12 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#13 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#14 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#15 {main}
+
+Next exception 'Zend_Db_Statement_Exception' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column content.entrycode does not exist
+LINE 1: SELECT "content"."entrycode" FROM "content" WHERE ("entrycod...
+               ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:234
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query(Object(Zend_Db_Select), Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(787): Zend_Db_Adapter_Pdo_Abstract->query(Object(Zend_Db_Select), Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Validate/Db/Abstract.php(347): Zend_Db_Adapter_Abstract->fetchRow(Object(Zend_Db_Select), Array, 2)
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Validate/Db/NoRecordExists.php(43): Zend_Validate_Db_Abstract->_query('abcd')
+#6 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Form/Element.php(1415): Zend_Validate_Db_NoRecordExists->isValid('abcd', Array)
+#7 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Form.php(2252): Zend_Form_Element->isValid('abcd', Array)
+#8 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(279): Zend_Form->isValid(Array)
+#9 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(93): Admin_IndetailController->getContentData('1', Object(Form))
+#10 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#11 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#12 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#13 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#14 {main}
+PHP Stack trace:
+#0 --(--): Phc_ErrorLog->_errorHandler()
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php(101): trigger_error()
+#2 /storage/web/www.nextforce.cz/www/gdpr/controllers/ErrorController.php(42): Phc_ErrorLog->warning()
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): ErrorController->errorAction()
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch()
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch()
+#6 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+ in /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php on line 101]	[/gdpr/admin/indetail/edit/id/1/]	[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.167 Safari/537.36]	[Inbox v3.8 r4066]
+
+2018-02-16T01:33:06+01:00	[WARN]	[[Admin_PresentationController] Udaje contentu se nepodarilo zmenit. content_id='1' Puvodni vyjimka:
+exception 'PDOException' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column "entrycode" of relation "content" does not exist
+LINE 1: ...zed_object" = $1, "class_name" = $2, "name" = $3, "entrycode...
+                                                             ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('UPDATE "content...', Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(666): Zend_Db_Adapter_Pdo_Abstract->query('UPDATE "content...', Array)
+#5 /storage/web/www.nextforce.cz/www/gdpr/models/Contents.php(206): Zend_Db_Adapter_Abstract->update('content', Array, 'id = 1')
+#6 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(340): Contents::edit('1', Object(Ibulletin_Content_Indetail))
+#7 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData(Array)
+#8 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#10 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#11 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#12 {main}
+
+Next exception 'Zend_Db_Statement_Exception' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column "entrycode" of relation "content" does not exist
+LINE 1: ...zed_object" = $1, "class_name" = $2, "name" = $3, "entrycode...
+                                                             ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:234
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('UPDATE "content...', Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(666): Zend_Db_Adapter_Pdo_Abstract->query('UPDATE "content...', Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/models/Contents.php(206): Zend_Db_Adapter_Abstract->update('content', Array, 'id = 1')
+#5 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(340): Contents::edit('1', Object(Ibulletin_Content_Indetail))
+#6 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData(Array)
+#7 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#8 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#10 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#11 {main}
+PHP Stack trace:
+#0 --(--): Phc_ErrorLog->_errorHandler()
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php(101): trigger_error()
+#2 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(346): Phc_ErrorLog->warning()
+#3 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData()
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch()
+#6 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch()
+#7 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+ in /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php on line 101]	[/gdpr/admin/indetail/edit/id/1/]	[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.167 Safari/537.36]	[Inbox v3.8 r4066]
+
+2018-02-16T01:33:06+01:00	[WARN]	[[Admin_PresentationController] Udaje contentu se nepodarilo zmenit. content_id='1' Puvodni vyjimka:
+exception 'PDOException' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column "entrycode" of relation "content" does not exist
+LINE 1: ...zed_object" = $1, "class_name" = $2, "name" = $3, "entrycode...
+                                                             ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('UPDATE "content...', Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(666): Zend_Db_Adapter_Pdo_Abstract->query('UPDATE "content...', Array)
+#5 /storage/web/www.nextforce.cz/www/gdpr/models/Contents.php(206): Zend_Db_Adapter_Abstract->update('content', Array, 'id = 1')
+#6 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(740): Contents::edit('1', Object(Ibulletin_Content_Indetail))
+#7 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(360): Admin_IndetailController->postSaveActions()
+#8 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData(Array)
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#10 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#11 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#12 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#13 {main}
+
+Next exception 'Zend_Db_Statement_Exception' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column "entrycode" of relation "content" does not exist
+LINE 1: ...zed_object" = $1, "class_name" = $2, "name" = $3, "entrycode...
+                                                             ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:234
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('UPDATE "content...', Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(666): Zend_Db_Adapter_Pdo_Abstract->query('UPDATE "content...', Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/models/Contents.php(206): Zend_Db_Adapter_Abstract->update('content', Array, 'id = 1')
+#5 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(740): Contents::edit('1', Object(Ibulletin_Content_Indetail))
+#6 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(360): Admin_IndetailController->postSaveActions()
+#7 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData(Array)
+#8 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#10 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#11 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#12 {main}
+PHP Stack trace:
+#0 --(--): Phc_ErrorLog->_errorHandler()
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php(101): trigger_error()
+#2 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(746): Phc_ErrorLog->warning()
+#3 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(360): Admin_IndetailController->postSaveActions()
+#4 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData()
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#6 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch()
+#7 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch()
+#8 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+ in /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php on line 101]	[/gdpr/admin/indetail/edit/id/1/]	[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.167 Safari/537.36]	[Inbox v3.8 r4066]
+
+2018-02-16T01:33:19+01:00	[WARN]	[[Admin_PresentationController] Udaje contentu se nepodarilo zmenit. content_id='1' Puvodni vyjimka:
+exception 'PDOException' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column "entrycode" of relation "content" does not exist
+LINE 1: ...zed_object" = $1, "class_name" = $2, "name" = $3, "entrycode...
+                                                             ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('UPDATE "content...', Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(666): Zend_Db_Adapter_Pdo_Abstract->query('UPDATE "content...', Array)
+#5 /storage/web/www.nextforce.cz/www/gdpr/models/Contents.php(206): Zend_Db_Adapter_Abstract->update('content', Array, 'id = 1')
+#6 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(340): Contents::edit('1', Object(Ibulletin_Content_Indetail))
+#7 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData(Array)
+#8 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#10 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#11 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#12 {main}
+
+Next exception 'Zend_Db_Statement_Exception' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column "entrycode" of relation "content" does not exist
+LINE 1: ...zed_object" = $1, "class_name" = $2, "name" = $3, "entrycode...
+                                                             ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:234
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('UPDATE "content...', Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(666): Zend_Db_Adapter_Pdo_Abstract->query('UPDATE "content...', Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/models/Contents.php(206): Zend_Db_Adapter_Abstract->update('content', Array, 'id = 1')
+#5 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(340): Contents::edit('1', Object(Ibulletin_Content_Indetail))
+#6 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData(Array)
+#7 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#8 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#10 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#11 {main}
+PHP Stack trace:
+#0 --(--): Phc_ErrorLog->_errorHandler()
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php(101): trigger_error()
+#2 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(346): Phc_ErrorLog->warning()
+#3 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData()
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch()
+#6 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch()
+#7 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+ in /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php on line 101]	[/gdpr/admin/indetail/edit/id/1/]	[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.167 Safari/537.36]	[Inbox v3.8 r4066]
+
+2018-02-16T01:33:19+01:00	[WARN]	[[Admin_PresentationController] Udaje contentu se nepodarilo zmenit. content_id='1' Puvodni vyjimka:
+exception 'PDOException' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column "entrycode" of relation "content" does not exist
+LINE 1: ...zed_object" = $1, "class_name" = $2, "name" = $3, "entrycode...
+                                                             ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('UPDATE "content...', Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(666): Zend_Db_Adapter_Pdo_Abstract->query('UPDATE "content...', Array)
+#5 /storage/web/www.nextforce.cz/www/gdpr/models/Contents.php(206): Zend_Db_Adapter_Abstract->update('content', Array, 'id = 1')
+#6 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(740): Contents::edit('1', Object(Ibulletin_Content_Indetail))
+#7 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(360): Admin_IndetailController->postSaveActions()
+#8 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData(Array)
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#10 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#11 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#12 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#13 {main}
+
+Next exception 'Zend_Db_Statement_Exception' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column "entrycode" of relation "content" does not exist
+LINE 1: ...zed_object" = $1, "class_name" = $2, "name" = $3, "entrycode...
+                                                             ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:234
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('UPDATE "content...', Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(666): Zend_Db_Adapter_Pdo_Abstract->query('UPDATE "content...', Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/models/Contents.php(206): Zend_Db_Adapter_Abstract->update('content', Array, 'id = 1')
+#5 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(740): Contents::edit('1', Object(Ibulletin_Content_Indetail))
+#6 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(360): Admin_IndetailController->postSaveActions()
+#7 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData(Array)
+#8 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#10 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#11 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#12 {main}
+PHP Stack trace:
+#0 --(--): Phc_ErrorLog->_errorHandler()
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php(101): trigger_error()
+#2 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(746): Phc_ErrorLog->warning()
+#3 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(360): Admin_IndetailController->postSaveActions()
+#4 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData()
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#6 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch()
+#7 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch()
+#8 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+ in /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php on line 101]	[/gdpr/admin/indetail/edit/id/1/]	[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.167 Safari/537.36]	[Inbox v3.8 r4066]
+
+2018-02-16T01:54:46+01:00	[WARN]	[[Admin_PresentationController] Udaje contentu se nepodarilo zmenit. content_id='1' Puvodni vyjimka:
+exception 'PDOException' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column "entrycode" of relation "content" does not exist
+LINE 1: ...zed_object" = $1, "class_name" = $2, "name" = $3, "entrycode...
+                                                             ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('UPDATE "content...', Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(666): Zend_Db_Adapter_Pdo_Abstract->query('UPDATE "content...', Array)
+#5 /storage/web/www.nextforce.cz/www/gdpr/models/Contents.php(206): Zend_Db_Adapter_Abstract->update('content', Array, 'id = 1')
+#6 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(340): Contents::edit('1', Object(Ibulletin_Content_Indetail))
+#7 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData(Array)
+#8 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#10 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#11 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#12 {main}
+
+Next exception 'Zend_Db_Statement_Exception' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column "entrycode" of relation "content" does not exist
+LINE 1: ...zed_object" = $1, "class_name" = $2, "name" = $3, "entrycode...
+                                                             ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:234
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('UPDATE "content...', Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(666): Zend_Db_Adapter_Pdo_Abstract->query('UPDATE "content...', Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/models/Contents.php(206): Zend_Db_Adapter_Abstract->update('content', Array, 'id = 1')
+#5 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(340): Contents::edit('1', Object(Ibulletin_Content_Indetail))
+#6 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData(Array)
+#7 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#8 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#10 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#11 {main}
+PHP Stack trace:
+#0 --(--): Phc_ErrorLog->_errorHandler()
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php(101): trigger_error()
+#2 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(346): Phc_ErrorLog->warning()
+#3 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData()
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch()
+#6 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch()
+#7 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+ in /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php on line 101]	[/gdpr/admin/indetail/edit/id/1/]	[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.167 Safari/537.36]	[Inbox v3.8 r4066]
+
+2018-02-16T01:54:46+01:00	[WARN]	[[Admin_PresentationController] Udaje contentu se nepodarilo zmenit. content_id='1' Puvodni vyjimka:
+exception 'PDOException' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column "entrycode" of relation "content" does not exist
+LINE 1: ...zed_object" = $1, "class_name" = $2, "name" = $3, "entrycode...
+                                                             ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('UPDATE "content...', Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(666): Zend_Db_Adapter_Pdo_Abstract->query('UPDATE "content...', Array)
+#5 /storage/web/www.nextforce.cz/www/gdpr/models/Contents.php(206): Zend_Db_Adapter_Abstract->update('content', Array, 'id = 1')
+#6 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(740): Contents::edit('1', Object(Ibulletin_Content_Indetail))
+#7 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(360): Admin_IndetailController->postSaveActions()
+#8 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData(Array)
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#10 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#11 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#12 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#13 {main}
+
+Next exception 'Zend_Db_Statement_Exception' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column "entrycode" of relation "content" does not exist
+LINE 1: ...zed_object" = $1, "class_name" = $2, "name" = $3, "entrycode...
+                                                             ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:234
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('UPDATE "content...', Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(666): Zend_Db_Adapter_Pdo_Abstract->query('UPDATE "content...', Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/models/Contents.php(206): Zend_Db_Adapter_Abstract->update('content', Array, 'id = 1')
+#5 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(740): Contents::edit('1', Object(Ibulletin_Content_Indetail))
+#6 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(360): Admin_IndetailController->postSaveActions()
+#7 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData(Array)
+#8 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#10 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#11 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#12 {main}
+PHP Stack trace:
+#0 --(--): Phc_ErrorLog->_errorHandler()
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php(101): trigger_error()
+#2 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(746): Phc_ErrorLog->warning()
+#3 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(360): Admin_IndetailController->postSaveActions()
+#4 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData()
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#6 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch()
+#7 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch()
+#8 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+ in /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php on line 101]	[/gdpr/admin/indetail/edit/id/1/]	[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.167 Safari/537.36]	[Inbox v3.8 r4066]
+
+2018-02-16T01:55:51+01:00	[WARN]	[[Admin_PresentationController] Udaje contentu se nepodarilo zmenit. content_id='1' Puvodni vyjimka:
+exception 'PDOException' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column "entrycode" of relation "content" does not exist
+LINE 1: ...zed_object" = $1, "class_name" = $2, "name" = $3, "entrycode...
+                                                             ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('UPDATE "content...', Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(666): Zend_Db_Adapter_Pdo_Abstract->query('UPDATE "content...', Array)
+#5 /storage/web/www.nextforce.cz/www/gdpr/models/Contents.php(206): Zend_Db_Adapter_Abstract->update('content', Array, 'id = 1')
+#6 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(340): Contents::edit('1', Object(Ibulletin_Content_Indetail))
+#7 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData(Array)
+#8 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#10 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#11 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#12 {main}
+
+Next exception 'Zend_Db_Statement_Exception' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column "entrycode" of relation "content" does not exist
+LINE 1: ...zed_object" = $1, "class_name" = $2, "name" = $3, "entrycode...
+                                                             ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:234
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('UPDATE "content...', Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(666): Zend_Db_Adapter_Pdo_Abstract->query('UPDATE "content...', Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/models/Contents.php(206): Zend_Db_Adapter_Abstract->update('content', Array, 'id = 1')
+#5 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(340): Contents::edit('1', Object(Ibulletin_Content_Indetail))
+#6 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData(Array)
+#7 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#8 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#10 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#11 {main}
+PHP Stack trace:
+#0 --(--): Phc_ErrorLog->_errorHandler()
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php(101): trigger_error()
+#2 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(346): Phc_ErrorLog->warning()
+#3 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData()
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch()
+#6 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch()
+#7 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+ in /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php on line 101]	[/gdpr/admin/indetail/edit/id/1/]	[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.167 Safari/537.36]	[Inbox v3.8 r4066]
+
+2018-02-16T01:55:51+01:00	[WARN]	[[Admin_PresentationController] Udaje contentu se nepodarilo zmenit. content_id='1' Puvodni vyjimka:
+exception 'PDOException' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column "entrycode" of relation "content" does not exist
+LINE 1: ...zed_object" = $1, "class_name" = $2, "name" = $3, "entrycode...
+                                                             ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('UPDATE "content...', Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(666): Zend_Db_Adapter_Pdo_Abstract->query('UPDATE "content...', Array)
+#5 /storage/web/www.nextforce.cz/www/gdpr/models/Contents.php(206): Zend_Db_Adapter_Abstract->update('content', Array, 'id = 1')
+#6 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(740): Contents::edit('1', Object(Ibulletin_Content_Indetail))
+#7 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(360): Admin_IndetailController->postSaveActions()
+#8 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData(Array)
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#10 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#11 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#12 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#13 {main}
+
+Next exception 'Zend_Db_Statement_Exception' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column "entrycode" of relation "content" does not exist
+LINE 1: ...zed_object" = $1, "class_name" = $2, "name" = $3, "entrycode...
+                                                             ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:234
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('UPDATE "content...', Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(666): Zend_Db_Adapter_Pdo_Abstract->query('UPDATE "content...', Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/models/Contents.php(206): Zend_Db_Adapter_Abstract->update('content', Array, 'id = 1')
+#5 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(740): Contents::edit('1', Object(Ibulletin_Content_Indetail))
+#6 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(360): Admin_IndetailController->postSaveActions()
+#7 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData(Array)
+#8 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#10 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#11 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#12 {main}
+PHP Stack trace:
+#0 --(--): Phc_ErrorLog->_errorHandler()
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php(101): trigger_error()
+#2 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(746): Phc_ErrorLog->warning()
+#3 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(360): Admin_IndetailController->postSaveActions()
+#4 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData()
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#6 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch()
+#7 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch()
+#8 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+ in /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php on line 101]	[/gdpr/admin/indetail/edit/id/1/]	[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.167 Safari/537.36]	[Inbox v3.8 r4066]
+
+2018-02-16T01:58:12+01:00	[WARN]	[[Admin_PresentationController] Udaje contentu se nepodarilo zmenit. content_id='1' Puvodni vyjimka:
+exception 'PDOException' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column "entrycode" of relation "content" does not exist
+LINE 1: ...zed_object" = $1, "class_name" = $2, "name" = $3, "entrycode...
+                                                             ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('UPDATE "content...', Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(666): Zend_Db_Adapter_Pdo_Abstract->query('UPDATE "content...', Array)
+#5 /storage/web/www.nextforce.cz/www/gdpr/models/Contents.php(206): Zend_Db_Adapter_Abstract->update('content', Array, 'id = 1')
+#6 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(340): Contents::edit('1', Object(Ibulletin_Content_Indetail))
+#7 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData(Array)
+#8 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#10 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#11 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#12 {main}
+
+Next exception 'Zend_Db_Statement_Exception' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column "entrycode" of relation "content" does not exist
+LINE 1: ...zed_object" = $1, "class_name" = $2, "name" = $3, "entrycode...
+                                                             ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:234
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('UPDATE "content...', Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(666): Zend_Db_Adapter_Pdo_Abstract->query('UPDATE "content...', Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/models/Contents.php(206): Zend_Db_Adapter_Abstract->update('content', Array, 'id = 1')
+#5 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(340): Contents::edit('1', Object(Ibulletin_Content_Indetail))
+#6 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData(Array)
+#7 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#8 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#10 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#11 {main}
+PHP Stack trace:
+#0 --(--): Phc_ErrorLog->_errorHandler()
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php(101): trigger_error()
+#2 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(346): Phc_ErrorLog->warning()
+#3 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData()
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch()
+#6 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch()
+#7 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+ in /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php on line 101]	[/gdpr/admin/indetail/edit/id/1/]	[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.167 Safari/537.36]	[Inbox v3.8 r4066]
+
+2018-02-16T01:58:12+01:00	[WARN]	[[Admin_PresentationController] Udaje contentu se nepodarilo zmenit. content_id='1' Puvodni vyjimka:
+exception 'PDOException' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column "entrycode" of relation "content" does not exist
+LINE 1: ...zed_object" = $1, "class_name" = $2, "name" = $3, "entrycode...
+                                                             ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('UPDATE "content...', Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(666): Zend_Db_Adapter_Pdo_Abstract->query('UPDATE "content...', Array)
+#5 /storage/web/www.nextforce.cz/www/gdpr/models/Contents.php(206): Zend_Db_Adapter_Abstract->update('content', Array, 'id = 1')
+#6 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(740): Contents::edit('1', Object(Ibulletin_Content_Indetail))
+#7 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(360): Admin_IndetailController->postSaveActions()
+#8 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData(Array)
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#10 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#11 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#12 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#13 {main}
+
+Next exception 'Zend_Db_Statement_Exception' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column "entrycode" of relation "content" does not exist
+LINE 1: ...zed_object" = $1, "class_name" = $2, "name" = $3, "entrycode...
+                                                             ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:234
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('UPDATE "content...', Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(666): Zend_Db_Adapter_Pdo_Abstract->query('UPDATE "content...', Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/models/Contents.php(206): Zend_Db_Adapter_Abstract->update('content', Array, 'id = 1')
+#5 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(740): Contents::edit('1', Object(Ibulletin_Content_Indetail))
+#6 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(360): Admin_IndetailController->postSaveActions()
+#7 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData(Array)
+#8 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#10 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#11 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#12 {main}
+PHP Stack trace:
+#0 --(--): Phc_ErrorLog->_errorHandler()
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php(101): trigger_error()
+#2 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(746): Phc_ErrorLog->warning()
+#3 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(360): Admin_IndetailController->postSaveActions()
+#4 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData()
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#6 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch()
+#7 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch()
+#8 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+ in /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php on line 101]	[/gdpr/admin/indetail/edit/id/1/]	[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.167 Safari/537.36]	[Inbox v3.8 r4066]
+
+2018-02-16T02:00:13+01:00	[WARN]	[[Admin_PresentationController] Udaje contentu se nepodarilo zmenit. content_id='1' Puvodni vyjimka:
+exception 'PDOException' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column "entrycode" of relation "content" does not exist
+LINE 1: ...zed_object" = $1, "class_name" = $2, "name" = $3, "entrycode...
+                                                             ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('UPDATE "content...', Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(666): Zend_Db_Adapter_Pdo_Abstract->query('UPDATE "content...', Array)
+#5 /storage/web/www.nextforce.cz/www/gdpr/models/Contents.php(206): Zend_Db_Adapter_Abstract->update('content', Array, 'id = 1')
+#6 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(340): Contents::edit('1', Object(Ibulletin_Content_Indetail))
+#7 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData(Array)
+#8 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#10 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#11 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#12 {main}
+
+Next exception 'Zend_Db_Statement_Exception' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column "entrycode" of relation "content" does not exist
+LINE 1: ...zed_object" = $1, "class_name" = $2, "name" = $3, "entrycode...
+                                                             ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:234
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('UPDATE "content...', Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(666): Zend_Db_Adapter_Pdo_Abstract->query('UPDATE "content...', Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/models/Contents.php(206): Zend_Db_Adapter_Abstract->update('content', Array, 'id = 1')
+#5 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(340): Contents::edit('1', Object(Ibulletin_Content_Indetail))
+#6 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData(Array)
+#7 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#8 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#10 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#11 {main}
+PHP Stack trace:
+#0 --(--): Phc_ErrorLog->_errorHandler()
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php(101): trigger_error()
+#2 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(346): Phc_ErrorLog->warning()
+#3 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData()
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch()
+#6 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch()
+#7 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+ in /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php on line 101]	[/gdpr/admin/indetail/edit/id/1/]	[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.167 Safari/537.36]	[Inbox v3.8 r4066]
+
+2018-02-16T02:00:13+01:00	[WARN]	[[Admin_PresentationController] Udaje contentu se nepodarilo zmenit. content_id='1' Puvodni vyjimka:
+exception 'PDOException' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column "entrycode" of relation "content" does not exist
+LINE 1: ...zed_object" = $1, "class_name" = $2, "name" = $3, "entrycode...
+                                                             ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('UPDATE "content...', Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(666): Zend_Db_Adapter_Pdo_Abstract->query('UPDATE "content...', Array)
+#5 /storage/web/www.nextforce.cz/www/gdpr/models/Contents.php(206): Zend_Db_Adapter_Abstract->update('content', Array, 'id = 1')
+#6 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(740): Contents::edit('1', Object(Ibulletin_Content_Indetail))
+#7 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(360): Admin_IndetailController->postSaveActions()
+#8 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData(Array)
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#10 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#11 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#12 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#13 {main}
+
+Next exception 'Zend_Db_Statement_Exception' with message 'SQLSTATE[42703]: Undefined column: 7 ERROR:  column "entrycode" of relation "content" does not exist
+LINE 1: ...zed_object" = $1, "class_name" = $2, "name" = $3, "entrycode...
+                                                             ^' in /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement/Pdo.php:234
+Stack trace:
+#0 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Statement.php(300): Zend_Db_Statement_Pdo->_execute(Array)
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('UPDATE "content...', Array)
+#3 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Db/Adapter/Abstract.php(666): Zend_Db_Adapter_Pdo_Abstract->query('UPDATE "content...', Array)
+#4 /storage/web/www.nextforce.cz/www/gdpr/models/Contents.php(206): Zend_Db_Adapter_Abstract->update('content', Array, 'id = 1')
+#5 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(740): Contents::edit('1', Object(Ibulletin_Content_Indetail))
+#6 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(360): Admin_IndetailController->postSaveActions()
+#7 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData(Array)
+#8 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#9 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#10 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#11 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+#12 {main}
+PHP Stack trace:
+#0 --(--): Phc_ErrorLog->_errorHandler()
+#1 /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php(101): trigger_error()
+#2 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(746): Phc_ErrorLog->warning()
+#3 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(360): Admin_IndetailController->postSaveActions()
+#4 /storage/web/www.nextforce.cz/www/gdpr/admin/controllers/IndetailController.php(108): Admin_IndetailController->saveContentData()
+#5 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Action.php(516): Admin_IndetailController->editAction()
+#6 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch()
+#7 /storage/web/www.nextforce.cz/www/gdpr/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch()
+#8 /storage/web/www.nextforce.cz/www/gdpr/index.php(155): Zend_Controller_Front->dispatch()
+ in /storage/web/www.nextforce.cz/www/gdpr/library/Phc/ErrorLog.php on line 101]	[/gdpr/admin/indetail/edit/id/1/]	[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.167 Safari/537.36]	[Inbox v3.8 r4066]
+

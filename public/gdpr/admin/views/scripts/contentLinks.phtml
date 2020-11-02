@@ -1,0 +1,7 @@
+<?/* v action zavolani $this->renderLinks() pripravi pole links_list */?>
+<?$help_text = $this->text('links_help') ? $this->text('links_help') : $this->text('links_list.main.help')?>
+<p><?=$help_text?></p>
+	
+<?if(!empty($this->links_list)){?>
+	<?=$this->partial('linksList.phtml', $this->links_list)?>
+<?}?>

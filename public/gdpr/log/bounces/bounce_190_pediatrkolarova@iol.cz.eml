@@ -1,0 +1,102 @@
+
+--Boundary_(ID_zz3H4nXpX/ehiOBHk6KjAA)
+Content-type: text/plain; CHARSET=US-ASCII
+Content-language: en-US
+Content-transfer-encoding: 7BIT
+
+This report relates to a message you sent with the following header fields:
+
+  Message-id: <20180306095525.5825D3FC00@argos2.farmacie.cz>
+  Date: Tue, 06 Mar 2018 10:55:25 +0100
+  From: =?UTF-8?Q?Alena=20Nov=C3=A1=C4=8Dkov=C3=A1?=
+   <alena.novackova@nextforce.cz>
+  To: pediatrkolarova@iol.cz
+  Subject: =?UTF-8?Q?NextForce=20-=20informace=20pro=20V=C3=A1s=20a=20?=
+   =?UTF-8?Q?Va=C5=A1e=20=C3=BAdaje=20v=20bezpe=C4=8D=C3=AD.=20(GDPR)?=
+
+Your message cannot be delivered to the following recipients:
+
+  Recipient address: pediatrkolarova@iol.cz
+  Original address: pediatrkolarova@iol.cz
+  Reason: Over quota
+
+
+--Boundary_(ID_zz3H4nXpX/ehiOBHk6KjAA)
+Content-type: message/delivery-status
+
+Reporting-MTA: dns;sxims301.ux.to2cz.cz (ims-ms-daemon)
+Arrival-date: Tue, 06 Mar 2018 10:55:29 +0100 (CET)
+
+Original-recipient: rfc822;pediatrkolarova@iol.cz
+Final-recipient: rfc822;pediatrkolarova@iol.cz
+Action: failed
+Status: 4.2.2 (Over quota)
+
+--Boundary_(ID_zz3H4nXpX/ehiOBHk6KjAA)
+Content-type: TEXT/RFC822-HEADERS
+
+Return-path:
+ <undelivered+ebcbde4228164f3b89a1d4799f6be3f4809f3ca4c34cedbf-pediatrkolarova=iol.cz@cz.pearshealthcyber.com>
+Received: from ims-ms-daemon.sxiol8pkg.ux.to2cz.cz by sxiol8pkg.ux.to2cz.cz
+ (ESMTP Server) id <0P5500G76Y8HET00@sxiol8pkg.ux.to2cz.cz>; Tue,
+ 06 Mar 2018 10:55:29 +0100 (CET)
+Received: from mta-in4.iol.cz (sxldmta2.ux.to2cz.cz [192.168.30.21])
+ by sxiol8pkg.ux.to2cz.cz (ESMTP Server)
+ with ESMTP id <0P5500AJFY8H5D12@sxiol8pkg.ux.to2cz.cz> for
+ pediatrkolarova@iol.cz; Tue, 06 Mar 2018 10:55:29 +0100 (CET)
+Received: from aa.iol.cz ([90.176.151.111]) by mta-in4.iol.cz (ESMTP Server)
+ with ESMTP id <0P5500LDCY8HV0J0@mta-in4.iol.cz> for pediatrkolarova@iol.cz
+ (ORCPT pediatrkolarova@iol.cz); Tue, 06 Mar 2018 10:55:29 +0100 (CET)
+Received: from localhost (localhost [127.0.0.1])	by aa-smtpin1.iol.cz (Postfix)
+ with ESMTP id 80BF03991B5	for <pediatrkolarova@iol.cz>; Tue,
+ 6 Mar 2018 10:55:29 +0100 (CET)
+Received: from aa.iol.cz (localhost [127.0.0.1])	by aa-smtpin1.iol.cz (Postfix)
+ with ESMTP id BAD903991B9	for <pediatrkolarova@iol.cz>; Tue,
+ 6 Mar 2018 10:55:25 +0100 (CET)
+Received: from mail1.farmacie.cz (mail1.farmacie.cz [178.77.239.11])
+	by aa-smtpin1.iol.cz (Postfix) with ESMTP id B48A83991D9	for
+ <pediatrkolarova@iol.cz>; Tue,  6 Mar 2018 10:55:25 +0100 (CET)
+Received: from argos2.farmacie.cz (argos2.farmacie.cz [178.77.239.66])
+	by mailer.farmacie.cz (Postfix) with ESMTP id 22A1A194037	for
+ <pediatrkolarova@iol.cz>; Tue,  6 Mar 2018 10:55:25 +0100 (CET)
+Received: by argos2.farmacie.cz (Postfix, from userid 48)	id 5825D3FC00; Tue,
+ 6 Mar 2018 10:55:25 +0100 (CET)
+Received-SPF: pass (cz.pearshealthcyber.com: 178.77.239.11 is authorized to use
+ 'undelivered+ebcbde4228164f3b89a1d4799f6be3f4809f3ca4c34cedbf-pediatrkolarova=iol.cz@cz.pearshealthcyber.com' in
+ 'mfrom' identity (mechanism 'ip4:178.77.239.0/24' matched))
+ receiver=aa-smtpin1; identity=mailfrom;
+ envelope-from="undelivered+ebcbde4228164f3b89a1d4799f6be3f4809f3ca4c34cedbf-pediatrkolarova=iol.cz@cz.pearshealthcyber.com";
+ helo=mail1.farmacie.cz; client-ip=178.77.239.11
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=nextforce.cz;
+	s=phcmailer; t=1520330125;	bh=h3Y6erTu7WzEyL+qo4TBnoWb4ldFrxSDIve2jcsP08s=;
+	h=To:Subject:From:Date:From;
+	b=0uxu4Yjmb8w1t/3MfYfeTr+BV75y1OSyrBGCqkeFyPFXZ5u9ccWYrut09Z1ag/3qA
+ bq4gGCpW3x+h5QZ6nMTPzuA0zSpuxycW2s2zopG2PlEftTdynQr2d84dHw4O6s4J1P
+ FcujIsbxxz+aerO93T6SLjUNSfzBXy6fU+NE6c58=
+Date: Tue, 06 Mar 2018 10:55:25 +0100
+From: =?UTF-8?Q?Alena=20Nov=C3=A1=C4=8Dkov=C3=A1?=
+ <alena.novackova@nextforce.cz>
+Subject: =?UTF-8?Q?NextForce=20-=20informace=20pro=20V=C3=A1s=20a=20?=
+ =?UTF-8?Q?Va=C5=A1e=20=C3=BAdaje=20v=20bezpe=C4=8D=C3=AD.=20(GDPR)?=
+To: pediatrkolarova@iol.cz
+Message-id: <20180306095525.5825D3FC00@argos2.farmacie.cz>
+MIME-version: 1.0
+Content-type: TEXT/PLAIN
+Content-transfer-encoding: QUOTED-PRINTABLE
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailer.farmacie.cz 22A1A194037
+X-Original-To: pediatrkolarova@iol.cz
+X-Virus-Scanned: by SpamTitan at iol.cz
+X-Spam-Flag: NO
+X-Spam-Score: -1.124
+X-PHP-Originating-Script: 1000:Sendmail.php
+Authentication-results: aa-smtpin1.iol.cz (amavisd-new); dkim=neutral
+	reason="invalid (public key: not available)" header.d=nextforce.cz
+X-Spam-Status: No, score=-1.124 tagged_above=-999 required=5
+	tests=[BAYES_00=-1.9, DKIM_SIGNED=0.1,	HEADER_FROM_DIFFERENT_DOMAINS=0.25,
+ HTML_MESSAGE=0.001,	SARE_HEAD_8BIT_SPAM=0.388, SPF_PASS=-0.001, TW_ZU=0.027,
+	T_DKIM_INVALID=0.01, URIBL_BLOCKED=0.001]	autolearn=no autolearn_force=no
+X-Spam-Level:
+
+
+
+--Boundary_(ID_zz3H4nXpX/ehiOBHk6KjAA)--

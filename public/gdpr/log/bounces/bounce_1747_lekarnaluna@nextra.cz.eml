@@ -1,0 +1,68 @@
+This is a MIME-encapsulated message.
+
+--0FEC125F9B.1521721443/mailer.farmacie.cz
+Content-Description: Notification
+Content-Type: text/plain; charset=us-ascii
+
+This is the mail system at host mailer.farmacie.cz.
+
+I'm sorry to have to inform you that your message could not
+be delivered to one or more recipients. It's attached below.
+
+For further assistance, please send mail to postmaster.
+
+If you do so, please include this problem report. You can
+delete your own text from the attached returned message.
+
+                   The mail system
+
+<lekarnaluna@nextra.cz>: host vmail.nextra.cz[193.179.158.50] said: 550 5.1.1
+    <lekarnaluna@nextra.cz>: Recipient address rejected: User unknown in local
+    recipient table (in reply to RCPT TO command)
+
+--0FEC125F9B.1521721443/mailer.farmacie.cz
+Content-Description: Delivery report
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; mailer.farmacie.cz
+X-Postfix-Queue-ID: 0FEC125F9B
+X-Postfix-Sender: rfc822; undelivered+ebcbde4228164f3b89a1d4799f6be3f460d21400e257fe89-lekarnaluna=nextra.cz@cz.pearshealthcyber.com
+Arrival-Date: Thu, 22 Mar 2018 13:24:03 +0100 (CET)
+
+Final-Recipient: rfc822; lekarnaluna@nextra.cz
+Original-Recipient: rfc822;lekarnaluna@nextra.cz
+Action: failed
+Status: 5.1.1
+Remote-MTA: dns; vmail.nextra.cz
+Diagnostic-Code: smtp; 550 5.1.1 <lekarnaluna@nextra.cz>: Recipient address
+    rejected: User unknown in local recipient table
+
+--0FEC125F9B.1521721443/mailer.farmacie.cz
+Content-Description: Undelivered Message Headers
+Content-Type: text/rfc822-headers
+
+Return-Path: <undelivered+ebcbde4228164f3b89a1d4799f6be3f460d21400e257fe89-lekarnaluna=nextra.cz@cz.pearshealthcyber.com>
+Received: from argos2.farmacie.cz (argos2.farmacie.cz [178.77.239.66])
+	by mailer.farmacie.cz (Postfix) with ESMTP id 0FEC125F9B
+	for <lekarnaluna@nextra.cz>; Thu, 22 Mar 2018 13:24:03 +0100 (CET)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailer.farmacie.cz 0FEC125F9B
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=nextforce.cz;
+	s=phcmailer; t=1521721443;
+	bh=mW5UuBjYl1LR5d+ZvaKUDOm1yykVJIHr2iW/nIlOiSE=;
+	h=To:Subject:From:Date:From;
+	b=mY8RUtnpUqCRYOU0TiYPJRT11niXpNuGoMNia/1m+V6qWmWsphX1VHOwEQUVXBmBj
+	 rl3ekcwivCAVKvPEdMi4iCVXMzoJ2oCYgyLR6cA6H4Aq0/Oo79TQhJHVxXu2Fvj4jB
+	 pewQTVwy4rd5iOVdFcKwlZwO/v/eLaAKDyNd+wyc=
+Received: by argos2.farmacie.cz (Postfix, from userid 48)
+	id 986453FBE3; Thu, 22 Mar 2018 13:24:03 +0100 (CET)
+To: lekarnaluna@nextra.cz
+Subject: =?UTF-8?Q?NextForce=20-=20informace=20pro=20V=C3=A1s=20a=20?=  =?UTF-8?Q?Va=C5=A1e=20=C3=BAdaje=20v=20bezpe=C4=8D=C3=AD.=20(GDPR)?=
+X-PHP-Originating-Script: 1000:Sendmail.php
+From: =?UTF-8?Q?Alena=20Nov=C3=A1=C4=8Dkov=C3=A1?= <alena.novackova@nextforce.cz>
+Date: Thu, 22 Mar 2018 13:24:03 +0100
+Content-Type: multipart/alternative;
+ boundary="=_0e4f247ab9f68bbb9af4ad0d5abd3f63"
+MIME-Version: 1.0
+Message-Id: <20180322122403.986453FBE3@argos2.farmacie.cz>
+
+--0FEC125F9B.1521721443/mailer.farmacie.cz--

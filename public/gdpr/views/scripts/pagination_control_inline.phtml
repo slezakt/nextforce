@@ -1,0 +1,33 @@
+<? if ($this->pageCount > 1): ?>
+    <div class="pager_inline">
+        
+            <span class="prev">
+            <? if (isset($this->previous)){?>
+                <a href="<?= $this->url(array_merge($this->params->url, array($this->params->url_param => $this->previous))); ?>">
+                    &lt;&lt; <?=$this->text('.prev')?></a>&nbsp;&nbsp;<?}?>
+                    <?/*Pozor, predchozi radek musi byt pohromade, jinak to spatne vykresluje v FF*/?>
+            </span>
+        
+            
+            <? $last_key = end(array_keys($this->pagesInRange)); ?>
+            <?php foreach ($this->pagesInRange as $key => $page): ?>
+              <?php if ($page != $this->current): ?>
+                <a href="<?= $this->url(array_merge($this->params->url, array($this->params->url_param => $page))); ?>"><?= $page; ?></a> 
+              <?php else: ?>
+                <span class="current"><?= $page; ?></span>  
+              <?php endif; ?>
+              <? if($key != $last_key){?>
+                  - 
+              <?}?>
+            <?php endforeach; ?>
+        
+        <span class="next">
+        <? if (isset($this->next)){ ?>
+            &nbsp;&nbsp;<a class="nasledujici" href="<?= $this->url(array_merge($this->params->url, array($this->params->url_param => $this->next))); ?>">
+                <?=$this->text('.next')?> &gt;&gt;
+            </a>
+        <?}?>
+        </span>
+    
+    </div>
+<?php endif; ?>

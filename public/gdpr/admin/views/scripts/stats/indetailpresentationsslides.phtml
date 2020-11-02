@@ -1,0 +1,412 @@
+<?= $this->render('admin_top.phtml') ?>
+
+<div class="statistics">
+    <?= $this->render('stats/indetailpresentations_navigation.phtml') ?>
+    <?= $this->render('stats/indetail_filters.phtml') ?>
+
+    <? /* Export */ ?>
+    <?=
+    Admin_StatsController::getExportButton(
+            array_merge(array('total' => '1'), (array) $this->filtersData, array('filename'=>$this->stattablename)), 'indetail_presentation_slides', $this->text('export'), 'btn')
+    ?>
+    <?=
+    Admin_StatsController::getExportButton(
+            array_merge(array('total' => '1'), (array) $this->filtersData, array('filename'=>$this->stattablename.'_usual_transitions')), 'indetail_presentation_slides_usual_transitions', $this->text('exportTransitions'), 'btn')
+    ?>
+    <?=
+    Admin_StatsController::getExportButton(
+            array_merge(array('total' => '1', 'byViews' => '1'), (array) $this->filtersData, array('filename'=>$this->stattablename.'_views')), 'indetail_presentation_slides', $this->text('exportViews'), 'btn')
+    ?>
+
+
+    <table data-table-name="<?=$this->stattablename?>" data-table-colopt="1" data-table-export="1" id="indetails_slides" class="table table-hover table-bordered table-stats" data-table-slide-previews-path="<?= $this->slide_previews_path ?>">
+        <thead>
+            <tr>
+                <th data-table-force-export="1"><?= $this->text('slideNum') ?></th>
+                <th><?= $this->text('name') ?></th>
+                <th class="tip" title="<?= $this->text('viewedTooltip') ?>"><?= $this->text('viewed') ?></th>
+                <th class="tip" title="<?= $this->text('viewedUniqueSessionTooltip') ?>"><?= $this->text('viewedUniqueSession') ?></th>
+                <th class="tip" title="<?= $this->text('viewedUniquePhysicianTooltip') ?>"><?= $this->text('viewedUniquePhysician') ?></th>
+                <th><?= $this->text('avgSesTime') ?></th>
+                <th><?= $this->text('medSesTime') ?></th>
+                <th><?= $this->text('avgUsrTime') ?></th>
+                <th><?= $this->text('medUsrTime') ?></th>
+            </tr>
+        </thead>
+        <tbody>
+            <? foreach ($this->slides as $slide) { ?>
+                <tr<?= $slide['mandatory'] ? ' class="warning"' : ''; ?>>
+                    <td data-table-force-export="1"><?= $slide['slide_num'] ?></td>
+                    <td><?= /* úprava pro PHPExcel,chybně odstraňuje slpupce u prazdnych bunek */($slide['name'] != "") ? $slide['name'] : '&nbsp;' ?></td>
+                    <td><span class="svalue"><?= $slide['view_count'] ?></span></td>
+                    <td><span class="svalue"><?= $slide['session_count'] ?></span></td>
+                    <td><span class="svalue"><?= $slide['user_count'] ?></span></td>
+                    <td data-table-export-format="[h]:mm:ss" data-table-export-value="<?=$slide['avg_ses_time']?>"><span class="svalue"><?= Utils::ms_to_timestring($slide['avg_ses_time']) ?></span></td>
+                    <td data-table-export-format="[h]:mm:ss" data-table-export-value="<?=$slide['med_ses_time']?>"><span class="svalue"><?= Utils::ms_to_timestring($slide['med_ses_time']) ?></span></td>
+                    <td data-table-export-format="[h]:mm:ss" data-table-export-value="<?=$slide['avg_usr_time']?>"><span class="svalue"><?= Utils::ms_to_timestring($slide['avg_usr_time']) ?></span></td>
+                    <td data-table-export-format="[h]:mm:ss" data-table-export-value="<?=$slide['med_usr_time']?>"><span class="svalue"><?= Utils::ms_to_timestring($slide['med_usr_time']) ?></span></td>
+                </tr>
+            <? } ?>
+            <? $s = $this->summary[0] ?>
+            <tr class="info">
+                <td data-table-force-export="1"><span class="svalue"><?= $this->text('summary_id') ?></span></td>
+                <td><span class="svalue"><?= $this->text('summary') ?></span></td>
+                <td><span class="svalue"><?= $s['view_count'] ?></span></td>
+                <td><span class="svalue"><?= $s['session_count'] ?></span></td>
+                <td><span class="svalue"><?= $s['user_count'] ?></span></td>
+                <td data-table-export-format="[h]:mm:ss" data-table-export-value="<?=$slide['avg_time']?>"><span class="svalue"><?= Utils::ms_to_timestring($s['avg_time']) ?></span></td>
+                <td data-table-export-format="[h]:mm:ss" data-table-export-value="<?=$slide['med_time']?>"><span class="svalue"><?= Utils::ms_to_timestring($s['med_time']) ?></span></td>
+                <td data-table-export-format="[h]:mm:ss" data-table-export-value="<?=$slide['avg_usr_time']?>"><span class="svalue"><?= Utils::ms_to_timestring($s['avg_usr_time']) ?></span></td>
+                <td data-table-export-format="[h]:mm:ss" data-table-export-value="<?=$slide['med_usr_time']?>"><span class="svalue"><?= Utils::ms_to_timestring($s['med_usr_time']) ?></span></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br/>
+
+    <div class="row">
+        <div class="span12 chart-wrap">
+            <form class="form-inline" action="" method="">
+                <label for="select_chart"><?= $this->text('chooseChart') ?></label>
+                <select class="selectpicker show-menu-arrow" name="column" id="select_chart">
+                    <option value="user_count"><?= $this->text('viewedUniquePhysician') ?></option>
+                    <option value="view_count"><?= $this->text('viewed') ?></option>
+                    <option value="session_count"><?= $this->text('viewedUniqueSession') ?></option>
+                    <option value="avg_ses_time"><?= $this->text('avgSesTime') ?></option>
+                    <option value="med_ses_time"><?= $this->text('medSesTime') ?></option>
+                    <option value="avg_usr_time"><?= $this->text('avgUsrTime') ?></option>
+                    <option value="med_usr_time"><?= $this->text('medUsrTime') ?></option>
+                </select>
+            </form>
+            <svg id="chart"></svg>
+            <div>
+                <? /* počet položek v exportu s obrazky */$chart_part = 7; ?>
+                <? if ($this->slidePreviews): ?>
+                    <div class="span2" style="text-align:right;line-height:30px;"><?= $this->text('image_export_slider') ?>&nbsp;<span id="export-range-label">1 - 7</span></div>
+                    <div style="margin:10px 20px 0px 20px;" class="span3" id="export-range-slider"></div>
+                <? endif; ?>
+                <a href="#" id="chartAsImg" class="btn btn-primary"><i class="icon-download-alt icon-white"></i> <?= $this->text('download_as_image') ?></a>
+            </div>
+        </div>
+        <div style="height:0;visibility:hidden;"><svg id="export-chart"></svg></div>
+    </div>
+
+    <canvas style="display:none" id="export"></canvas>
+
+    <script type="text/javascript">
+        var tip = d3.tip().attr('class', 'd3-tip').offset([-10, 0]);
+        //statisitky
+        var stats = <?= json_encode($this->slides) ?>;
+        //aktualne vybrany sloupec
+        var column;
+        //nahledy slidu
+        var slidePreviews = <?= json_encode($this->slidePreviews) ?>;
+
+        $(document).ready(function () {
+            /**
+             * Vyber dat do grafu, ukladame posledni nastaveni
+             */
+            $('#select_chart').change(function () {
+                column = $(this).val();
+                createCookie('indetailpresentationslides_chart_type', column);
+                d3chart(column, stats, 'chart');
+            });
+
+            $("#export-range-slider").slider({
+                range: true,
+                min: 0,
+                max: stats.length - 1,
+                values: [0, 6],
+                slide: function (event, ui) {
+                    $("#export-range-label").html((ui.values[0] + 1) + " - " + (ui.values[1] + 1));
+                }
+            });
+            $('.ui-slider-range').css('background', '#2a9fd6');
+
+            /**
+             * Vykresleni grafu po nacteni stranky
+             */
+            column = readCookie('indetailpresentationslides_chart_type');
+            if (!column || column == '') {
+                column = 'user_count';
+            }
+            $('#select_chart').val(column);
+
+            d3.select("#chart").call(tip);
+            d3chart(column, stats, 'chart');
+        });
+
+        /*
+         * jQuery send POST data request extension
+         * Creates form object in page with given data and returns it.
+         * POST request is then done by calling .send() method.
+         */
+        jQuery(function ($) {
+            $.extend({
+                form: function (url, data, method) {
+                    if (method == null)
+                        method = 'POST';
+                    if (data == null)
+                        data = {};
+
+                    var form = $('<form>').attr({
+                        method: method,
+                        action: url
+                    }).css({
+                        display: 'none'
+                    });
+
+                    var addData = function (name, data) {
+                        if ($.isArray(data)) {
+                            for (var i = 0; i < data.length; i++) {
+                                var value = data[i];
+                                addData(name + '[]', value);
+                            }
+                        } else if (typeof data === 'object') {
+                            for (var key in data) {
+                                if (data.hasOwnProperty(key)) {
+                                    addData(name + '[' + key + ']', data[key]);
+                                }
+                            }
+                        } else if (data != null) {
+                            form.append($('<input>').attr({
+                                type: 'hidden',
+                                name: String(name),
+                                value: String(data)
+                            }));
+                        }
+                    };
+
+                    for (var key in data) {
+                        if (data.hasOwnProperty(key)) {
+                            addData(key, data[key]);
+                        }
+                    }
+
+                    return form.appendTo('body');
+                }
+            });
+        });
+
+        //prevod ms na time
+        var formatTime = function (ms) {
+            var seconds = ms / 1000;
+            var hh = Math.floor(seconds / 3600);
+            var mm = Math.floor(seconds / 60) % 60;
+            var ss = Math.floor(seconds) % 60;
+            return hh + ":" + ((mm < 10) ? "0" : "") + mm + ":" + (ss < 10 ? "0" : "") + ss;
+        };
+
+        function d3chart(column, chart_data, id) {
+            if(chart_data.length === 0) {
+                $('.chart-wrap').css('display','none');
+                return;
+            }
+            // Maxima pro graf napric reprezentanty, pouzivame jen pokud je vybran rep
+            var maxs = <?= json_encode($this->maxs) ?>;
+
+            //zobrazeni slide name
+            var slidename = false;
+            <? if ($this->useSlideNameInstedOfSlideNum == "1"): ?>
+                slidename = true;
+            <? endif; ?>
+
+            // Labely podle typu grafu
+            var xLabel = '<?= addcslashes($this->text('axisSlideNum'), "'") ?>';
+            // Y vezmeme z vyberu typu
+            var yLabel = $("#select_chart [value='" + column + "']").first().text();
+
+            var mainTitle = '<?= htmlspecialchars_decode(sprintf($this->text('chartInfo'), $this->presentationName)) ?>: ' + yLabel;
+
+            //maznem stary graf
+            d3.select('#' + id).html('');
+
+            var bar_color = "#2a9fd6";
+            var bar_color2 = "#77B300";
+            var bar_color_hover = "#056796";
+            var bar_color_hover2 = "#619200";
+
+            //pro mandatory pridame jinou barvu sloupců
+            $.each(chart_data, function (i, c) {
+                if (c.mandatory) {
+                    chart_data[i].color = bar_color2;
+                    chart_data[i].color_hover = bar_color_hover2;
+                }
+            });
+
+            var chart_margin = {top: 30, left: 70, bottom: 50, right: 0};
+            var width = d3.select(".chart-wrap").style('width').replace('px', '') - chart_margin.left - chart_margin.right - 30;
+            var height = 400 - chart_margin.top - chart_margin.bottom;
+
+            var x = d3.scale.ordinal().rangeRoundBands([0, width], 0.2).domain(chart_data.map(function (d, i) {
+                return i;
+            }));
+
+            //maximum stanovime dle zakladniho souboru dat, kvuli zachovani jednotneho maximama v pripade filtrovani apod. 
+            var ymax = d3.max(stats, function (d) {
+                return d[column] * 1.2;
+            });
+
+            if (maxs) {
+                if (maxs[column]) {
+                    ymax = maxs[column];
+                }
+            }
+
+            var y = d3.scale.linear().range([height, 0]).domain([0, ymax]);
+
+            var chart = d3.select("#" + id)
+                    .attr("width", width + chart_margin.left)
+                    .attr("height", height + chart_margin.top + chart_margin.bottom)
+                    .attr("fill", '#fff').attr('stroke', 'none').attr('font-size', 12).attr('font-family', 'Helvetica, Arial, sans-serif')
+                    .append("g").attr("transform", "translate(" + chart_margin.left + "," + chart_margin.top + ")");
+            //podklad
+            chart.append('rect').attr('fill', '#fff').attr('height', '100%').attr('width', '100%').attr('x', -chart_margin.left).attr('y', -chart_margin.top);
+            //nadpis
+            chart.append('text').attr('font-size', '16').attr('fill', '#000').attr('dy', '-0.5em').style('font-weight', 'bold').text(mainTitle);
+
+            //osa y
+            var yAxis = d3.svg.axis().scale(y).orient("left").ticks(5).tickSize(-width).tickPadding(5)
+                    .tickFormat(function (d) {
+                        if (column.indexOf('time') !== -1) {
+                            return formatTime(d);
+                        }
+                        return d;
+                    });
+
+            //osa x
+            var xAxis = d3.svg.axis().scale(x).orient("bottom").tickSize(10, -height).tickFormat(function (d) {
+                if (slidename) {
+                    return chart_data[d].name || chart_data[d].slide_num;
+                }
+                return chart_data[d].slide_num;
+            });
+
+            chart.append("g").attr("class", "y axis").attr('fill', 'none').call(yAxis).append("text")
+                    .attr('font-size', '12').attr('fill', '#000').attr('y', function () {
+                return((d3.select('.domain').node().getBBox().width - d3.select('#chart').node().getBBox().width) + 23);
+            })
+                    .attr('dy', '-1em').attr('x', -(height + chart_margin.top) / 2).attr("transform", "rotate(-90)").style("text-anchor", "middle")
+                    .text(yLabel);
+
+            chart.append("g")
+                    .attr("class", "x axis").attr("transform", "translate(0," + height + ")").attr('fill', 'none')
+                    .call(xAxis)
+                    .append("text").attr("x", width / 2).attr("y", function () {
+                return (chart.selectAll('.x .tick').node().getBBox().height + 20);
+            }).attr('font-size', '12').attr('fill', '#000').style("text-anchor", "middle")
+                    .text(xLabel);
+
+            //prebarveni mrizek
+            chart.selectAll('.tick text').attr('fill', '#000').attr('font-size', '12').attr('stroke', 'none');
+            chart.selectAll('.tick line').attr('stroke', '#ddd');
+            chart.selectAll('.axis path').attr('stroke', '#ddd');
+
+            var bar = chart.selectAll(".bar").data(d3.values(chart_data)).enter().append('g').attr("class", "bar");
+            bar.append("rect")
+                    .attr("x", function (d, i) {
+                        return x(i);
+                    })
+                    .attr("width", x.rangeBand())
+                    .attr("fill", function (d) {
+                        return d.color || bar_color;
+                    })
+                    .attr("y", function (d) {
+                        return y(d[column]);
+                    })
+                    .attr("height", function (d) {
+                        return height - y(d[column]);
+                    })
+                    .on("mouseover", function (d, i) {
+                        d3.select(this).style("fill", d.color_hover || bar_color_hover);
+                        $('#indetails_slides tr').eq(i + 1).addClass('info');
+                    })
+                    .on("mouseout", function (d, i) {
+                        d3.select(this).style("fill", d.color || bar_color);
+                        $('#indetails_slides tr').eq(i + 1).removeClass('info');
+                    })
+                    .on("click", function (d) {
+                        if (slidePreviews[d.slide_num] !== undefined) {
+                            d3.select('.d3-tip').transition().delay(0).style('opacity', 1);
+                            tip.html(function (d) {
+                                var title = "";
+                                if (d.name) {
+                                    title = '<span style="text-align:center;display:block;padding-bottom:5px;margin-top:-5px;">' + d.name + '</span>';
+                                }
+                                return '<div style="width:160px;">' + title + '<img style="width:160;height:120px;" src="' + slidePreviews[d.slide_num] + '" /></div>';
+                            });
+                            tip.show(d);
+                            d3.select('.d3-tip').transition().delay(2000).duration(1000).style('opacity', 0);
+                        }
+                    });
+
+            bar.append("g").append("text")
+                    .attr("x", function (d, i) {
+                        return x(i) + (x.rangeBand() / 2);
+                    })
+                    .attr("y", function (d) {
+                        return y(d[column]);
+                    })
+                    .attr("dy", "-0.5em").attr('fill', '#000').attr('font-size', 12).attr('text-anchor', 'middle')
+                    .text(function (d) {
+                        if (column.indexOf('time') !== -1) {
+                            return formatTime(d[column]);
+                        }
+                        return Math.round(d[column] * 10) / 10;
+                    });
+        }
+
+
+        $("#chartAsImg").click(function (e) {
+            e.preventDefault();
+
+            //maximalni sirka obrazku 
+            var max_img_width = 200;
+            var dataset = null;
+
+            if ($.isEmptyObject(slidePreviews)) {
+                dataset = stats.slice(0, stats.length);
+            } else {
+                var v = $('#export-range-slider').slider('values');
+                dataset = stats.slice(v[0], v[1] + 1);
+            }
+
+            d3chart(column, dataset, 'export-chart');
+
+            var exchart = d3.select("#export-chart")
+                    .attr("version", 1.1).attr("xmlns", "http://www.w3.org/2000/svg").attr("xxlink", "http://www.w3.org/1999/xlink");
+                    
+
+            if (!$.isEmptyObject(slidePreviews)) {
+                exchart.attr('height', 560);
+                var img_width = (exchart.select('.x').node().getBBox().width / dataset.length) - 30;
+                if (img_width > max_img_width) {
+                    img_width = max_img_width;
+                }
+                exchart.selectAll('.x .tick').append("svg:image").attr('width', function (d) {
+                    return img_width+'px';
+                }).attr('height',(img_width * 0.75)+'px').attr('y', 50).attr('x', -(img_width / 2)).attr('prev_href', function (d) {
+                    return slidePreviews[dataset[d].slide_num] || d3.select(this).remove();
+                });
+            }
+           
+            var svg = d3.select("#export-chart").node().parentNode.innerHTML;
+            svg = svg.replace("xxlink", "xmlns:xlink");
+            if (!$.isEmptyObject(slidePreviews)) {
+                svg = svg.replace(/prev_href/gi, 'xlink:href');
+            }
+            d3.select("#export-chart").select('g').remove();
+            //odeslani svg grafu na prevod do png
+            var form = $.form("<?= $this->url(array('module'=>'default','controller' => 'utils', 'action' => 'convertsvg')) ?>",
+                    {data: svg, filename: "chart_<?= Utils::slugify($this->presentationName) ?>_"+ $('#select_chart').val()}, method = 'POST');
+            form.submit();
+            return;
+
+        });
+
+    </script>
+
+</div><? /* statistics end */ ?>
+
+<?=
+$this->render('admin_bottom.phtml')?>

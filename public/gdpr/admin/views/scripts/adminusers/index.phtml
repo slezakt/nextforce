@@ -1,0 +1,11 @@
+<?=$this->render('admin_top.phtml')?>
+<p><?=$this->description?></p>
+<?/* shortcut button for new user page */?>
+<a href="<?=$this->url(array(
+    'module'=>'admin',
+    'controller'=> 'adminusers',
+    'action'=> 'add'),null,true)?>"
+   class="btn btn-primary" style="margin-bottom:10px"><?=$this->texts->submenu_add?></a>
+
+<?=$this->grid?>
+<?=$this->render('admin_bottom.phtml')?>

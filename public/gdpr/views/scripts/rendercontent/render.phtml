@@ -1,0 +1,12 @@
+<?=$this->render('head.phtml')?>
+<?/*=$this->render('top.phtml')*/?>
+<body>
+
+<?=$this->error?>
+
+<?$this->current_content = 1;?>
+<?=$this->render($this->content_tpl[1])?>
+
+<?/*=$this->render('bottom.phtml')*/?>
+</body>
+</html>

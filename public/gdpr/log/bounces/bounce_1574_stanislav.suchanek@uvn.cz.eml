@@ -1,0 +1,119 @@
+This is a MIME-encapsulated message.
+
+--732A64E840.1521721476/administrator.uvn.cz
+Content-Description: Notification
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
+
+This is the mail system at host administrator.uvn.cz.
+
+I'm sorry to have to inform you that your message could not
+be delivered to one or more recipients. It's attached below.
+
+For further assistance, please send mail to postmaster.
+
+If you do so, please include this problem report. You can
+delete your own text from the attached returned message.
+
+                   The mail system
+
+<stanislav.suchanek@centrum.cz>: host cax.virusfree.cz[212.224.105.17] said:
+    550 Please see
+    http://www.openspf.org/Why?id=undelivered%2bebcbde4228164f3b89a1d4799f6be3f4683db21c222898fa-stanislav.suchanek%3duvn.cz%40cz.pearshealthcyber.com&ip=195.113.142.123&receiver=bq
+    : Reason: mechanism (in reply to MAIL FROM command)
+
+--732A64E840.1521721476/administrator.uvn.cz
+Content-Description: Delivery report
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; administrator.uvn.cz
+X-Postfix-Queue-ID: 732A64E840
+X-Postfix-Sender: rfc822; undelivered+ebcbde4228164f3b89a1d4799f6be3f4683db21c222898fa-stanislav.suchanek=uvn.cz@cz.pearshealthcyber.com
+Arrival-Date: Thu, 22 Mar 2018 13:24:36 +0100 (CET)
+
+Final-Recipient: rfc822; stanislav.suchanek@centrum.cz
+Original-Recipient: rfc822;stanislav.suchanek@uvn.cz
+Action: failed
+Status: 5.0.0
+Remote-MTA: dns; cax.virusfree.cz
+Diagnostic-Code: smtp; 550 Please see
+    http://www.openspf.org/Why?id=undelivered%2bebcbde4228164f3b89a1d4799f6be3f4683db21c222898fa-stanislav.suchanek%3duvn.cz%40cz.pearshealthcyber.com&ip=195.113.142.123&receiver=bq
+    : Reason: mechanism
+
+--732A64E840.1521721476/administrator.uvn.cz
+Content-Description: Undelivered Message Headers
+Content-Type: text/rfc822-headers
+Content-Transfer-Encoding: 8bit
+
+Return-Path: <undelivered+ebcbde4228164f3b89a1d4799f6be3f4683db21c222898fa-stanislav.suchanek=uvn.cz@cz.pearshealthcyber.com>
+Received: from administrator (localhost [127.0.0.1])
+	by administrator.uvn.cz (Postfix) with ESMTP id 732A64E840
+	for <stanislav.suchanek@centrum.cz>; Thu, 22 Mar 2018 13:24:36 +0100 (CET)
+X-Virus-Scanned: amavisd-new at uvn.cz
+Received: from administrator.uvn.cz ([127.0.0.1])
+	by administrator (administrator.uvn.cz [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id AVRP4l8JMbn2 for <stanislav.suchanek@centrum.cz>;
+	Thu, 22 Mar 2018 13:24:36 +0100 (CET)
+Received: from kolab2.uvn.cz (unknown [172.18.100.24])
+	by administrator.uvn.cz (Postfix) with ESMTP id 1330D4E8C7
+	for <stanislav.suchanek@centrum.cz>; Thu, 22 Mar 2018 13:24:36 +0100 (CET)
+Received: by kolab2.uvn.cz (Postfix)
+	id 0D2C363C2006; Thu, 22 Mar 2018 13:24:36 +0100 (CET)
+Delivered-To: stanislav.suchanek@uvn.cz
+Received: from localhost (xaver3.uvn.cz [172.18.111.53])
+	by kolab2.uvn.cz (Postfix) with ESMTP id F2D4C63C2003
+	for <stanislav.suchanek@uvn.cz>; Thu, 22 Mar 2018 13:24:35 +0100 (CET)
+X-Virus-Scanned: amavisd-new at uvn.cz
+X-Spam-Flag: NO
+X-Spam-Score: 3.311
+X-Spam-Level: ***
+X-Spam-Status: No, score=3.311 tagged_above=-999 required=6.2
+	tests=[BAYES_99=1.1, BAYES_999=2, DKIM_SIGNED=0.1, HTML_MESSAGE=0.001,
+	SPF_PASS=0.1, T_DKIM_INVALID=0.01] autolearn=no
+Authentication-Results: xaver3.uvn.cz (amavisd-new); dkim=neutral
+	reason="invalid (public key: not available)" header.d=nextforce.cz
+Received: from kolab2.uvn.cz ([172.18.100.24])
+	by localhost (xaver3.uvn.cz [172.18.111.53]) (amavisd-new, port 10024)
+	with ESMTP id RvlP7TGZh7OO for <stanislav.suchanek@uvn.cz>;
+	Thu, 22 Mar 2018 13:24:27 +0100 (CET)
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by kolab2.uvn.cz (Postfix) with ESMTP id 2040B6432001
+	for <stanislav.suchanek@uvn.cz>; Thu, 22 Mar 2018 13:24:27 +0100 (CET)
+Received: from administrator.uvn.cz (administrator.uvn.cz [192.168.10.20])
+	by kolab2.uvn.cz (Postfix) with ESMTP id 1466E63C2003
+	for <stanislav.suchanek@uvn.cz>; Thu, 22 Mar 2018 13:24:27 +0100 (CET)
+Received: from administrator (localhost [127.0.0.1])
+	by administrator.uvn.cz (Postfix) with ESMTP id F06A64E852
+	for <stanislav.suchanek@uvn.cz>; Thu, 22 Mar 2018 13:24:26 +0100 (CET)
+X-Virus-Scanned: amavisd-new at uvn.cz
+Received: from administrator.uvn.cz ([127.0.0.1])
+	by administrator (administrator.uvn.cz [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id 2rokOP5Xp556 for <stanislav.suchanek@uvn.cz>;
+	Thu, 22 Mar 2018 13:24:26 +0100 (CET)
+Received: from mail1.farmacie.cz (mail1.farmacie.cz [178.77.239.11])
+	by administrator.uvn.cz (Postfix) with ESMTPS id 9A9EF4E840
+	for <stanislav.suchanek@uvn.cz>; Thu, 22 Mar 2018 13:24:26 +0100 (CET)
+Received: from argos2.farmacie.cz (argos2.farmacie.cz [178.77.239.66])
+	by mailer.farmacie.cz (Postfix) with ESMTP id C9E1E37327
+	for <stanislav.suchanek@uvn.cz>; Thu, 22 Mar 2018 13:24:25 +0100 (CET)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailer.farmacie.cz C9E1E37327
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=nextforce.cz;
+	s=phcmailer; t=1521721465;
+	bh=l9r13MWW9fvnAR5ON4+qmO7oZp9p7Q8IcNW8Rzd6nV0=;
+	h=To:Subject:From:Date:From;
+	b=SszY4HQCio4rBhqiW2Nfk85i966eQsyhci86U3TuoAOMHsP9+hU2+Xp+sIz3hqVfP
+	 C9W7ZdljefUxT2RMGednmUCT8Q61xOYamieDv8FWmdKkv/VHMcu5GiXA7NU/iopVLW
+	 /YbMNmfcpbdH1gVshRCOtFulHUl8Tk4O7w6vFKMg=
+Received: by argos2.farmacie.cz (Postfix, from userid 48)
+	id 5DCCF3FBE3; Thu, 22 Mar 2018 13:24:26 +0100 (CET)
+To: stanislav.suchanek@uvn.cz
+Subject: =?UTF-8?Q?NextForce=20-=20informace=20pro=20V=C3=A1s=20a=20?=  =?UTF-8?Q?Va=C5=A1e=20=C3=BAdaje=20v=20bezpe=C4=8D=C3=AD.=20(GDPR)?=
+X-PHP-Originating-Script: 1000:Sendmail.php
+From: =?UTF-8?Q?Alena=20Nov=C3=A1=C4=8Dkov=C3=A1?= <alena.novackova@nextforce.cz>
+Date: Thu, 22 Mar 2018 13:24:26 +0100
+Content-Type: multipart/alternative;
+ boundary="=_777f5260231f839f86a577496cabdedf"
+MIME-Version: 1.0
+Message-Id: <20180322122426.5DCCF3FBE3@argos2.farmacie.cz>
+
+--732A64E840.1521721476/administrator.uvn.cz--

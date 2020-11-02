@@ -1,0 +1,61 @@
+<?/* Data urcena pro tento content */?>
+<?$data = $this->content[$this->current_content]['data'] ?>
+
+<?/*<h2><?= $this->content[$this->current_content]['title']?></h2>*/?>
+
+<?/*= eval($this->content[$this->current_content]['html'])*/?>
+
+<div class="reset"></div>
+<div id="nazory">
+      
+      <form id="frm_nazory" style="display:none" action="#nazory" method="post" id="add_opinion_form">
+        <fieldset>
+          <input type="hidden" id="form_id" name="form_id" value="<?=$data->form_id?>"/>
+           <a class="button zpetNaV fr" id="hide_opinion_form_button" href="#add_opinion_form"><?=$this->text('content.opinions.back_to_evaluation')?></a>
+          <h2><?=$this->text('content.opinions.new_opinion_about_subject')?></h2>
+          <div class="trojka">
+            <div>
+              <label for=""><?=$this->text('.name_txt')?>:</label>
+              <input type="text" class="text" id="opinions_name" name="opinions_name" value="<?=$data->user_data->name.' '.$data->user_data->surname?>" />
+            </div>
+          </div>
+          <table rules="none" border="0" cellspacing="0" cellpadding="0" class="textarea">
+            <tr>
+              <td><label for=""><?=$this->text('content.opinions.opinion_text')?>:</label><textarea id="opinions_text" name="opinions_text" rows="3" cols="70"></textarea></td>
+              <td class="tr"><input type="submit" class="button submit" id="opinions_send" name="opinions_send" value="<?=$this->text('content.opinions.add_opinion')?>" /></td>
+            </tr>
+          </table>
+
+          <p><?=$this->text('content.opinions.add_opinion_policy_info')?></p>
+        </fieldset>
+      </form>
+      
+      <div class="nazory">
+        <a class="button vlozitNovy fr" id="show_opinion_form_button" href="#add_opinion_form"><?=$this->text('content.opinions.add_new_opinion')?></a>
+        <?if($data->message){?>
+            <div class="info"><?=$this->text('.info')?>: <?=$data->message?></div>
+        <?}?>
+        
+        <h2><?=$this->text('content.opinions.your_opinions')?></h2>
+        <?$last_key = end(array_keys($data->opinions_data))?>
+        <?foreach($data->opinions_data as $key => $opinion){?>
+        <div class="<?= $key == $last_key ? 'last ' : ''?>nazor">
+          <h3><span><?=$opinion['timestamp']?> |</span> 
+              <?=$opinion['title']?> <?=$opinion['name']?> <?=$opinion['surname']?> <?=!empty($opinion['employment']) ? '-' : '' ?> <?=$opinion['employment']?>
+          </h3>
+          <p><?=$opinion['text']?></p>
+        </div>
+        <?}?>
+        
+        
+        <div class="nav">
+            <?if(!empty($data->paginator)){?>
+                <?= $this->paginationControl($data->paginator, 'Sliding', 'pagination_control_inline.phtml'); ?>
+            <?}?>
+        </div>
+        <?/*<a href="#hp" class="nahoru"><?=$this->text('.to_top')?></a>*/?>
+      </div>
+</div>
+
+<?/* Navigace mezi jednotlivymi listy */?>
+<?/*=$this->render('sheet_navigation.phtml')*/?>

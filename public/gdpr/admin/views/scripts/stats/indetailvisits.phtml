@@ -1,0 +1,51 @@
+<?=$this->render('admin_top.phtml')?>
+
+<div class="statistics">
+<?=$this->render('stats/indetail_filters.phtml')?>
+
+<p>
+<?=Admin_StatsController::getExportButton(array_merge((array)$this->filtersData,array('filename'=>$this->stattablename)), 'indetail_visits_physicians',
+$this->text('exportPhysicians'),'btn')?>
+<?=Admin_StatsController::getExportButton(array_merge((array)$this->filtersData,array('filename'=>$this->stattablename)), 'indetail_visits',
+$this->text('exportVisits'),'btn')?>
+<?if(!empty($this->filtersData->content)){?>
+<?=Admin_StatsController::getExportButton(array_merge((array)$this->filtersData, array('special_type' => 'short'), array('filename'=>$this->stattablename)), 'indetail_visits',
+$this->text('exportVisitsShort'),'btn')?>
+<?}?>
+</p>
+
+<table data-table-name="<?=$this->stattablename?>" data-table-colopt="1" data-table-export="1" id="indetails_visit" class="table table-striped table-hover table-bordered table-stats">
+    <thead>
+        <tr>
+            <th><?=$this->text('repreId')?></th>
+            <th><?=$this->text('repreName')?></th>
+            <th class="tip" title="<?= $this->text('visitsSessionTooltip') ?>"><?=$this->text('visitsSession')?></th>
+            <th class="tip" title="<?= $this->text('showedPresentationsTooltip') ?>"><?=$this->text('showedPresentations')?></th>
+            <th class="tip" title="<?= $this->text('showedResourcesTooltip') ?>"><?=$this->text('showedResources')?></th>
+            <th class="tip" title="<?= $this->text('visitedPhysiciansTooltip') ?>"><?=$this->text('visitedPhysicians')?></th>
+            <th><?=$this->text('overallTime')?></th>
+            <th><?=$this->text('avgTimePerSession')?></th>
+            <th><?=$this->text('avgTimePerPhysician')?></th>
+        </tr>
+    </thead>
+    <tbody>
+        <?foreach($this->visits as $visit){?>
+            <tr>
+                <td><?=$visit['repre_id']?></td>
+                <td><?=$visit['repre_name']?></td>
+                <td><span class="svalue"><?=$visit['session_count']?></span></td>
+                <td><span class="svalue"><?=$visit['pres_count']?></span></td>
+                <td><span class="svalue"><?=$visit['res_count']?></span></td>
+                <td><span class="svalue"><?=$visit['user_count']?></span></td>
+                <td data-table-export-format="[h]:mm:ss" data-table-export-value="<?=$visit['sum_time']?>"><span class="svalue"><?=Utils::ms_to_timestring($visit['sum_time'])?></span></td>
+                <td data-table-export-format="[h]:mm:ss" data-table-export-value="<?=$visit['avg_ses_time']?>"><span class="svalue"><?=Utils::ms_to_timestring($visit['avg_ses_time'])?></span></td>
+                <td data-table-export-format="[h]:mm:ss" data-table-export-value="<?=$visit['avg_usr_time']?>"><span class="svalue"><?=Utils::ms_to_timestring($visit['avg_usr_time'])?></span></td>
+            </tr>
+        <?}?>
+    </tbody>
+</table>
+
+
+</div><?/*statistics end*/?>
+
+<?=$this->render('admin_bottom.phtml')?>

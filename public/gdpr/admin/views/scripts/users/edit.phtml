@@ -1,0 +1,27 @@
+<!-- Vsechen html kod adminu pred obsahem teto stranky -->
+<?= $this->render('admin_top.phtml') ?>
+<div class="row">
+    <div class="span8">
+        <?= $this->form ?>
+    </div>
+    <div class="span4">
+        <?= $this->collapse($this->text('help'), null, array(1)) ?>
+        <? if ($this->form->getValue('is_rep')): ?>
+            <div>
+                <h3><?=$this->text('repImgTitle')?></h3>
+                <? if ($this->repImg): ?>
+                    <img src="<?= $this->repImg ?>"/>
+                    <p><a onClick="return confirm('<?=$this->text('removeRepImgConfirm')?>')" href="<?=$this->url(array('action'=>'remove-repimg'));?>">odebrat obrázek</a></p>
+                <? endif ?>
+                <?= $this->render('contentFilesUploader.phtml') ?>
+                <script>
+                    Dropzone.options.fileuploaderDropzone.acceptedFiles = "image/png";
+                    Dropzone.options.fileuploaderDropzone.maxFiles = 1;
+                </script>
+            </div>
+        <? endif ?>
+    </div>
+</div>
+<!-- Vsechen html kod adminu za obsahem teto stranky -->
+<?= $this->render('admin_bottom.phtml') ?>
+

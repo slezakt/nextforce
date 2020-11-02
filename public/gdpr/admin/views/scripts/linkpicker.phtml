@@ -1,0 +1,34 @@
+<div id="linkpicker<?= $this->rank ?>" class="linkpicker modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <script type="text/javascript">
+        var json_links = <?= json_encode($this->links) ?>;
+    </script>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <div class="input-append linkpicker-find-input">
+            <input class="span2" id="linkpicker<?= $this->rank ?>_do_links_find" type="text" autocomplete="off" placeholder="<?= $this->text('linkpicker.dialog.placeholder'); ?>">           
+            <button class="linkpicker-find-close btn" type="button"><i class="icon-remove-circle"></i></button>
+        </div>
+        <h3 id="myModalLabel"><?= $this->text('linkpicker.dialog.title'); ?></h3>
+
+    </div>
+    <div class="modal-body linkpicker_list">  
+        <div style="display:none" id="linkpicker<?= $this->rank ?>_linkpicker-find" class="linkpicker-find">
+            <h4><?= $this->text('linkpicker.dialog.result'); ?></h4>
+            <div style="display:none" class="linkpicker-find-noresult"><?= $this->text('linkpicker.dialog.noresult'); ?></div>
+            <div class="linkpicker-find-result"></div> 
+        </div>
+        <div id="linkpicker<?= $this->rank ?>_linkpicker-select">
+            <ul id="linkpicker<?= $this->rank ?>_lcol_1" class="dropdown-menu linkpicker_col" style="position:relative;display:block;">
+                <li id="resources"><a class="exp" href="#linkpicker<?= $this->rank ?>_lcol_2"><?= $this->text('linkpicker.dialog.resources'); ?></a><a class="exp arw" href="#linkpicker<?= $this->rank ?>_lcol_2"><i class="icon-chevron-right"></i></a></li>
+                <li id="external"><a class="exp" href="#linkpicker<?= $this->rank ?>_lcol_2"><?= $this->text('linkpicker.dialog.external'); ?></a><a class="exp arw" href="#linkpicker<?= $this->rank ?>_lcol_2"><i class="icon-chevron-right"></i></a></li>
+                <li id="issues"><a class="exp" href="#linkpicker<?= $this->rank ?>_lcol_2"><?= $this->text('linkpicker.dialog.issues'); ?></a><a class="exp arw" href="#linkpicker<?= $this->rank ?>_lcol_2"><i class="icon-chevron-right"></i></a></li>
+                <li id="categories"><a class="exp" href="#linkpicker<?= $this->rank ?>_lcol_2"><?= $this->text('linkpicker.dialog.categories'); ?></a><a class="exp arw" href="#linkpicker<?= $this->rank ?>_lcol_2"><i class="icon-chevron-right"></i></a></li>
+            </ul>
+            <ul id="linkpicker<?= $this->rank ?>_lcol_2" class="dropdown-menu linkpicker_col" style="position:relative;"></ul>
+            <ul id="linkpicker<?= $this->rank ?>_lcol_3" class="dropdown-menu linkpicker_col" style="position:relative;"></ul> 
+        </div>        
+    </div>
+</div>
+
+
+

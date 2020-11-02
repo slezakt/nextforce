@@ -1,0 +1,10 @@
+<?=$this->render('top.phtml')?>
+
+<div id="info">
+    <h1><?=$this->text('title') ? $this->text('title') : '&nbsp;'?></h1>
+    <div class="head">
+        <p><?=$this->message?></p>
+    </div>
+</div><!--end.content-->
+
+<?=$this->render('bottom.phtml')?>

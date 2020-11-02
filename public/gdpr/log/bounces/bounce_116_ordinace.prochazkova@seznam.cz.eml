@@ -1,0 +1,66 @@
+This is a MIME-encapsulated message.
+
+--C9CE96328E.1520330136/mailer.farmacie.cz
+Content-Description: Notification
+Content-Type: text/plain; charset=us-ascii
+
+This is the mail system at host mailer.farmacie.cz.
+
+I'm sorry to have to inform you that your message could not
+be delivered to one or more recipients. It's attached below.
+
+For further assistance, please send mail to postmaster.
+
+If you do so, please include this problem report. You can
+delete your own text from the attached returned message.
+
+                   The mail system
+
+<ordinace.prochazkova@seznam.cz>: host mx1.seznam.cz[77.75.78.42] said: 550
+    5.1.1 Sorry, no mailbox here by that name. (in reply to RCPT TO command)
+
+--C9CE96328E.1520330136/mailer.farmacie.cz
+Content-Description: Delivery report
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; mailer.farmacie.cz
+X-Postfix-Queue-ID: C9CE96328E
+X-Postfix-Sender: rfc822; undelivered+ebcbde4228164f3b89a1d4799f6be3f4fe621fd8734d7b0b-ordinace.prochazkova=seznam.cz@cz.pearshealthcyber.com
+Arrival-Date: Tue,  6 Mar 2018 10:55:35 +0100 (CET)
+
+Final-Recipient: rfc822; ordinace.prochazkova@seznam.cz
+Original-Recipient: rfc822;ordinace.prochazkova@seznam.cz
+Action: failed
+Status: 5.1.1
+Remote-MTA: dns; mx1.seznam.cz
+Diagnostic-Code: smtp; 550 5.1.1 Sorry, no mailbox here by that name.
+
+--C9CE96328E.1520330136/mailer.farmacie.cz
+Content-Description: Undelivered Message Headers
+Content-Type: text/rfc822-headers
+
+Return-Path: <undelivered+ebcbde4228164f3b89a1d4799f6be3f4fe621fd8734d7b0b-ordinace.prochazkova=seznam.cz@cz.pearshealthcyber.com>
+Received: from argos2.farmacie.cz (argos2.farmacie.cz [178.77.239.66])
+	by mailer.farmacie.cz (Postfix) with ESMTP id C9CE96328E
+	for <ordinace.prochazkova@seznam.cz>; Tue,  6 Mar 2018 10:55:35 +0100 (CET)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailer.farmacie.cz C9CE96328E
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=nextforce.cz;
+	s=phcmailer; t=1520330135;
+	bh=qyYy67e/gWxKJHcUwTjSza7jCdlfFSlg+DpkMLFpv80=;
+	h=To:Subject:From:Date:From;
+	b=W5jhoOpKaIS6OuCszDfkX6/nN3Bzakl1vRIcoyzgM4V+TorHteYE75bVR7Egb8k2Q
+	 5Tm5iFhAnrbXvszJX1ASkI26CSXKk7/TiR1MDtzduiu5njzPWItRKljjsFyrmJOAzJ
+	 aWSbFRAiiR/byVbm/nwzR3Izt5hx/i2kFQ6VuOMw=
+Received: by argos2.farmacie.cz (Postfix, from userid 48)
+	id 0B8503FBE3; Tue,  6 Mar 2018 10:55:36 +0100 (CET)
+To: ordinace.prochazkova@seznam.cz
+Subject: =?UTF-8?Q?NextForce=20-=20informace=20pro=20V=C3=A1s=20a=20?=  =?UTF-8?Q?Va=C5=A1e=20=C3=BAdaje=20v=20bezpe=C4=8D=C3=AD.=20(GDPR)?=
+X-PHP-Originating-Script: 1000:Sendmail.php
+From: =?UTF-8?Q?Alena=20Nov=C3=A1=C4=8Dkov=C3=A1?= <alena.novackova@nextforce.cz>
+Date: Tue, 06 Mar 2018 10:55:36 +0100
+Content-Type: multipart/alternative;
+ boundary="=_42158ec365e4205a370128f9ff9f00b0"
+MIME-Version: 1.0
+Message-Id: <20180306095536.0B8503FBE3@argos2.farmacie.cz>
+
+--C9CE96328E.1520330136/mailer.farmacie.cz--

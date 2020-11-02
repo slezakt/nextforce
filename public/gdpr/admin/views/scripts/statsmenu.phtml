@@ -1,0 +1,25 @@
+<table id="stats-layout">
+<tr>
+
+<td valign="top">
+
+
+<?if(isset($this->moduleMenu)){?>
+    <?
+        $moduleMenuData = $this->moduleMenu->specific;
+        $moduleMenuData = (!empty($moduleMenuData[$this->location])) ? $moduleMenuData[$this->location] : array();                
+    ?>           
+    <?$first=true?>        
+    <?foreach($moduleMenuData as $item){?>
+        <?$url = isset($item['url']) ? $item['url'] : $this->url(array('action'=>$item['params']['action'], 'controller'=>'stats', 'module'=>'admin', 'mode' => $item['params']['mode']), null, true)?>
+             <?if(!$first){?> | <?}?>
+              <a href="<?=$url?>"><?=$item['title']?></a>            
+             <?if($first){
+              $first = false;   
+             }?>
+                        
+    <?}?>
+<?}?>
+</td>
+</tr>
+<tr>

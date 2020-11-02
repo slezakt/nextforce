@@ -1,0 +1,61 @@
+<?=$this->render('admin_top.phtml')?>
+
+<p><?=$this->description?></p>
+
+<div class="repmailer-messages">
+    <?=$this->repmailer_msg?>
+</div>
+
+<?=$this->grid?>
+
+<?=$this->render('admin_bottom.phtml')?>
+
+<script type="text/javascript">
+
+ $(document).on('click','.send-repmail',function(e){
+    e.preventDefault();
+    var confirm_msg = '<?=$this->texts->send_confirm?>';
+    var confirm_resend_msg = '<?=$this->texts->resend_confirm?>';
+    
+    var send_confirm = function(name, sent) {
+        var msg = "";
+        
+        if (sent) {
+          msg = confirm_resend_msg.replace('%s',name);
+        } else {
+          msg = confirm_msg.replace('%s',name);
+        }
+        
+        return msg;
+    };
+    
+    
+    if (!confirm(send_confirm($(this).data('name').trim(),$(this).data('sent')))) {
+        return;
+    }
+    
+    var url = $(this).attr('href');
+    $.ajax({
+        url: url,
+        context: $(this),
+        beforeSend: function() {
+          $(this).hide();  
+          $('body').find('.repmailer-messages').html("");
+          $(this).parent().append('<img style="margin:9px 6px" class="loader" src="pub/img/admin/preloader.gif" />');
+        },
+        success: function(d) {
+            var tms = d.split(" ");
+            var tms_html = '<span class="date">'+tms[0]+''+tms[1]+''+tms[2]+'</span>';
+            $(this).parent().parent().parent().parent().children('.sent-time').html(tms_html);
+            $(this).parent().find('.loader').remove();
+            $(this).show();
+        },
+        error: function(x) {
+            $(this).show();
+            $(this).parent().find('.loader').remove();
+            $('body').find('.repmailer-messages').append('<div class="alert alert-error">'+x.responseText+'</div>');
+        }
+    });
+ });
+
+</script>

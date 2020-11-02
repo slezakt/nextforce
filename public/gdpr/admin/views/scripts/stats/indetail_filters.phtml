@@ -1,0 +1,37 @@
+<?
+// nachystame texty pro indetail
+$this->textsindetail = Ibulletin_Texts::getInstance('indetail');
+?>
+<form class="form-inline" action="" method="get">
+
+<label><?=$this->textsindetail->get('slider_label')?>:</label>
+<div id="slider-range"><?=$this->timerangeSliderMin?></div>
+<br/>
+
+<input type="hidden" name="last_content" value="<?=$this->filtersData->content?>"/>
+
+<label><?=$this->textsindetail->get('date_from')?>:</label><input type="text" class="span2 datepicker" id="datepickFrom" name="from" value="<?=$this->dateFrom?>" size="15"/>
+<label><?=$this->textsindetail->get('date_to')?>:</label><input type="text" class="span2 datepicker" id="datepickTo" name="to" value="<?=$this->dateTo?>" size="15"/>
+<?if($this->contentsList){?>
+    <label><?=$this->textsindetail->get('presentation_ID')?>:</label><select class="span2 selectpicker selectpicker show-menu-arrow" name='content' id="contentSel">
+    <?foreach($this->contentsList as $key => $content){?>
+            <option value='<?=$key?>'
+                <?if(isset($this->filtersData->content) && $this->filtersData->content == $key){?>selected='selected'<?}?>>
+                <?=$content?>
+            </option>
+    <?}?>
+<?}?>
+</select>
+<label><?=$this->textsindetail->get('repre')?>:</label><select class="span2 selectpicker selectpicker show-menu-arrow" name='repre' id="repreSel">
+<?foreach($this->repres as $key => $repre){?>
+        <option value='<?=$repre['id']?>'
+            <?if(isset($this->filtersData->repre) && $this->filtersData->repre == $repre['id']){?>selected='selected'<?}?>>
+            <?=($repre['id'] ? "{$repre['id']} - " : '')."{$repre['name']} {$repre['surname']}"?>
+        </option>
+<?}?>
+</select>
+<input type="submit" class="btn btn-primary" name="submit" value="<?=$this->textsindetail->get('submit')?>" />
+<input type="submit" class="btn" name="reset" value="<?=$this->textsindetail->get('reset')?>" />
+</form>
+
+<?Ibulletin_Texts::setActualContext(); // Nataveni kontextu zpet?>

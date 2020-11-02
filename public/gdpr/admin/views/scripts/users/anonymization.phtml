@@ -1,0 +1,18 @@
+<!-- Vsechen html kod adminu pred obsahem teto stranky -->
+<?= $this->render('admin_top.phtml') ?>
+<div class="row">
+    <div class="span8">
+        <p><strong><?=$this->user['name']?> <?=$this->user['surname']?> ID: <?=$this->user['id']?></strong></p>
+        <?= $this->form ?>
+    </div>
+    <div class="span4">
+    </div>
+    <script>
+       $('.anonymization_form').on('submit',function(){
+           return window.confirm("<?=$this->text('confirm')?> <?=$this->user['name']?> <?=$this->user['surname']?> (<?=$this->user['email']?>)?");
+       })
+    </script>
+</div>
+<!-- Vsechen html kod adminu za obsahem teto stranky -->
+<?= $this->render('admin_bottom.phtml') ?>
+

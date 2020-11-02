@@ -1,0 +1,20 @@
+<div class="dash-list">
+    <? if (Ibulletin_AdminAuth::isAllowDangerLogin()): ?>
+        <div class="dash-list-item">
+            <div class="alert alert-error">
+                This installation allows dangerous login methods, please change the settings in the config. (account.default_superuser.allow=0, account.default_admin.allow=0)
+            </div>
+        </div>
+    <? endif; ?>
+
+    <div class="dash-list-item">
+        <div class="dash-list-title">Manuals</div>
+        <a href="https://docs.google.com/document/d/1OuaEY-Xw-j7Ok120A1ZDrtgWSXPbC7McX6PUEeDacwc" target="_blank">Release notes</a><br>
+        <a href="https://docs.google.com/document/d/1vo5dZQpdcygRrps9DG2MvPhLEoWPsUo8qEj1Nu-iJWw" target="_blank">Monitoring</a><br>
+        <a href="https://docs.google.com/document/d/13JsMbrEyv2BJEdOujyDndexlSgoDYbQT5T_K86su1Tg" target="_blank">HTML5 presentation manual</a><br>
+        <a href="https://drive.google.com/file/d/0B1TPbczcENaxc2F0MnBuLUtzTTg" target="_blank">Programmers training inCampaign</a><br>
+        <a href="https://docs.google.com/document/d/1rVnT6qTBUu02Z_Lfy85D5WlKLVouYhWu8gj_wixPc9Y" target="_blank">VIMEO video</a><br>
+        <a href="https://docs.google.com/document/d/19ePmJub6h1krx8u0mVynsLBij3ZajPADPONsFOAwFMU/edit" target="_blank">Litmus e-mail testing</a><br><br>
+    </div>
+
+</div>

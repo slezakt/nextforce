@@ -1,0 +1,42 @@
+<?=$this->render('head.phtml')?>
+
+
+<body>
+  <div class="pageLogin">
+    <div class="forward">
+      
+      <div class="logo">
+        <a href="<?=$this->url(array('controller' => ''), 'default', true)?>" title="Na hlavní stranu"><img src="<?=$this->skin('img/logo.png')?>" alt="inBulletin" /></a>
+      </div>
+      
+      <div class="forward-mail">
+        
+        <div class="forward-mail-label">
+        <strong>Přepošlete inBulletin svému kolegovi - stačí vyplnit jeho e-mailovou adresu.</strong>
+        inBulletin - odborný a společenský měsíčník, který přináší vysokou odbornost, přehledné a aktuální novinky a pravidelné informace z oboru přímo do vaší e-mailové schránky.        
+        Projekt je podporovaný společností Pears Health Cyber, a je určený výhradně pro odbornou lékařskou veřejnost. Vyplněním e-mailu potvrzujete, že jste lékař nebo jiný odborný pracovník ve zdravotnictví!                 
+        </div>        
+        <?php 
+            // je nadefinovan token?
+            if (empty($this->notoken)) {
+                echo $this->form;    
+            }                
+            else {
+                echo '<div class="forward-email-warn">'.$this->notoken.'</div>';
+            }
+            
+            // neni validni email
+            if (!empty($this->notmatch)) {
+                echo '<div class="forward-email-warn">'.$this->notmatch.'</div>';    
+            }
+            
+            //uspesne odeslano
+            if (!empty($this->send)) {
+                echo '<div class="forward-email-warn">'.$this->send.'</div>';    
+            }
+        ?>
+      </div>
+    
+    </div>
+
+<?=$this->render('bottom_login.phtml')?>

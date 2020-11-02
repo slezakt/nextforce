@@ -1,0 +1,141 @@
+<!-- Vsechen html kod adminu pred obsahem teto stranky -->
+<?=$this->render('admin_top.phtml')?>
+
+<div class="statistics">
+<?if($this->isIndetailPresentations){?>
+    <?=$this->render('stats/indetailpresentations_navigation.phtml')?>
+    <?=$this->render('stats/indetail_filters.phtml')?>
+<?}?>
+
+<h4><?=!empty($this->content['object']->name) ? $this->content['object']->name : ""?></h4>
+    
+
+<?=isset($this->message) ? "<b>$this->message</b>" : '' ?>
+
+
+<?if(is_array($this->content_list)){?>
+    <p><?=$this->text('questionnaireList_header')?></p>
+
+<table id="questionnaaires" data-table-export="1" data-table-colopt="1" class="table table-striped table-hover table-bordered table-stats">
+    <thead>
+        <tr>
+            <th><?=$this->text('questionnaireList_id')?></th>
+            <th><?=$this->text('questionnaireList_name')?></th>
+            <th><?=$this->text('questionnaireList_last_change')?></th>
+            <th><?=$this->text('questionnaireList_page')?></th>
+            <th><?=$this->text('questionnaireList_issue')?></th>
+            <th><?=$this->text('questionnaireList_category')?></th>
+            <th class="no-data" colspan="<?=empty($this->noExports) ? '3' : '1'; ?>"><?=$this->text('questionnaireList_action')?></th>
+        </tr>
+    </thead>
+    <tbody>
+        <?foreach($this->content_list as $content){?>
+        <tr>
+            <td><?=$content['id']?></td>
+            <td><?=$content['object']->name?></td>
+            <?
+                $d = new Zend_Date($content['changed']);
+            ?>
+            <td data-table-export-format="m/d/yy h:mm" data-table-export-value="<?=$d->getIso()?>"><?=$d->toString("dd.MM.yyyy HH:mm:ss")?></td>
+            <td><?=$content['page_name']?></td>
+            <td><?=$content['bulletin_name']?></td>
+            <td><?=$content['category_name']?></td>
+            <td class="no-data"><a class="btn btn-mini btn-info"
+                href="<?=$this->url(array('id' => $content['id'], 'operation' => 'showdata'))?>"><?=$this->text('show_report')?></a></td>
+            <?if(empty($this->noExports)):?>
+                <td class="no-data">
+                    <?=Admin_StatsController::getExportButton(array('contentId'=>$content['id']),'answers_latest',$this->text('export_latest_answers'),'btn')?>
+                </td> 
+                <td class="no-data">
+                    <?=Admin_StatsController::getExportButton(array('contentId'=>$content['id']),'answers_all',$this->text('export_all_answers'),'btn')?>
+                </td>
+            <?endif;?>
+        </tr>
+        <?}?>
+    </tbody>
+</table>
+<p><?/*=$this->text('questionnaireList_help')*/?></p>
+<?}?>
+
+
+
+<?/* ------------------ SHOWDATA -------------------- */?>
+<?if(!empty($this->renderWhat) && $this->renderWhat == 'showdata'){?>
+    <?if(empty($this->content)){?>
+        <?=$this->text('questionareItem_no_content')?>
+    <?}else{?>
+        
+        <?if(empty($this->noExports)){?>
+            <?=Admin_StatsController::getExportButton(array('contentId'=>$this->content['id'],'fromIso'=>$this->fromIso,'toIso'=>$this->toIso,'repreId'=>$this->repreId),'answers_latest',$this->text('export_latest_answers'),'btn')?>
+            <?=Admin_StatsController::getExportButton(array('contentId'=>$this->content['id'],'fromIso'=>$this->fromIso,'toIso'=>$this->toIso,'repreId'=>$this->repreId),'answers_all',$this->text('export_all_answers'),'btn')?>
+        <?}?>  
+    
+        <table data-table-name="<?=$this->stattablename?>"  data-table-colopt="1" data-table-export="1" id="questionnaiers_operation" class="table table-striped table-hover table-bordered table-stats">
+            <thead>
+                <tr>
+                    <th><?=$this->text('questionareItem_slide')?></th>
+                    <th><?=$this->text('questionareItem_question')?></th>
+                    <th><?=$this->text('questionareItem_answers_count')?></th>
+                </tr>
+            </thead>
+            <tbody><?
+                $at = $this->answerTypes;
+                $lastQuestId = null;
+                $lastSlide = null;
+                foreach($this->answersTable as $row){
+                    if($lastSlide !== $row['slide_num']){
+                        ?><tr class="warning"><td colspan="3"><span class="svalue"><?=$row['slide_num']?></span></td></tr><tr><td></td><?
+                    }
+                    else{
+                        ?><tr><td>&nbsp;</td><?
+                    }
+                    
+                    if($lastQuestId !== $row['question_id']){
+                        ?><td><strong>
+                            <?=$row['question_num']?> (<?=$at[$row['answer_type']]?>): <?=$row['question_title']?>
+                          </strong></td><?
+                        if(in_array($row['answer_type'], array('b', 't', 'r', 'c'))){
+                            ?><td><span class="svalue"><?=$row['question_sum']?></span></td><? // Celkovy pocet odpovedi vedle nazvu otazky
+                        }
+                        if(in_array($row['answer_type'], array('b', 'r', 'c'))){
+                            ?></tr><tr><td>&nbsp;</td><? // Novy radek tabulky pro jednotlive  odpovedi
+                        }
+                    }
+                    else{
+                        if(!in_array($row['answer_type'], array('b', 'r', 'c'))){
+                            ?><td>&nbsp;</td><?
+                        }
+                    }
+                    
+                    if(in_array($row['answer_type'], array('r', 'c'))){
+                        ?><td style="padding-left:25px;"><?=$row['answer_num']?> - <?=$row['answer_title']?></td><?
+                    }?>
+                    
+                    <?if(in_array($row['answer_type'], array('b'))):?>
+                        <?if($row['answer_id'])://odpovedi s answer_id jsou v dotazu groupovany a zobrazuji spravne ostatni vypiseme dle true/false?>
+                            <td style="padding-left:25px;"><?=$row['answer_num']?> - <?=$row['answer_title']?></td>
+                            <td><strong><?=$row['count']?></strong></td>
+                        <?else:?>
+                            <td style="padding-left:25px;">TRUE</td><td><strong><?=$row['b_answer_true']?></strong></td></tr>
+                            <tr><td>&nbsp;</td><td style="padding-left:25px;">FALSE</td><td><strong><?=$row['b_answer_false']?></strong></td>
+                            
+                        <?endif;?>
+                        
+                    <?endif;?>
+                    
+                    <?if(!in_array($row['answer_type'], array('b', 't'))){
+                        ?><td><strong><?=$row['count']?></strong></td><? // Pro textove odpovedi je jiz vypsan soucet, proto nevypisujeme pocet (byl by 0) a pro boolean vypisujeme jinak
+                    }
+
+                    ?></tr><?
+                    $lastQuestId = $row['question_id'];
+                    $lastSlide = $row['slide_num'];
+                }
+            ?></tbody>
+        </table>
+    <?}?>
+<?}?>
+</div>
+
+<!-- Vsechen html kod adminu za obsahem teto stranky --> 
+<?=$this->render('admin_bottom.phtml')?>

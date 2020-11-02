@@ -1,0 +1,377 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+.gdpr{
+	font-family: 'Open Sans', sans-serif !important;
+	background: none !important;
+	background-size: 100% !important;
+	background-color: #0CF !important;
+	background-attachment: fixed !important;
+	color: #212121 !important;
+	font-size: 14px !important;
+	padding: 20px 0;
+}
+
+.gdpr *, .gdpr *:before, .gdpr *:after {
+	box-sizing: border-box;
+}
+
+
+.gdpr *:focus {
+	outline: 0;
+}
+
+
+.gdpr h1 {
+	color: #212121;
+	font-size:1.8em;
+	margin-bottom:15px;
+}
+
+.gdpr .cr {
+	clear: right;
+}
+
+.gdpr a {
+	color: #0CF;
+}
+
+.gdpr p {
+	font-size:1em;
+	line-height: 1.3em;
+	text-align: left;
+}
+
+.gdpr ul {
+    list-style-type:disc;
+    text-align:left;
+    margin: auto;
+    padding: 5px 20px 10px 20px;
+}
+
+
+.gdpr #page{
+	max-width: 960px !important;
+	background-color: #f9f9f9 !important;;
+	background-image: url('../img/page-bottom.jpg') !important;
+	padding: 25px 40px !important;
+	background-repeat: repeat-x !important;
+	background-position: bottom !important;
+	text-align: left;
+	margin: 0 auto;
+	position:static !important;
+}
+
+.gdpr div.input {
+	float: left;
+	width: 100%;
+	position: relative;
+	margin: 10px 0;
+}
+
+.gdpr .input label  {
+	position: absolute;
+	left: 22px;
+	font-size: 1.2em;
+	font-weight: bold;
+	text-transform: uppercase;
+	top: 21px;
+}
+
+.gdpr div.input-fl {
+	width:50%;
+}
+
+.gdpr button[type=submit], .gdpr a.button{
+	margin-top: 15px;
+	margin-bottom:10px;
+	border: none;
+	background: #a9c23a;
+	padding: 22px 70px 22px 25px;
+	color: #fff;
+	font-size: 16px;
+	text-transform: uppercase;
+	cursor: pointer;
+	position: relative;
+	text-decoration: none;
+	height: auto;
+	line-height: normal;
+	width: auto;
+}
+
+.gdpr button[type=submit]:after, .gdpr a.button:after{
+	content: '→';
+	position: absolute;
+	right: 30px;
+	top: 14px;
+	color: #fff;
+	font-size: 25px;
+	font-weight: bold;
+}
+
+.gdpr .error, .gdpr .help-inline {
+	color: red;
+	padding-top: 5px;
+	padding-left:5px;
+	display:block;
+	position: static;
+	background: none;
+	height: auto;
+}
+
+.gdpr .input input[type=text] {
+	border: 2px solid black;
+	border-radius: 8px;
+	background-color: #f9f9f9;
+	padding: 2px 75px 2px 145px;
+	height: 60px;
+	font-size: 16px;
+	width: 100%;
+}
+
+.gdpr .input input[type=text]:focus {
+	border-color: #0CF;
+}
+
+/*STYL SELEBOXU */
+.gdpr .select2-container .select2-selection--single {
+	height: 60px;
+	border: 2px #212121 solid;
+	border-radius: 8px;
+	background-color: #f9f9f9;
+	padding-left: 14px;
+	text-transform: uppercase;
+}
+
+.gdpr .select2-container--focus .select2-selection--single {
+	border-color: #0CF;
+}
+
+.gdpr .select2-container--default .select2-selection--single .select2-selection__rendered {
+	font-size: 1.2em;
+	line-height: 60px;
+	padding-right: 40px;
+	color: #212121;
+	font-weight: bold;
+}
+
+.gdpr .select2-container--default .select2-selection--single .select2-selection__arrow {
+	height: 60px;
+	width: 40px;
+}
+
+.gdpr .select2-container--default .select2-selection--single .select2-selection__arrow b {
+	border-color: #0CF transparent transparent transparent;
+	border-width: 10px 8px 0 8px;
+	margin-top: -4px;
+	margin-left: -12px;
+}
+
+.gdpr .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b {
+	border-color: transparent transparent #0CF transparent;
+	border-width: 0 8px 10px 8px;
+}
+
+.gdpr .select2-container--default .select2-selection--single .select2-selection__placeholder {
+	font-weight: bold;
+	color: #212121;
+}
+
+.gdpr .select2-container--default .select2-results>.select2-results__options {
+	margin:0;
+	list-style:none;
+	padding-left: 0px;
+}
+
+.gdpr .select2-container--default .select2-results>.select2-results__options li.select2-results__message {
+	color: #212121;
+	padding-left: 10px;
+}
+
+.gdpr .select2-results__option[aria-selected] {
+	list-style-type: none;
+	padding-left: 10px;
+	padding-right: 10px;
+	color: #212121;
+	line-height: 25px;
+	font-size: 18px;
+	text-align: left;
+	width: 100%;
+}
+
+.gdpr .select2-dropdown {
+	border-color: #212121;
+}
+
+.gdpr .select2-container--default .select2-results__option--highlighted[aria-selected] {
+	background-color: #0CF;
+	color: white;
+}
+
+.gdpr .select2-container--default .select2-search--dropdown .select2-search__field {
+	background: none;
+}
+
+
+/*CHECKBOXY*/
+.gdpr div.checkbox {
+	padding-left:20px;
+	margin: 10px 0;
+	background: none;
+}
+
+.gdpr [type="checkbox"]:not(:checked), .gdpr [type="checkbox"]:checked {
+	position: absolute;
+	left: -9999px;
+}
+
+.gdpr [type="checkbox"]:not(:checked) + label, .gdpr [type="checkbox"]:checked + label {
+	position: relative;
+	padding-left: 1.95em;
+	cursor: pointer;
+}
+
+.gdpr [type="checkbox"]:not(:checked) + label:before, .gdpr [type="checkbox"]:checked + label:before {
+	content: '';
+	position: absolute;
+	left: 0; top: -2px;
+	width: 20px;
+	height: 20px;
+	border: 2px solid #ccc;
+	background: #fff;
+	border-radius: 4px;
+	box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
+}
+
+.gdpr [type="checkbox"]:checked + label:before {
+	border: 2px solid #0CF;
+}
+
+.gdpr [type="checkbox"]:not(:checked) + label:after, .gdpr [type="checkbox"]:checked + label:after {
+	content: '';
+	position: absolute;
+	top: 5px;
+	left: 6px;
+	line-height: normal;
+	background: #0CF;
+	width: 7px;
+	height: 7px;
+	z-index: 999;
+	overflow: hidden;
+	display: block;
+}
+
+.gdpr [type="checkbox"]:not(:checked) + label:after {
+	opacity: 0;
+	transform: scale(0);
+}
+
+.gdpr label:hover:before {
+	border: 2px solid #0CF!important;
+}
+
+.gdpr p.rights{
+	font-size: 1em !important;
+	overflow: visible !important;
+}
+
+.gdpr #foot, .gdpr .footLogin {
+	background:none;
+	margin-top: 20px;
+	font-size: 0.75em;
+	text-align: center;
+}
+
+/*TOOLTIP*/
+.gdpr [data-tooltip] {
+	text-decoration: underline;
+	cursor: pointer;
+	white-space: nowrap;
+}
+
+.gdpr .tooltip {
+	bottom: 10px;
+	left: 50%;
+	transform: translateX(-50%);
+	text-align: center;
+	padding: 10px;
+	font-size: 12px;
+	border-radius: 10px;
+	width: 400px;
+	background-color:#000;
+	color:#fff;
+	max-width: 100%;
+	max-height: 100%;
+	display:none;
+	white-space: normal;
+}
+
+.gdpr .tooltip a {
+	color: #0CF;
+}
+
+.gdpr .tooltip:after {
+	content: '';
+	position: absolute;
+	border-style: solid;
+	border-width: 10px 10px 0;
+	display: block;
+	width: 0;
+	z-index: 1;
+	bottom: -10px;
+	left: 50%;
+	border-color: #000 transparent;
+	transform: translateX(-50%);
+}
+
+.gdpr #inpopup {
+	max-height: calc(100% - 100px);
+	overflow: scroll;
+	max-width: 100% !important;
+}
+
+.gdpr #head {
+	background:none;
+	min-height: auto;
+	margin-bottom: 25px;
+}
+
+.gdpr h3 {
+	color: #212121;
+}
+
+@media only screen and (max-width: 960px) {
+	.gdpr {
+		background: #f9f9f9 !important;
+	}
+	.gdpr #page{
+		margin: 0 !important;
+	}
+
+	.gdpr div.input-fl {
+		padding: 0 !important;
+		width: 100%;
+	}
+
+}
+
+
+
+@media only screen and (max-width: 520px) {
+
+	.gdpr #inpopup {
+		top:10px;
+		max-width: 100%;
+		width:100% !important;
+	}
+
+	.gdpr #page{
+		padding: 20px !important;
+	}
+	.gdpr .input input[type=text] {
+		padding-right: 20px;
+	}
+
+	.gdpr p {
+		line-height: 1.15em;
+	}
+}

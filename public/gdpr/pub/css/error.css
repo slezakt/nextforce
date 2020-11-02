@@ -1,0 +1,15 @@
+.errorPage .errorcontainer{
+    position: relative;
+    width: 920px;
+    height: auto;
+    margin: 0px auto;
+    margin-top: 15em;
+}
+
+.errorPage .errorcontainer .footer{
+    padding-top: 7em;
+}
+
+.errorPage .mainErrorFrame{
+    text-align:left;
+}

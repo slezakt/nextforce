@@ -1,0 +1,15 @@
+<!-- Vsechen html kod adminu pred obsahem teto stranky -->
+<?=$this->render('admin_top.phtml')?>
+
+	<?if(!empty($this->logArray)){?>
+<pre>
+	<?foreach($this->logArray as $line){?>
+	<?=$line?>
+	<?}?>
+    </pre>
+	<?}else{?>
+        <?=$this->text('empty')?>
+	<?}?>
+
+<!-- Vsechen html kod adminu za obsahem teto stranky -->
+	<?=$this->render('admin_bottom.phtml')?>

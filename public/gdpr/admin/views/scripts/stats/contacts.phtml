@@ -1,0 +1,86 @@
+<!-- Vsechen html kod adminu pred obsahem teto stranky -->
+<?=$this->render('admin_top.phtml')?>
+
+<div class="statistics">
+
+<!--?=$this->render('statsmenu.phtml')?-->
+<td>
+<h5><?=$this->text('table_label')?></h5>
+<table data-table-export="1" id="contacts" style="background-color: #eee;" id="stat-main" class="table table-striped table-bordered table-hover table-stats">
+    <tbody>
+     <tr>
+         <td style="font-size:130%"><strong><?=$this->text('target_group')?></strong></td><td colspan="3"><span class="svalue"><?=$this->target?></span></td>
+     </tr>
+     <tr>
+        <td style="font-size:130%"><b><?=$this->text('active_contacts')?></b></td>
+        <td><span class="svalue"><?=$this->activeContacts?></span></td><td style="border-left:0;"><span class="muted"><?=100*bcdiv($this->activeContacts, $this->target);?>&nbsp;%&nbsp;&nbsp;<?=$this->text('from_target_group')?></span></td>
+        <td class="no-data"><?=Admin_StatsController::getExportButton(null,'contacts_active')?></td>
+    </tr>
+    <tr>
+        <td><?=$this->text('active_contacts_emailing')?></td>
+        <td><span class="svalue"><?=$this->activeContactsForEmailing?></span></td><td style="border-left:0;"><span class="muted"><?=100*bcdiv($this->activeContactsForEmailing, $this->target);?>&nbsp;%&nbsp;&nbsp<?=$this->text('from_target_group')?></span></td>
+        <td class="no-data"><?=Admin_StatsController::getExportButton(null,'contacts_active_emailing')?></td>
+    </tr>
+     <tr>
+        <td><?=$this->text('no_email_contacts')?></td>
+        <td><span class="svalue"><?=$this->noEmailContactsCount?></span></td><td style="border-left:0;"><span class="muted"><?=100*bcdiv($this->noEmailContactsCount, $this->target);?>&nbsp;%&nbsp;&nbsp;<?=$this->text('from_target_group')?></span></td>
+        <td class="no-data"><?=Admin_StatsController::getExportButton(null,'contacts_active_noemail')?></td>
+        </td>
+    </tr>
+     <tr>
+         <td><?=$this->text('active_contacts_gdpr')?></td>
+         <td><span class="svalue"><?=$this->activeContactsGDPR?></span></td><td style="border-left:0;"><span class="muted"><?=100*bcdiv($this->activeContactsGDPR, $this->activeContacts);?>&nbsp;%&nbsp;&nbsp<?=$this->text('from_active_contacts')?></span></td>
+         <td class="no-data"><?=Admin_StatsController::getExportButton(null,'contacts_active_gdpr')?></td>
+     </tr>
+     <tr>
+         <td><?=$this->text('active_contacts_gdpr_global')?></td>
+         <td><span class="svalue"><?=$this->activeContactsGDPRGlobal?></span></td><td style="border-left:0;"><span class="muted"><?=100*bcdiv($this->activeContactsGDPRGlobal, $this->activeContacts);?>&nbsp;%&nbsp;&nbsp<?=$this->text('from_active_contacts')?></span></td>
+         <td class="no-data"><?=Admin_StatsController::getExportButton(null,'contacts_active_gdpr_global')?></td>
+     </tr>
+    <tr>
+        <td style="font-size:130%"><b><?=$this->text('inactive_contacts')?></b></td>
+        <td><span class="svalue"><?=$this->noActiveContacts?></span></td><td style="border-left:0;"></td>
+        <td class="no-data"><?=Admin_StatsController::getExportButton(null,'contacts_inactive')?></td>
+    </tr>
+    <tr>
+        <td><?=$this->text('deregistred_contacts')?></td>
+        <td><span class="svalue"><?=$this->deregistredContactsCount?></span></td><td style="border-left:0;"></td>
+        <td class="no-data"><?=Admin_StatsController::getExportButton(null,'contacts_deregistred')?></td>
+    </tr>
+    <tr>
+        <td><?=$this->text('removed_contacts')?></td>
+        <td><span class="svalue"><?=$this->removedContactsCount?></span></td><td style="border-left:0;"></td>
+        <td class="no-data"><?=Admin_StatsController::getExportButton(null,'contacts_removed')?></td>
+    </tr>
+    <tr>
+        <td><?=$this->text('invalid_contacts')?></td>
+        <td><span class="svalue"><?=$this->invalidContactsCount?></span></td><td style="border-left:0;"></td>
+        <td class="no-data"><?=Admin_StatsController::getExportButton(null,'contacts_invalid')?></td>
+    </tr>
+    <tr>
+        <td style="font-size:130%"><b><?=$this->text('contacts_in_db')?></b></td>
+        <td><span class="svalue"><?=$this->contactsCount?></span></td><td style="border-left:0;"></td>
+        <td class="no-data"><?=Admin_StatsController::getExportButton(null,'contacts')?></td>
+    </tr>
+</tbody></table>
+
+<div data-angle="-50" data-title="<?=$this->text('contacts_chart_label')?>" id="graf1" class="graph graph-bar">
+<?=$this->graph_contact_active_data?>
+</div>
+
+<div data-angle="-50" data-title="<?=$this->text('contacts_emailing_chart_label')?>" id="graf2" class="graph graph-bar">
+<?=$this->graph_contact_emailing_active_data?>
+</div>
+
+<p>
+<?=Admin_StatsController::getExportButton(null, 'contacts_active_issue',
+$this->text('contacts_chart_label'),'btn')?>
+<?=Admin_StatsController::getExportButton(null, 'contacts_active_emailing_by_issue',
+$this->text('contacts_emailing_chart_label'),'btn')?>
+</p>
+
+</div>
+
+
+<!-- Vsechen html kod adminu za obsahem teto stranky -->
+<?=$this->render('admin_bottom.phtml')?>

@@ -1,0 +1,45 @@
+<!-- Vsechen html kod adminu pred obsahem teto stranky -->
+<?= $this->render('admin_top.phtml') ?>
+<div class="row">
+    <div class="span8">
+        <?= $this->form ?>
+        <?= $this->partial('filemanager.phtml',array('cpath'=>$this->path))?>
+    </div>
+    <div class="span4">
+        <?= $this->render('contentPreviewLinks.phtml')?>
+        <?=
+        $this->collapse(
+                $this->text('help'), array(
+            'spam' => array('title' => 'SPAM', 'body' => $this->render('contentSpamScore.phtml')),
+            'links' => array('title' => $this->text('links_list.main.title'), 'body' => $this->render('contentLinks.phtml'))),
+                    array(1)
+        )
+        ?>   
+    </div>
+</div>
+
+<script type="text/javascript">
+    $('.wysiwig').each(function(){
+        CKEDITOR.replace( $(this).attr('id'), {
+            height: 126,
+            removePlugins: 'elementspath',
+            resize_dir: 'both',
+            resize_maxWidth: $(this).parent().parent().parent().parent().parent().width(), // hack aby textarea nelitala pres pravou stranu
+            toolbar: [
+                { name: 'basicstyles', items: [ 'Bold', 'Italic', 'Strike', 'Subscript', 'Superscript', 'RemoveFormat']},
+                 {name: 'links', items: ['Inboxlink','Link', 'Unlink']}
+            ],
+            on: {
+                focus: function(e) {
+                        //pro ucely napr. linkpickeru, ukladame do promenne nazev aktualniho ckeditoru
+                        CKEDITOR_CURRENT = e.editor.name;
+                    }
+            }
+         });
+    });
+</script>
+
+<?= $this->render('linkpicker.phtml',$this->links);?>
+
+<!-- Vsechen html kod adminu za obsahem teto stranky -->
+<?= $this->render('admin_bottom.phtml') ?>

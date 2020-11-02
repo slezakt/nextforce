@@ -1,0 +1,15 @@
+<!-- Vsechen html kod adminu pred obsahem teto stranky -->
+<?=$this->render('admin_top.phtml')?>
+
+<h3><?=$this->moduleTitle?></h3>
+
+<p><?=$this->description?></p>
+
+<b><?= $this->message ?></b>
+
+<p><?=$this->text('list')?></p>
+
+<?= $this->unrepliedQuestions ?>
+
+<!-- Vsechen html kod adminu za obsahem teto stranky -->
+<?=$this->render('admin_bottom.phtml')?>

@@ -1,0 +1,67 @@
+This is a MIME-encapsulated message.
+
+--8589356564.1521721500/mailer.farmacie.cz
+Content-Description: Notification
+Content-Type: text/plain; charset=us-ascii
+
+This is the mail system at host mailer.farmacie.cz.
+
+I'm sorry to have to inform you that your message could not
+be delivered to one or more recipients. It's attached below.
+
+For further assistance, please send mail to postmaster.
+
+If you do so, please include this problem report. You can
+delete your own text from the attached returned message.
+
+                   The mail system
+
+<lekarna.globusbrno@lloydspharmacy.cz>: host relay1.netnames.net[185.26.230.83]
+    said: 550 We don't handle mail for lloydspharmacy.cz (in reply to RCPT TO
+    command)
+
+--8589356564.1521721500/mailer.farmacie.cz
+Content-Description: Delivery report
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; mailer.farmacie.cz
+X-Postfix-Queue-ID: 8589356564
+X-Postfix-Sender: rfc822; undelivered+ebcbde4228164f3b89a1d4799f6be3f489a1e6d328094760-lekarna.globusbrno=lloydspharmacy.cz@cz.pearshealthcyber.com
+Arrival-Date: Thu, 22 Mar 2018 13:24:59 +0100 (CET)
+
+Final-Recipient: rfc822; lekarna.globusbrno@lloydspharmacy.cz
+Original-Recipient: rfc822;lekarna.globusbrno@lloydspharmacy.cz
+Action: failed
+Status: 5.0.0
+Remote-MTA: dns; relay1.netnames.net
+Diagnostic-Code: smtp; 550 We don't handle mail for lloydspharmacy.cz
+
+--8589356564.1521721500/mailer.farmacie.cz
+Content-Description: Undelivered Message Headers
+Content-Type: text/rfc822-headers
+
+Return-Path: <undelivered+ebcbde4228164f3b89a1d4799f6be3f489a1e6d328094760-lekarna.globusbrno=lloydspharmacy.cz@cz.pearshealthcyber.com>
+Received: from argos2.farmacie.cz (argos2.farmacie.cz [178.77.239.66])
+	by mailer.farmacie.cz (Postfix) with ESMTP id 8589356564
+	for <lekarna.globusbrno@lloydspharmacy.cz>; Thu, 22 Mar 2018 13:24:59 +0100 (CET)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailer.farmacie.cz 8589356564
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=nextforce.cz;
+	s=phcmailer; t=1521721499;
+	bh=qST6XgJ8UBZeCkk9ei2AUtSR1xLdetwu88w4V32W+bc=;
+	h=To:Subject:From:Date:From;
+	b=hltWGF80aNs95UA08dh63hCpBS1mjk40KrnmlAx+XNRFSN+aWCIwtihSuefaQvg4/
+	 D4e1YZkdxk+A5pdfQWHO32TcrP3XpjBIofwBh+GQ6AeLC/5x+UAn/BrzGMRyxMnofj
+	 ALfca4/7ItnCN9iOofkYlZqM5XfVFd8rUJOG1Jvo=
+Received: by argos2.farmacie.cz (Postfix, from userid 48)
+	id 1AE853FBE3; Thu, 22 Mar 2018 13:25:00 +0100 (CET)
+To: lekarna.globusbrno@lloydspharmacy.cz
+Subject: =?UTF-8?Q?NextForce=20-=20informace=20pro=20V=C3=A1s=20a=20?=  =?UTF-8?Q?Va=C5=A1e=20=C3=BAdaje=20v=20bezpe=C4=8D=C3=AD.=20(GDPR)?=
+X-PHP-Originating-Script: 1000:Sendmail.php
+From: =?UTF-8?Q?Hana=20=C4=8Caloudov=C3=A1?= <hana.caloudova@nextforce.cz>
+Date: Thu, 22 Mar 2018 13:25:00 +0100
+Content-Type: multipart/alternative;
+ boundary="=_81fa06b015951b894207be3c899805f3"
+MIME-Version: 1.0
+Message-Id: <20180322122500.1AE853FBE3@argos2.farmacie.cz>
+
+--8589356564.1521721500/mailer.farmacie.cz--

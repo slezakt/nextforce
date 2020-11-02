@@ -1,0 +1,58 @@
+<?=$this->render('admin_top.phtml')?>
+
+<form enctype="multipart/form-data" action="" method="post">
+<input type="hidden" name="MAX_FILE_SIZE" value="100000" />
+<fieldset>
+<table>
+	<tr>
+		<td><?=$this->texts->email?></td>
+		<td><?= $this->form->getElement("emailid");?></td>
+	</tr>
+	<tr>
+		<td><?=$this->texts->pick_file?></td>
+		<td><?= $this->form->getElement("file");?></td>
+	</tr>
+	<tr>
+		<td><?=$this->texts->encoding?></td>
+		<td><?= $this->form->getElement("encoding");?></td>
+	</tr>
+	<tr>
+		<td><input type="submit" value="<?=$this->text('submit')?>" /></td>
+	</tr>
+</table>
+</fieldset>
+
+</form>
+<?
+$ok = $false = 0 ;
+
+
+	if (isset($this->updatedRows))  // odeslan formular, zkouselo se nastavit stav
+	{
+	    foreach ($this->updatedRows as $key => $val) {
+	    	if($val != 0 || $val === "bad") {
+	    		$ok ++;
+	    		if($val == "bad") {
+				    echo sprintf($this->text('bad'), $key);
+	    			echo "<br>";
+	    			
+	    		} else {
+	    			echo sprintf($this->text('ok'), $key);
+                    echo "<br>";
+	    			
+	    		}
+	    	} else {
+	    		$false ++;
+	    		echo sprintf($this->text('notfound'), $key);
+                echo "<br>";
+	    	}	  
+		}
+	
+	echo "<br/>";
+    echo sprintf($this->text('log'), $ok, $false);
+    echo "<br/>";
+		
+	}
+	?>
+
+<?=$this->render('admin_bottom.phtml')?>

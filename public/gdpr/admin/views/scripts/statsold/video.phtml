@@ -1,0 +1,71 @@
+<!-- Vsechen html kod adminu pred obsahem teto stranky -->
+<?=$this->render('admin_top.phtml')?>
+
+<h3>Statistiky -&gt; Video</h3>
+
+<?=isset($this->message) ? "<b>$this->message</b>" : '' ?>
+
+<div id="submenu"><a
+	href="<?=$this->url(array('controller' => 'statsold',
+	'action' => 'index'));?>">Celkové statistiky</a> | <a
+	href="<?= $this->url(array('controller' => 'statsold',
+	'action' => 'bulletins')); ?>">Statistiky pro jednotlivá vydání</a> | <b><a
+    href="<?= $this->url(array('controller' => 'statsold',
+    'action' => 'video')); ?>">Statistiky videí</a></b>
+</div><!-- id=submenu -->
+
+
+<?if(is_array($this->videosTable)){?>
+    <table class="stat">
+    <tr>
+        <th>id</th>
+        <th>Video</th>
+        <th>Vidělo</th>
+        <th>Průměrně zhlédnuto</th>
+        <th>Průměrné hodnocení</th>
+        <th>&nbsp;</th>
+    </tr>
+    
+    <?foreach($this->videosTable as $video){?>
+        <tr>
+            <td>
+                <?=$video['content_id']?>
+            </td>
+            <td>
+                <?=$video['name']?>
+            </td>
+            <td>
+                <?=$video['watchers']?>&nbsp;
+                <a href="<?=$this->url(array(
+                            'controller' => 'statsold',
+                            'action' => 'export',
+                            'what' => Admin_StatsoldController::VIDEOWATCHERS,
+                            'videoId' => $video['content_id']
+                        ))?>"><img src="pub/img/admin/icon-xls.png" style="border: none" />
+                </a>
+            </td>
+            <td>
+                <?if(round($video['position'] <= 0)){?>
+                    <?=(round($video['positiontime'] / 1000, 2))?> sec
+                <?}else{?>
+                    <?=round($video['position'], 2)?> %
+                <?}?>
+            </td>
+            <td>
+                <?=round($video['rating'], 2)?>
+            </td>
+            <td>
+                <a href="<?=$this->url(array('videoId' => $video['content_id']))?>"> 
+                    detail <img src="pub/img/admin/icon-xls.png" style="border: none" />
+                </a>
+            </td>
+        </tr>
+    <?}?>
+<?}?>
+
+
+
+<br clear=left>
+
+
+<!-- Vsechen html kod adminu za obsahem teto stranky --> <?=$this->render('admin_bottom.phtml')?>

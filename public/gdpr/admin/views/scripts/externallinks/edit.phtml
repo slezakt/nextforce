@@ -1,0 +1,11 @@
+<?= $this->render('admin_top.phtml') ?>
+<div class="row">
+    <div class="span8">
+        <?= $this->form ?>
+    </div>	
+    <div class="span4">
+        <?=
+        $this->collapse($this->text('help'),null,array(1)) ?>  
+    </div>
+</div>
+<?= $this->render('admin_bottom.phtml') ?>

@@ -1,0 +1,84 @@
+<!-- Vsechen html kod adminu pred obsahem teto stranky -->
+<?=$this->render('admin_top.phtml')?>
+
+<div class="statistics">
+
+<? /* Metody ve vypisu */
+$oneBul = current($this->visitsData);
+if(!empty($oneBul) && is_array($oneBul['entry_methods'])){
+    $methods = array_keys($oneBul['entry_methods']);
+}
+else{
+    $methods = array();
+}
+?>
+
+<table data-table-export="1" id="entrymethods" class="table table-striped table-hover table-bordered table-stats">
+    <thead>
+        <tr>
+            <th rowspan="3"><?=$this->text('bulletin_id')?></th>
+            <th rowspan="3"><?=$this->text('bulletin_name')?></th>
+            <th colspan="<?=count($methods)*6?>"><?=$this->text('entry_page_types')?></th>
+        </tr>
+        <tr>
+            <?$moduleNames = Ibulletin_Texts::getSet('admin.templates');?>
+            <?foreach($methods as $method){?>
+                <th colspan="6"><?=$moduleNames->{$method}?></th>
+            <?}?>
+        </tr>
+        <tr>
+            <?foreach($methods as $method){?>
+                <th><span data-toggle="tooltip" title="<?=$this->text('all_visits_tip')?>"><?=$this->text('all_visits')?></span></th>
+                <th colspan="2"><span data-toggle="tooltip" title="<?=$this->text('known_visits_tip')?>"><?=$this->text('known_visits')?></span></th>
+                <th><span data-toggle="tooltip" title="<?=$this->text('all_users_tip')?>"><?=$this->text('all_users')?></span></th>
+                <th colspan="2"><span data-toggle="tooltip" title="<?=$this->text('known_users_tip')?>"><?=$this->text('known_users')?></span></th>
+            <?}?>
+        </tr>
+    </thead>
+    <tbody>
+        <?foreach($this->visitsData as $row){?>
+            <tr>
+                <td><?=$row['id']?></td>
+                <td><?=$row['name']?></td>
+                <?foreach($row['entry_methods'] as $methodData){?>
+                    <?$allSess = $methodData['all_sessions'];?>
+                    <?$knownSessPercent = $allSess ? round(($methodData['known_users_sessions']/$allSess)*100) : 0?>
+                    <?$knownUsersPercent = $methodData['users_by_cookies'] ? round(($methodData['known_users']/$methodData['users_by_cookies'])*100) : 0?>
+                    <td>
+                        <span class="svalue"><?=$methodData['all_sessions']?></span>
+                    </td>
+                    <td data-table-export-format="0%">
+                        <span class="svalue"><?=$knownSessPercent?>&nbsp;%</span>
+                    </td>
+                    <td>
+                        <span class="svalue muted"><?=$methodData['known_users_sessions']?></span>
+                    </td>
+                    <td>
+                        <span class="svalue"><?=$methodData['users_by_cookies']?></span>
+                    </td>
+                    <td data-table-export-format="0%">
+                        <span class="svalue"><?=$knownUsersPercent?>&nbsp;%</span>
+                    </td>
+                    <td>
+                        <span class="svalue muted"><?=$methodData['known_users']?></span>
+                    </td>
+                <?}?>
+            </tr>
+        <?}?>
+    </tbody>
+</table>
+<?if($this->bul_more):?>
+     <a class="btn btn-success tip" data-original-title="<?=$this->texts->tooltip->show_all?>" href="<?=$this->url()?>showall/1"><?=$this->texts->show_all?></a> 
+     <br />
+<?endif;?>
+
+
+</div><?/* class statistics END */?>
+
+
+<script language="JavaScript">
+    $('[data-toggle=tooltip]').tooltip();
+</script>
+
+<!-- Vsechen html kod adminu za obsahem teto stranky -->
+<?=$this->render('admin_bottom.phtml')?>

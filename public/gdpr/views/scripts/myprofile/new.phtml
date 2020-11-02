@@ -1,0 +1,53 @@
+<?=$this->render('top.phtml')?>
+<?$this->cfg = $this->config->general->category?>
+<div id="kategorie">
+			
+<?/*
+<h1>Vydání: 
+    <!--<a href="<?=$this->url(array('name' => $this->bul_url_name), 'bulletin', true)?>">-->
+        <span><?=$this->bulletin_name?></span>
+    <!--</a>-->
+</h1>
+*/?>
+<h1>Můj profil</h1>
+
+<div class="perex">
+    <p>Úprava osobních údajů.</p>
+</div>
+
+
+<?/* ------ Obrazek kategorie (hozny zpusob - zkousime pro kadou priponu) ------ */?>
+<?if(file_exists($this->config->categories_admin->img_basepath.'/'.$this->category['id'].'.jpg')){?>
+    <?$cat_img = $this->config->categories_admin->img_basepath.'/'.$this->category['id'].'.jpg';?>
+<?}elseif(file_exists($this->config->categories_admin->img_basepath.'/'.$this->category['id'].'.png')){?>
+    <?$cat_img = $this->config->categories_admin->img_basepath.'/'.$this->category['id'].'.png';?>
+<?}elseif(file_exists($this->config->categories_admin->img_basepath.'/'.$this->category['id'].'.gif')){?>
+    <?$cat_img = $this->config->categories_admin->img_basepath.'/'.$this->category['id'].'.gif';?>
+<?}?>
+
+
+<?=$this->render('modulemenu.phtml')?>
+<br/>
+
+
+<?
+// uvodni rec
+echo "<p>".$this->confirmation."</p>";
+?>
+<br />
+
+<?
+// formular
+echo $this->form;
+?>
+
+<?
+// zprava po ulozeni formulare
+echo "<p>".$this->status."</p>";
+?>
+
+  
+</div>
+
+<?=$this->render('bottom.phtml')?>
+

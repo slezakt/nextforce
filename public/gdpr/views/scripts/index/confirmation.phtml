@@ -1,0 +1,40 @@
+<?
+$texts = Ibulletin_Texts::getSet('index');
+?>
+
+<?= $this->render('head.phtml') ?>
+
+<body class="incampaign">
+<div id="page" class="page">
+    <div class="head">
+        <h3><?= $this->text('title') ?></h3>
+        <div class="head-in">
+        </div>
+		<? /*=$this->render('menu_itrio.phtml')*/ ?>
+        <div class="reset"></div>
+
+    </div>
+
+    <div class="content">
+        <div class="noslide">
+            <div class="souhlas">
+                <p><?= $this->text('infotext') ?></p>
+                <p><span><?= $this->text('legalnotice') ?></span></p>
+                <div class="souhlas-in">
+                    <div class="souhlasTop">
+                        <div class="souhlasBottom">
+                            <p><?= $this->text('confirm') ?></p>
+                            <div class="buttons">
+                                <a href="<?= $this->url(array('answer' => 'no')) ?>" class="ne button"><?=$texts->confirmation->yes_txt?></a>
+                                <a href="<?= $this->url(array('answer' => 'yes')) ?>" class="ano button"><?=$texts->confirmation->no_txt?></a>
+                            </div>
+                            <div class="reset"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+	<?= $this->render('bottom_login.phtml') ?>

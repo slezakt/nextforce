@@ -1,0 +1,31 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+body {
+    font-family: "Roboto Condensed";
+}
+
+nav li {
+    background:url(../img/tecky.gif) no-repeat right bottom;
+}
+
+main h2 {
+    font-size: 3.5rem;
+    font-weight: 700;
+}
+
+main p {
+    margin-bottom: 1rem;
+}
+
+main a {
+    color: #08c;
+}
+
+main a:hover, main a:focus {
+    color: #005580;
+    text-decoration: underline;
+}

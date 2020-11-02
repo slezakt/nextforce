@@ -1,0 +1,12 @@
+<?=$this->render('admin_top.phtml')?>
+<span><?=$this->text('language')?></span>
+<div class="btn-group">
+    <? foreach($this->langs as $lang){?>
+        <a class="btn <?=$lang == $this->id ? 'btn-primary' : 'btn-default'?>" href="<?=$this->url(array('id' => $lang))?>"><?=$lang?></a>
+    <?}?>
+</div>
+
+<?=$this->form?>
+
+<?=$this->render('admin_bottom.phtml')?>
+

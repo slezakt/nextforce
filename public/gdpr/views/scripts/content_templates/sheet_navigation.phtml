@@ -1,0 +1,26 @@
+<?if(!empty($this->contentSheetKeys)){?>
+    <div class="pager">
+      <?if($this->contentPrevSheet !== null){?>
+        <div class="predchozi"><a href="<?=$this->url(array('page' => $this->contentPrevSheet))?>" <?=isset($this->questionnaire_form_id) ? ' id="'.$this->jsid($this->questionnaire_form_id).'"' : ''?>>Předchozí stránka</a></div>
+      <?}else{?>
+          <div class="predchozi">&nbsp;</div>
+      <?}?>
+      
+      
+      <div class="pager-in">
+        <?$first = true?>
+        <?foreach($this->contentSheetKeys as $sheetKey){?>
+            <?/*if($first){$first = false;}else{?> - <?}*/?>
+            <?if($sheetKey == $this->contentActualSheet){?>
+                <b><?=$sheetKey?></b>
+            <?}else{?>
+                <a href="<?=$this->url(array('page' => $sheetKey))?>"<?=isset($this->questionnaire_form_id) ? ' id="'.$this->jsid($this->questionnaire_form_id).'"' : ''?>><?=$sheetKey?></a>
+            <?}?>
+        <?}?>
+      </div>
+      
+      <?if($this->contentNextSheet !== null){?>
+          <a href="<?=$this->url(array('page' => $this->contentNextSheet))?>" class="nasledujici" <?=isset($this->questionnaire_form_id) ? 'id="'.$this->jsid($this->questionnaire_form_id).'"' : ''?>>Další stránka</a>
+      <?}?>
+    </div>
+<?}?>

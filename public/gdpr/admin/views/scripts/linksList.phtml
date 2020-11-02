@@ -1,0 +1,22 @@
+<?$lists = array($this->pages,$this->categories,$this->issues, $this->resources);?>
+<?$titles = array('links_list.table.title_pages', 'links_list.table.title_categories', 'links_list.table.title_bulletins', 'links_list.table.title_resources')?>
+<div class="linksList">
+<?foreach($lists as $key => $list){?>
+	<h5><?=$this->text($titles[$key])?></h5>
+	<table class="tablesorter">			
+	    <thead>
+	    <tr>
+	        <th><?=$this->text('links_list.table.id')?></th>
+	        <th style="width:100%"><?=$this->text('links_list.table.name')?></th>
+	    </tr>
+	    <tbody>
+	    <?foreach($list as $key => $item):?>
+	    <tr>
+	        <td><?=$key?></td>
+	        <td><?=$item?></td>
+	    </tr>
+	    <?endforeach;?>
+	    </tbody>
+	</table>
+<?}?>
+</div>

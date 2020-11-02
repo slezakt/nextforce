@@ -1,0 +1,78 @@
+This is a MIME-encapsulated message.
+
+--831373E033.1521721572/qmqp1.tiscali.local
+Content-Description: Notification
+Content-Type: text/plain; charset=us-ascii
+
+This is the mail system at host qmqp1.tiscali.local.
+
+I'm sorry to have to inform you that your message could not
+be delivered to one or more recipients. It's attached below.
+
+For further assistance, please send mail to postmaster.
+
+If you do so, please include this problem report. You can
+delete your own text from the attached returned message.
+
+                   The mail system
+
+<lekarnahostalkovice@tiscali.cz>: host smtprecv.tiscali.local[172.16.51.1]
+    said: 552 mailbox size exceeded (in reply to end of DATA command)
+
+--831373E033.1521721572/qmqp1.tiscali.local
+Content-Description: Delivery report
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; qmqp1.tiscali.local
+X-Postfix-Queue-ID: 831373E033
+X-Postfix-Sender: rfc822; undelivered+ebcbde4228164f3b89a1d4799f6be3f420d52b14835a532d-lekarnahostalkovice=tiscali.cz@cz.pearshealthcyber.com
+Arrival-Date: Thu, 22 Mar 2018 13:26:12 +0100 (CET)
+
+Final-Recipient: rfc822; lekarnahostalkovice@tiscali.cz
+Action: failed
+Status: 5.0.0
+Remote-MTA: dns; smtprecv.tiscali.local
+Diagnostic-Code: smtp; 552 mailbox size exceeded
+
+--831373E033.1521721572/qmqp1.tiscali.local
+Content-Description: Undelivered Message Headers
+Content-Type: text/rfc822-headers
+
+Return-Path: <undelivered+ebcbde4228164f3b89a1d4799f6be3f420d52b14835a532d-lekarnahostalkovice=tiscali.cz@cz.pearshealthcyber.com>
+Received: from aq.virusfree.cz (aq.virusfree.cz [31.7.241.19])
+	by qmqp1.tiscali.local (Postfix) with QMQP id 831373E033
+	for <lekarnahostalkovice@tiscali.cz>; Thu, 22 Mar 2018 13:26:12 +0100 (CET)
+Received: from aq.virusfree.cz by aq.virusfree.cz
+ (VF-Scanner: Clear:RC:0(178.77.239.11):SC:1(-0.2/5.0):CC:1:;
+ processed in 0.0 s); 22 Mar 2018 12:26:12 +0000
+X-VF-Scanner-Mail-From: undelivered+ebcbde4228164f3b89a1d4799f6be3f420d52b14835a532d-lekarnahostalkovice=tiscali.cz@cz.pearshealthcyber.com
+X-VF-Scanner-Rcpt-To: lekarnahostalkovice@tiscali.cz
+X-VF-Scanner-ID: 20180322122612.510152.39910.aq.0
+X-Spam-Status: No, hits=-0.2, required=5.0
+Received: from mail1.farmacie.cz (178.77.239.11)
+  by ax.virusfree.cz with ESMTPS (TLSv1.2, ECDHE-RSA-AES256-GCM-SHA384); 22 Mar 2018 13:26:12 +0100
+Received-SPF: pass (aq: domain of cz.pearshealthcyber.com designates 178.77.239.11 as permitted sender) client-ip=178.77.239.11; envelope-from=undelivered+ebcbde4228164f3b89a1d4799f6be3f420d52b14835a532d-lekarnahostalkovice=tiscali.cz@cz.pearshealthcyber.com; helo=mail1.farmacie.cz;
+Received: from argos2.farmacie.cz (argos2.farmacie.cz [178.77.239.66])
+	by mailer.farmacie.cz (Postfix) with ESMTP id 4E9735BC4F
+	for <lekarnahostalkovice@tiscali.cz>; Thu, 22 Mar 2018 13:25:28 +0100 (CET)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailer.farmacie.cz 4E9735BC4F
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=nextforce.cz;
+	s=phcmailer; t=1521721528;
+	bh=pgQLI3Yu96zbDXIjTlK7BtFjozn+4lU63kc2X5SuRDc=;
+	h=To:Subject:From:Date:From;
+	b=JyvVIzaeKqO1WgRM5BVfaKKbGgfmDkSKvI61zDtMWejjXflPQcb+v2Q5lPePX0GHO
+	 Xyca3yqwUyEKYXzhKokfBmNKBWV99cRoW0yJ/B/PVE5QhOm0RJtWEKKaXa7VARyJFt
+	 PmqTQUNP/1loEoPEKA3MGvAsSkX2sJ4xuiDB9qlw=
+Received: by argos2.farmacie.cz (Postfix, from userid 48)
+	id D826E4021A; Thu, 22 Mar 2018 13:25:28 +0100 (CET)
+To: lekarnahostalkovice@tiscali.cz
+Subject: =?UTF-8?Q?NextForce=20-=20informace=20pro=20V=C3=A1s=20a=20?=  =?UTF-8?Q?Va=C5=A1e=20=C3=BAdaje=20v=20bezpe=C4=8D=C3=AD.=20(GDPR)?=
+X-PHP-Originating-Script: 1000:Sendmail.php
+From: =?UTF-8?Q?Jarmila=20Dost=C3=A1lov=C3=A1?= <jarmila.dostalova@nextforce.cz>
+Date: Thu, 22 Mar 2018 13:25:28 +0100
+Content-Type: multipart/alternative;
+ boundary="=_6656898a2977eba482c13fdb7700be17"
+MIME-Version: 1.0
+Message-Id: <20180322122528.D826E4021A@argos2.farmacie.cz>
+
+--831373E033.1521721572/qmqp1.tiscali.local--

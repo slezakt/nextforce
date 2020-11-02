@@ -1,0 +1,68 @@
+This is a MIME-encapsulated message.
+
+--BC71E53337.1521721551/mailer.farmacie.cz
+Content-Description: Notification
+Content-Type: text/plain; charset=us-ascii
+
+This is the mail system at host mailer.farmacie.cz.
+
+I'm sorry to have to inform you that your message could not
+be delivered to one or more recipients. It's attached below.
+
+For further assistance, please send mail to postmaster.
+
+If you do so, please include this problem report. You can
+delete your own text from the attached returned message.
+
+                   The mail system
+
+<lek-hrozenkov@cmail.cz>: host cbx.virusfree.cz[212.224.105.19] said: 554 5.7.1
+    <lek-hrozenkov@cmail.cz>: Recipient address rejected: Access denied, user
+    does not exist (in reply to RCPT TO command)
+
+--BC71E53337.1521721551/mailer.farmacie.cz
+Content-Description: Delivery report
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; mailer.farmacie.cz
+X-Postfix-Queue-ID: BC71E53337
+X-Postfix-Sender: rfc822; undelivered+ebcbde4228164f3b89a1d4799f6be3f43e8b54c359b90606-lek-hrozenkov=cmail.cz@cz.pearshealthcyber.com
+Arrival-Date: Thu, 22 Mar 2018 13:24:50 +0100 (CET)
+
+Final-Recipient: rfc822; lek-hrozenkov@cmail.cz
+Original-Recipient: rfc822;lek-hrozenkov@cmail.cz
+Action: failed
+Status: 5.7.1
+Remote-MTA: dns; cbx.virusfree.cz
+Diagnostic-Code: smtp; 554 5.7.1 <lek-hrozenkov@cmail.cz>: Recipient address
+    rejected: Access denied, user does not exist
+
+--BC71E53337.1521721551/mailer.farmacie.cz
+Content-Description: Undelivered Message Headers
+Content-Type: text/rfc822-headers
+
+Return-Path: <undelivered+ebcbde4228164f3b89a1d4799f6be3f43e8b54c359b90606-lek-hrozenkov=cmail.cz@cz.pearshealthcyber.com>
+Received: from argos2.farmacie.cz (argos2.farmacie.cz [178.77.239.66])
+	by mailer.farmacie.cz (Postfix) with ESMTP id BC71E53337
+	for <lek-hrozenkov@cmail.cz>; Thu, 22 Mar 2018 13:24:50 +0100 (CET)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailer.farmacie.cz BC71E53337
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=nextforce.cz;
+	s=phcmailer; t=1521721490;
+	bh=Clfv70O1U2EE/2QLtRY+uh8QQrvqY0LD84A8QbXYbMM=;
+	h=To:Subject:From:Date:From;
+	b=xUetZR/4/eJ9TCq9njGPH+QM/sq1Xk6dPox5Ne+OyOzT0y9kEL4je2h9KQ81hMYHz
+	 ZIbuCgMv4jGbcVgHxDH/UG2jJ6pv7jKZy/bfTiZUcc/oy2nA0HoP+4CAFUcdtBKxlK
+	 AWbX/oqnsxLFYveR0sLXlO+yusxlkINNPngIy8Zo=
+Received: by argos2.farmacie.cz (Postfix, from userid 48)
+	id 51D4B3FBE3; Thu, 22 Mar 2018 13:24:51 +0100 (CET)
+To: lek-hrozenkov@cmail.cz
+Subject: =?UTF-8?Q?NextForce=20-=20informace=20pro=20V=C3=A1s=20a=20?=  =?UTF-8?Q?Va=C5=A1e=20=C3=BAdaje=20v=20bezpe=C4=8D=C3=AD.=20(GDPR)?=
+X-PHP-Originating-Script: 1000:Sendmail.php
+From: =?UTF-8?Q?Jarmila=20Dost=C3=A1lov=C3=A1?= <jarmila.dostalova@nextforce.cz>
+Date: Thu, 22 Mar 2018 13:24:51 +0100
+Content-Type: multipart/alternative;
+ boundary="=_ca22e8249bc2d2e46517ee608f0d90b4"
+MIME-Version: 1.0
+Message-Id: <20180322122451.51D4B3FBE3@argos2.farmacie.cz>
+
+--BC71E53337.1521721551/mailer.farmacie.cz--

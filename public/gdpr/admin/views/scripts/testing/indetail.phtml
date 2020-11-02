@@ -1,0 +1,17 @@
+<?=$this->render('admin_top.phtml') ?>
+<div class="row">
+    <div class="span8">
+        <form method="get" class="form-inline">
+            <label><?=$this->texts->indetail->select_content_label?></label><?= $this->formSelect('id', $this->contentId, array('class' => 'selectpicker form-inline'), $this->indetail_list) ?>
+            <?= $this->formSubmit('send', $this->texts->indetail->content_choose, array('class' => 'btn btn-primary')) ?>
+        </form>
+
+        <? if ($this->contentId): ?>
+        <h3><?= $this->indetail_name ?> <small><?=$this->texts->indetail->debug_subtitle?></small></h3>
+            <p><?=$this->texts->indetail->debug_description?></p>
+            <?= $this->render('indetail/debug.phtml') ?>
+            <br/>
+        <? endif ?>
+    </div>
+</div>
+<?=$this->render('admin_bottom.phtml')?>

@@ -1,0 +1,21 @@
+<?
+###### Navigace mezi monitoringy indetail presentations
+
+// nachystame texty pro indetail
+$textsindetail = Ibulletin_Texts::getInstance('indetailpresentations');
+$contentId = $this->filtersData->content;
+?>
+
+<div>
+    <a href="<?=$this->url(array('action' => 'indetailpresentationsslides')).'?content='.$contentId?>">
+        <?=$textsindetail->get('slides')?></a> /
+    <a href="<?=$this->url(array('action' => 'indetailpresentationsresources')).'?content='.$contentId?>">
+        <?=$textsindetail->get('resources')?></a> /
+    <a href="<?=$this->url(array('action' => 'indetailpresentationschannels')).'?content='.$contentId?>">
+        <?=$textsindetail->get('channels')?></a> /
+    <a href="<?=$this->url(array('action' => 'questionnaires', 'indetailpresentaions' => 1, 'operation' => 'showdata')).'?content='.$contentId?>">
+            <?=$textsindetail->get('questions')?></a>   
+</div>
+<br/>
+
+<?Ibulletin_Texts::setActualContext(); // Nataveni kontextu zpet?>

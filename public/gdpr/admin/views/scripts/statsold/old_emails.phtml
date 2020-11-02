@@ -1,0 +1,37 @@
+<!-- Vsechen html kod adminu pred obsahem teto stranky -->
+<?=$this->render('admin_top.phtml')?>
+
+<h3>Statistiky</h3>
+
+<?=isset($this->message) ? "<b>$this->message</b>" : '' ?>
+
+<p>Statistiky pro jednotlivé emaily z bulletinu: <?=$this->bulletinName?></p>
+
+<?
+if (isset($this->emails) && !empty($this->emails))
+{?>
+<table>
+	<tr>
+		<th>&nbsp;</th>
+		<th>Název emailu</th>
+		<th>Odesláno</th>
+		<th>Kolik kliklo</th>
+		<th>% prokliků</th>
+	</tr>
+	<?
+	$i = 1;
+	foreach ($this->emails as $id => $email)
+	{?>
+	<tr>
+		<td class="blue"><?=$i++.'.'?></td>
+		<td class="blue"><?=$email['name']?></td>
+		<td class="blue"><?=$email['sents']?></td>
+		<td class="blue"><?=$email['clicks']?></td>
+		<td class="blue"><?=$email['percent']?>%</td>
+	</tr>
+	<?}?>
+</table>
+	<?}?>
+
+<!-- Vsechen html kod adminu za obsahem teto stranky -->
+	<?=$this->render('admin_bottom.phtml')?>

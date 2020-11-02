@@ -1,0 +1,84 @@
+<?
+/*
+ * Cookie compliance - mame vlozeno ve view skriptu hlavne kvuli snadnemu pouziti textu a editaci pres admin
+ * 
+ * CSS je mozne overridnout v hlavnim CSS navazanim stylu na #cookieComplianceDiv, #cookieComplianceInfo a #cookieCompliancePolicy
+ * misto na class.
+ */
+ 
+ // Nic nepridavame do HTML, pokud byly cookies jiz potvrzeny
+ $req = Zend_Controller_Front::getInstance()->getRequest();
+ $config = Zend_Registry::get('config');
+ if($config->general->cookies_compliance_on != 1 || $req->getCookie('cookieAgreed') == '1' || ($this->user_data && !empty($this->user_data['cookieAgreed']))){return;}
+?>
+<style>
+    div.cookieComplianceDiv {
+        position:fixed; top: 0px; left: -0px; width:100%; color:#fff;
+        z-index:9000; display: none;text-align:center;font-size:10px;
+    }
+    div.cookieComplianceDiv a, div.cookieComplianceDiv a:visited, div.cookieComplianceDiv a:hover, div.cookieComplianceDiv a.policy:hover {color:#fff !important; text-decoration:underline;}
+    div.cookieComplianceInfo {
+        background-color:#303237; padding: 5px;
+    } 
+    div.cookieCompliancePolicy {
+        background-color:#3e4650;
+        background:rgba(48,50,60,0.83);
+        -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#d4303237, endColorstr=#d4303237)";
+        _background-color:#3e4650;
+        display: none; padding: 10px; 
+    }
+    div.cookieCompliancePolicy .policyClose {font-size:11px; color:#fff; float: right; text-decoration: none;}
+    div.cookieCompliancePolicy .text {max-width: 650px; margin: auto; text-align: justify; _width:650px;}
+    div.cookieCompliancePolicy .text {color:#fff;font-size:10px;}
+    div.cookieCompliancePolicy .text h3 { color:#fff;font-size:20px;}
+    div.cookieCompliancePolicy .text ul { padding-left: 15px;}
+    div.cookieCompliancePolicy .text ol { padding-left: 15px;margin-top:5px;}
+    div.cookieCompliancePolicy .text ol li {padding-bottom: 5px; list-style-type:decimal;color:#fff;line-height:15px;}
+    div.cookieCompliancePolicy .text ul li {padding-bottom: 0; list-style-type:disc;}
+    div.cookieComplianceDiv input.accept {margin-left:5px;display:inline;float:none;width:auto;font-size:12px;color:#000;border: 1px solid #cccccc;padding: 4px;background: #f7f7f7;
+    -webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px;}
+</style>
+
+<script language="JavaScript">
+//<![CDATA[
+
+if (readCookie('cookieAgreed')!="1") {
+  elem = document.createElement("div");
+  elem.id = 'cookieComplianceDiv';
+  elem.className = 'cookieComplianceDiv';
+  
+  elem.innerHTML = '<div class="cookieComplianceInfo" id="cookieComplianceInfo"> \
+    <?=strtr($this->text('cookies.compliance.info'), array("\r" => '', "\n" => ' ', "'" => "\\'"))?> \
+    </div> \
+    <div id="cookieCompliancePolicy" class="cookieCompliancePolicy">\
+    <a href="#" class="policyClose">X</a>\
+    <div class="text">\
+    <?=strtr($this->text('cookies.compliance.policy'), array("\r" => '', "\n" => ' ', "'" => "\\'"))?> \
+    </div>\
+    </div>\
+    ';
+  document.body.insertBefore(elem,document.body.childNodes[0]);
+
+  // jQuery volame primo pres jQuery misto $, protoze $ koliduje s JS pro formular na login page inDetailu
+
+  jQuery('#cookieComplianceDiv .accept').click(function(){
+      createCookie('cookieAgreed','1');
+      jQuery('#cookieComplianceDiv').slideUp();
+      return false;
+  });
+  
+  jQuery('#cookieComplianceDiv .policy').click(function(){
+      jQuery('#cookieCompliancePolicy').slideToggle();
+      return false;
+  });
+  jQuery('#cookieComplianceDiv .policyClose').click(function(){
+      jQuery('#cookieCompliancePolicy').slideUp();
+      return false;
+  });
+  
+  var fire = function(){jQuery('#cookieComplianceDiv').slideDown();};
+  setTimeout(fire, 1000);
+}   
+
+//]]>
+</script>

@@ -1,0 +1,103 @@
+<!-- Vsechen html kod adminu pred obsahem teto stranky -->
+<?= $this->render('admin_top.phtml') ?>
+
+<div class="statistics">
+    <?
+    if ($this->activeContactsCount == 1) {
+        $this->activeContactLabel = $this->text('activeContact1');
+    } elseif (($this->activeContactsCount > 1) && ($this->activeContactsCount < 5)) {
+        $this->activeContactLabel = $this->text('activeContact2');
+    } else {
+        $this->activeContactLabel = $this->text('activeContact10');
+    }
+
+    if ($this->contactsCount == 1) {
+        $this->contactLabel = $this->text('contact1');
+    } elseif (($this->contactsCount > 1) && ($this->contactsCount < 5)) {
+        $this->contactLabel = $this->text('contact2');
+    } else {
+        $this->contactLabel = $this->text('contact10');
+    }
+
+    if ($this->readersCount == 1) {
+        $this->readersLabel = $this->text('reader1');
+    } elseif (($this->readersCount > 1) && ($this->readersCount < 5)) {
+        $this->readersLabel = $this->text('reader2');
+    } else {
+        $this->readersLabel = $this->text('reader10');
+    }
+
+	if ($this->activeContactsGDPRCount == 1) {
+		$this->activeContactGDPRLabel = $this->text('activeGDPRContact1');
+	} elseif (($this->activeContactsGDPRCount > 1) && ($this->activeContactsGDPRCount < 5)) {
+		$this->activeContactGDPRLabel = $this->text('activeGDPRContact2');
+	} else {
+		$this->activeContactGDPRLabel = $this->text('activeGDPRContact10');
+	}
+
+	if ($this->activeContactsGDPRGlobalCount == 1) {
+		$this->activeContactGDPRGlobalLabel = $this->text('activeGDPRGlobalContact1');
+	} elseif (($this->activeContactsGDPRGlobalCount > 1) && ($this->activeContactsGDPRGlobalCount < 5)) {
+		$this->activeContactGDPRGlobalLabel = $this->text('activeGDPRGlobalContact2');
+	} else {
+		$this->activeContactGDPRGlobalLabel = $this->text('activeGDPRGlobalContact10');
+	}
+    ?>
+
+    <div class="row circle-stats">
+        <div class="circle-col">
+            <h5><a href="<?= $this->url(array('action' => 'contacts')) ?>"><?= $this->text('contacts') ?></a></h5>
+            <input data-fgcolor="#49afcd" data-width="130" data-height="130" data-readonly=true type="text" class="circle-stat" value="<?= $this->activeContactsForEmailingPercentage; ?>" data-min="0" data-max="<?=($this->activeContactsForEmailingPercentage > 100) ? $this->activeContactsForEmailingPercentage : 100 ?>">
+            <div class="well well-small"><?= $this->activeContactsForEmailingCount; ?>&nbsp;<?= $this->activeContactLabel; ?>&nbsp;<?= $this->text('from_target') ?>&nbsp;<?= $this->target; ?> (<?=$this->text('target_group')?>)</div>
+        </div>
+        <div class="circle-col">
+            <h5><a href="<?= $this->url(array('action' => 'readers')) ?>"><?= $this->text('readers') ?></a></h5>
+            <input data-fgcolor="#da4f49" data-width="130" data-height="130" data-readonly=true type="text" class="circle-stat" value="<?= $this->readersPercentage; ?>" data-min="0" data-max="<?=($this->readersPercentage>100) ? $this->readersPercentage : 100 ?>">
+           <div class="well well-small"><?= $this->readersCount; ?>&nbsp;<?= $this->readersLabel ?> <?= $this->text('from_count') ?> <?= $this->activeContactsForEmailingCount; ?>&nbsp;<?= $this->text('activeContact10') ?>
+           <br><?=$this->readersContactsCount; ?>&nbsp;<?= $this->text('contacts_with_readers') ?> <?= $this->readersTimeAverage; ?>&nbsp;<?= $this->text('minutes') ?></div>
+        </div>
+        <div class="circle-col">
+            <h5> <a href="<?= $this->url(array('action' => 'campaign')) ?>"><?= $this->text('response_rate') ?></a></h5>
+            <?
+                if($this->responseRate['send'] == 0) {
+                    $response_rate = 0;
+                } else {
+                    $response_rate = round(100 * $this->responseRate['response'] / $this->responseRate['send']);
+                }
+            ?>
+            <input data-fgcolor="#5bb75b" data-width="130" data-height="130" data-readonly=true type="text" class="circle-stat" value="<?=$response_rate ?>" data-min="0" data-max="<?=($response_rate > 100) ? $response_rate : 100 ?>">
+            <div class="well well-small"><?= $this->responseRate['send'] == 0 ? '0' : round(100 * $this->responseRate['response'] / $this->responseRate['send']); ?>&nbsp;% <?= $this->text('in_current_issue') ?></div>
+        </div>
+        <div class="circle-col">
+            <h5><a href="<?= $this->url(array('action' => 'returnrate')) ?>"><?= $this->text('return_rate') ?></a></h5>
+            <? if($this->returnRate['readers_last'] == 0){
+            $return_rate = 0;
+            } else {
+            $return_rate = round(100 * $this->returnRate['rr'] / $this->returnRate['readers_last']);
+            }
+            ?>
+            <input data-fgcolor="#363636" data-width="130" data-height="130" data-readonly=true type="text" class="circle-stat" value="<?=$return_rate?>" data-min="0" data-max="<?=($return_rate > 100) ? $return_rate : 100 ?>">
+             <div class="well well-small"><?= $this->returnRate['readers_last'] == 0 ? '0' : round(100 * $this->returnRate['rr'] / $this->returnRate['readers_last']); ?>&nbsp;% <?= $this->text('in_compare_with_last_issue') ?></div>
+        </div>
+    </div>
+    <div class="row circle-stats">
+        <div class="circle-col">
+            <h5><?= $this->text('gdpr') ?></h5>
+            <input data-fgcolor="#ff9900" data-width="130" data-height="130" data-readonly=true type="text" class="circle-stat" value="<?= $this->activeContactsGDPRPercentage; ?>" data-min="0" data-max="<?=($this->activeContactsGDPRPercentage > 100) ? $this->activeContactsGDPRPercentage : 100 ?>">
+            <div class="well well-small"><?= $this->activeContactsGDPRCount;?> <?= $this->activeContactGDPRLabel; ?>&nbsp;<?= $this->text('from_target') ?>&nbsp;<?= $this->activeContactsCount; ?></div>
+        </div>
+        <div class="circle-col">
+            <h5><?= $this->text('gdpr_global') ?></h5>
+            <input data-fgcolor="#cc00ff" data-width="130" data-height="130" data-readonly=true type="text" class="circle-stat" value="<?= $this->activeContactsGDPRGlobalPercentage; ?>" data-min="0" data-max="<?=($this->activeContactsGDPRGlobalPercentage > 100) ? $this->activeContactsGDPRGlobalPercentage : 100 ?>">
+            <div class="well well-small"><?= $this->activeContactsGDPRGlobalCount;?> <?= $this->activeContactGDPRGlobalLabel; ?>&nbsp;<?= $this->text('from_target') ?>&nbsp;<?= $this->activeContactsCount; ?></div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(".circle-stat").knob({'format': function(v) { return v + ' %';}});
+        $(".circle-stat").css('font-size','24px');
+    </script>
+</div>
+
+
+<!-- Vsechen html kod adminu za obsahem teto stranky -->
+<?= $this->render('admin_bottom.phtml') ?>

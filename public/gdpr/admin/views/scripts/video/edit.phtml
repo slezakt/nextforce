@@ -1,0 +1,188 @@
+<?= $this->render('admin_top.phtml') ?>
+<script type="text/javascript">
+/*
+ pravidelne zjistuje stav workera a aktualizuje flash zpravicku
+ */
+function getVimeoState() {
+
+    $.getJSON('<?=$this->url(array('action'=> 'vimeostate'))?>', function (data) {
+
+        if (data.progress != undefined) {
+
+            query = '#content ul.info li.vimeo_status';
+            inner = '<div class="row">' + '<div class="span3"><?=$this->texts->upload_progress?>'+data.status+'</div>'+
+                '<div class="span7" style="padding:4px;"><div class="progress" style="height:24px;line-height:32px;margin:0"><div class="bar" style="vertical-align:middle; width:'+data.progress+'%"></div></div></div>' +
+
+                '<div class="span1 text-right"><a class="btn btn-danger" href="<?=$this->url(array('action'=>'killworker'))?>"><?=$this->texts->stop_worker?></a></div>'+
+                '<div>';
+            elm = '<li class="info vimeo_status">'+inner+'</li>';
+
+            if ($('#content ul.info').length) {
+                if (!$('#content ul.info .vimeo_status').length) {
+                    $('#content ul.info').append(elm);
+                } else {
+                    $('#content ul.info li.vimeo_status').html(inner);
+                }
+            } else {
+                $('#content h1').after('<ul class="info">'+elm+'</ul>');
+            }
+
+            if (data.status == 'available') {
+                $(query).addClass("success");
+                $(query).removeClass("info");
+
+            }
+            if (data.progress == 100) {
+                setTimeout(function() {
+                    location.reload(true);
+                }, 5000);
+            }
+        } else {
+            if ($('#content ul.info li.vimeo_status').length) {
+                $('#content ul.info li.vimeo_status').remove();
+            }
+        }
+        setTimeout(function(){ getVimeoState(); }, 4000);
+    });
+}
+
+getVimeoState();
+
+</script>
+<div class="row">
+    <div class="span8">
+        <? if ($this->videoReady) { ?>
+            <div id="players">
+                <div id="divfullAvPlayer">
+                    <h4><?= $this->text('full_preview') ?></h4>
+                    <div id="fullAvPlayer"><!--
+                                    INSERT NOTIFICATION THE JAVASCRIPT AND FLASH
+                                    NEED TO BE ENABLED TO RUN THE PAGE PROPERLY.
+                                    NOTIFICATION SHOULD BE HTML SNIPPET OF CODE!
+                        -->
+                        <p><? $this->text('noflash') ?></p>
+                        <p><a href="http://www.adobe.com/go/getflashplayer"> <img
+                                    src="pub/img/admin/get_flash_player.gif" alt="Get Adobe Flash player" /> </a>
+                        </p>
+                    </div><!--fullAvPlayer-->
+                    <br />
+                    <button id="reloadCfgBtn"><?= $this->texts->action_reload ?></button>
+                </div><!--divfullAvPlayer-->
+
+                <div id="divplainAvPlayer">
+                    <h4><?= $this->text('plain_preview') ?></h4>
+                    <div id="plainAvPlayer"><!--
+                                    INSERT NOTIFICATION THE JAVASCRIPT AND FLASH
+                                    NEED TO BE ENABLED TO RUN THE PAGE PROPERLY.
+                                    NOTIFICATION SHOULD BE HTML SNIPPET OF CODE!
+                        -->
+                        <p><?= $this->text('noflash') ?></p>
+                        <p><a href="http://www.adobe.com/go/getflashplayer"> <img
+                                    src="pub/img/admin/get_flash_player.gif" alt="Get Adobe Flash player" /> </a>
+                        </p>
+                    </div><!--plainAvPlayer-->
+                    <br />
+                    <button id="setPlainPlayerWide"><?= $this->texts->action_wideplayer ?></button>
+                </div><!--divplainAvPlayer-->
+            </div><!--players-->
+
+            <div class="reset"></div>
+        <? } ?>
+
+        <? if ($this->vimeo_id){ ?>
+            <iframe src="//player.vimeo.com/video/<?=$this->vimeo_id?>" width="400" height="300"
+                frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        <? } ?>
+
+        <div id="dataForm"><?= $this->form ?></div>
+
+        <? if ($this->videoReady) { ?>
+            <div class="functionsdiv"><? /* Funkce k videu */ ?>
+                <h4><?= $this->text('video_functions') ?></h4>
+                <a href="#" id="getPreviewPict"><?= $this->texts->action_setpreview ?></a> <br />
+
+                <div id="divWorkingIndicator">
+                    <div id="workingIndicator"><?= $this->text('working') ?></div>
+                </div>
+
+                <? $embeds = $this->embedsTableData ?>
+                <div class="divFunction1">
+                    <h4><?= $this->text('files') ?></h4>
+                    <table class="tablesorter" id="swfsForEmbed">
+                        <thead>
+                            <tr>
+                                <th><?= $this->texts->filename ?></th>
+                                <th><?= $this->texts->action ?></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <? foreach ($embeds['files'] as $file) { ?>
+                                <tr>
+                                    <td><?= $file['file'] ?></td>
+                                    <td>
+                                        <button class="swfAddNew" name="<?= $file['file'] ?>"><?= $this->texts->action_insert ?></button>
+                                        <? /* <button class="swfAddNew addRating" name="<?=$file['file']?>">Rating</button> */ ?>
+                                    </td>
+                                </tr>
+                            <? } ?>
+                        </tbody>
+                    </table>
+
+                    <h4><?= $this->text('swf_files') ?></h4>
+                    <table class="tablesorter" id="swfsEmbeded">
+                        <thead>
+                            <tr>
+                                <th><?= $this->texts->filename ?></th>
+                                <th><?= $this->texts->timestamp ?></th>
+                                <th><?= $this->texts->questionnaire ?></th>
+                                <th><?= $this->texts->action ?></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <? foreach ($embeds['embeds'] as $key => $embed) { ?>
+                                <tr>
+                                    <td><?= $embed['file'] ?></td>
+                                    <td><?= $embed['time'] ?></td>
+                                    <td class="questName"><?= $embed['questionnaire'] ? $embed['questionnaire']['object']->name : '' ?></td>
+                                    <td>
+                                        <button class="swfAddQuestionnaire" name="<?= $key ?>"><?= $this->texts->action_questionnaire_insert ?></button>
+                                        <button class="swfMove" name="<?= $key ?>"><?= $this->texts->action_swfmove ?></button>
+                                        <button class="swfRemove" name="<?= $key ?>"><?= $this->texts->action_swfdelete ?></button>
+                                    </td>
+                                </tr>
+                            <? } ?>
+                        </tbody>
+                    </table>
+                    <div class="hiddenList questionnaires">
+                        <b><?= $this->text('switch_questionnaire') ?></b>
+                        <ul>
+                            <? foreach ($embeds['questionnaires'] as $quest) { ?>
+                                <li><a href="<?= $quest['object']->id ?>"><?= $quest['object']->name ?></a></li>
+                            <? } ?>
+                            <li><a href="none"><?= $this->text('questionnaire_none') ?></a></li>
+                        </ul>
+                        <a href="#" class="closeButt"><b><?= $this->texts->action_close ?></b></a>
+                    </div>
+                </div><!--divFunction1-->
+                <div class="reset"></div>
+            </div><!--functionsdiv-->
+        <? } ?>
+        <div class="reset"></div>
+        <?= $this->render('filemanager.phtml') ?>
+    </div>
+    <div class="span4">
+         <?= $this->render('contentPreviewLinks.phtml') ?>
+        <?=
+        $this->collapse(
+                $this->text('help'),
+                null,
+                array(1)
+        )
+        ?>
+    </div>
+</div>
+<script type="text/javascript">
+$('#labels').tokenfield({delimiter:';',createTokensOnBlur:true});
+</script>
+
+<?=$this->render('admin_bottom.phtml')?>

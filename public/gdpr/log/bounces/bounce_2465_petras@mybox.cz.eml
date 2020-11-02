@@ -1,0 +1,68 @@
+This is a MIME-encapsulated message.
+
+--1AB5052523.1521721538/mailer.farmacie.cz
+Content-Description: Notification
+Content-Type: text/plain; charset=us-ascii
+
+This is the mail system at host mailer.farmacie.cz.
+
+I'm sorry to have to inform you that your message could not
+be delivered to one or more recipients. It's attached below.
+
+For further assistance, please send mail to postmaster.
+
+If you do so, please include this problem report. You can
+delete your own text from the attached returned message.
+
+                   The mail system
+
+<petras@mybox.cz>: host cbx.virusfree.cz[212.224.105.19] said: 554 5.7.1
+    <petras@mybox.cz>: Recipient address rejected: Access denied, user does not
+    exist (in reply to RCPT TO command)
+
+--1AB5052523.1521721538/mailer.farmacie.cz
+Content-Description: Delivery report
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; mailer.farmacie.cz
+X-Postfix-Queue-ID: 1AB5052523
+X-Postfix-Sender: rfc822; undelivered+ebcbde4228164f3b89a1d4799f6be3f41973ac871e3b4662-petras=mybox.cz@cz.pearshealthcyber.com
+Arrival-Date: Thu, 22 Mar 2018 13:24:38 +0100 (CET)
+
+Final-Recipient: rfc822; petras@mybox.cz
+Original-Recipient: rfc822;petras@mybox.cz
+Action: failed
+Status: 5.7.1
+Remote-MTA: dns; cbx.virusfree.cz
+Diagnostic-Code: smtp; 554 5.7.1 <petras@mybox.cz>: Recipient address rejected:
+    Access denied, user does not exist
+
+--1AB5052523.1521721538/mailer.farmacie.cz
+Content-Description: Undelivered Message Headers
+Content-Type: text/rfc822-headers
+
+Return-Path: <undelivered+ebcbde4228164f3b89a1d4799f6be3f41973ac871e3b4662-petras=mybox.cz@cz.pearshealthcyber.com>
+Received: from argos2.farmacie.cz (argos2.farmacie.cz [178.77.239.66])
+	by mailer.farmacie.cz (Postfix) with ESMTP id 1AB5052523
+	for <petras@mybox.cz>; Thu, 22 Mar 2018 13:24:38 +0100 (CET)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailer.farmacie.cz 1AB5052523
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=nextforce.cz;
+	s=phcmailer; t=1521721478;
+	bh=cuiAY+QWNtiAVFcvTUvMzIjDgklf/MF1Vn6FIxNOfdE=;
+	h=To:Subject:From:Date:From;
+	b=h2oZZG+ISZmVoBqWgfHJNl1l2HsiX18h8BOvJTamLB3dlOi9qriDjV65KVDiIgXKL
+	 6mcm2XglT6Xf/6PSfuf4tdu9pFxjI1n2vwWJAznaM5RxDxz3Wk6Y1l2uXCyuWwGlY2
+	 vdngS3uV1XL7VqM8FFHU1gA0AksE16GcpTFbLOn0=
+Received: by argos2.farmacie.cz (Postfix, from userid 48)
+	id A43053FBE3; Thu, 22 Mar 2018 13:24:38 +0100 (CET)
+To: petras@mybox.cz
+Subject: =?UTF-8?Q?NextForce=20-=20informace=20pro=20V=C3=A1s=20a=20?=  =?UTF-8?Q?Va=C5=A1e=20=C3=BAdaje=20v=20bezpe=C4=8D=C3=AD.=20(GDPR)?=
+X-PHP-Originating-Script: 1000:Sendmail.php
+From: =?UTF-8?Q?Jarmila=20Dost=C3=A1lov=C3=A1?= <jarmila.dostalova@nextforce.cz>
+Date: Thu, 22 Mar 2018 13:24:38 +0100
+Content-Type: multipart/alternative;
+ boundary="=_e52978b84a1ce26c3627dc70468b48a5"
+MIME-Version: 1.0
+Message-Id: <20180322122438.A43053FBE3@argos2.farmacie.cz>
+
+--1AB5052523.1521721538/mailer.farmacie.cz--

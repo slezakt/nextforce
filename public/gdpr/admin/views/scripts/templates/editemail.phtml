@@ -1,0 +1,36 @@
+<?= $this->render('admin_top.phtml') ?>
+<div class="row">
+    <div class="span8">
+        <p><?= $this->description ?></p>
+        <?= $this->form ?>
+         <?= $this->partial('filemanager.phtml',array('cpath'=>$this->path))?>
+    </div>
+    <div class="span4">
+
+        <div id="preview_links">
+            <div class="btn-group">
+                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="icon-eye-open"></i>&nbsp;<?=$this->text('admin.preview_links.main.title')?>
+                    <span class="caret"></span>
+                </a>
+                <? if (isset($this->preview_links)): ?>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+                    <?foreach($this->preview_links as $id => $name): ?>
+                        <li><a tabindex="-1" href="<?=$this->url(array('module' => 'admin', 'controller'=> 'templates', 'action' => 'showemail', 'id' => $id),null, true)?>" rel="external"><?=$name?></a></li>
+                    <?endforeach;?>
+                    </ul>
+                <?endif;?>
+            </div>
+
+        </div>
+        <?=
+        $this->collapse($this->text('help'), 
+                array(
+                    'links' => array('title' => $this->text('links_list.main.title'), 'body' => $this->render('contentLinks.phtml'))
+                ), 
+                array(1)
+        );
+        ?>
+    </div>
+</div>
+<?= $this->render('admin_bottom.phtml') ?>

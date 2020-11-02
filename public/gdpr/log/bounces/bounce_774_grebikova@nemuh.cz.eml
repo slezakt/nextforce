@@ -1,0 +1,89 @@
+This is a MIME-encapsulated message.
+
+--DDE9540DC1.1521194109/smtp2.uh.cz
+Content-Description: Notification
+Content-Type: text/plain; charset=us-ascii
+
+This is the mail system at host smtp2.uh.cz.
+
+I'm sorry to have to inform you that your message could not
+be delivered to one or more recipients. It's attached below.
+
+For further assistance, please send mail to postmaster.
+
+If you do so, please include this problem report. You can
+delete your own text from the attached returned message.
+
+                   The mail system
+
+<grebikova@nemuh.cz>: host posta.nspuh.cz[80.251.250.197] said: 450 4.1.1
+    <grebikova@nemuh.cz>: Recipient address rejected: User unknown in local
+    recipient table (in reply to RCPT TO command)
+
+--DDE9540DC1.1521194109/smtp2.uh.cz
+Content-Description: Delivery report
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; smtp2.uh.cz
+X-Postfix-Queue-ID: DDE9540DC1
+X-Postfix-Sender: rfc822; undelivered+ebcbde4228164f3b89a1d4799f6be3f4810cf0099e7ec9d3-grebikova=nemuh.cz@cz.pearshealthcyber.com
+Arrival-Date: Thu, 15 Mar 2018 10:17:31 +0100 (CET)
+
+Final-Recipient: rfc822; grebikova@nemuh.cz
+Original-Recipient: rfc822;grebikova@nemuh.cz
+Action: failed
+Status: 4.1.1
+Remote-MTA: dns; posta.nspuh.cz
+Diagnostic-Code: smtp; 450 4.1.1 <grebikova@nemuh.cz>: Recipient address
+    rejected: User unknown in local recipient table
+
+--DDE9540DC1.1521194109/smtp2.uh.cz
+Content-Description: Undelivered Message Headers
+Content-Type: text/rfc822-headers
+Content-Transfer-Encoding: 7bit
+
+Return-Path: <undelivered+ebcbde4228164f3b89a1d4799f6be3f4810cf0099e7ec9d3-grebikova=nemuh.cz@cz.pearshealthcyber.com>
+Received: from mx1.uh.cz (mx1.uh.cz [80.251.255.3])
+	by smtp2.uh.cz (Postfix) with ESMTP id DDE9540DC1
+	for <grebikova@nemuh.cz>; Thu, 15 Mar 2018 10:17:31 +0100 (CET)
+Received: from localhost (localhost [127.0.0.1])
+	by mx1.uh.cz (Postfix) with ESMTP id 9B77D3D
+	for <grebikova@nemuh.cz>; Thu, 15 Mar 2018 10:17:31 +0100 (CET)
+X-Virus-Scanned: Debian amavisd-new at mx1.uh.cz
+X-Spam-Flag: NO
+X-Spam-Score: 0.111
+X-Spam-Level:
+X-Spam-Status: No, score=0.111 tagged_above=-9999 required=4
+	tests=[DKIM_SIGNED=0.1, HTML_MESSAGE=0.001, T_DKIM_INVALID=0.01]
+	autolearn=disabled
+Received: from mx1.uh.cz ([127.0.0.1])
+	by localhost (mx1.uh.cz [127.0.0.1]) (amavisd-new, port 10024)
+	with LMTP id JYGomCIyJrkK for <grebikova@nemuh.cz>;
+	Thu, 15 Mar 2018 10:17:25 +0100 (CET)
+Received: from mail2.farmacie.cz (mail2.farmacie.cz [178.77.239.12])
+	by mx1.uh.cz (Postfix) with ESMTPS id 70E84132
+	for <grebikova@nemuh.cz>; Thu, 15 Mar 2018 10:17:19 +0100 (CET)
+Received: from argos2.farmacie.cz (argos2.farmacie.cz [178.77.239.66])
+	by mailer.farmacie.cz (Postfix) with ESMTP id 0910D26C6F
+	for <grebikova@nemuh.cz>; Thu, 15 Mar 2018 10:16:57 +0100 (CET)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailer.farmacie.cz 0910D26C6F
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=nextforce.cz;
+	s=phcmailer; t=1521105417;
+	bh=4ab83xO/hLomEk+RFooLKIDlgmhb+7JIVPuwPfB0xxE=;
+	h=To:Subject:From:Date:From;
+	b=sDNuWIg989RUeQ0X3yReM7ByrCsNxobp/5xAjFW734g6itJEP1or2zYom5D5O84l5
+	 /ibF49VATNH18jFbh9ujIJgsf6j0m8oTzBAIOycwIfDKyI59qBaI0o5VxPrl8dLuFk
+	 HnjKvbN1dbJ2wzLgLvFc2lT2rNr/D1/xJEQUhHQ4=
+Received: by argos2.farmacie.cz (Postfix, from userid 48)
+	id E193C3FC00; Thu, 15 Mar 2018 10:16:57 +0100 (CET)
+To: grebikova@nemuh.cz
+Subject: =?UTF-8?Q?NextForce=20-=20informace=20pro=20V=C3=A1s=20a=20?=  =?UTF-8?Q?Va=C5=A1e=20=C3=BAdaje=20v=20bezpe=C4=8D=C3=AD.=20(GDPR)?=
+X-PHP-Originating-Script: 1000:Sendmail.php
+From: =?UTF-8?Q?Hana=20=C4=8Caloudov=C3=A1?= <hana.caloudova@nextforce.cz>
+Date: Thu, 15 Mar 2018 10:16:57 +0100
+Content-Type: multipart/alternative;
+ boundary="=_b0571ad6a075c3827ec74e1c93c3a750"
+MIME-Version: 1.0
+Message-Id: <20180315091657.E193C3FC00@argos2.farmacie.cz>
+
+--DDE9540DC1.1521194109/smtp2.uh.cz--

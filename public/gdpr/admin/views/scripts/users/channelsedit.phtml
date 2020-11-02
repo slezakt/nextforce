@@ -1,0 +1,15 @@
+<?=$this->render('admin_top.phtml')?>
+
+<?php
+// pokud jsou nalezeny segmenty, vypis formular
+if (empty($this->notFound)) {
+    echo $this->form;
+}
+else {
+    echo '<div class="error">'.$this->notFound.'</div>';
+}
+
+
+?>
+
+<?=$this->render('admin_bottom.phtml')?>

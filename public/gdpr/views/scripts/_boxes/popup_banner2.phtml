@@ -1,0 +1,10 @@
+<?
+$user = Ibulletin_Auth::getActualUserData();
+?>
+<?if(!$user['gdpr_project']):?>
+    <div style="padding:0;max-height:900px;" id="inpopup" data-width="640px" data-height="90%" data-repeat-interval="1">
+        <div style="overflow-y:auto;-webkit-overflow-scrolling:touch;-ms-overflow-y:hidden;height:100%;">
+            <iframe style="overflow:hidden;border:none;height:100%;width:100%;margin-bottom:-5px" src="<?= $this->url(array('controller' => 'rendercontent', 'action' => 'render', 'content' => $this->config->general->gdpr, 'iframe' => '1'), 'default', true); ?>"></iframe>
+        </div>
+    </div>
+<?endif;?>

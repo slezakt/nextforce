@@ -1,0 +1,39 @@
+This is a MIME-encapsulated message.
+
+--5E5F521185D1.1207995974/gmmr
+Content-Description: Notification
+Content-Type: text/plain; charset=us-ascii
+
+This is the mail system at Centrum Holdings
+
+I'm sorry to have to inform you that your message could not
+be delivered to one or more recipients. It's attached below.
+
+For further assistance, please contact your system administrator.
+
+If you do so, please include this problem report. You can
+delete your own text from the attached returned message.
+
+                   The mail system
+
+--5E5F521185D1.1207995974/gmmr
+Content-Description: Delivery report
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; gmmr7.centrum.cz
+X-Postfix-Queue-ID: E3B748039D8B
+X-Postfix-Sender: rfc822; undelivered+ebcbde4228164f3b89a1d4799f6be3f4cd943b1204ed6b9e-europark=cbox.cz@cz.pearshealthcyber.com
+Arrival-Date: Thu, 22 Mar 2018 13:25:45 +0100 (CET)
+
+Final-Recipient: rfc822; europark@cbox.cz
+Action: failed
+Status: 5.1.1
+Diagnostic-Code: X-Postfix; Bad destination mailbox address
+
+--5E5F521185D1.1207995974/gmmr
+Content-Description: Undelivered Message
+Content-Type: message/rfc822
+Content-Transfer-Encoding: 8bit
+
+
+--5E5F521185D1.1207995974/gmmr--

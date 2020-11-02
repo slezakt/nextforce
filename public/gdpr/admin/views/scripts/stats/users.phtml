@@ -1,0 +1,73 @@
+<!-- Vsechen html kod adminu pred obsahem teto stranky -->
+<?=$this->render('admin_top.phtml')?>
+
+<?=isset($this->message) ? "<b>$this->message</b>" : '' ?>
+
+<a
+	href="<?=$this->url(array('controller' => 'stats',
+'action' => 'general'));?>">Celkové statistiky</a>
+
+|
+
+<a
+	href="<?= $this->url(array('controller' => 'stats',
+'action' => 'bulletins')); ?>">Statistiky pro jednotlivá vydání</a>
+
+|
+
+<b><a
+	href="<?= $this->url(array('controller' => 'stats',
+'action' => 'users')); ?>">Jmenný seznam</a></b>
+
+<br />
+&nbsp;
+
+	<?
+	if (isset($this->users) && !empty($this->users))
+	{?>
+<table>
+	<tr>
+		<th>&nbsp;</th>
+		<th>Jméno</th>
+		<th>Příjmení</th>
+		<th>Email</th>
+		<th>Datum přidání do DB</th>
+		<th>Datum odebrání z DB</th>
+		<th>1. vydání odesláno</th>
+		<th>Poslední vydání</th>
+		<th>Bulletin: počet návštěv</th>
+	</tr>
+	<?
+	$i = 1;
+	foreach ($this->users as $id => $user)
+	{?>
+	<tr>
+		<td class="blue"><?=$i++.'.'?></td>
+		<td class="blue"><?=$user['name']?></td>
+		<td class="blue"><?=$user['surname']?></td>
+		<td class="blue"><?=$user['email']?></td>
+		<td class="blue"><?=$user['added']?></td>
+		<td class="blue"><?=$user['deleted']?></td>
+		<td class="blue"><?=$user['first_sent']?></td>
+		<td class="blue"><?=$user['last_sent']?></td>
+		<td class="blue">
+		<table>
+		<?
+		foreach ($user['bulletins'] as $bulletin)
+		{?>
+			<tr>
+				<td><?=$bulletin['name']?></td>
+				<td>:</td>
+				<td><?=$bulletin['visits']?></td>
+			</tr>
+			<?}?>
+		</table>
+		</td>
+	</tr>
+	<?}?>
+</table>
+	<?}?>
+
+<!-- Vsechen html kod adminu za obsahem teto stranky -->
+	<?=$this->render('admin_bottom.phtml')?>
+

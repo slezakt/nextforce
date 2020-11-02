@@ -1,0 +1,72 @@
+This is a MIME-encapsulated message.
+
+--CAE5F565A9.1521721508/mailer.farmacie.cz
+Content-Description: Notification
+Content-Type: text/plain; charset=us-ascii
+
+This is the mail system at host mailer.farmacie.cz.
+
+I'm sorry to have to inform you that your message could not
+be delivered to one or more recipients. It's attached below.
+
+For further assistance, please send mail to postmaster.
+
+If you do so, please include this problem report. You can
+delete your own text from the attached returned message.
+
+                   The mail system
+
+<ujindricha@quick.cz>: host smtp-in.o2active.cz[90.176.151.97] said: 550 5.1.1
+    <ujindricha@quick.cz>: Recipient address rejected: undeliverable address:
+    host 194.228.2.74[194.228.2.74] said: 550 5.1.1 unknown or illegal alias:
+    ujindricha@quick.cz (in reply to RCPT TO command) (in reply to RCPT TO
+    command)
+
+--CAE5F565A9.1521721508/mailer.farmacie.cz
+Content-Description: Delivery report
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; mailer.farmacie.cz
+X-Postfix-Queue-ID: CAE5F565A9
+X-Postfix-Sender: rfc822; undelivered+ebcbde4228164f3b89a1d4799f6be3f46490498a9c80ff40-ujindricha=quick.cz@cz.pearshealthcyber.com
+Arrival-Date: Thu, 22 Mar 2018 13:25:03 +0100 (CET)
+
+Final-Recipient: rfc822; ujindricha@quick.cz
+Original-Recipient: rfc822;ujindricha@quick.cz
+Action: failed
+Status: 5.1.1
+Remote-MTA: dns; smtp-in.o2active.cz
+Diagnostic-Code: smtp; 550 5.1.1 <ujindricha@quick.cz>: Recipient address
+    rejected: undeliverable address: host 194.228.2.74[194.228.2.74] said: 550
+    5.1.1 unknown or illegal alias: ujindricha@quick.cz (in reply to RCPT TO
+    command)
+
+--CAE5F565A9.1521721508/mailer.farmacie.cz
+Content-Description: Undelivered Message Headers
+Content-Type: text/rfc822-headers
+
+Return-Path: <undelivered+ebcbde4228164f3b89a1d4799f6be3f46490498a9c80ff40-ujindricha=quick.cz@cz.pearshealthcyber.com>
+Received: from argos2.farmacie.cz (argos2.farmacie.cz [178.77.239.66])
+	by mailer.farmacie.cz (Postfix) with ESMTP id CAE5F565A9
+	for <ujindricha@quick.cz>; Thu, 22 Mar 2018 13:25:03 +0100 (CET)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailer.farmacie.cz CAE5F565A9
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=nextforce.cz;
+	s=phcmailer; t=1521721503;
+	bh=6RGPtKI+5876G/B0GuhNE6ksVfd48ndahpK5h0QZ8wc=;
+	h=To:Subject:From:Date:From;
+	b=YeoZWfFG1rVoYVKvx96dQX/DPt7Ee4ScyLvHFiQ40IaQpZlWATQglrrTDQkjpww8K
+	 BmBORs+KsGp1XlyJIX27ceqQEBqq6clse89G95Swb6HbgPfPjxCS44CRwVvaRQsPVj
+	 7DFXL0fbS2/2ZabdUOdBHRJmQFxZQviKsRDqLgUI=
+Received: by argos2.farmacie.cz (Postfix, from userid 48)
+	id 5F7AB3FBE3; Thu, 22 Mar 2018 13:25:04 +0100 (CET)
+To: ujindricha@quick.cz
+Subject: =?UTF-8?Q?NextForce=20-=20informace=20pro=20V=C3=A1s=20a=20?=  =?UTF-8?Q?Va=C5=A1e=20=C3=BAdaje=20v=20bezpe=C4=8D=C3=AD.=20(GDPR)?=
+X-PHP-Originating-Script: 1000:Sendmail.php
+From: =?UTF-8?Q?Alena=20Nov=C3=A1=C4=8Dkov=C3=A1?= <alena.novackova@nextforce.cz>
+Date: Thu, 22 Mar 2018 13:25:04 +0100
+Content-Type: multipart/alternative;
+ boundary="=_3e6321eb583292ed172c628a7c59b5ad"
+MIME-Version: 1.0
+Message-Id: <20180322122504.5F7AB3FBE3@argos2.farmacie.cz>
+
+--CAE5F565A9.1521721508/mailer.farmacie.cz--

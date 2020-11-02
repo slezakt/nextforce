@@ -1,0 +1,13 @@
+<?=$this->render('admin_top.phtml')?>
+
+<p><?=$this->description?></p>
+
+<?=$this->form?>
+
+<?$this->actions = array(
+	array('label' => $this->texts->action_manage, 'action' => 'manage')
+);?>
+
+<?=$this->render('contentList.phtml')?>
+
+<?=$this->render('admin_bottom.phtml')?>

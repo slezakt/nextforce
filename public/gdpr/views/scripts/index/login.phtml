@@ -1,0 +1,36 @@
+<?=$this->render('top.phtml')?>
+
+<div class="content"><div class="noslide">
+      <div class="login">
+        <h1><?=$this->text('h1')?></h1>
+        <p><?=$this->text('infotext1')?></p>
+        <div class="souhlas-in"><div class="souhlasTop"><div class="souhlasBottom">
+        <p><?=$this->text('infotext2')?></p>
+        <?if(!empty($this->loginError)){?>
+            <p><?=$this->loginError?></p>
+        <?}?>
+        <form method="post" action="">
+        <table rules="none" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+          <th><label for="Login"><?=$this->text('.name_txt')?></label></th>
+            <td><input type="text" class="text" name="login" id="login" value="" /></td>
+          </tr>
+          <tr>
+            <th><label for="pass"><?=$this->text('.password_txt')?></label></th>
+            <td><input type="password" class="text" name="password" id="pass" value="" /></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+                <input type="submit" class="submit" 
+                    name="submit_" value="<?=$this->text('.send')?>" />
+            </td>
+          </tr>
+        </table>
+        </form>
+        </div></div></div>
+      </div>
+
+    </div></div>
+
+<?=$this->render('bottom_login.phtml')?>

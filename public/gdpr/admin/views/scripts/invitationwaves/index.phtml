@@ -1,0 +1,12 @@
+<?=$this->render('admin_top.phtml')?>
+<p><?=$this->description?></p>
+<?/* shortcut button for new wave page */?>
+<a href="<?=$this->url(array(
+    'module'=>'admin',
+    'controller'=> 'invitationwaves',
+    'action'=> 'add'),null,true)?>"
+   class="btn btn-primary" style="margin-bottom:10px"><?=$this->texts->submenu_add?></a>
+
+<?=$this->grid?>
+
+<?=$this->render('admin_bottom.phtml')?>

@@ -1,0 +1,407 @@
+<?
+$session = Zend_Registry::get('session');
+$db = Zend_Registry::get('db');
+
+// Najdeme seznam reprezentantu
+$sel = new Zend_Db_Select($db);
+$sel->from('users', array('name', 'surname', 'id'))
+    ->where('is_rep')
+    ->where('deleted IS NULL')
+    ->where('unsubscribed IS NULL')
+    ->order(array('surname', 'name', 'id'));
+$reps = $db->fetchAll($sel);
+$repsSel = array('' => '- vyberte -');
+foreach($reps as $rep){
+    $repsSel[$rep['id']] = join(' ', array($rep['name'], $rep['surname']));
+}
+
+$povolani = array('','Lékař','Lékárník','Student medicíny','Student farmacie','Nelékařské profese');
+$states = array('','Česká republika','Slovenská republika');
+$specializations = array('','Alergolog','Androlog','Anesteziolog','Angiolog','Biochemik','Chirurg','Dermatovenerolog','Dětský lékař','Diabetolog',
+	'Diagnostik','Endokrinolog','Epidemiolog','Foniatrie','Gastroenterolog','Genetik','Geriatr', 'Gynekolog','Hematolog','Infektolog', 'Internista','Kardiolog','Klinická farmakologie',
+	'Lékař urgentní medicíny','Mikrobiolog','Nefrolog', 'Neonatolog','Neurolog','Nutriční specialista', 'Obezitolog','Oční lékař','Onkolog','Ortoped','Patolog','Plicní lékař',
+	'Pracovní lékař','Psychiatr','Psychosomatika','Radiolog','Rehabilitační lékař','Revmatolog','Sexuolog','Stomatolog','Urolog','Ušní, nosní, krční (ORL)','Všeobecný praktický lékař pro dospělé');
+$odbornost = array('','Nemocniční lékárník','Klinický farmaceut','Lékárník ve veřejné lékárně','jiné');
+$fakulty = array('','1. lékařská faktulta Univerzity Karlovy','2. lékařská fakulta Univerzity Karlovy','3. lékařská fakulta Univerzity Karlovy','Lékařská fakulta Masarykovy univerzity',
+	'Lékařská fakulta Univerzity Karlovy v Hradci Králové','Lékařská fakulta Univerzity Karlovy v Plzni','Lékařská fakulta Univerzity Palackého v Olomouci','Jesseniova lekárska fakulta v Martine Univerzity Komenského',
+	'Lekárska fakulta Univerzity Komenského v Bratislave', 'Lekárska fakulta Univerzity Pavla Jozefa Šafárika v Košiciach', 'Lekárska fakulta Slovenskej zdravotníckej univerzity','Fakulta vojenského zdravotnictví Univerzity obrany');
+
+$profese = array('','Asistent ochrany veřejného zdraví','Asistent zubního technika','Autoptický laborant','Biomedicíncký inženýr','Biomedicíncký technik','Dentální hygienistka','Dezinfektor','Ergoterapeut',
+	'Farmaceutický asistent','Fyzioterapeut','Klinický logoped','Laboratorní asistent','Laboratorní pracovník','Masér/nevidomý a slabozraký masér','Nutriční asistent','Nutriční terapeut',
+	'Odborný pracovník v laboratorních metodách a v přípravě léčivých přípravků','Odborný pracovník v ochraně veřejného zdraví','Optometrista','Ortoptista','Ortoticko-protetický technik','Ortotik-protetik',
+	'Ošetřovatel','Porodní asistentka','Psycholog ve zdravotnictví/klinický psycholog','Radiologický asistent','Radiologický fyzik','Radiologický technik','Řidič dopravy nemocných a raněných',
+	'Řidič vozidla zdravotnické záchranné služby','Sanitář','Všeobecná sestra','Zdravotně-sociální pracovník','Zdravotnický asistent','Zdravotnický záchranář','Zdravotní laborant','Zubní instrumentářka','Zubní technik'
+);
+$fakulty_farmacie = array('','Farmaceutická fakulta Univerzity Karlovy Hradec Králové','Farmaceutická fakulta Veterinární a farmaceutické univerzity Brno','Univerzita veterinárskeho lekárstva a farmácie v Košiciach',
+                        'Farmaceutická fakulta Univerzity Komenského v Bratislave');
+
+
+// Pokud byl formular jiz odeslan, dostali jsme jej z controlleru a je nevalidni
+if(!empty($this->form)){
+    $form = $this->form;
+}
+else{
+    // Potrebujeme random string generator
+    $rsg = new Ibulletin_RandomStringGenerator();
+
+    // Definice formulare kvuli validaci v controlleru bez znalosti formulare v controlleru
+    // formular jde do controlleru ulozeny v session
+    $form = new Form();
+    $form->addElement('text', 'name', array(
+                'required' => true,
+                'validators' => array(
+                    array('NotEmpty', true,
+                         array('messages' => array('isEmpty' => "Pole nesmí být prázdné."))),
+                    array('StringLength', true,
+                        array(2, 'messages' => array('stringLengthTooShort' => "Jméno musí mít alespoň 2 znaky.")))
+                )
+        ));
+
+    $form->addElement('text', 'surname', array(
+                'required' => true,
+                'validators' => array(
+                    array('NotEmpty', true,
+                         array('messages' => array('isEmpty' => "Pole nesmí být prázdné."))),
+                    array('StringLength', true,
+                        array(2, 'messages' => array('stringLengthTooShort' => "Příjmení musí mít alespoň 2 znaky.")))
+                )
+        ));
+
+	$form->addElement('text', 'gdpr_global');
+	$form->addElement('hidden', 'gdpr_global_timestamp');
+
+	$form->addElement('text', 'gdpr_project', array(
+		'required' => true,
+		'validators' => array(
+			array('NotEmpty', true,
+				array('messages' => array('isEmpty' => "Povolte zasílání informací z projektu"))),
+		)
+	));
+	$form->addElement('hidden', 'gdpr_project_timestamp');
+	$form->addElement('text', 'email', array(
+		'required' => true,
+		'validators' => array(
+			array('EmailAddress', true,
+				array('messages' => array())),
+		)
+	));
+	$form->addElement('text', 'degree_before', array(
+		'required' => false
+	));
+	$form->addElement('text', 'degree_after', array(
+		'required' => false
+	));
+	$form->addElement('select', 'profession', array(
+		'required' => true,
+		'attribs' => array(
+		        'class'=>'select2-pov',
+                'data-placeholder'=>'Povolání *',
+                'data-minimum-results-for-search'=>'-1',
+                'data-allow-clear'=>'1'
+        ),
+		'multioptions' => array_combine($povolani, $povolani),
+		'validators' => array(
+			array('NotEmpty', true,
+				array('messages' => array('isEmpty' => "Vyberte povolání"))),
+		)
+	));
+	$form->addElement('select', 'specialization_physician', array(
+		'allowEmpty' => false,
+		'multioptions' => array_combine($specializations, $specializations),
+		'attribs' => array(
+			'class'=>'select2 select2-specializace',
+			'data-placeholder'=>'Specializace *',
+			'data-allow-clear'=>'1'
+		),
+		'validators' => array(
+			array('Callback', true,
+				array(
+					'callback' => array('RegisterController','specializationValidate'),
+					'messages' => array(Zend_Validate_Callback::INVALID_VALUE => 'Vyberte specializaci')
+				)
+			)
+		)
+	));
+	$form->addElement('select', 'specialization_pharmacist', array(
+		'required' => false,
+		'multioptions' => array_combine($odbornost,$odbornost),
+		'attribs' => array(
+		        'class'=>'select2 select2-odbornost',
+                'data-placeholder'=>'Specializace',
+			    'data-minimum-results-for-search'=>'-1',
+                'data-allow-clear'=>'1'
+        )
+	));
+	$form->addElement('select', 'school_physician', array(
+		'required' => false,
+		'multioptions' => array_combine($fakulty,$fakulty),
+		'attribs' => array(
+			'class'=>'select2 select2-fakulta',
+			'data-placeholder'=>'Fakulta',
+			'data-minimum-results-for-search'=>'-1',
+			'data-allow-clear'=>'1')
+    ));
+
+	$form->addElement('select', 'school_pharmacist', array(
+		'required' => false,
+		'multioptions' => array_combine($fakulty_farmacie,$fakulty_farmacie),
+		'attribs' => array(
+			'class'=>'select2 select2-fakulta',
+			'data-placeholder'=>'Fakulta',
+			'data-minimum-results-for-search'=>'-1',
+			'data-allow-clear'=>'1')
+	));
+
+	$form->addElement('select', 'specialization_non_physician', array(
+		'required' => false,
+		'multioptions' => array_combine($profese, $profese),
+		'attribs' => array(
+			'class'=>'select2 select2-profese',
+			'data-placeholder'=>'Specializace',
+			'data-allow-clear'=>'1')
+	));
+	$form->addElement('select', 'state', array(
+		'required' => true,
+		'multioptions' => array_combine($states,$states),
+		'validators' => array(
+			array('NotEmpty', true,
+				array('messages' => array('isEmpty' => "Vyberte stát"))),
+		),
+		'attribs' => array(
+			'class'=>'select2',
+			'data-placeholder'=>'Stát ve kterém pracujete *',
+			'data-minimum-results-for-search'=>'-1',
+			'data-allow-clear'=>'1')
+	));
+
+
+    // Najdeme nepouzity hash pro formular
+    while(1){
+        $hash = $rsg->get(15);
+        if(!isset($session->existingForms[$hash])){
+            break;
+        }
+    }
+    $form->addElement('hidden', 'hash', array('value' => $hash));
+
+
+    // Ulozime formular do session s pomoci hashe
+    if(!isset($session->existingForms)){
+        $session->existingForms = array();
+    }
+    // Ukladame serializovane, protoze jinak se vytvori podivna vazba na View Helper Text
+    // a vse kolabuje pri spusteni session
+    $session->existingForms[$hash] = serialize($form);
+
+}
+
+$texts = Ibulletin_Texts::getSet('register');
+if(empty($this->main)){
+	$this->main = $texts->index->main;
+}
+if(empty($this->rights)){
+	$this->rights = $texts->index->rights;
+}
+
+// ==============================================================================================//
+?>
+
+<?=$this->render('head.phtml')?>
+
+<body id="info" class="incampaign register">
+<div id="page">
+    <div id="head">
+        <h3><?=$texts->index->title?></h3>
+    </div><!--end.head-->
+
+<div id="content">
+    <p><?=$this->main?></p>
+    <p>
+        Souhlasím s tím, aby společnost <a href="javascript:inpopup.showPopup()">Pears Health Cyber s.r.o.</a> (dále jen „PHC“) zpracovávala mé osobní údaje uvedené níže a další osobní údaje o mé osobě, které zpřístupním PHC, a to za účelem realizace tohoto projektu, zasílání vybraných sdělení včetně pozvánek do dalších projektů na mou emailovou adresu a vyhodnocování veškerých údajů získaných v této souvislosti.
+    </p>
+    <?if(!empty($this->loginError)){?>
+        <p class="error"><?=$this->loginError?></p>
+    <?}?>
+    <form class="incampaign-register-form" action="" method="post">
+    <?=$form->getElement('hash')?>
+        <fieldset>
+            Chci dostávat: (prosím zaškrtněte jednu či více z následujících možností)<br>
+            <div class="gdpr_project checkbox">
+                <input type="checkbox" class="lekar" name="gdpr_project" id="gdpr_project" value="1" <?=$form->getElement('gdpr_project')->getValue() != '' ? 'checked="checked"' : ''?> />
+                <label for="gdpr_project" class="nofloat">Informace a novinky týkající se projektu XY *</label>
+				<?$messages = $form->getElement('gdpr_project')->getMessages(); if(!empty($messages)){?>
+                    <div class="error"><?=join('<br/>', $messages)?></div>
+				<?}?>
+				<?=$form->getElement('gdpr_project_timestamp')?>
+            </div>
+            <div class="gdpr_global checkbox">
+                <input type="checkbox" class="lekar" name="gdpr_global" id="gdpr_global" value="1" <?=$form->getElement('gdpr_global')->getValue() != '' ? 'checked="checked"' : ''?> />
+                <label for="gdpr_global" class="nofloat">Obchodní sdělení PHC a třetích stran z oblasti biomedicíny a farmacie</label>
+				<?$messages = $form->getElement('gdpr_global')->getMessages(); if(!empty($messages)){?>
+                    <div class="error"><?=join('<br/>', $messages)?></div>
+				<?}?>
+				<?=$form->getElement('gdpr_global_timestamp')?>
+            </div>
+            <div class="degree_before input input-fl" style="padding-right:15px">
+                <label for="degree_before">Titul před</label>
+                <input type="text" name="degree_before" id="degree_before" value="<?=$form->getElement('degree_before')->getValue()?>" />
+				<?$messages = $form->getElement('degree_before')->getMessages(); if(!empty($messages)){?>
+                    <div class="error"><?=join('<br/>', $messages)?></div>
+				<?}?>
+            </div>
+            <div class="degree_after input input-fl">
+                <label for="degree_after">Titul za</label>
+                <input type="text" name="degree_after" id="degree_after" value="<?=$form->getElement('degree_after')->getValue()?>" />
+				<?$messages = $form->getElement('degree_after')->getMessages(); if(!empty($messages)){?>
+                    <div class="error"><?=join('<br/>', $messages)?></div>
+				<?}?>
+            </div>
+            <div class="cr"></div>
+            <div class="input input-fl" style="padding-right:15px">
+            <label for="name">Jméno *</label><input type="text" name="name" id="name" value="<?=$form->getElement('name')->getValue()?>" />
+                <?$messages = $form->getElement('name')->getMessages(); if(!empty($messages)){?>
+                    <div class="error"><?=join('<br/>', $messages)?></div>
+                <?}?>
+            </div>
+            <div class="sname input input-fl">
+            <label for="surname">Příjmení *</label>
+            <input type="text" name="surname" id="surname" value="<?=$form->getElement('surname')->getValue()?>" />
+                <?$messages = $form->getElement('surname')->getMessages(); if(!empty($messages)){?>
+                    <div class="error"><?=join('<br/>', $messages)?></div>
+                <?}?>
+            </div>
+            <div class="cr"></div>
+             <div class="povolani input">
+				<?=$form->getElement('profession')?>
+            </div>
+            <div class="specializace input pov">
+				<?=$form->getElement('specialization_physician')?>
+            </div>
+            <div class="odbornost input pov">
+				<?=$form->getElement('specialization_pharmacist')?>
+            </div>
+            <div class="fakulta input pov">
+				<?=$form->getElement('school_physician')?>
+            </div>
+            <div class="fakulta-farmacie input pov">
+				<?=$form->getElement('school_pharmacist')?>
+            </div>
+            <div class="profese input pov">
+				<?=$form->getElement('specialization_non_physician')?>
+            </div>
+            <div class="email input">
+                <label for="email">E-mail *</label><input type="text" name="email" id="email" value="<?=$form->getElement('email')->getValue()?>" />
+				<?$messages = $form->getElement('email')->getMessages(); if(!empty($messages)){?>
+                    <div class="error">Byl zadán neplatný e-mail.</div>
+				<?}?>
+            </div>
+            <div class="state input">
+				<?=$form->getElement('state')?>
+            </div>
+            <p class="law2 rights">
+                Potvrzuji, že jsem odborníkem ve smyslu § 2a zákona č. 40/1995 Sb. o regulaci reklamy ve znění
+                pozdějších předpisů, tj. „osobou způsobilou předepisovat nebo vydávat léčivé přípravky“.
+            </p>
+            <p class="rights">
+                Pro zobrazení bližších informací a poučení o zpracování Vašich osobních údajů prosím klikněte <a href="javascript:inpopup2.showPopup()">ZDE</a>.
+            </p>
+            <button class="button" type="submit" name="submit" value="Odeslat" title="Odeslat">Souhlasím a odeslat</button>
+        </fieldset>
+        <!-- POPUPY -->
+        <div id="inpopup" data-show-onload="false">
+            Správce osobních údajů je společnost Pears Health Cyber, s.r.o.,<br>
+            IČ: 25784684, se sídlem DOCK01, Voctářova 2449/5, 180 00<br>
+            Tel.: +420 272 732 996.<br>
+            Kontakt na pověřence pro ochranu osobních údajů: <a href='mailto:dpo@pearshealthcyber.com'>dpo@pearshealthcyber.com</a>.<br>
+            Více informací na <a href='http://www.pearshealthcyber.com' target='_blank'>www.pearshealthcyber.com</a>.
+        </div>
+        <div id="inpopup2" data-show-onload="false">
+            <h1>Poučení</h1>
+            <p>
+                Souhlas se zpracováním osobních údajů uvedených v registračním formuláři a zpřístupněných PHC
+                na základě tohoto souhlasu poskytuji zcela dobrovolně na dobu neurčitou a tento svůj souhlas mohu
+                kdykoli odvolat, aniž by tím byla dotčena zákonnost zpracování založeného na souhlasu uděleném před
+                jeho odvoláním. Beru na vědomí, že v&nbsp;souvislosti se zpracováním osobních údajů dle tohoto souhlasu mám
+                vůči PHC  právo na přístup ke svým osobním údajům, právo na jejich opravu a také právo na výmaz osobních
+                údajů, zejména pokud odvolám svůj souhlas zasláním žádosti na
+                <a href="mailto:delete@pearshealthcyber.com">delete@pearshealthcyber.com</a>
+                a nebude existovat žádný jiný právní důvod pro zpracování těchto údajů.
+            </p>
+            <p>Dále mám také právo vznést námitku,
+                a to především námitku proti zpracování pro účely přímého marketingu včetně zasílání informačních mailů,
+                po jejímž uplatnění nebudou osobní údaje již pro tyto účely zpracovávány. Konečně beru také na vědomí,
+                že mám právo na přenositelnost údajů a také právo se obrátit s případnou stížností na příslušný dozorový úřad
+                v členském státě svého obvyklého bydliště, místa výkonu zaměstnání nebo místa, kde došlo k&nbsp;porušení předpisů
+                o ochraně osobních údajů.
+            </p>
+            <p>
+                Pro uplatnění svých práv, pokud není výše uvedeno jinak, nebo v&nbsp;případě potřeby bližších informací týkajících
+                se zpracování osobních údajů mohu kontaktovat PHC prostřednictvím emailu na adrese
+                <a href="mailto:dpo@pearshelathcyber.com">dpo@pearshelathcyber.com</a>.
+            </p>
+            <p class="text-center">
+                <a class="btn" href="javascript:inpopup2.closePopup();">Zpět</a>
+            </p>
+        </div>
+    </form>
+
+</div><!--end.content-->
+<script type="text/javascript">
+
+	var inpopup = new InPopup({id: 'inpopup'});
+	var inpopup2 = new InPopup({id: 'inpopup2'});
+
+	var showInput = function (pov) {
+
+		$('.law2').hide();
+		$('.pov').hide();
+
+		if (pov == "Lékař") {
+			$('.specializace').show();
+			$('.law2').show();
+		} else if (pov == "Lékárník") {
+			$('.odbornost').show();
+			$('.law2').show();
+		} else if (pov == "Student medicíny") {
+			$('.fakulta').show();
+		} else if (pov == "Student farmacie") {
+			$('.fakulta-farmacie').show();
+		} else if (pov == "Nelékařské profese") {
+			$('.profese').show();
+		}
+	};
+
+	showInput($('.select2-pov').val());
+
+	$('.select2').select2({
+		width: '100%',
+		language: {
+			noResults: function (params) {
+				return "žádné výsledky nebyly nalezeny";
+			}
+		}
+	});
+
+	$('.select2-pov').select2({
+		width: '100%'
+	});
+
+	$('.select2-pov').on('change', function () {
+		$('.pov').find('.select2').val(null).trigger('change');
+		showInput($(this).val());
+	});
+
+	$('.select2').on('change', function () {
+		if ($('.select2-profese').val() == "Farmaceutický asistent") $('.law2').show();
+	});
+
+	$(document).on('change', '[name="gdpr_project"],[name="gdpr_global"]', function () {
+		var date = new Date();
+		var name = $(this).attr('name') + '_timestamp';
+		$("[name='" + name + "']").val(date.toUTCString());
+	});
+
+</script>
+
+
+<?=$this->render('bottom_login.phtml')?>

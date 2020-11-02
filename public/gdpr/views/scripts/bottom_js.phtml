@@ -1,0 +1,23 @@
+<?
+/**
+ * Renderujeme veci, ktere jsou v Ibulletin_JS a nebyly pridany pred nactenim
+ * hlavicky HTML. Tento skript musi byt potom pridan nejlepe pred </body>
+ * Muze byt spusten vickrat, pokud neni co renderovat, skript se ihned ukonci.
+ */
+ 
+ if(!Ibulletin_Js::needsRender())
+    return;
+ 
+ $jsFileUrl = Ibulletin_Js::renderAllJsFilesNameForHead();
+ $jsCode = Ibulletin_Js::render(false);
+ Ibulletin_Js::saveToPhpSession();
+ 
+?>
+<?if($jsFileUrl){?>
+    <script type="text/javascript" src="<?=$jsFileUrl?>"></script>
+<?}?>
+<?if($jsCode){?>
+    <script type="text/javascript">
+        <?=$jsCode?>
+    </script>
+<?}?>

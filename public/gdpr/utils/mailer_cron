@@ -1,0 +1,1 @@
+/usr/bin/php5 /home/lekarnik/www/www.astma.cz/www/ibulletin/library/Ibulletin/mailer_control.php --config /home/lekarnik/www/www.astma.cz/www/ibulletin/config_db.ini database /home/lekarnik/www/www.astma.cz/www/ibulletin/config_mailer.ini mailer /home/lekarnik/www/www.astma.cz/www/ibulletin/config_tables.ini tables

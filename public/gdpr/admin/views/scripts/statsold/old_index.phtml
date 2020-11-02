@@ -1,0 +1,22 @@
+<!-- Vsechen html kod adminu pred obsahem teto stranky -->
+<?=$this->render('admin_top.phtml')?>
+
+<h3>Statistiky</h3>
+
+<a
+	href="<?=$this->url(array('controller' => 'stats',
+'action' => 'general'));?>">Celkové statistiky</a>
+
+|
+
+<a
+	href="<?= $this->url(array('controller' => 'stats',
+'action' => 'bulletins')); ?>">Statistiky pro jednotlivá vydání</a>
+
+
+
+<!-- a href="<?= $this->url(array('controller' => 'stats',
+'action' => 'users')); ?>">Jmenný seznam</a -->
+
+<!-- Vsechen html kod adminu za obsahem teto stranky -->
+<?=$this->render('admin_bottom.phtml')?>

@@ -1,0 +1,48 @@
+<div class="menu">
+  <ul>
+  
+        <?/*Odkaz na aktualni vydani*/?>
+        <li>
+            <a href="<?=$this->url(array('bulletin' => 'null'), 'bulletin')?>">Aktuální vydání</a>
+        </li>
+  
+<?$first = true;?>
+<? foreach($this->menu['menu'] as $item){ ?>
+    <?$item['name']." ".$item['disabled']?>
+    <? if(empty($item['special'])){ ?>
+        <li<?= $first ? ' class="first"' : ''; ?>>
+            <? if($item['disabled']){?>
+                <?=$item['name']?>
+            <?}else{?>
+                <a href="<?=$item['url']?>"><?=$item['name']?></a>
+            <?}?>
+        </li>
+    <? } elseif($item['special'] == 'bulletin'){ ?>
+        <?/*=$this->render('menu_bulletin.phtml')*/?>
+    <? } elseif(true || $item['special'] == 'category'){ ?>
+        <?=$this->render('menu_category.phtml')?>
+    <? } ?>
+    <?$first = false;?>
+<? } ?>
+    
+        <?/*Odkaz na archiv*/?>
+        <li>
+            <a href="<?=$this->url(array('bulletin' => $this->bul_url_name), 'archive')?>">Archiv</a>
+        </li>
+        <?/*Odkaz na pozvani kolegy*/?>
+        <li>
+            <a href="<?= $this->url(array("controller" => "invitecolleague", "bulletin" => $this->bul_url_name), "default",true); ?>">Pozvání kolegy</a>
+        </li>
+        <?/*Odkaz na muj profil*/?>
+        <li>
+            <a href="<?= $this->url(array("controller" => "myprofile", "action" => $this->profileAction ), "default",true); ?>""><?= $this->profileLabel ; ?></a>
+        </li>
+
+    </ul>
+<?/*<form action='<?=$this->url(array('controller' => 'logoff'), 'default', true)?>'>
+<input class="tlacitko-odhlasit" value="Odhlásit" type="submit" />
+</form>*/?>
+</div><!-- menu -->
+
+
+

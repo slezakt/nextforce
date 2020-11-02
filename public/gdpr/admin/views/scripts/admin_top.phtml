@@ -1,0 +1,39 @@
+<?=$this->render('default_head.phtml')?>
+<body>
+<?=$this->render('topmenu.phtml')?>  
+<div class="container wrap">
+ 
+<div class="row head">
+	<?if(file_exists("pub/img/admin/newlogo.png")){?>
+		<div class="span2">
+			<a href="<?=$this->url(array("module" => "admin", "controller" => "index", "action" => "index"),null, true)?>">
+				<img src="pub/img/admin/newlogo.png" alt="Pears Health Cyber, s.r.o." />
+			</a>
+		</div>
+	<?}?>
+	<div class="span3">
+		<a class="project_name" href="<?=$this->url(array("module" => "admin", "controller" => "index", "action" => "index"),null, true)?>">
+			<?=$this->project_name?>
+		</a>
+	</div>
+     <div class="span7 context-menu">           
+             <?= $this->render('contextMenu.phtml') ?>          
+        </div>
+</div>
+
+<?=$this->render('tip.phtml')?>
+
+    <div class="row">
+        <div class="span12">
+            <? if (isset($this->moduleMenu)): ?>
+                <?= $this->render('modulemenu.phtml') ?>
+            <? endif; ?>
+        </div>
+    </div>
+    
+<div id="content">
+
+    <h1><?=$this->actionTitle?>&nbsp;<?if($this->subTitle):?><small><?=$this->subTitle?></small><?endif;?></h1>
+
+<?=$this->render('infoMessages.phtml')?>
+

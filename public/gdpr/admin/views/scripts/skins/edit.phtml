@@ -1,0 +1,11 @@
+<?= $this->render('admin_top.phtml') ?>
+<div class="row">
+    <div class="span8">
+        <?= $this->form ?>
+        <?= $this->partial('filemanager.phtml',array('cpath'=>$this->path)) ?>
+    </div>
+    <div class="span4">
+
+    </div>
+</div>
+<?=$this->render('admin_bottom.phtml')?>

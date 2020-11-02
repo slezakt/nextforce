@@ -1,0 +1,9 @@
+<?
+// Rozhodneme o pouziti specifickeho template, nebo obycejneho template
+if(!empty($this->layoutFileBottom)){
+    echo $this->render($this->layoutFileBottom);
+}
+else{
+    echo $this->render('_layouts/default_bottom.phtml');
+}
+?>

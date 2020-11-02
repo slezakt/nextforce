@@ -1,0 +1,86 @@
+<!-- Vsechen html kod adminu pred obsahem teto stranky -->
+<?=$this->render('admin_top.phtml')?>
+
+<div class="statistics">
+
+<!--?=$this->render('statsmenu.phtml')?-->
+
+<td>
+    <?php 
+        if ($this->readersCount == 1) {
+            $readerLabel = $this->text('reader1');
+        }
+        elseif ($this->readersCount > 1 && $this->readersCount < 5) {
+            $readerLabel = $this->text('reader2');
+        }
+        else {
+            $readerLabel = $this->text('reader10');
+        }
+        if ($this->noemailReadersCount == 1) {
+            $readerLabel2 = $this->text('visitor1');
+        }
+        elseif ($this->noemailReadersCount > 1 && $this->noemailReadersCount < 5) {
+            $readerLabel2 = $this->text('visitor2');
+        }
+        else {
+            $readerLabel2 = $this->text('visitor10');
+        }
+    ?>
+    <p><?=$this->text('attendees')?> <?=$this->readersCount?>
+     <?=$readerLabel?>, <?=$this->text('tj')?> <?=$this->activePercents?>% <?=$this->text('from_count')?> <?=$this->contactsCount?> <?=$this->text('from_active')?> 
+     <?=$this->noemailReadersCount?> <?=$readerLabel2?>.<?=Admin_StatsController::getExportButton(null,'readers')?>
+     </p>
+        
+<div data-angle="-50" data-title="<?=$this->text('readers_chart_label')?>" data-table="readers" data-col="1" id="graf1" class="graph graph-bar"></div>
+
+<?php
+/**
+ * prehledova tabulka ctenaru na dany bulletin
+ */
+ 
+if ( !empty($this->inTimeOverview) ) {
+    
+    echo '<table data-table-colopt="1" data-table-export="1" id="readers" class="table table-striped table-hover table-bordered table-stats">';
+    echo '<thead><tr>
+            <th>'.$this->text('issue').'</th>
+            <th data-table-export-colspan="1" colspan="2">'.$this->text('readers_on_time').'</th>
+            <th>'.$this->text('readers_no_email').'</th>
+            <th data-table-export-colspan="1" colspan="2">'.$this->text('readers_no_time').'</th>
+            <th>'.$this->text('readers_no_email_time').'</th>
+			<th>'.$this->text('readers_total').'</th>
+			<th>'.$this->text('readers_avg').'</th>
+			<th>'.$this->text('readers_avg2').'</th>
+            <th class="no-data aux-data">contact_count</th>
+    </tr></thead><tbody>';
+    foreach ($this->inTimeOverview as $bulletin) {
+        echo '<tr>';
+        echo '<td>'.$bulletin['bulletin'].'</td>';
+        echo '<td><span class="svalue">'.$bulletin['readers'].'</span></td>';
+        echo '<td class="no-data">'.Admin_StatsController::getExportButton(array('bulletinId' => $bulletin['id']),'readers').'</td>';
+        echo '<td><span class="svalue">'.$bulletin['readers_anon'].'</span></td>';
+        echo '<td><span class="svalue">'.$bulletin['readers_late'].'</span></td>';
+        echo '<td class="no-data">'.Admin_StatsController::getExportButton(array('bulletinId' => $bulletin['id']),'readers_late').'</td>';
+        echo '<td><span class="svalue">'.$bulletin['readers_late_anon'].'</span></td>';
+		echo '<td><span class="svalue">'.($bulletin['readers']+$bulletin['readers_anon']+$bulletin['readers_late']+$bulletin['readers_late_anon']).'</span></td>';
+        echo '<td data-table-export-value="'.$bulletin['readers_avg'].'" data-table-export-format="[h]:mm:ss"><span class="svalue">'.Utils::ms_to_timestring($bulletin['readers_avg']).'</span></td>';
+		echo '<td data-table-export-value="'.$bulletin['readers_avg2'].'" data-table-export-format="[h]:mm:ss"><span class="svalue">'.Utils::ms_to_timestring($bulletin['readers_avg2']).'</span></td>';
+        echo '<td class="no-data aux-data">'.($bulletin['contacts_count']).'</td>';
+        echo '<td class="no-data aux-data">'.($bulletin['contacts_count_foremailing']).'</td>';
+        echo '</tr>';
+    }
+    echo '</tbody></table>';
+}
+?>    
+
+<?if($this->bul_more):?>
+     <a class="btn btn-success tip" data-original-title="<?=$this->texts->tooltip->show_all?>" href="<?=$this->url()?>showall/1"><?=$this->texts->show_all?></a>   
+<?endif;?>
+
+<div data-angle="-50" data-title="<?=$this->text('percentage_chart_label')?>" data-relative="10" data-table="readers" data-col="1" id="graf2" class="graph graph-bar"></div>
+
+<div data-angle="-50" data-title="<?=$this->text('percentage_foremailing_chart_label')?>" data-relative="11" data-table="readers" data-col="1" id="graf3" class="graph graph-bar"></div>
+</div>
+
+
+<!-- Vsechen html kod adminu za obsahem teto stranky -->
+<?=$this->render('admin_bottom.phtml')?>

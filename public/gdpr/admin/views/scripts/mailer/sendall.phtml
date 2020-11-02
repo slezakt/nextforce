@@ -1,0 +1,12 @@
+<!-- Vsechen html kod adminu pred obsahem teto stranky -->
+<?=$this->render('admin_top.phtml')?>
+
+<?if(isset($this->errors)){?>
+<?foreach($this->errors as $id => $desc){?>
+    <?=$desc?><br />
+<?}?>
+<?}?>	
+
+<!-- Vsechen html kod adminu za obsahem teto stranky -->
+	<?=$this->render('admin_bottom.phtml')?>
+

@@ -1,0 +1,36 @@
+<?=$this->render('admin_top.phtml')?>
+
+<h3>Správa virtuálních pacientů</h3>
+
+<? if(!empty($this->info_messages)){?>
+<b>Info:</b>
+<br />
+<?foreach($this->info_messages as $message){?>
+<?=$message?>
+<br />
+<?}?>
+<?}?>
+
+<table border="1">
+	<tr>
+		<th>Název:</th>
+		<th>Poslední změna:</th>
+		<th colspan="2">Akce:</th>
+	</tr>
+	<?foreach($this->content_list as $content){?>
+	<tr>
+		<td><?=$content['object']->name?></td>
+		<td><?=$content['changed']?></td>
+		<td><a
+			href="<?=$this->url(array('id' => $content['id'], 'action' => 'edit'))?>">Editovat</a></td>
+		<td><?if(!$content['has_page']){?> <a
+			href="<?=$this->url(array('id' => $content['id'], 'action' => 'createsimplepage'))?>">
+		Vytvořit prostou stránku s tímto obsahem </a> <?}?></td>
+		<!--<td><a href="<?=$this->url(array('id' => $content['id'], 'action' => 'delete'))?>">Smazat</a></td>-->
+	</tr>
+	<?}?>
+</table>
+
+	<?=$this->form?>
+
+	<?=$this->render('admin_bottom.phtml')?>

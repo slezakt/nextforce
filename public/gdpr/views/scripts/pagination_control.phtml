@@ -1,0 +1,26 @@
+<? if ($this->pageCount > 1): ?>
+    <div class="pager">
+        <div class="predchozi">
+            <? if (isset($this->previous)){?>
+                <a href="<?= $this->url(array_merge($this->params->url, array('page' => $this->previous))); ?>">
+                    Předchozí stránka<?/*<img src="pub/img/predchozi-stranka.gif" alt="Předchozí stránka" />*/?></a><?}?>&nbsp;</div>
+                    <?/*Pozor, predchozi radek musi byt pohromade, jinak to spatne vykresluje v FF*/?>
+        
+        <div class="pager-in">
+            <?php foreach ($this->pagesInRange as $page): ?> 
+              <?php if ($page != $this->current): ?>
+                <a href="<?= $this->url(array_merge($this->params->url, array('page' => $page))); ?>"><?= $page; ?></a> 
+              <?php else: ?>
+                <?= $page; ?>  
+              <?php endif; ?>
+            <?php endforeach; ?>
+        </div>
+        
+        <? if (isset($this->next)){ ?>
+            <a class="nasledujici" href="<?= $this->url(array_merge($this->params->url, array('page' => $this->next))); ?>">
+                Další stránka<?/*<img src="pub/img/dalsi-stranka.gif" alt="Další stránka" />*/?>
+            </a>
+        <?}?>
+    
+    </div>
+<?php endif; ?>

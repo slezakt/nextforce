@@ -1,0 +1,19 @@
+<div id="sheet_list">
+<h5><?=$this->text('sheet_list.main.title')?></h5> 
+<?if(!empty($this->sheets)){?>
+
+	<?foreach($this->sheets as $sheet){?>
+		<?if(isset($notfirst)){?><span>&nbsp;|&nbsp;</span><?}else{?> <?$notfirst = true?> <?}?>	
+		<?if($sheet != $this->current_sheet){?> 
+			<a href="<?=$this->url(array('id' => $this->content_id, 'sheet' => $sheet+1, 'remove_sheet' => null, 'add_sheet' => null))?>"><?=$sheet+1?></a>
+		<?}else{?> 
+			<b><?=$sheet+1?></b> 
+		<?}?> 
+	<?}?> 
+	<br /><br />
+	<a href="<?=$this->url(array('id' => $this->content_id, 'add_sheet' => 1, 'remove_sheet' => null))?>"><?=$this->text('sheet_list.main.action_add')?></a>
+	<?if(count($this->sheets) != 1){?>
+		<span>&nbsp;|&nbsp;</span><a href="<?=$this->url(array('id' => $this->content_id, 'remove_sheet' => 1, 'add_sheet' => null))?>"><?=$this->text('sheet_list.main.action_remove')?></a>
+	<?}?>
+<?}?>
+</div>	

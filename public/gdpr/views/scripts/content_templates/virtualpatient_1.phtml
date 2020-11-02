@@ -1,0 +1,107 @@
+<?/* Data urcena pro tento content */?>
+<?$data = $this->content[$this->current_content]['data'] ?>
+
+<div class="content"><div class="slide4">
+      <div class="dotaz-b"><div class="dotaz"><div class="dotaz-in">
+        <span class="cislo"><?=$this->contentActualSheet?>.</span>
+        <h1><?=$this->text('.itrio_menu_item3')?></h1>
+        <h2><?=$data->heading?></h2>
+        <div class="reset"></div>
+      </div></div></div>
+      
+      <div class="block">
+      
+        <?= eval($this->content[$this->current_content]['html1'])?>      
+        
+        <?if(!empty($data->question)){?>
+            <div class="right">
+              <div class="hlaskaodpoved" id="vpattempts">
+                <?$has_correct = false?>
+                <?if(!empty($data->attempts)){?>
+                    <?foreach($data->attempts as $attempt){?>
+                        <?if(!$attempt['is_correct']){?>
+                            <div><?=$attempt['name']?></div>
+                        <?}else{?>
+                            <?$has_correct = $attempt['name']?>
+                            <div class="ok"><?=$attempt['name']?></div>
+                        <?}?>
+                    <?}?>
+                    <?if($has_correct !== false){?>
+                        <p class="ok" id="vpattempts_p_ok"><?=sprintf($this->text('content.virtualpatient.correct_answer'), $has_correct)?></p>
+                    <?}else{?>
+                        <p id="vpattempts_p"><?=$this->text('content.virtualpatient.choose_another')?></p>
+                    <?}?>
+                <?}else{?>
+                    <p class="ok"  id="vpattempts_p"><?=$this->text('content.virtualpatient.choose_one')?></p>
+                <?}?>
+              </div>
+              
+              <div class="perex"><div class="perex-top"><div class="perex-bottom">
+                <p><?=$data->question['text']?></p>
+                <?if(!empty($data->question['question'])){?><h2><?=$data->question['question']?></h2><?}?>
+              </div></div></div>
+              
+              <div class="vysetreni">
+                <ul>
+                
+                  <?$last_key = end(array_keys($data->answers))?>
+                  <?foreach($data->answers as $key => $answer){?>
+                  <?$clicked = array_key_exists($answer['id'], $data->attempts) || $has_correct?>
+                  
+                    <li<?=$last_key == $key ? ' class="last"' : ''?>>
+                        <?if($answer['is_correct']){?>
+                            <div class="dobreBottom" id="<?=$answer['name']?>_clicked" <?=!$clicked ? 'style="display:none;"' : ''?>>
+                            <div class="dobreTop"><div class="dobre">
+                            <div class="dobra"><?=$answer['name']?></div>
+                            <p>
+                                <?=$answer['explanation']?>
+                            </p>
+                            <div class="reset"></div>
+                            </div></div></div>
+                        <?}else{?>
+                            <div class="chybneBottom" id="<?=$answer['name']?>_clicked" <?=!$clicked ? 'style="display:none;"' : ''?>><div class="chybneTop"><div class="chybne">
+                            <div class="chyba"><?=$answer['name']?></div>
+                            <p>
+                                <?=$answer['explanation']?>
+                            </p>
+                            <div class="reset"></div>
+                            </div></div></div>
+                        <?}?>
+                        <?if(!$clicked){?>
+                            <div id="<?=$answer['name']?>_unclicked"><div><div>
+                            <?if($has_correct === false){?>
+                                <a href="<?=$this->url(array('answer' => $answer['name']))?>" class="moznost">
+                                    <?=$answer['name']?>
+                                </a>
+                            <?}else{?>
+                                <div class="moznost">
+                                    <?=$answer['name']?>
+                                </div>
+                            <?}?>
+                            <p>
+                                <?=$answer['answer']?>
+                            </p>
+                            <div class="reset"></div>
+                            </div></div></div>
+                        <?}?>
+                    </li>
+                  <?}?>
+
+                </ul>
+                
+              </div>
+            </div>
+          <?}?>
+          
+          <?= eval($this->content[$this->current_content]['html2'])?>
+          
+        <div class="reset"></div>
+        
+      </div>
+
+    </div></div>
+
+
+<?/* Navigace mezi jednotlivymi listy - nastavime, jestli ma byt navigace uzamcena*/?>
+<?$this->lock_navigation = $data->lock_navigation?>
+<?=$this->render('sheet_navigation.phtml')?>

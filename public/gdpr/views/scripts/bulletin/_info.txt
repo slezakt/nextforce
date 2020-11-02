@@ -1,0 +1,4 @@
+Pro skripty show.phtml, show-bulletin.phtml, show-bulletin-by-cat.phtml je mozne pridat verze podle layoutu:
+layoutName-show.phtml
+V zasade se jedna o vsechny skripty, ktere se nastavi jako hlavni scriptAction pro danou akci controlleru 
+(automaticka nahrada scriptAction se provadi v Layouts::setLayout()).
