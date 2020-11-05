@@ -4,8 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "postcss css/tailwind.css -o public/build/main.css",
-    "watch": "watch 'npm run build' ./css"
+    "html:process": "posthtml ./src/html/pages/*.html -o ./public/",
+    "html:watch": "onchange \"./src/html\" -- run-p html:process",
+    "css:build": "postcss ./src/assets/tailwind.css -o ./public/build/main.css",
+    "css:watch": "postcss ./src/assets/tailwind.css -o ./public/build/main.css --watch",
+    "dev:server": "browser-sync start --server --ss './public/' --files ['./src/html/pages/*.html', './src/assets/tailwind.css'] --no-notify --no-open",
+    "watch": "run-p html:watch css:watch dev:server",
+    "build": "run-p html:process css:build"
+  },
+  "posthtml": {
+    "plugins": {
+      "posthtml-modules": {
+        "root": "./src/html"
+      }
+    }
   },
   "repository": {
     "type": "git",
@@ -17,9 +29,20 @@
   "dependencies": {
     "@fullhuman/postcss-purgecss": "^3.0.0",
     "autoprefixer": "^9.0.0",
+    "npm-watch": "^0.7.0",
     "postcss": "^8.1.4",
     "postcss-cli": "^8.2.0",
+    "posthtml-modules": "^0.6.2",
     "tailwindcss": "^1.9.6",
     "watch": "^1.0.2"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.13",
+    "npm-run-all": "^4.1.5",
+    "onchange": "^7.1.0",
+    "posthtml": "^0.13.4",
+    "posthtml-cli": "^0.8.0",
+    "posthtml-include": "^1.5.0",
+    "posthtml-load-config": "^2.0.0"
   }
 }
