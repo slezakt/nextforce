@@ -4,28 +4,31 @@
 
 @tailwind utilities;
 
+html, body {
+    @apply bg-gray-200;
+}
+
 body {
     font-family: "Roboto Condensed";
 }
 
 nav li {
     background:url(../img/tecky.gif) no-repeat right bottom;
+
 }
 
 main h2 {
-    font-size: 3.5rem;
-    font-weight: 700;
+    @apply font-bold text-5xl;
 }
 
 main p {
-    margin-bottom: 1rem;
+    @apply mb-2;
 }
 
 main a {
-    color: #08c;
+    @apply text-blue-200;
 }
 
 main a:hover, main a:focus {
-    color: #005580;
-    text-decoration: underline;
+    @apply text-blue-300 underline;
 }
