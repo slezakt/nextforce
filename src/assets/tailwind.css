@@ -32,3 +32,47 @@ main a {
 main a:hover, main a:focus {
     @apply text-blue-300 underline;
 }
+
+.qoutes {
+    @apply relative text-3xl px-12 mb-8
+}
+
+.qoutes::before {
+    content: '';
+    background:url(../img/quotes-left-blue.png) no-repeat;
+    width: 40px;
+    height: 28px;
+    bottom: 0;
+    left: 0;
+    @apply absolute block bg-cover
+}
+
+.qoutes::after {
+    content: '';
+    background:url(../img/quotes-right-green.png) no-repeat;
+    width: 40px;
+    height: 28px;
+    top: 0;
+    right: 0;
+    @apply absolute block bg-cover
+}
+
+.dialog {
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.avatar {
+    width: 60px;
+    @apply flex-shrink-0
+}
+
+.dialog-left {
+    background-image: url(../img/white-comment-bubble-left.png);
+    @apply font-bold p-8 pl-16
+}
+
+.dialog-right {
+    background-image: url(../img/white-comment-bubble-right.png);
+    @apply p-8 pr-16
+}

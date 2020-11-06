@@ -1,0 +1,67 @@
+<module href="./src/html/modules/head.html">
+</module>
+    <module href="./src/html/modules/header.html">
+    </module>
+    <div class="sm:flex sm:h-screen" x-data="{ link: 'osobni-udaje' }">
+        <module href="/modules/left-side.html">
+        </module>
+        <main class="sm:w-3/5 bg-gray-200 sm:overflow-y-auto">
+            <div class="sm:pt-40 pl-2 sm:pl-8 h-full" style="background: url(../img/item04.jpg) no-repeat center; background-size: cover;">
+                <div class="max-w-700">
+                    <div x-show="tab === 'osobni-udaje'">
+                        <h2>Osobní údaje</h2>
+                        <p>
+                            Posláním společnosti NextForce je poskytnout lékařům, farmaceutům a střednímu zdravotnickému personálu ve zdravotnictví moderní zdravotnické prostředky, kosmetiku a léčiva a tím umožnit, aby jejich pacienti a zákazníci měli možnost používat moderní přístup v řešení jejich obtíží. Pro předávání klíčových informací z oblasti farmacie je pro nás nezbytná komunikace s Vámi, našimi zákazníky z řad lékařů a pracovníků lékáren. Proto je klíčové, abychom Vás dokázali jasně a srozumitelně informovat, jak nakládáme s Vašimi daty, jaká data shromažďujeme a jak je používáme. Před použitím našich Služeb budete vyzvání k souhlasu s tím, abychom vaše data používali v souladu s těmito Zásadami ochrany osobních údajů.
+                        </p>
+                        <p>
+                            Společnost NextForce zastupuje významné a tradiční výrobce zdravotnických prostředků a kosmetiky.
+                        </p>
+                        <p>
+                            V našem portfoliu najdete:
+                        </p>
+                        <ul class="list-disc pl-4 mb-4">
+                            <li>Aloclair brand – péče o dutinu ústní, afty, dásně, dětské zoubky</li>
+                            <li>Herpclair – léčba oparů</li>
+                            <li>Sebclair – léčba seboreické dermatitidy, lupů</li>
+                            <li>Atopiclair – nesteroidní přípravek na atopický ekzém</li>
+                            <li>Rejuvasil a ScarEsthetique – péče o jizvy</li>
+                        </ul>
+                        <p>
+                            V roce 2016 jsme uvedli na trh první vlastní kosmetický přípravek Zitenax krémpastu, určenou k léčbě opruzenin u dětí i dospělých. Doufáme, že v budoucnu rozšíříme počet vlastních přípravku o další.
+                        </p>
+                        <p>
+                            Kromě nabídky výše uvedených přípravků pro Vaše pacienty se současně snažíme nabídnout odbornou službu, která Vám napomůže se orientovat v řešeních pro zdraví včetně prevence a pro Váš odborný rozvoj. Abychom v tomto našem poslání byli opravdu jedineční, přijali jsme Zásady ochrany osobních údajů vztahující se na jakéhokoli zákazníka nebo partnera.
+                        </p>
+                        <p>
+                            Poskytnutí výše uvedených osobních údajů je dobrovolné, souhlas mohu kdykoli odvolat, aniž je tím dotčena zákonnost zpracování, založeného na souhlasu uděleném před jeho odvoláním, mám přístup ke svým osobním údajům, mám právo na jejich opravu, mám právo požadovat od správce osobních údajů vysvětlení v případě podezření, že ke zpracování osobních údajů dochází v rozporu s ochranou soukromého a osobního života uživatele nebo v rozporu se zákonem, mám právo požadovat odstranění protiprávního stavu, mám právo vznést námitku proti zpracování, jakož i právo na přenositelnost údajů, mám právo obrátit se v případě uvedeného podezření či odmítnutí odstranění uvedeného protiprávního stavu na Úřad pro ochranu osobních údajů. Souhlas se zasíláním informačních emailů mohu kdykoli odvolat. Správce se zavazuje, že mé osobní údaje mohou být z databáze vymazány na základě mé žádosti odeslané na adresu
+                            <a href="mailto:delete@nextforce.cz">delete@nextforce.cz</a> a následným potvrzením vymazání kliknutím na příslušný o odkaz v potvrzovacím emailu.
+                        </p>
+                        <p>
+                            V případě žádosti o bližší informace týkající se správy a zpracování vašich osobních údajů kontaktujte
+                            <a href="mailto:dpo@nextforce.cz">dpo@nextforce.cz</a>. Správce bude s osobními údaji nakládat pouze v souladu se zákonem. Detaily postupů, jak mohu uplatnit výše uvedená práva, jsou dostupné na
+                            <a href="http://www.nextforce.cz/uplatneni-prav" target="_blank">nextforce.cz/uplatneni-prav</a>.
+                        </p>
+                        <p>
+                            <strong>Pověřená osoba v rámci GDPR:</strong><br>
+                            Ing. Petr Sunek,<br>
+                            telefonní spojení: +420 736 612 171,<br>
+                            e-mail: <a href="mailto:dpo@nextforce.cz">dpo@nextforce.cz</a>
+                        </p>
+                        <p>
+                            <strong>Seznam zpracovatelů dat: <a href="http://www.nextforce.cz/aktualni-seznam-zpracovatelu">ZDE.</a></strong>
+                        </p>
+                        <p class="flex flex-wrap">
+                            <a href="../souhlas/"
+                               class="rounded-md inline-block py-2 px-4 bg-blue-100 text-black mr-4"
+                               :class="{ 'font-bold text-gray-900' : link === 'osobni-udaje' }"
+                            >Proč udělit souhlas?</a>
+                            <a href="/gdpr/" class="rounded-md inline-block py-2 px-4 bg-blue-200 text-black mr-4">Chci udělit souhas</a>
+                            <a href="../data-v-bezpeci/"
+                               class="rounded-md inline-block py-2 px-4 bg-blue-100 text-black"
+                            >Data v bezpečí</a>
+                        </p>
+                    </div>
+                </div>
+        </div>
+        </main>
+    </div>
