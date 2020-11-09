@@ -1,3 +1,0 @@
-Obsahuje templaty pro pages, kazdy template muze mit verzi
-specifickou pro layout, kterou je treba ulozit do adresare se jmenem
-layoutu, soubor template se jmenuje stejne jako v korenu.

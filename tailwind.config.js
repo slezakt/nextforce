@@ -30,9 +30,44 @@ module.exports = {
       },
       fontFamily: {
         "Roboto Condensed": ['"Roboto Condensed"', 'sans-serif']
-      }
+      },
+      typography: (theme) => ({
+        default: {
+          css: {
+            maxWidth: "none",
+            h2: {
+              fontSize: '3rem',
+              marginBottom: '0.2em'
+            },
+            h3: {
+              fontSize: '1.8rem',
+              fontWeight: '400',
+              marginBottom: '0.2em'
+            },
+            ul: {
+              fontWeight: '300',
+              li: {
+                '&::before': {
+                  backgroundColor: 'black'
+                }
+              }
+            },
+            p: {
+              fontWeight: '300',
+            },
+            a: {
+              color: theme('colors.blue.200'),
+              '&:hover': {
+                color: theme('colors.blue.300'),
+              },
+            },
+          },
+        },
+      }),
     },
   },
   variants: {},
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 }

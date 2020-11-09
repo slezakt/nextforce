@@ -18,11 +18,7 @@ nav li {
 }
 
 main h2 {
-    @apply font-bold text-5xl;
-}
-
-main p {
-    @apply mb-2;
+    @apply text-5xl;
 }
 
 main a {
