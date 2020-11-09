@@ -8,7 +8,7 @@
     "html:watch": "onchange \"./src/html/**/*\" -- run-p html:process",
     "css:build": "postcss ./src/assets/tailwind.css -o ./dist/css/main.css --env production",
     "css:watch": "postcss ./src/assets/tailwind.css -o ./dist/css/main.css --watch",
-    "dev:server": "browser-sync start --server --ss './dist/' --files ['./src/html/pages/**/*', './src/assets/tailwind.css'] --no-notify --no-open",
+    "dev:server": "browser-sync start --server --ss './dist/' --files ['./src/html/pages/**/**/*', './src/assets/tailwind.css'] --no-notify --no-open",
     "watch": "run-p html:watch css:watch dev:server",
     "build": "run-p html:process css:build"
   },

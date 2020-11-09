@@ -72,3 +72,23 @@ main a:hover, main a:focus {
     background-image: url(../img/white-comment-bubble-right.png);
     @apply p-8 pr-16
 }
+
+.bg-drugs {
+    background-image: url(../img/item01.jpg);
+    @apply bg-no-repeat bg-cover
+}
+
+.bg-partners {
+    background-image: url(../img/item02.jpg);
+    @apply bg-no-repeat bg-cover
+}
+
+.bg-products {
+    background-image: url(../img/item03.jpg);
+    @apply bg-no-repeat bg-cover
+}
+
+.bg-contract {
+    background-image: url(../img/item04.jpg);
+    @apply bg-no-repeat bg-cover
+}
