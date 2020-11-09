@@ -1,13 +1,18 @@
 module.exports = {
   future: {
-    // removeDeprecatedGapUtilities: true,
-    // purgeLayersByDefault: true,
+    removeDeprecatedGapUtilities: true,
+    purgeLayersByDefault: true,
   },
-  purge: [],
+  purge: [
+    './src/**/*.html',
+  ],
   theme: {
     extend: {
       colors: {
-        green: "#a9c23a",
+        green: {
+          300: "#D9E1B9",
+          900: "#a9c23a",
+        },
         blue: {
           100: "#80E6FF",
           200: "#0CF",
@@ -56,9 +61,9 @@ module.exports = {
               fontWeight: '300',
             },
             a: {
-              color: theme('colors.blue.200'),
+              color: theme('colors.blue.300'),
               '&:hover': {
-                color: theme('colors.blue.300'),
+                color: theme('colors.blue.400'),
               },
             },
           },
