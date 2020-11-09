@@ -6,7 +6,7 @@
             <module href="/modules/left-side-en.html">
             </module>
             <main class="sm:w-3/5 bg-gray-200 ">
-                <div class="pl-2 sm:p-4 sm:pt-40 sm:pl-8 sm:h-full sm:overflow-y-auto" style="background: url(../img/item01.jpg) no-repeat center; background-size: cover;">
+                <div class="pl-2 sm:p-4 sm:pt-40 sm:pl-8 sm:h-full sm:overflow-y-auto bg-drugs">
                     <div class="max-w-700">
                         <article class="prose">
                             <h2>About Us</h2>
@@ -34,24 +34,6 @@
                             </p>
                         </article>
                     </div>
-                </div>
-                <div x-show="tab === 'souhlas'" x-cloak="visibility" class="sm:pt-40 pl-2 sm:pl-8 h-full overflow-y-auto" style="background: url(../img/item04.jpg) no-repeat center; background-size: cover;">
-                    <h2>Souhlas</h2>
-                    <p>
-                        <a href=""
-                           class="rounded-md inline-block py-2 px-4 bg-blue-100 text-black"
-                           @click.prevent="tab = 'osobni-udaje'; window.location.hash = 'osobni-udaje'"
-                        >Zpět</a>
-                    </p>
-                </div>
-                <div x-show="tab === 'data-v-bezpeci'" x-cloak="visibility" class="sm:pt-40 pl-2 sm:pl-8 h-full overflow-y-auto" style="background: url(../img/item04.jpg) no-repeat center; background-size: cover;">
-                    <h2>Data v bezpečí</h2>
-                    <p>
-                        <a href=""
-                           class="rounded-md inline-block py-2 px-4 bg-blue-100 text-black"
-                           @click.prevent="tab = 'osobni-udaje'; window.location.hash = 'osobni-udaje'"
-                        >Zpět</a>
-                    </p>
                 </div>
             </main>
         </div>
