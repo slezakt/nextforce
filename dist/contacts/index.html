@@ -11,56 +11,51 @@
     <script type="module" src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
     <script nomodule="" src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine-ie11.min.js" defer=""></script>
     <link rel="shortcut icon" href="ico/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="ico/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
+    <link rel="icon" href="/ico/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/ico/apple-touch-icon-57-precomposed.png">
 </head></html>
-    <header class="sm:absolute top-0 w-full flex sm:pl-2/5 sm:items-end">
-    <div class="bg-green inline-block p-2 sm:pb-16 rounded-tr-md rounded-br-md">
-        <span class="text-white font-bold">CZ</span>
-        <a href="en/" class="text-white">EN</a>
+    <body class="sm:overflow-y-hidden">
+<header class="sm:absolute top-0 w-full flex sm:pl-2/5 sm:items-end">
+    <div class="bg-green-900 inline-block p-2 sm:pb-16 rounded-tr-md rounded-br-md">
+        <a href="/" class="text-white">CZ</a>
+        <a href="/about-us" class="text-white font-bold">EN</a>
     </div>
     <a href="/" class="ml-auto m-2 mr-8 text-0 max-w-200 sm:max-w-none sm:ml-2/5">
         <h1>NextForce a.s.</h1>
         <img src="../img/logo.png" alt="">
     </a>
-</header>
-<body class="sm:overflow-y-hidden"></body>
-    <div class="sm:flex sm:h-screen" x-data="{ link: 'kontakty' }">
+</header></body>
+    <div class="sm:flex sm:h-screen" x-data="{ link: 'contacts' }">
         <div class="p-2 sm:w-2/5 bg-blue-200 flex sm:pt-48 justify-end">
     <div class="text-right">
         <nav class="text-2xl sm:mb-12">
             <ul class="flex flex-wrap sm:block">
                 <li class="my-1">
-                    <a href="/" class="text-white block hover:text-opacity-75 pr-8" :class="{ 'font-bold text-gray-900' : link === 'onas' }">
-                        O nás
+                    <a href="/about-us" class="text-white block hover:text-opacity-75 pr-8" :class="{ 'font-bold text-gray-900' : link === 'about' }">
+                        About Us
                     </a>
                 </li>
                 <li class="my-1">
-                    <a href="/pro-partnery" class="text-white block hover:text-opacity-75 pr-8" :class="{ 'font-bold text-gray-900' : link === 'pro-partnery' }">
-                        Pro partnery
+                    <a href="/partners" class="text-white block hover:text-opacity-75 pr-8" :class="{ 'font-bold text-gray-900' : link === 'partners' }">
+                        Partners
                     </a>
                 </li>
                 <li class="my-1">
-                    <a href="/produkty" class="text-white block hover:text-opacity-75 pr-8" :class="{ 'font-bold text-gray-900' : link === 'produkty' }">
-                        Produkty
+                    <a href="/products" class="text-white block hover:text-opacity-75 pr-8" :class="{ 'font-bold text-gray-900' : link === 'products' }">
+                        Products
                     </a>
                 </li>
                 <li class="my-1">
-                    <a href="/zamestnani" class="text-white block hover:text-opacity-75 pr-8" :class="{ 'font-bold text-gray-900' : link === 'zamestnani' }">
-                        Zaměstnání
+                    <a href="/work-with-us" class="text-white block hover:text-opacity-75 pr-8" :class="{ 'font-bold text-gray-900' : link === 'work-with-us' }">
+                        Work with Us
                     </a>
                 </li>
                 <li class="my-1">
-                    <a href="/kontakty" class="text-white block hover:text-opacity-75 pr-8" :class="{ 'font-bold text-gray-900' : link === 'kontakty' }">
-                        Kontakty
-                    </a>
-                </li>
-                <li class="my-1">
-                    <a href="/osobni-udaje" class="text-white block hover:text-opacity-75 pr-8" :class="{ 'font-bold text-gray-900' : link === 'osobni-udaje' }">
-                        Osobní údaje
+                    <a href="/contacts" class="text-white block hover:text-opacity-75 pr-8" :class="{ 'font-bold text-gray-900' : link === 'contacts' }">
+                        Contacts
                     </a>
                 </li>
             </ul>
@@ -72,18 +67,14 @@
             <div class="pl-2 sm:p-4 sm:pt-40 sm:pl-8 sm:h-full sm:overflow-y-auto" style="background: url(../img/item04.jpg) no-repeat center; background-size: cover;">
                 <div class="max-w-700">
                     <article class="prose">
-                        <h2>Kontakty</h2>
+                        <h2>Contacts</h2>
                         <p>
-                            <strong>Centrála a fakturační adresa společnosti:</strong><br>
+                            <strong>Headquarters and billing address:</strong><br>
                             NextForce a.s.<br>
                             Fibichova 41<br>
                             537 01 Chrudim<br>
-                            Česká republika<br>
-                            IČ: 288 55 523, DIČ: CZ 288 55 523<br>
-                            Bankovní spojení: Reiffeisenbank a.s. číslo účtu: 1620432060/5500
-                        </p>
-                        <p>
-                            Společnost je zapsaná v Obchodním rejstříku vedeném Krajským soudem v Hradci Králové, oddíl B, vložka číslo 3121
+                            Czech republic<br>
+                            IČ: 288 55 523, DIČ: CZ 288 55 523
                         </p>
                         <p>
                             <strong>Office:</strong><br>

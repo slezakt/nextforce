@@ -1,59 +1,30 @@
 <module href="./src/html/modules/head.html">
 </module>
-<module href="./src/html/modules/header-cz.html">
+<module href="./src/html/modules/header-en.html">
 </module>
-        <div class="sm:flex sm:h-screen" x-data="{ link: 'onas' }">
-            <module href="/modules/left-side.html">
+        <div class="sm:flex sm:h-screen" x-data="{ link: 'work-with-us' }">
+            <module href="/modules/left-side-en.html">
             </module>
             <main class="sm:w-3/5 bg-gray-200 ">
                 <div class="pl-2 sm:p-4 sm:pt-40 sm:pl-8 sm:h-full sm:overflow-y-auto" style="background: url(../img/item01.jpg) no-repeat center; background-size: cover;">
                     <div class="max-w-700">
                         <article class="prose">
-                            <h2>O nás</h2>
+                            <h2>Work with Us</h2>
                             <p>
-                                NextForce a.s. je česká inovativní společnost disponující <strong>vlastním vývojem kosmetických a medicínských přípravků.</strong>
+                                In order to improve services for our partners we are adding new colleagues to our teams in the Czech Republic and Slovakia – pharmaceutical representatives (physicians, specialist physicians, pharmacies) and regional and product managers.
                             </p>
                             <p>
-                                Uplatňujeme naše dlouholeté zkušenosti v oblastech farmacie, humánní medicíny a marketingu s přesahem do oblastí moderních technologií.
+                                Please feel free to contact us if you are interested in applying for one of the above stated positions.
                             </p>
                             <p>
-                                Svojí činností se rovněž zaměřujeme na <strong>obchodní zastoupení zahraničních farmaceutických společností</strong> v České republice a na Slovensku.
+                                <strong>To apply, send a structured resume and cover letter to:</strong> <a
+                                    href="mailto:office@nextforce.cz">office@nextforce.cz</a>
                             </p>
-                            <p>
-                                Našim hlavním posláním je uvádět na trh ověřené, kvalitní, účinné a bezpečné medicínské přípravky, které mají skutečnou přidanou hodnotu pro pacienty.
-                            </p>
-                            <p>
-                                Klasickými i inovativními marketingovými aktivitami vytváříme povědomí o produktovém portfoliu a šíříme dobré jméno partnerských společností.
-                            </p>
-                            <p>
-                                V současné době se zabýváme přípravky převážně v oborech dermatologie, pediatrie a stomatologie.
-                            </p>
-                            <p>
-                                Kromě vývoje a prodeje zdravotnických prostředků, doplňků stravy a kosmetiky máme bohaté zkušenosti s marketingovou podporou preskripčně vázaných léků.
-                            </p>
-                            <p>
-                                V případě Vašeho zájmu o spolupráci nás prosím kontaktujte na <a href="mailto:office@nextforce.cz">office@nextforce.cz</a>
+                            <p class="rounded-2xl p-4 bg-green-300">
+                                We do not have any positions to fill at the moment, but if you like, you can send us a structured resume with your photograph and a cover letter. Then if we need a candidate corresponding to the information in your resume, we will contact you.
                             </p>
                         </article>
                     </div>
-                </div>
-                <div x-show="tab === 'souhlas'" x-cloak="visibility" class="sm:pt-40 pl-2 sm:pl-8 h-full overflow-y-auto" style="background: url(../img/item04.jpg) no-repeat center; background-size: cover;">
-                    <h2>Souhlas</h2>
-                    <p>
-                        <a href=""
-                           class="rounded-md inline-block py-2 px-4 bg-blue-100 text-black"
-                           @click.prevent="tab = 'osobni-udaje'; window.location.hash = 'osobni-udaje'"
-                        >Zpět</a>
-                    </p>
-                </div>
-                <div x-show="tab === 'data-v-bezpeci'" x-cloak="visibility" class="sm:pt-40 pl-2 sm:pl-8 h-full overflow-y-auto" style="background: url(../img/item04.jpg) no-repeat center; background-size: cover;">
-                    <h2>Data v bezpečí</h2>
-                    <p>
-                        <a href=""
-                           class="rounded-md inline-block py-2 px-4 bg-blue-100 text-black"
-                           @click.prevent="tab = 'osobni-udaje'; window.location.hash = 'osobni-udaje'"
-                        >Zpět</a>
-                    </p>
                 </div>
             </main>
         </div>

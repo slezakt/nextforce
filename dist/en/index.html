@@ -1,38 +1,94 @@
-<module href="./src/html/modules/head.html">
-</module>
-<module href="./src/html/modules/header-cz.html">
-</module>
-        <div class="sm:flex sm:h-screen" x-data="{ link: 'onas' }">
-            <module href="/modules/left-side.html">
-            </module>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>NextForce</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer=""></script>
+    <script type="module" src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
+    <script nomodule="" src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine-ie11.min.js" defer=""></script>
+    <link rel="shortcut icon" href="ico/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="ico/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
+</head></html>
+<body class="sm:overflow-y-hidden">
+<header class="sm:absolute top-0 w-full flex sm:pl-2/5 sm:items-end">
+    <div class="bg-green inline-block p-2 sm:pb-16 rounded-tr-md rounded-br-md">
+        <a href="/" class="text-white">CZ</a>
+        <a href="/en" class="text-white font-bold">EN</a>
+    </div>
+    <a href="/" class="ml-auto m-2 mr-8 text-0 max-w-200 sm:max-w-none sm:ml-2/5">
+        <h1>NextForce a.s.</h1>
+        <img src="../img/logo.png" alt="">
+    </a>
+</header></body>
+        <div class="sm:flex sm:h-screen" x-data="{ link: 'about' }">
+            <div class="p-2 sm:w-2/5 bg-blue-200 flex sm:pt-48 justify-end">
+    <div class="text-right">
+        <nav class="text-2xl sm:mb-12">
+            <ul class="flex flex-wrap sm:block">
+                <li class="my-1">
+                    <a href="/en" class="text-white block hover:text-opacity-75 pr-8" :class="{ 'font-bold text-gray-900' : link === 'about' }">
+                        About Us
+                    </a>
+                </li>
+                <li class="my-1">
+                    <a href="/en/partners" class="text-white block hover:text-opacity-75 pr-8" :class="{ 'font-bold text-gray-900' : link === 'partners' }">
+                        Partners
+                    </a>
+                </li>
+                <li class="my-1">
+                    <a href="/products" class="text-white block hover:text-opacity-75 pr-8" :class="{ 'font-bold text-gray-900' : link === 'products' }">
+                        Products
+                    </a>
+                </li>
+                <li class="my-1">
+                    <a href="/work-with-us" class="text-white block hover:text-opacity-75 pr-8" :class="{ 'font-bold text-gray-900' : link === 'work-with-us' }">
+                        Work with Us
+                    </a>
+                </li>
+                <li class="my-1">
+                    <a href="/contacts" class="text-white block hover:text-opacity-75 pr-8" :class="{ 'font-bold text-gray-900' : link === 'contacts' }">
+                        Contacts
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <p class="hidden sm:block text-white text-xs border-solid border-t border-blue-100 pr-8">© NextForce a.s. 2020</p>
+    </div>
+</div>
             <main class="sm:w-3/5 bg-gray-200 ">
                 <div class="pl-2 sm:p-4 sm:pt-40 sm:pl-8 sm:h-full sm:overflow-y-auto" style="background: url(../img/item01.jpg) no-repeat center; background-size: cover;">
                     <div class="max-w-700">
                         <article class="prose">
-                            <h2>O nás</h2>
+                            <h2>About Us</h2>
                             <p>
-                                NextForce a.s. je česká inovativní společnost disponující <strong>vlastním vývojem kosmetických a medicínských přípravků.</strong>
+                                NextForce a.s. is a Czech innovative company with its <strong>own cosmetic and medical products development.</strong>
                             </p>
                             <p>
-                                Uplatňujeme naše dlouholeté zkušenosti v oblastech farmacie, humánní medicíny a marketingu s přesahem do oblastí moderních technologií.
+                                We use many years of our experience in the field of pharmacy, human medicine and marketing with an overlap to modern technologies.
                             </p>
                             <p>
-                                Svojí činností se rovněž zaměřujeme na <strong>obchodní zastoupení zahraničních farmaceutických společností</strong> v České republice a na Slovensku.
+                                Our activities are also focused on the <strong>sales representation of foreign pharmaceutical companies</strong> in the Czech Republic and Slovakia.
                             </p>
                             <p>
-                                Našim hlavním posláním je uvádět na trh ověřené, kvalitní, účinné a bezpečné medicínské přípravky, které mají skutečnou přidanou hodnotu pro pacienty.
+                                Our main mission is to market proven, quality, effective and safe medical products which have real added value for patients.
                             </p>
                             <p>
-                                Klasickými i inovativními marketingovými aktivitami vytváříme povědomí o produktovém portfoliu a šíříme dobré jméno partnerských společností.
+                                We use traditional and innovative marketing techniques to create awareness of our product portfolio and promote the good name of our partnering companies.
+                                We are currently dealing predominantly with products in the areas of dermatology, pediatrics and dentistry.
                             </p>
                             <p>
-                                V současné době se zabýváme přípravky převážně v oborech dermatologie, pediatrie a stomatologie.
+                                In addition to development and selling medical devices, dietary supplements and cosmetics, we have extensive experience in marketing support of prescription drugs too.
                             </p>
                             <p>
-                                Kromě vývoje a prodeje zdravotnických prostředků, doplňků stravy a kosmetiky máme bohaté zkušenosti s marketingovou podporou preskripčně vázaných léků.
-                            </p>
-                            <p>
-                                V případě Vašeho zájmu o spolupráci nás prosím kontaktujte na <a href="mailto:office@nextforce.cz">office@nextforce.cz</a>
+                                If you are interested in cooperation, do not hesitate to contact us at <a href="mailto:office@nextforce.cz">office@nextforce.cz</a>
                             </p>
                         </article>
                     </div>
@@ -40,72 +96,46 @@
                 <div x-show="tab === 'souhlas'" x-cloak="visibility" class="sm:pt-40 pl-2 sm:pl-8 h-full overflow-y-auto" style="background: url(../img/item04.jpg) no-repeat center; background-size: cover;">
                     <h2>Souhlas</h2>
                     <p>
-                        <a href=""
-                           class="rounded-md inline-block py-2 px-4 bg-blue-100 text-black"
-                           @click.prevent="tab = 'osobni-udaje'; window.location.hash = 'osobni-udaje'"
-                        >Zpět</a>
+                        <a href="" class="rounded-md inline-block py-2 px-4 bg-blue-100 text-black" @click.prevent="tab = 'osobni-udaje'; window.location.hash = 'osobni-udaje'">Zpět</a>
                     </p>
                 </div>
                 <div x-show="tab === 'data-v-bezpeci'" x-cloak="visibility" class="sm:pt-40 pl-2 sm:pl-8 h-full overflow-y-auto" style="background: url(../img/item04.jpg) no-repeat center; background-size: cover;">
                     <h2>Data v bezpečí</h2>
                     <p>
-                        <a href=""
-                           class="rounded-md inline-block py-2 px-4 bg-blue-100 text-black"
-                           @click.prevent="tab = 'osobni-udaje'; window.location.hash = 'osobni-udaje'"
-                        >Zpět</a>
+                        <a href="" class="rounded-md inline-block py-2 px-4 bg-blue-100 text-black" @click.prevent="tab = 'osobni-udaje'; window.location.hash = 'osobni-udaje'">Zpět</a>
                     </p>
                 </div>
             </main>
         </div>
-    </div>
+    
     <div x-show="tab === 'en'">
-        <div  class="flex flex-col sm:flex-row sm:h-screen" x-data="{ tab: window.location.hash ? window.location.hash.substring(1) : 'about-us' }">
+        <div class="flex flex-col sm:flex-row sm:h-screen" x-data="{ tab: window.location.hash ? window.location.hash.substring(1) : 'about-us' }">
             <div class="p-2 sm:w-2/5 bg-blue-200 flex sm:pt-48 justify-end">
                 <div class="text-right">
                     <nav class="text-2xl sm:mb-12">
                         <ul class="flex flex-wrap sm:block">
                             <li class="my-1">
-                                <a href="#about-us"
-                                   class="text-white block hover:text-opacity-75 pr-8"
-                                   :class="{ 'font-bold text-gray-900' : tab === 'about-us' }"
-                                   @click.prevent="tab = 'about-us'; window.location.hash = 'about-us'"
-                                >
+                                <a href="#about-us" class="text-white block hover:text-opacity-75 pr-8" :class="{ 'font-bold text-gray-900' : tab === 'about-us' }" @click.prevent="tab = 'about-us'; window.location.hash = 'about-us'">
                                     About Us
                                 </a>
                             </li>
                             <li class="my-1">
-                                <a href="#partners"
-                                   class="text-white block hover:text-opacity-75 pr-8"
-                                   :class="{ 'font-bold text-gray-900' : tab === 'pro-partnery' }"
-                                   @click.prevent="tab = 'pro-partnery'; window.location.hash = 'pro-partnery'"
-                                >
+                                <a href="#partners" class="text-white block hover:text-opacity-75 pr-8" :class="{ 'font-bold text-gray-900' : tab === 'pro-partnery' }" @click.prevent="tab = 'pro-partnery'; window.location.hash = 'pro-partnery'">
                                     Partners
                                 </a>
                             </li>
                             <li class="my-1">
-                                <a href="#produkty"
-                                   class="text-white block hover:text-opacity-75 pr-8"
-                                   :class="{ 'font-bold text-gray-900' : tab === 'produkty' }"
-                                   @click.prevent="tab = 'produkty'; window.location.hash = 'produkty'"
-                                >
+                                <a href="#produkty" class="text-white block hover:text-opacity-75 pr-8" :class="{ 'font-bold text-gray-900' : tab === 'produkty' }" @click.prevent="tab = 'produkty'; window.location.hash = 'produkty'">
                                     Products
                                 </a>
                             </li>
                             <li class="my-1">
-                                <a href="#zamestnani"
-                                   class="text-white block hover:text-opacity-75 pr-8"
-                                   :class="{ 'font-bold text-gray-900' : tab === 'zamestnani' }"
-                                   @click.prevent="tab = 'zamestnani'; window.location.hash = 'zamestnani'"
-                                >
+                                <a href="#zamestnani" class="text-white block hover:text-opacity-75 pr-8" :class="{ 'font-bold text-gray-900' : tab === 'zamestnani' }" @click.prevent="tab = 'zamestnani'; window.location.hash = 'zamestnani'">
                                     Work with US
                                 </a>
                             </li>
                             <li class="my-1">
-                                <a href="#kontakty"
-                                   class="text-white block hover:text-opacity-75 pr-8"
-                                   :class="{ 'font-bold text-gray-900' : tab === 'kontakty' }"
-                                   @click.prevent="tab = 'kontakty'; window.location.hash = 'kontakty'"
-                                >
+                                <a href="#kontakty" class="text-white block hover:text-opacity-75 pr-8" :class="{ 'font-bold text-gray-900' : tab === 'kontakty' }" @click.prevent="tab = 'kontakty'; window.location.hash = 'kontakty'">
                                     Contact
                                 </a>
                             </li>
@@ -356,7 +386,6 @@
             </main>
         </div>
     </div>
-</div>
 
-</body>
-</html>
+
+
