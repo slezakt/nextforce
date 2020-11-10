@@ -19,58 +19,64 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="/ico/apple-touch-icon-57-precomposed.png">
-</head></html>
-    <body class="sm:overflow-y-hidden">
-<header class="sm:absolute top-0 w-full flex sm:pl-2/5 sm:items-end">
+</head>
+<body class="sm:overflow-y-hidden">
+    <header class="mb-4 sm:mb-0 sm:absolute top-0 w-full flex sm:pl-2/5 sm:items-end">
     <div class="bg-green-900 inline-block p-2 sm:pb-16 rounded-tr-md rounded-br-md">
         <a href="/" class="text-white font-bold">CZ</a>
         <a href="/en" class="text-white">EN</a>
     </div>
-    <a href="/" class="ml-auto m-2 mr-8 text-0 max-w-200 sm:max-w-none sm:ml-2/5">
+    <a href="/" class="sm:ml-auto ml-2 m-2 mr-8 text-0 max-w-200 sm:max-w-none sm:ml-2/5">
         <h1>NextForce a.s.</h1>
         <img src="/img/logo.png" alt="">
     </a>
-</header></body>
-    <div class="sm:flex sm:h-screen" x-data="{ link: 'pro-partnery' }">
-        <div class="p-2 sm:w-2/5 bg-blue-200 flex sm:pt-48 justify-end">
-    <div class="text-right">
-        <nav class="text-2xl sm:mb-12">
-            <ul class="flex flex-wrap sm:block">
-                <li class="my-1">
-                    <a href="/" class="text-white block hover:text-opacity-75 pr-8" :class="{ 'font-bold text-gray-900' : link === 'onas' }">
-                        O nás
-                    </a>
-                </li>
-                <li class="my-1">
-                    <a href="/pro-partnery" class="text-white block hover:text-opacity-75 pr-8" :class="{ 'font-bold text-gray-900' : link === 'pro-partnery' }">
-                        Pro partnery
-                    </a>
-                </li>
-                <li class="my-1">
-                    <a href="/produkty" class="text-white block hover:text-opacity-75 pr-8" :class="{ 'font-bold text-gray-900' : link === 'produkty' }">
-                        Produkty
-                    </a>
-                </li>
-                <li class="my-1">
-                    <a href="/zamestnani" class="text-white block hover:text-opacity-75 pr-8" :class="{ 'font-bold text-gray-900' : link === 'zamestnani' }">
-                        Zaměstnání
-                    </a>
-                </li>
-                <li class="my-1">
-                    <a href="/kontakty" class="text-white block hover:text-opacity-75 pr-8" :class="{ 'font-bold text-gray-900' : link === 'kontakty' }">
-                        Kontakty
-                    </a>
-                </li>
-                <li class="my-1">
-                    <a href="/osobni-udaje" class="text-white block hover:text-opacity-75 pr-8" :class="{ 'font-bold text-gray-900' : link === 'osobni-udaje' }">
-                        Osobní údaje
-                    </a>
-                </li>
-            </ul>
-        </nav>
-        <p class="hidden sm:block text-white text-xs border-solid border-t border-blue-100 pr-8">© NextForce a.s. 2020</p>
-    </div>
+    <button type="button" class="focus:outline-none ml-auto mr-4 sm:hidden" x-data="{ mobileMenu: false }" @click="$dispatch('open-mobile-menu')">
+        <span class="relative flex" @click="mobileMenu = !mobileMenu">
+            <img src="/img/menu.svg" alt="" class="block w-6 visible" :class="[ mobileMenu === false ? 'visible' : 'invisible' ]">
+            <img src="/img/close.svg" alt="" class="block w-6 h-6 absolute top-0 left-0" :class="[ mobileMenu === true ? 'visible' : 'invisible' ]">
+        </span>
+    </button>
+</header>
+    <div class="sm:flex sm:h-screen" x-data="{ link: 'pro-partnery', mobileMenuOpen:false }">
+        <div class="p-2 sm:w-2/5 bg-blue-200 flex sm:flex-important sm:pt-48 justify-end" x-show="mobileMenuOpen" @open-mobile-menu.window="mobileMenuOpen = !mobileMenuOpen" @click.away="mobileMenuOpen = false">
+            <div class="text-right w-full sm:w-auto">
+    <nav class="text-2xl sm:mb-12">
+        <ul class="text-center sm:text-right">
+            <li class="my-1">
+                <a href="/" class="text-white block hover:text-opacity-75 sm:pr-8" :class="{ 'font-bold text-gray-900' : link === 'onas' }">
+                    O nás
+                </a>
+            </li>
+            <li class="my-1">
+                <a href="/pro-partnery" class="text-white block hover:text-opacity-75 sm:pr-8" :class="{ 'font-bold text-gray-900' : link === 'pro-partnery' }">
+                    Pro partnery
+                </a>
+            </li>
+            <li class="my-1">
+                <a href="/produkty" class="text-white block hover:text-opacity-75 sm:pr-8" :class="{ 'font-bold text-gray-900' : link === 'produkty' }">
+                    Produkty
+                </a>
+            </li>
+            <li class="my-1">
+                <a href="/zamestnani" class="text-white block hover:text-opacity-75 sm:pr-8" :class="{ 'font-bold text-gray-900' : link === 'zamestnani' }">
+                    Zaměstnání
+                </a>
+            </li>
+            <li class="my-1">
+                <a href="/kontakty" class="text-white block hover:text-opacity-75 sm:pr-8" :class="{ 'font-bold text-gray-900' : link === 'kontakty' }">
+                    Kontakty
+                </a>
+            </li>
+            <li class="my-1">
+                <a href="/osobni-udaje" class="text-white block hover:text-opacity-75 sm:pr-8" :class="{ 'font-bold text-gray-900' : link === 'osobni-udaje' }">
+                    Osobní údaje
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <p class="hidden sm:block text-white text-xs border-solid border-t border-blue-100 pr-8">© NextForce a.s. 2020</p>
 </div>
+        </div>
         <main class="sm:w-3/5 bg-gray-200">
             <div class="pl-2 sm:p-4 sm:pt-40 sm:pl-8 sm:h-full sm:overflow-y-auto bg-partners">
             <div class="max-w-700">
@@ -142,4 +148,4 @@
             </div>
         </div>
         </main>
-    </div>
+    </div></body></html>

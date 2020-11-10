@@ -13,8 +13,8 @@ body {
 }
 
 nav li {
-    background:url(../img/tecky.gif) no-repeat right bottom;
-
+    background-image:url(../img/tecky.gif);
+    @apply bg-no-repeat bg-right-bottom
 }
 
 main h2 {
@@ -91,4 +91,10 @@ main a:hover, main a:focus {
 .bg-contract {
     background-image: url(../img/item04.jpg);
     @apply bg-no-repeat bg-cover
+}
+
+@media (min-width: 640px) {
+    .sm\:flex-important {
+        display: flex !important;
+    }
 }

@@ -1,13 +1,31 @@
-<body class="sm:overflow-y-hidden">
-<header class="sm:absolute top-0 w-full flex sm:pl-2/5 sm:items-end">
+<header class="mb-4 sm:mb-0 sm:absolute top-0 w-full flex sm:pl-2/5 sm:items-end">
     <div class="bg-green-900 inline-block p-2 sm:pb-16 rounded-tr-md rounded-br-md">
         <a href="/" class="text-white font-bold">CZ</a>
         <a href="/en" class="text-white">EN</a>
     </div>
     <a href="/"
-       class="ml-auto m-2 mr-8 text-0 max-w-200 sm:max-w-none sm:ml-2/5"
+       class="sm:ml-auto ml-2 m-2 mr-8 text-0 max-w-200 sm:max-w-none sm:ml-2/5"
     >
         <h1>NextForce a.s.</h1>
         <img src="/img/logo.png" alt="">
     </a>
+    <button type="button"
+            class="focus:outline-none ml-auto mr-4 sm:hidden"
+            x-data="{ mobileMenu: false }"
+            @click="$dispatch('open-mobile-menu')"
+    >
+        <span
+                class="relative flex"
+                @click="mobileMenu = !mobileMenu"
+        >
+            <img src="/img/menu.svg" alt=""
+                 class="block w-6 visible"
+                 :class="[ mobileMenu === false ? 'visible' : 'invisible' ]"
+            >
+            <img src="/img/close.svg" alt=""
+                 class="block w-6 h-6 absolute top-0 left-0"
+                 :class="[ mobileMenu === true ? 'visible' : 'invisible' ]"
+            >
+        </span>
+    </button>
 </header>
