@@ -10,6 +10,7 @@
         <img src="/img/logo.png" alt="">
     </a>
     <button type="button"
+            aria-label="Menu"
             class="focus:outline-none ml-auto mr-4 sm:hidden"
             x-data="{ mobileMenu: false }"
             @click="$dispatch('open-mobile-menu')"
