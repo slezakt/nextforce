@@ -34,7 +34,8 @@ module.exports = {
         "0": "0",
       },
       fontFamily: {
-        "Roboto Condensed": ['"Roboto Condensed"', 'sans-serif']
+        'roboto': ['"Roboto Condensed"', 'sans-serif']
+        // "Roboto Condensed": ['"Roboto Condensed"', 'sans-serif']
       },
       typography: (theme) => ({
         default: {

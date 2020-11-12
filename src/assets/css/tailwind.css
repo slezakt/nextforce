@@ -9,7 +9,7 @@ html, body {
 }
 
 body {
-    font-family: "Roboto Condensed";
+    @apply font-roboto;
 }
 
 nav li {
@@ -17,40 +17,30 @@ nav li {
     @apply bg-no-repeat bg-right-bottom
 }
 
-main h2 {
-    @apply text-5xl;
-}
+@layer components {
+    .qoutes {
+        @apply relative text-3xl px-12 mb-8;
 
-main a {
-    @apply text-blue-200;
-}
+        &::before {
+            content: '';
+            background: url(../img/quotes-left-blue.png) no-repeat;
+            width: 40px;
+            height: 28px;
+            bottom: 0;
+            left: 0;
+            @apply absolute block bg-cover
+        }
 
-main a:hover, main a:focus {
-    @apply text-blue-300 underline;
-}
-
-.qoutes {
-    @apply relative text-3xl px-12 mb-8
-}
-
-.qoutes::before {
-    content: '';
-    background:url(../img/quotes-left-blue.png) no-repeat;
-    width: 40px;
-    height: 28px;
-    bottom: 0;
-    left: 0;
-    @apply absolute block bg-cover
-}
-
-.qoutes::after {
-    content: '';
-    background:url(../img/quotes-right-green.png) no-repeat;
-    width: 40px;
-    height: 28px;
-    top: 0;
-    right: 0;
-    @apply absolute block bg-cover
+        &::after {
+            content: '';
+            background: url(../img/quotes-right-green.png) no-repeat;
+            width: 40px;
+            height: 28px;
+            top: 0;
+            right: 0;
+            @apply absolute block bg-cover
+        }
+    }
 }
 
 .dialog {
