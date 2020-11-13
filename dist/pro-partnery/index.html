@@ -32,15 +32,15 @@
         <img src="/img/logo.png" alt="">
     </a>
     <button type="button" aria-label="Menu" class="focus:outline-none ml-auto mr-4 sm:hidden" x-data="{ mobileMenu: false }" @click="$dispatch('open-mobile-menu')">
-        <span class="relative flex" @click="mobileMenu = !mobileMenu">
+        <span class="relative flex" @click="mobileMenu = !mobileMenu" @click.away="mobileMenu = false">
             <img src="/img/menu.svg" alt="" class="block w-6 visible" :class="[ mobileMenu === false ? 'visible' : 'invisible' ]">
             <img src="/img/close.svg" alt="" class="block w-6 h-6 absolute top-0 left-0" :class="[ mobileMenu === true ? 'visible' : 'invisible' ]">
         </span>
     </button>
 </header>
     <div class="sm:flex sm:h-screen" x-data="{ link: 'pro-partnery', mobileMenuOpen:false }">
-        <div class="p-2 sm:w-2/5 bg-blue-200 flex sm:flex-important sm:pt-48 justify-end" x-show="mobileMenuOpen" @open-mobile-menu.window="mobileMenuOpen = !mobileMenuOpen" @click.away="mobileMenuOpen = false" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="transform opacity-0" x-transition:enter-end="transform opacity-100" x-transition:leave="transition ease-in duration-100" x-transition:leave-start="transform opacity-100" x-transition:leave-end="opacity-0 transform">
-<div class="text-right w-full sm:w-auto">
+        <div class="p-2 sm:w-2/5 bg-blue-200 flex sm:flex-important sm:pt-48 justify-end" @open-mobile-menu.window="mobileMenuOpen = true" x-show="mobileMenuOpen" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="transform opacity-0" x-transition:enter-end="transform opacity-100" x-transition:leave="transition ease-in duration-100" x-transition:leave-start="transform opacity-100" x-transition:leave-end="opacity-0 transform">
+<div class="text-right w-full sm:w-auto" @click.away="mobileMenuOpen = false">
     <nav class="text-2xl sm:mb-12">
         <ul class="text-center sm:text-right">
             <li class="my-1">
@@ -81,7 +81,7 @@
             <li class="my-1">
     <a href="/osobni-udaje" class="text-white block hover:text-opacity-75 sm:pr-8" :class="{ 'font-bold text-gray-900' : link === 'osobni-udaje' }">
         
-                Kontakty
+                Osobní údaje
             
     </a>
 </li>

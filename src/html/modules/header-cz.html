@@ -18,6 +18,7 @@
         <span
                 class="relative flex"
                 @click="mobileMenu = !mobileMenu"
+                @click.away="mobileMenu = false"
         >
             <img src="/img/menu.svg" alt=""
                  class="block w-6 visible"
